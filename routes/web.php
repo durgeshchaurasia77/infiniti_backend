@@ -19,7 +19,6 @@ use App\Http\Controllers\Admin\TechnologyUsedController;
 use App\Http\Controllers\Admin\OurPeopleController;
 use App\Http\Controllers\Admin\CertificateSoftwareController;
 use App\Http\Controllers\Admin\OurJourneyController;
-use App\Http\Controllers\Admin\OurJourneysController;
 use App\Http\Controllers\Admin\FameMobileAppController;
 use App\Http\Controllers\Admin\WhyBusinessChooseController;
 use App\Http\Controllers\Admin\CraftingTechnologyController;
@@ -37,8 +36,6 @@ use App\Http\Controllers\Admin\ClientSatisfationController;
 use App\Http\Controllers\Admin\OurProvenController;
 use App\Http\Controllers\Admin\AdvanceAiController;
 use App\Http\Controllers\Admin\WeDeliverController;
-use App\Http\Controllers\Admin\AboutUsController;
-use App\Http\Controllers\Admin\OurSuccessController;
 use App\Http\Controllers\Admin\Master\GetEnquiryTypeController;
 
 // Website
@@ -131,11 +128,6 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
 
         Route::get('why-business-choose/edit', [WhyBusinessChooseController::class, 'edit'])->name('why-business-choose-edit');
         Route::post('why-business-choose-update', [WhyBusinessChooseController::class, 'update'])->name('why-business-choose-update');
-
-
-        Route::get('about-us/edit', [AboutUsController::class, 'edit'])->name('about-us-edit');
-        Route::post('about-us-update', [AboutUsController::class, 'update'])->name('about-us-update');
-
 
         Route::get('technologies-used', [TechnologyUsedController::class, 'index'])->name('technologies-used-list');
         Route::get('technologies-used/edit/{id?}', [TechnologyUsedController::class, 'edit'])->name('technologies-used-edit');
@@ -295,20 +287,6 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
         Route::post('your-journey-status-update/{id}', [OurJourneyController::class, 'status'])->name('your-journey-status-update');
         Route::get('your-journey/delete/{id}', [OurJourneyController::class, 'delete'])->name('your-journey.delete');
 
-        Route::get('our-journey/index', [OurJourneysController::class, 'index'])->name('our-journey-list');
-        Route::post('our-journey-store', [OurJourneysController::class, 'store'])->name('our-journey-store');
-        Route::get('our-journey-edit/{id}', [OurJourneysController::class, 'edit'])->name('our-journey-edit');
-        Route::post('our-journey-update', [OurJourneysController::class, 'update'])->name('our-journey-update');
-        Route::post('our-journey-status-update/{id}', [OurJourneysController::class, 'status'])->name('our-journey-status-update');
-        Route::get('our-journey/delete/{id}', [OurJourneysController::class, 'delete'])->name('our-journey.delete');
-
-        Route::get('our-success/index', [OurSuccessController::class, 'index'])->name('our-success-list');
-        Route::post('our-success-store', [OurSuccessController::class, 'store'])->name('our-success-store');
-        Route::get('our-success-edit/{id}', [OurSuccessController::class, 'edit'])->name('our-success-edit');
-        Route::post('our-success-update', [OurSuccessController::class, 'update'])->name('our-success-update');
-        Route::post('our-success-status-update/{id}', [OurSuccessController::class, 'status'])->name('our-success-status-update');
-        Route::get('our-success/delete/{id}', [OurSuccessController::class, 'delete'])->name('our-success.delete');
-
 
         Route::get('fame-mobile-app/index', [FameMobileAppController::class, 'index'])->name('fame-mobile-app-list');
         Route::post('fame-mobile-app-store', [FameMobileAppController::class, 'store'])->name('fame-mobile-app-store');
@@ -346,7 +324,7 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
 });
 
 // website Routes
-// Route::get('/', [HomeController::class, 'home'])->name('web_home');
+Route::get('/', [HomeController::class, 'home'])->name('web_home');
 // Route::get('/contact-us', [HomeController::class, 'contact'])->name('contactUs');
 // Route::get('our-services-details/{id}', [WebOurServicesController::class, 'details'])->name('our-services-details');
 // Route::get('frro-optin', [WebOurServicesController::class, 'frroOptin'])->name('frro-optin');

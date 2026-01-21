@@ -1,78 +1,239 @@
 @php
-    // $expactServicesDropdown = App\Models\ExpactServices::pluck('id', 'slug','title')->get();
-    $expactServicesDropdown    = App\Models\ExpactServices::select('id', 'slug', 'title')->where('status',1)->get();
-    $chunks = [
-        $expactServicesDropdown->take(10),               // First 8 items
-        $expactServicesDropdown->skip(10)->take(10),      // Next 8 items
-        $expactServicesDropdown->skip(20)->take(10),     // Next 14 items
-    ];
+    $settingData    = App\Models\Setting::select('id', 'header_logo')->first();
 @endphp
+<div class="homepage-popup-overlay" id="hpPopup" style="display:none;">
 
-<!-- Spinner Start -->
-<div id="spinner"
-    class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-        <span class="sr-only">Loading...</span>
-    </div>
-</div>
-<!-- Spinner End -->
-<div class="container-fluid position-relative px-0 pb-5">
-    <nav class="navbar navbar-expand-lg navbar-light home-navbar px-xl-5 px-lg-3 px-md-0 px-sm-0">
-        <a href="{{route('web_home')}}" class="navbar-brand p-0 mx-xl-2 mx-lg-2 mx-md-2 mx-0">
-            <img src="{{asset('website/assets/img/logo-img-three.png')}}" class="logonoscroll" loading="lazy" alt="Logo" width="230px" height="45px">
-            <img src="{{asset('website/assets/img/logo-img-one.png')}}" class="scrollogo" loading="lazy" alt="Logoscroll" width="210px" height="45px">
+    <div class="homepage-popup-wrapper">
 
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="fa fa-bars"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto py-0">
+        <span class="homepage-popup-close" onclick="closePopup()">✕</span>
+        <div class="homepage-popup-left">
 
-                <!-- Home Nav -->
-                <a href="{{route('web_home')}}" class="nav-item nav-link {{ Route::is('web_home') ? 'active' : '' }}">Home</a>
-                <!-- About Nav -->
-                <a href="{{route('about')}}" class="nav-item nav-link {{ Route::is('about') ? 'active' : '' }}">About</a>
-                <!-- FRRO Location Nav -->
-                <a href="{{route('frrolocation')}}" class="nav-item nav-link {{ Route::is('frrolocation') ? 'active' : '' }}">FRRO Location</a>
-                <!-- Destination Services Nav -->
-                <a href="{{route('destination-services')}}" class="nav-item nav-link {{ Route::is('destination-services') ? 'active' : '' }}">Destination Services</a>
-                <!-- Expact Services Nav -->
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link" data-bs-toggle="dropdown">
-                        <span class="dropdown-toggle">Expact Services</span>
-                    </a>
-                    <div class="dropdown-menu expact-services-dropdown-menu m-0">
-                        <div class="row">
-                            @foreach($chunks as $index => $chunk)
-                                <div class="col-lg-{{ $index === 4 ? 4 : 4 }}" style="width: auto">
-                                    @foreach($chunk as $service)
-                                        <a href="{{ route('expact-service', ['slug' => $service->slug]) }}" class="dropdown-item">
-                                            {{ $service->title }}
-                                        </a>
-                                    @endforeach
-                                </div>
-                            @endforeach
+            <h2>Ready to Transform Your Ideas?</h2>
+            <p>Get a quick expert response in under 5 minutes.</p>
+
+            <div id="homepage-slider">
+
+                <div class="homepage-slide active">
+                    <div class="homepage-test-box">
+                        <p>
+                            Apptunix delivered two fully integrated applications for our business…
+                        </p>
+                        <div class="homepage-test-user">
+                            <img src="https://i.pravatar.cc/100">
+                            <div><b>Jocelyn Pettitt</b><br>CEO - HiVibe</div>
                         </div>
                     </div>
                 </div>
-                <!-- Resources Nav -->
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link {{ Route::is('blog-news','faq','abbreviation','video-library') ? 'active' : '' }}" data-bs-toggle="dropdown">
-                        <span class="dropdown-toggle">Resources</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-two m-0">
-                        <a href="{{route('services')}}" class="dropdown-item {{ Route::is('services') ? 'active' : '' }}">Our Services</a>
-                        <a href="{{route('blog-news')}}" class="dropdown-item {{ Route::is('blog-news') ? 'active' : '' }}">Blog & News</a>
-                        <a href="{{route('faq')}}" class="dropdown-item {{ Route::is('faq') ? 'active' : '' }}">FAQ</a>
-                        <a href="{{route('abbreviation')}}" class="dropdown-item {{ Route::is('abbreviation') ? 'active' : '' }}">Abreviation</a>
-                        <a href="{{route('video-library')}}" class="dropdown-item {{ Route::is('video-library') ? 'active' : '' }}">Video Library</a>
-                    </div>
 
+                <div class="homepage-slide">
+                    <div class="homepage-test-box">
+                        <p>Amazing engineering team. Highly reliable & responsive.</p>
+                        <div class="homepage-test-user">
+                            <img src="https://i.pravatar.cc/101">
+                            <div><b>Michael Ross</b><br>Founder - startupX</div>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="homepage-slide">
+                    <div class="homepage-test-box">
+                        <p>We scaled our product with their support & guidance.</p>
+                        <div class="homepage-test-user">
+                            <img src="https://i.pravatar.cc/102">
+                            <div><b>Anna Smith</b><br>COO - GrowthHub</div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            <!-- Contacts Nav -->
-            <a href="{{route('contactUs')}}" class="btn btn-primary rounded-pill py-2 px-4 my-3 my-lg-0 flex-shrink-0">Contact</a>
+
+            <div class="homepage-slider-dots"></div>
+
         </div>
-    </nav>
-{{-- </div> --}}
+
+
+        <!-- RIGHT -->
+        <div class="homepage-popup-right">
+
+            <form>
+                <input type="text" placeholder="Name*">
+                <input type="text" placeholder="Contact Number*">
+                <input type="email" placeholder="Business Email*">
+                <textarea placeholder="Description *"></textarea>
+
+                <ul class="homepage-popup-points">
+                    <li>✔ NDA Protected</li>
+                    <li>✔ Trusted by 2000+ Entrepreneurs</li>
+                </ul>
+
+                <button class="homepage-popup-btn">Submit</button>
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<body class="template-color-1 spybody" data-spy="scroll" data-target=".navbar-example2" data-offset="70">
+        <header class="navbar">
+        <!-- LEFT -->
+        <div class="logo header-logo">
+            <img src="{{ asset($settingData->header_logo ?? 'website1/assets/images/infiniti-logo.png') }}" alt=""></div>
+        <!-- CENTER -->
+         <div class="mobile-toggle">
+            <i class="fa-solid fa-bars"></i>
+         </div>
+
+        <ul class="menu">
+            <li><a href="#">Portfolio</a></li>
+            <li>
+                <a href="#">Services ▾</a>
+                <div class="mega-menu">
+                    <div class="mega-wrap">
+                        <div class="left">
+                            <div class="col">
+                                <h4>Services</h4>
+
+                                <div class="item"><i class="fa-solid fa-graduation-cap"></i>Education</div>
+                                <div class="item"><i class="fa-solid fa-truck-fast"></i>Logistics</div>
+                                <div class="item"><i class="fa-solid fa-sack-dollar"></i>Finance</div>
+                                <div class="item"><i class="fa-solid fa-cart-shopping"></i>Ecommerce</div>
+
+                                <h4 style="margin-top:12px;">ON DEMAND APPS</h4>
+
+                                <div class="item"><i class="fa-solid fa-burger"></i>Food Delivery</div>
+                                <div class="item"><i class="fa-solid fa-taxi"></i>Taxi Booking</div>
+                            </div>
+
+                            <div class="col">
+                                <h4>FEATURED</h4>
+
+                                <div class="item"><i class="fa-solid fa-dumbbell"></i>Fitness</div>
+                                <div class="item"><i class="fa-solid fa-heart"></i>Dating App Development</div>
+                                <div class="item"><i class="fa-solid fa-gamepad"></i>Game Development</div>
+                                <div class="item"><i class="fa-solid fa-house"></i>Real Estate</div>
+
+                                <div class="item"><i class="fa-solid fa-bag-shopping"></i>Grocery Delivery</div>
+                                <div class="item"><i class="fa-solid fa-hand-sparkles"></i>Home Services</div>
+                            </div>
+
+                            <div class="col">
+                                <h4>SOLUTIONS</h4>
+
+                                <div class="item"><i class="fa-solid fa-stethoscope"></i>Healthcare</div>
+                                <div class="item"><i class="fa-solid fa-users"></i>Social Networking</div>
+                                <div class="item"><i class="fa-solid fa-trophy"></i>Sports Betting</div>
+                                <div class="item"><i class="fa-solid fa-vr-cardboard"></i>AR / VR</div>
+
+                                <div class="item"><i class="fa-solid fa-truck"></i>Pickup & Delivery</div>
+                                <div class="item"><i class="fa-solid fa-wand-magic-sparkles"></i>Beauty & Salon Booking
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="right">
+
+                            <div class="carousel">
+                                <div class="slides">
+                                    <img src="./assets/images/airplane.png">
+                                    <img src="./assets/images/airlane.jpg">
+                                    <img src="./assets/images/mobile-app-image.png">
+                                </div>
+
+                                <div class="dots">
+                                    <span class="dot active"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                </div>
+                            </div>
+                            <div class="crousel-caption">
+                                <h3>Clutch</h3>
+                                <p>Top Developers in India 2025</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a href="#">Industries ▾</a>
+                <div class="mega-menu">
+                    <div class="mega-wrap">
+                        <div class="left">
+                            <div class="col">
+                                <h4>INDUSTRIES</h4>
+
+                                <div class="item"><i class="fa-solid fa-graduation-cap"></i>Education</div>
+                                <div class="item"><i class="fa-solid fa-truck-fast"></i>Logistics</div>
+                                <div class="item"><i class="fa-solid fa-sack-dollar"></i>Finance</div>
+                                <div class="item"><i class="fa-solid fa-cart-shopping"></i>Ecommerce</div>
+
+                                <h4 style="margin-top:12px;">ON DEMAND APPS</h4>
+
+                                <div class="item"><i class="fa-solid fa-burger"></i>Food Delivery</div>
+                                <div class="item"><i class="fa-solid fa-taxi"></i>Taxi Booking</div>
+                            </div>
+
+                            <div class="col">
+                                <h4>FEATURED</h4>
+
+                                <div class="item"><i class="fa-solid fa-dumbbell"></i>Fitness</div>
+                                <div class="item"><i class="fa-solid fa-heart"></i>Dating App Development</div>
+                                <div class="item"><i class="fa-solid fa-gamepad"></i>Game Development</div>
+                                <div class="item"><i class="fa-solid fa-house"></i>Real Estate</div>
+
+                                <div class="item"><i class="fa-solid fa-bag-shopping"></i>Grocery Delivery</div>
+                                <div class="item"><i class="fa-solid fa-hand-sparkles"></i>Home Services</div>
+                            </div>
+
+                            <div class="col">
+                                <h4>SOLUTIONS</h4>
+
+                                <div class="item"><i class="fa-solid fa-stethoscope"></i>Healthcare</div>
+                                <div class="item"><i class="fa-solid fa-users"></i>Social Networking</div>
+                                <div class="item"><i class="fa-solid fa-trophy"></i>Sports Betting</div>
+                                <div class="item"><i class="fa-solid fa-vr-cardboard"></i>AR / VR</div>
+
+                                <div class="item"><i class="fa-solid fa-truck"></i>Pickup & Delivery</div>
+                                <div class="item"><i class="fa-solid fa-wand-magic-sparkles"></i>Beauty & Salon Booking
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="right">
+
+                            <div class="carousel">
+                                <div class="slides">
+                                    <img src="./assets/images/airplane.png">
+                                    <img src="./assets/images/airlane.jpg">
+                                    <img src="./assets/images/mobile-app-image.png">
+                                </div>
+
+                                <div class="dots">
+                                    <span class="dot active"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                </div>
+                            </div>
+                            <div class="crousel-caption">
+                                <h3>Clutch</h3>
+                                <p>Top Developers in India 2025</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+
+            <li><a href="#">About</a></li>
+            <li><a href="#">Blog</a></li>
+            <div class="nav-right">
+                <a class="btn-primary">Get In Touch</a>
+                <a class="btn-outline">For Entrepreneurs</a>
+            </div>
+        </ul>
+        <!-- RIGHT BUTTONS -->
+    </header>
