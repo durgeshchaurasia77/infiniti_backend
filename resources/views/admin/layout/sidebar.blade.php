@@ -278,42 +278,10 @@
                         </li>
                     </ul>
                 </li>
-                <li>
-                    <ul>
-                        <li class="submenu">
-                            <a href="javascript:void(0);"
-                                class="{{ Route::is('about-us-edit','our-journey-list','our-success-list') ? 'subdrop active' : '' }}">
-                                <i class="ti ti-brand-airtable"></i><span>About Us Management</span><span
-                                    class="menu-arrow"></span>
-                            </a>
-                            <ul>
-                                <li>
-                                    <a class="{{ Route::is('about-us-edit') ? 'active' : '' }}"
-                                        href="{{ route('about-us-edit') }}">
-                                        <span>About Us</span>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a class="{{ Route::is('our-journey-list') ? 'active' : '' }}"
-                                        href="{{ route('our-journey-list') }}">
-                                        <span>Our Journey</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="{{ Route::is('our-success-list') ? 'active' : '' }}"
-                                        href="{{ route('our-success-list') }}">
-                                        <span>Our Success</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
                 {{-- <li>
                     <ul>
                         <li>
-                            <a class="{{ Route::is('about-us-edit') ? 'active' : '' }}" href="{{ route('about-us-edit') }}">
+                            <a class="{{ Route::is('aboutus-edit') ? 'active' : '' }}" href="{{ route('aboutus-edit') }}">
                                     <i class="ti ti-brand-airtable"></i>
                                 <span>About Us</span>
                             </a>

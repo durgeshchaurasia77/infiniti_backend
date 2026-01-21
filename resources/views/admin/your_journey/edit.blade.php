@@ -1,7 +1,7 @@
 <div class="modal-dialog modal-dialog-centered">
 	<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title">Edit Your Journey</h5>
+				<h5 class="modal-title">Edit Our Journey</h5>
 				<button class="btn-close custom-btn-close border p-1 me-0 text-dark" data-bs-dismiss="modal"
 				aria-label="Close">
 				<i class="ti ti-x"></i>
