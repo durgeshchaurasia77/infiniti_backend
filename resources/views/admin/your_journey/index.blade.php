@@ -1,6 +1,6 @@
 @extends('admin.layout.app')
 @section('title')
-Our Journey
+Your Journey
 @endsection
 @section('content')
 
@@ -13,7 +13,7 @@ Our Journey
 						<div class="page-header">
 							<div class="row align-items-center">
 								<div class="col-sm-8">
-									<h4 class="page-title">Our Journey List</h4>
+									<h4 class="page-title">Your Journey List</h4>
 								</div>
 								<div class="col-sm-4 text-sm-end">
 									<div class="head-icons">
