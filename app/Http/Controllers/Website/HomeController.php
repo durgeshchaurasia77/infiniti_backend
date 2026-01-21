@@ -10,53 +10,52 @@ use DB;
 use File;
 use Exception;
 use Illuminate\Validation\Rule;
-use App\Models\OurServices;
-use App\Models\OurServicesHeader;
-use App\Models\OurMission;
-use App\Models\OurExperties;
-use App\Models\OurExpertiesDetails;
-use App\Models\EmpoweringCareers;
-use App\Models\EmpoweringCareersDetails;
-use App\Models\GlobalCareerAspirations;
-use App\Models\WhyChooseUs;
-use App\Models\WhyChooesDetails;
-use App\Models\ContactExplore;
-use App\Models\ContactExploreDetails;
-use App\Models\BlogsHeader;
-use App\Models\BlogNews;
-use App\Models\Testimonials;
-use App\Models\ContactUs;
-use App\Models\Setting;
-use App\Models\AboutUs;
+// use App\Models\OurServices;
+// use App\Models\OurServicesHeader;
+use App\Models\TrustedBy;
+use App\Models\ExcellanceCounting;
+use App\Models\TechnologyUsed;
+use App\Models\OurPeople;
+use App\Models\CraftingTechnology;
+// use App\Models\;
+// use App\Models\WhyChooseUs;
+// use App\Models\WhyChooesDetails;
+use App\Models\TrunkeyPartner;
+// use App\Models\ContactExploreDetails;
+// use App\Models\BlogsHeader;
+// use App\Models\BlogNews;
+// use App\Models\Testimonials;
+// use App\Models\ContactUs;
+// use App\Models\Setting;// use App\Models\AboutUs;
 use App\Models\HomeBanner;
-use App\Models\HomeBannerDetails;
-use App\Models\GetEnquiryType;
-use App\Models\PageBanner;
+// use App\Models\HomeBannerDetails;
+// use App\Models\GetEnquiryType;
+// use App\Models\PageBanner;
 
 class HomeController extends Controller
 {
     use MessageStatusTrait;
-    protected $ourservicesheader;
+    protected $trunkeyPartner;
     protected $ourservices;
-    protected $ourmissions;
-    protected $ourexperties;
-    protected $ourexpertiesdetails;
-    protected $empoweringcareers;
-    protected $empoweringcareersdetails;
-    protected $global_careers;
-    protected $why_choose;
-    protected $why_choose_details;
-    protected $exploreopportunities;
-    protected $exploreopportunitiesdetails;
-    protected $blogsheader;
-    protected $blogsnews;
-    protected $testimonials;
-    protected $settingDetails;
-    protected $aboutus;
+    protected $trustedBy;
+    protected $excellanceCounting;
+    protected $technologyUsed;
+    protected $ourPeople;
+    protected $craftingTechnology;
+    // protected $global_careers;
+    // protected $why_choose;
+    // protected $why_choose_details;
+    // protected $exploreopportunities;
+    // protected $exploreopportunitiesdetails;
+    // protected $blogsheader;
+    // protected $blogsnews;
+    // protected $testimonials;
+    // protected $settingDetails;
+    // protected $aboutus;
     protected $homeBanner;
-    protected $homeBannerDetails;
-    protected $getenquerytypes;
-    protected $pageBanner;
+    // protected $homeBannerDetails;
+    // protected $getenquerytypes;
+    // protected $pageBanner;
 
     /**
      * default constructor
@@ -64,84 +63,84 @@ class HomeController extends Controller
      * @return
      */
     function __construct(
-        OurServicesHeader        $ourservicesheader,
-        OurServices              $ourservices,
-        OurMission               $ourmissions,
-        OurExperties             $ourexperties,
-        OurExpertiesDetails      $ourexpertiesdetails,
-        EmpoweringCareers        $empoweringcareers,
-        EmpoweringCareersDetails $empoweringcareersdetails,
-        GlobalCareerAspirations  $global_careers,
-        WhyChooseUs              $why_choose,
-        WhyChooesDetails         $why_choose_details,
-        ContactExplore           $exploreopportunities,
-        ContactExploreDetails    $exploreopportunitiesdetails,
-        BlogsHeader              $blogsheader,
-        BlogNews                 $blogsnews,
-        Testimonials             $testimonials,
-        Setting                  $settingDetails,
-        AboutUs                  $aboutus,
+        // OurServicesHeader        $ourservicesheader,
+        // OurServices              $ourservices,
+        TrustedBy               $trustedBy,
+        TrunkeyPartner             $trunkeyPartner,
+        ExcellanceCounting      $excellanceCounting,
+        TechnologyUsed        $technologyUsed,
+        OurPeople $ourPeople,
+        CraftingTechnology  $craftingTechnology,
+        // WhyChooseUs              $why_choose,
+        // WhyChooesDetails         $why_choose_details,
+        // ContactExplore           $exploreopportunities,
+        // ContactExploreDetails    $exploreopportunitiesdetails,
+        // BlogsHeader              $blogsheader,
+        // BlogNews                 $blogsnews,
+        // Testimonials             $testimonials,
+        // Setting                  $settingDetails,
+        // AboutUs                  $aboutus,
         HomeBanner               $homeBanner,
-        HomeBannerDetails        $homeBannerDetails,
-        GetEnquiryType           $getenquerytypes,
-        PageBanner               $pageBanner
+        // HomeBannerDetails        $homeBannerDetails,
+        // GetEnquiryType           $getenquerytypes,
+        // PageBanner               $pageBanner
 
 
     ) {
-        $this->ourservicesheader          = $ourservicesheader;
-        $this->ourservices                = $ourservices;
-        $this->ourmissions                = $ourmissions;
-        $this->ourexperties               = $ourexperties;
-        $this->ourexpertiesdetails        = $ourexpertiesdetails;
-        $this->empoweringcareers          = $empoweringcareers;
-        $this->empoweringcareersdetails   = $empoweringcareersdetails;
-        $this->global_careers             = $global_careers;
-        $this->why_choose                 = $why_choose;
-        $this->why_choose_details         = $why_choose_details;
-        $this->exploreopportunities       = $exploreopportunities;
-        $this->exploreopportunitiesdetails= $exploreopportunitiesdetails;
-        $this->blogsheader                = $blogsheader;
-        $this->blogsnews                  = $blogsnews;
-        $this->testimonials               = $testimonials;
-        $this->settingDetails             = $settingDetails;
-        $this->aboutus                    = $aboutus;
+        // $this->ourservicesheader          = $ourservicesheader;
+        // $this->ourservices                = $ourservices;
+        $this->trustedBy                = $trustedBy;
+        $this->trunkeyPartner               = $trunkeyPartner;
+        $this->excellanceCounting        = $excellanceCounting;
+        $this->technologyUsed          = $technologyUsed;
+        $this->ourPeople   = $ourPeople;
+        $this->craftingTechnology             = $craftingTechnology;
+        // $this->why_choose                 = $why_choose;
+        // $this->why_choose_details         = $why_choose_details;
+        // $this->exploreopportunities       = $exploreopportunities;
+        // $this->exploreopportunitiesdetails= $exploreopportunitiesdetails;
+        // $this->blogsheader                = $blogsheader;
+        // $this->blogsnews                  = $blogsnews;
+        // $this->testimonials               = $testimonials;
+        // $this->settingDetails             = $settingDetails;
+        // $this->aboutus                    = $aboutus;
         $this->homeBanner                 = $homeBanner;
-        $this->homeBannerDetails          = $homeBannerDetails;
-        $this->getenquerytypes            = $getenquerytypes;
-        $this->pageBanner                 = $pageBanner;
+        // $this->homeBannerDetails          = $homeBannerDetails;
+        // $this->getenquerytypes            = $getenquerytypes;
+        // $this->pageBanner                 = $pageBanner;
     }
     public function home()
     {
         $details = [];
-        $details['ourservicesheader']          = $this->ourservicesheader::select('heading','description' )->first();
-        $details['ourservices']                = $this->ourservices::where('status', 1)
-                                                    ->select('id','title', 'image', 'description')
-                                                    ->take(6)
+        $details['trunkeyPartner']          = $this->trunkeyPartner::select('title','short_description','image_one','image_two')->where('status',1)->first();
+        $details['ourPeopleList']                = $this->ourPeople::where('status', 1)
+                                                    ->select('id','title', 'image', 'name','sub_title')
+                                                    ->take(9)
                                                     ->get();
-        $details['ourmissions']                = $this->ourmissions::select('image_one','image_two','image_three','title','description')->first();
-        $details['ourexperties']               = $this->ourexperties::select('title','description')->first();
-        $details['ourexpertiesdetails']        = $this->ourexpertiesdetails::select('id', 'title', 'video_url')->get();
-        $details['empoweringcareers']          = $this->empoweringcareers::select('title','image','description')->first();
-        $details['empoweringcareersdetails']   = $this->empoweringcareersdetails::select('title', 'percentage')->get();
-        $details['global_careers']             = $this->global_careers::where('status', 1)
-                                                                        ->select('title', 'image')
-                                                                        ->get();
-        $details['why_choose']                 = $this->why_choose::select('title','image','description')->first();
-        $details['why_choose_details']         = $this->why_choose_details::select('id', 'question', 'answer')->get();
-        $details['exploreopportunities']       = $this->exploreopportunities::select('title','description')->first();
-        $details['exploreopportunitiesdetails']= $this->exploreopportunitiesdetails::select('name','image')->get();
-        $details['blogsheader']                = $this->blogsheader::select('title','description')->first();
-        $details['blogsnews']                  = $this->blogsnews::where('status', 1)
-                                                                 ->select('id','title','name','image','blog_image', 'description','updated_at')
-                                                                 ->take(6)
-                                                                 ->get();
-        $details['testimonials']               = $this->testimonials::where('status', 1)
-                                                                     ->select('name','image','designation','description','rating')
-                                                                        ->get();
-        $details['homeBanner']                 = $this->homeBanner::select('title','subtitle','youtube_link')->first();
-        $details['homeBannerDetails']          = $this->homeBannerDetails::select('titles')->get();
-        $details['getenquerytypes']            = $this->getenquerytypes::where(['status' => 1])->get();
-        $details['pageBanner']                 = $this->pageBanner::select('image')->where('page_name','Home')->first();
+        $details['trustedByList']                = $this->trustedBy::select('image','name')->where('status',1)->get();
+        $details['excellanceCounting']               = $this->excellanceCounting::first();
+        $details['technologyUsedList']        = $this->technologyUsed::select('name', 'images')->where('status',1)->get();
+        $details['craftingTechnologyList']          = $this->craftingTechnology::select('name','title','image')->where('status',1)->get();
+        // $details['empoweringcareersdetails']   = $this->empoweringcareersdetails::select('title', 'percentage')->get();
+        // $details['global_careers']             = $this->global_careers::where('status', 1)
+        //                                                                 ->select('title', 'image')
+        //                                                                 ->get();
+        // $details['why_choose']                 = $this->why_choose::select('title','image','description')->first();
+        // $details['why_choose_details']         = $this->why_choose_details::select('id', 'question', 'answer')->get();
+        // $details['exploreopportunities']       = $this->exploreopportunities::select('title','description')->first();
+        // $details['exploreopportunitiesdetails']= $this->exploreopportunitiesdetails::select('name','image')->get();
+        // $details['blogsheader']                = $this->blogsheader::select('title','description')->first();
+        // $details['blogsnews']                  = $this->blogsnews::where('status', 1)
+        //                                                          ->select('id','title','name','image','blog_image', 'description','updated_at')
+        //                                                          ->take(6)
+        //                                                          ->get();
+        // $details['testimonials']               = $this->testimonials::where('status', 1)
+        //                                                              ->select('name','image','designation','description','rating')
+        //                                                                 ->get();
+        $details['homeBanner']                 = $this->homeBanner::select('title','detais','image')->first();
+        // $details['homeBannerDetails']          = $this->homeBannerDetails::select('titles')->get();
+        // $details['getenquerytypes']            = $this->getenquerytypes::where(['status' => 1])->get();
+        // $details['pageBanner']                 = $this->pageBanner::select('image')->where('page_name','Home')->first();
 
         return view('website.index', $details);
     }
