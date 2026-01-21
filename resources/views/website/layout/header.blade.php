@@ -1,5 +1,7 @@
 @php
     $settingData    = App\Models\Setting::select('id', 'header_logo')->first();
+    $serviceHeaderList    = App\Models\Service::select('id','name','seo_slug')->where('status',1)->get();
+    $industryHeaderList    = App\Models\Industry::select('id','title','seo_slug')->where('status',1)->get();
 @endphp
 <div class="homepage-popup-overlay" id="hpPopup" style="display:none;">
 
@@ -55,18 +57,23 @@
         <!-- RIGHT -->
         <div class="homepage-popup-right">
 
-            <form>
-                <input type="text" placeholder="Name*">
-                <input type="text" placeholder="Contact Number*">
-                <input type="email" placeholder="Business Email*">
-                <textarea placeholder="Description *"></textarea>
+            <form action="{{ route('get-enquery-form') }}" method="post"  class="formSubmit2" enctype="multipart/form-data">
+             @csrf
+
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                <input type="phone" name="phone" id="phone" placeholder="Phone" required>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                <textarea name="subject" placeholder="Description *"></textarea>
 
                 <ul class="homepage-popup-points">
                     <li>✔ NDA Protected</li>
                     <li>✔ Trusted by 2000+ Entrepreneurs</li>
                 </ul>
 
-                <button class="homepage-popup-btn">Submit</button>
+                {{-- <button class="homepage-popup-btn">Submit</button> --}}
+                <button class="btn btn-primary  loderButton2 homepage-popup-btn" style="justify-content: center;">
+                    <span class="spinner-grow spinner-grow-sm loderIcon2" role="status" aria-hidden="true" style="display: none;"></span>Send Message
+                </button>
             </form>
 
         </div>
@@ -93,46 +100,27 @@
                 <div class="mega-menu">
                     <div class="mega-wrap">
                         <div class="left">
+                            @php
+                                $serviceChunks = $serviceHeaderList->chunk(
+                                    ceil($serviceHeaderList->count() / 3)
+                                );
+                            @endphp
+                        @foreach ($serviceChunks as $chunk)
                             <div class="col">
                                 <h4>Services</h4>
 
-                                <div class="item"><i class="fa-solid fa-graduation-cap"></i>Education</div>
-                                <div class="item"><i class="fa-solid fa-truck-fast"></i>Logistics</div>
-                                <div class="item"><i class="fa-solid fa-sack-dollar"></i>Finance</div>
-                                <div class="item"><i class="fa-solid fa-cart-shopping"></i>Ecommerce</div>
-
-                                <h4 style="margin-top:12px;">ON DEMAND APPS</h4>
-
-                                <div class="item"><i class="fa-solid fa-burger"></i>Food Delivery</div>
-                                <div class="item"><i class="fa-solid fa-taxi"></i>Taxi Booking</div>
+                                @foreach ($chunk as $service)
+                                    <div class="item">
+                                        <i class="fa-solid fa-circle-dot"></i>
+                                        <a href="{{ url($service->seo_slug) }}">
+                                            {{ $service->name }}
+                                        </a>
+                                    </div>
+                                @endforeach
                             </div>
+                        @endforeach
 
-                            <div class="col">
-                                <h4>FEATURED</h4>
-
-                                <div class="item"><i class="fa-solid fa-dumbbell"></i>Fitness</div>
-                                <div class="item"><i class="fa-solid fa-heart"></i>Dating App Development</div>
-                                <div class="item"><i class="fa-solid fa-gamepad"></i>Game Development</div>
-                                <div class="item"><i class="fa-solid fa-house"></i>Real Estate</div>
-
-                                <div class="item"><i class="fa-solid fa-bag-shopping"></i>Grocery Delivery</div>
-                                <div class="item"><i class="fa-solid fa-hand-sparkles"></i>Home Services</div>
-                            </div>
-
-                            <div class="col">
-                                <h4>SOLUTIONS</h4>
-
-                                <div class="item"><i class="fa-solid fa-stethoscope"></i>Healthcare</div>
-                                <div class="item"><i class="fa-solid fa-users"></i>Social Networking</div>
-                                <div class="item"><i class="fa-solid fa-trophy"></i>Sports Betting</div>
-                                <div class="item"><i class="fa-solid fa-vr-cardboard"></i>AR / VR</div>
-
-                                <div class="item"><i class="fa-solid fa-truck"></i>Pickup & Delivery</div>
-                                <div class="item"><i class="fa-solid fa-wand-magic-sparkles"></i>Beauty & Salon Booking
-                                </div>
-                            </div>
-
-                        </div>
+                    </div>
 
                         <div class="right">
 
@@ -162,7 +150,26 @@
                 <div class="mega-menu">
                     <div class="mega-wrap">
                         <div class="left">
+                            @php
+                                $industryChunks = $industryHeaderList->chunk(
+                                    ceil($industryHeaderList->count() / 3)
+                                );
+                            @endphp
+                            @foreach ($industryChunks as $chunk1)
                             <div class="col">
+                                <h4>Services</h4>
+
+                                @foreach ($chunk1 as $industry)
+                                    <div class="item">
+                                        <i class="fa-solid fa-circle-dot"></i>
+                                        <a href="{{ url($industry->seo_slug) }}">
+                                            {{ $industry->title ?? '' }}
+                                        </a>
+                                    </div>
+                                @endforeach
+                            </div>
+                        @endforeach
+                            {{-- <div class="col">
                                 <h4>INDUSTRIES</h4>
 
                                 <div class="item"><i class="fa-solid fa-graduation-cap"></i>Education</div>
@@ -199,7 +206,7 @@
                                 <div class="item"><i class="fa-solid fa-truck"></i>Pickup & Delivery</div>
                                 <div class="item"><i class="fa-solid fa-wand-magic-sparkles"></i>Beauty & Salon Booking
                                 </div>
-                            </div>
+                            </div> --}}
 
                         </div>
 

@@ -28,6 +28,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"/>
 
     {{-- <!-- Icon Font Stylesheet -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
@@ -297,7 +298,7 @@
   max-width:1400px;
   margin:auto;
   display:grid;
-  grid-template-columns: 1.2fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1.5fr 1.3fr 1.3fr 1.3fr;
   gap:50px;
 }
 
@@ -570,3 +571,380 @@
 }
 
 </style>
+        <style>
+            /* SECTION */
+            .navy-services {
+                background: linear-gradient(180deg, #05132b, #071c3e);
+                padding: 80px 0 60px;
+            }
+
+            /* HEADING */
+            .navy-services__heading h2 {
+                color: #fff;
+                font-size: 32px;
+                line-height: 1.25;
+                margin-bottom: 45px;
+            }
+
+            /* GRID */
+            .navy-services__grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 22px;
+            }
+
+            /* CARD */
+            .navy-service-card {
+                background: rgba(255, 255, 255, 0.06);
+                border-radius: 16px;
+                padding: 26px 22px;
+                border: 1px solid rgba(255, 255, 255, 0.08);
+
+                transition: 0.35s ease;
+                position: relative;
+                overflow: hidden;
+            }
+
+            /* ICON */
+            .navy-service-card i {
+                width: 22px;
+                height: 22px;
+                color: #ffffff;
+                margin-bottom: 16px;
+            }
+
+            /* TITLE */
+            .navy-service-card h5 {
+                font-size: 18px;
+                color: #ffffff;
+                margin-bottom: 10px;
+            }
+
+            /* TEXT */
+            .navy-service-card p {
+                font-size: 14px;
+                color: rgba(255, 255, 255, 0.75);
+                line-height: 1.5;
+            }
+
+            /* ARROW */
+            .navy-arrow {
+                display: inline-block;
+                margin-top: 16px;
+                font-size: 18px;
+                color: #ffffff;
+                transition: 0.3s;
+            }
+
+            /* HOVER */
+            .navy-service-card:hover {
+                transform: translateY(-6px);
+                background: rgba(255, 255, 255, 0.1);
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+            }
+
+            .navy-service-card:hover .navy-arrow {
+                transform: translateX(6px);
+            }
+
+            /* RESPONSIVE */
+            @media(max-width: 991px) {
+                .navy-services__grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
+            @media(max-width: 576px) {
+                .navy-services__grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            .sub-description {
+                margin-top: 10px;
+                font-size: 14px;
+                color: #e4e9f1;
+                line-height: 1.7;
+                text-align: justify;
+            }
+
+            .sub-description p {
+                margin-bottom: 6px;
+            }
+
+            .sub-description br {
+                display: block;
+                margin-bottom: 6px;
+            }
+
+        </style>
+
+        <style>
+           .navy-testimonial-slider{
+                padding: 100px 20px;
+                background: linear-gradient(180deg,#05142e,#071c3e);
+                }
+
+                /* Header */
+                .navy-testimonial-header{
+                display:flex;
+                justify-content:space-between;
+                align-items:center;
+                margin-bottom:40px;
+                }
+
+                .navy-testimonial-header h2{
+                color:#fff;
+                font-size:32px;
+                }
+
+                /* Controls */
+                .navy-slider-controls button{
+                width:42px;
+                height:42px;
+                border-radius:50%;
+                border:1px solid rgba(255,255,255,.2);
+                background:rgba(255,255,255,.08);
+                color:#fff;
+                font-size:22px;
+                cursor:pointer;
+                transition:.3s;
+                }
+
+                .navy-slider-controls button:hover{
+                background:#fff;
+                color:#05142e;
+                }
+
+                /* Slider */
+                .navy-slider-viewport{
+                overflow:visible;
+                }
+
+                .navy-slider-track{
+                display:flex;
+                gap:24px;
+                transition:transform .5s ease;
+                }
+
+                /* Card */
+                .navy-testimonial-card{
+                min-width: calc(33.333% - 16px);
+                background:rgba(255,255,255,.06);
+                border:1px solid rgba(255,255,255,.08);
+                border-radius:18px;
+                padding:16px;
+                text-align:center;
+                position:relative;
+                transition:.3s;
+                cursor: pointer;
+                }
+
+                .navy-testimonial-card:hover{
+                transform:translateY(-6px);
+                background:rgba(255,255,255,.1);
+                }
+
+                .navy-testimonial-card img{
+                width:100%;
+                height:200px;
+                object-fit:cover;
+                border-radius:14px;
+                }
+
+                .navy-testimonial-card .play{
+                position:absolute;
+                top:50%;
+                left:50%;
+                transform:translate(-50%,-50%);
+                width:54px;
+                height:54px;
+                background:rgba(0,0,0,.55);
+                color:#fff;
+                border-radius:50%;
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                pointer-events: none;
+                }
+
+                .navy-testimonial-card h3{
+                margin-top:14px;
+                color:#fff;
+                font-size:17px;
+                }
+
+                .navy-testimonial-card p{
+                font-size:13px;
+                color:rgba(255,255,255,.7);
+                }
+
+                /* Responsive */
+                @media(max-width:900px){
+                .navy-testimonial-card{
+                    min-width: calc(50% - 12px);
+                    cursor: pointer;
+                }
+                }
+
+                @media(max-width:600px){
+                .navy-testimonial-card{
+                    min-width:100%;
+                    cursor: pointer;
+                }
+                }
+.navy-video-modal{
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.navy-video-modal__overlay{
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(12px);
+}
+
+.navy-video-modal__content{
+  position: relative;
+  width: 80%;
+  max-width: 900px;
+  background: #000;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 40px 90px rgba(0,0,0,0.45);
+  z-index: 2;
+}
+
+.navy-video-modal video{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.navy-video-modal__close{
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.25s;
+}
+
+.navy-video-modal__close:hover{
+  background: #ffffff;
+  color: #000;
+}
+.video-thumb {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+</style>
+
+<style>
+    /* Blog Theme */
+.navy-blog {
+    background: #0a2540;
+}
+
+.section-title .subtitle {
+    color: #ffffff !important;
+    letter-spacing: 1px;
+    font-weight: 500;
+    font-size: 35px !important;
+}
+
+.section-title .title {
+    color: #ffffff;
+}
+
+/* Blog Card */
+.smart-blog-card {
+    background: #081c33;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.smart-blog-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(59, 130, 246, 0.3);
+}
+
+/* Thumbnail */
+.smart-blog-card .thumbnail {
+    position: relative;
+    overflow: hidden;
+}
+
+.smart-blog-card img {
+    width: 100%;
+    transition: transform 0.5s ease;
+}
+
+.smart-blog-card:hover img {
+    transform: scale(1.08);
+}
+
+/* Tag */
+.smart-blog-card .tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: #1e3a8a;
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 12px;
+}
+
+/* Content */
+.smart-blog-card .content {
+    padding: 25px;
+}
+
+.smart-blog-card .meta {
+    color: #9ca3af;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.smart-blog-card .title {
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* Read More */
+.smart-blog-card .read-more {
+    color: #3b82f6;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.3s ease;
+}
+
+.smart-blog-card .read-more:hover {
+    color: #60a5fa;
+    gap: 10px;
+}
+
+    </style>

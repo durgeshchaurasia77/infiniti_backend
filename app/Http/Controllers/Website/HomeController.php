@@ -17,19 +17,19 @@ use App\Models\ExcellanceCounting;
 use App\Models\TechnologyUsed;
 use App\Models\OurPeople;
 use App\Models\CraftingTechnology;
-// use App\Models\;
-// use App\Models\WhyChooseUs;
-// use App\Models\WhyChooesDetails;
+use App\Models\OurJourney;
+use App\Models\WhyBusinessChoose;
+use App\Models\CertificateSoftware;
 use App\Models\TrunkeyPartner;
-// use App\Models\ContactExploreDetails;
-// use App\Models\BlogsHeader;
-// use App\Models\BlogNews;
-// use App\Models\Testimonials;
-// use App\Models\ContactUs;
+use App\Models\FameMobileApp;
+use App\Models\Industry;
+use App\Models\Blog;
+use App\Models\Testimonials;
+use App\Models\ContactUs;
 // use App\Models\Setting;// use App\Models\AboutUs;
 use App\Models\HomeBanner;
 // use App\Models\HomeBannerDetails;
-// use App\Models\GetEnquiryType;
+use App\Models\FAQ;
 // use App\Models\PageBanner;
 
 class HomeController extends Controller
@@ -42,19 +42,19 @@ class HomeController extends Controller
     protected $technologyUsed;
     protected $ourPeople;
     protected $craftingTechnology;
-    // protected $global_careers;
-    // protected $why_choose;
-    // protected $why_choose_details;
-    // protected $exploreopportunities;
-    // protected $exploreopportunitiesdetails;
+    protected $ourJourney;
+    protected $fameMobileApp;
+    protected $industry;
+    protected $whyBusinessChoose;
+    protected $certificateSoftware;
     // protected $blogsheader;
-    // protected $blogsnews;
-    // protected $testimonials;
+    protected $blogs;
+    protected $testimonials;
     // protected $settingDetails;
     // protected $aboutus;
     protected $homeBanner;
     // protected $homeBannerDetails;
-    // protected $getenquerytypes;
+    protected $fAQ;
     // protected $pageBanner;
 
     /**
@@ -71,18 +71,18 @@ class HomeController extends Controller
         TechnologyUsed        $technologyUsed,
         OurPeople $ourPeople,
         CraftingTechnology  $craftingTechnology,
-        // WhyChooseUs              $why_choose,
-        // WhyChooesDetails         $why_choose_details,
-        // ContactExplore           $exploreopportunities,
-        // ContactExploreDetails    $exploreopportunitiesdetails,
-        // BlogsHeader              $blogsheader,
-        // BlogNews                 $blogsnews,
-        // Testimonials             $testimonials,
+        OurJourney              $ourJourney,
+        FameMobileApp         $fameMobileApp,
+        Industry           $industry,
+        WhyBusinessChoose    $whyBusinessChoose,
+        CertificateSoftware              $certificateSoftware,
+        Blog                 $blogs,
+        Testimonials             $testimonials,
         // Setting                  $settingDetails,
         // AboutUs                  $aboutus,
         HomeBanner               $homeBanner,
         // HomeBannerDetails        $homeBannerDetails,
-        // GetEnquiryType           $getenquerytypes,
+        FAQ           $fAQ,
         // PageBanner               $pageBanner
 
 
@@ -95,17 +95,17 @@ class HomeController extends Controller
         $this->technologyUsed          = $technologyUsed;
         $this->ourPeople   = $ourPeople;
         $this->craftingTechnology             = $craftingTechnology;
-        // $this->why_choose                 = $why_choose;
-        // $this->why_choose_details         = $why_choose_details;
-        // $this->exploreopportunities       = $exploreopportunities;
-        // $this->exploreopportunitiesdetails= $exploreopportunitiesdetails;
-        // $this->blogsheader                = $blogsheader;
-        // $this->blogsnews                  = $blogsnews;
-        // $this->testimonials               = $testimonials;
+        $this->ourJourney                 = $ourJourney;
+        $this->fameMobileApp         = $fameMobileApp;
+        $this->industry       = $industry;
+        $this->whyBusinessChoose= $whyBusinessChoose;
+        $this->certificateSoftware                = $certificateSoftware;
+        $this->blogs                  = $blogs;
+        $this->testimonials               = $testimonials;
         // $this->settingDetails             = $settingDetails;
         // $this->aboutus                    = $aboutus;
         $this->homeBanner                 = $homeBanner;
-        // $this->homeBannerDetails          = $homeBannerDetails;
+        $this->fAQ          = $fAQ;
         // $this->getenquerytypes            = $getenquerytypes;
         // $this->pageBanner                 = $pageBanner;
     }
@@ -122,21 +122,33 @@ class HomeController extends Controller
         $details['technologyUsedList']        = $this->technologyUsed::select('name', 'images')->where('status',1)->get();
         $details['craftingTechnologyList']          = $this->craftingTechnology::select('name','title','image')->where('status',1)->get();
         // $details['empoweringcareersdetails']   = $this->empoweringcareersdetails::select('title', 'percentage')->get();
-        // $details['global_careers']             = $this->global_careers::where('status', 1)
-        //                                                                 ->select('title', 'image')
-        //                                                                 ->get();
-        // $details['why_choose']                 = $this->why_choose::select('title','image','description')->first();
-        // $details['why_choose_details']         = $this->why_choose_details::select('id', 'question', 'answer')->get();
+        $details['ourJourneyList']             = $this->ourJourney::where('status', 1)
+                                                                        ->select('title', 'sub_title')
+                                                                        ->get();
+
+        $details['fameMobileAppList']             = $this->fameMobileApp::where('status', 1)
+                                                                        ->select('title','name','image')
+                                                                        ->get();
+
+        $details['industryList']             = $this->industry::where('status', 1)
+                                                                        ->select('title','short_description','image')
+                                                                        ->take(8)
+                                                                        ->get();
+        $details['whyBusinessChoose']                 = $this->whyBusinessChoose::select('ai_title','ai_description','scalable_title','scalable_description','reliable_title',
+                                                            'reliable_description','security_title','security_description','status',)->first();
+        $details['certificateSoftwareList']         = $this->certificateSoftware::select('id', 'name', 'sub_title','image')->where('status',1)->get();
         // $details['exploreopportunities']       = $this->exploreopportunities::select('title','description')->first();
         // $details['exploreopportunitiesdetails']= $this->exploreopportunitiesdetails::select('name','image')->get();
         // $details['blogsheader']                = $this->blogsheader::select('title','description')->first();
-        // $details['blogsnews']                  = $this->blogsnews::where('status', 1)
-        //                                                          ->select('id','title','name','image','blog_image', 'description','updated_at')
-        //                                                          ->take(6)
-        //                                                          ->get();
-        // $details['testimonials']               = $this->testimonials::where('status', 1)
-        //                                                              ->select('name','image','designation','description','rating')
-        //                                                                 ->get();
+        $details['blogsList']                  = $this->blogs::where('status', 1)
+                                                                 ->select('id','category_id','title','image','author', 'short_detail','publish_date','seo_slug')
+                                                                 ->take(3)
+                                                                 ->get();
+        $details['testimonials']               = $this->testimonials::where('status', 1)
+                                                                     ->select('name','video_path','designation','description','rating')
+                                                                        ->get();
+
+        $details['fAQList']                        = $this->fAQ::where('status', 1)->select('question','answer')->get();
         $details['homeBanner']                 = $this->homeBanner::select('title','detais','image')->first();
         // $details['homeBannerDetails']          = $this->homeBannerDetails::select('titles')->get();
         // $details['getenquerytypes']            = $this->getenquerytypes::where(['status' => 1])->get();
@@ -170,8 +182,8 @@ class HomeController extends Controller
                 'regex:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/',
                 'max:255',
             ],
-            'subject' => 'required|string',
-            'message' => 'required|string'
+            'launch' => 'required|string',
+            'subject' => 'required|string'
         ];
 
         $messages = [
@@ -194,37 +206,37 @@ class HomeController extends Controller
 
             // Store the enquiry in the database
             $helpRequest        =  ContactUs::create([
-                'name'          => $request->name ?? '',
-                'email'         => $request->email ?? '',
-                'phone'         => $request->contact ?? '',
-                'subject'       => $request->subject ?? '',
-                'message'       => $request->message ?? '',
+                'name'    => $request->name ?? '',
+                'email'   => $request->email ?? '',
+                'phone'   => $request->contact ?? '',
+                'launch'  => $request->launch ?? '',
+                'about'   => $request->subject ?? '',
             ]);
 
             // Prepare the data for the admin email
-            $mailArray = [
-                'name'          => $request->name ?? '',
-                'email'         => $request->email ?? '',
-                'contact'       => $request->contact ?? '',
-                'subject'       => $request->subject ?? '',
-                'message'       => $request->message ?? '',
-            ];
-            $adminEmail = 'durgesh.alobha@gmail.com';
-            $subject    = 'Request For Contact Us';
+            // $mailArray = [
+            //     'name'          => $request->name ?? '',
+            //     'email'         => $request->email ?? '',
+            //     'contact'       => $request->contact ?? '',
+            //     'launch'       => $request->launch ?? '',
+            //     'subject'       => $request->subject ?? '',
+            // ];
+            // $adminEmail = 'durgesh.alobha@gmail.com';
+            // $subject    = 'Request For Contact Us';
 
-            // Send email to admin with all details
-            \Mail::send('mail.admin_template', ['mailArray' => $mailArray], function ($message) use ($adminEmail, $subject) {
-                $message->from('globalstudentsservices@gmail.com', 'Infiniti');
-                $message->subject($subject);
-                $message->to($adminEmail);
-            });
+            // // Send email to admin with all details
+            // \Mail::send('mail.admin_template', ['mailArray' => $mailArray], function ($message) use ($adminEmail, $subject) {
+            //     $message->from('globalstudentsservices@gmail.com', 'Infiniti');
+            //     $message->subject($subject);
+            //     $message->to($adminEmail);
+            // });
 
-            // Send thank-you email to the user
-            \Mail::send('mail.thankyou-email', ['mailArray' => $mailArray], function ($message) use ($request) {
-                $message->from('globalstudentsservices@gmail.com', 'Infiniti');
-                $message->subject('Thank You for Your Contact Us');
-                $message->to($request->email);
-            });
+            // // Send thank-you email to the user
+            // \Mail::send('mail.thankyou-email', ['mailArray' => $mailArray], function ($message) use ($request) {
+            //     $message->from('globalstudentsservices@gmail.com', 'Infiniti');
+            //     $message->subject('Thank You for Your Contact Us');
+            //     $message->to($request->email);
+            // });
 
             // DB::commit();
 
@@ -236,7 +248,7 @@ class HomeController extends Controller
             // DB::rollBack();
             return response()->json([
                 'responseCode'    => $this->failedStatus,
-                'responseMessage' => 'Something went wrong. Please try again later.',
+                'responseMessage' => 'Something went wrong. Please try again later.'.$e->getMessage(),
             ]);
         }
     }

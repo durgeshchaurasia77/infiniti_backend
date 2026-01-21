@@ -11,7 +11,7 @@ class CertificateSoftware extends Model
     protected $table = 'certificate_software';
 
     protected $fillable = [
-        'title',
+        'name',
         'sub_title',
         'image',
     ];

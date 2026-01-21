@@ -17,6 +17,96 @@
     <script src="{{asset('website1/assets/js/main.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script type="text/javascript">
+    $(document).on('submit', 'form.formSubmit1', function(e) {
+
+        e.preventDefault();
+        var data = new FormData(this);
+        $('.loderIcon').show();
+        $('.loderButton').prop("disabled", true);
+        $.ajax({
+            cache: false,
+            contentType: false,
+            processData: false,
+            url: $(this).attr("action"),
+            method: $(this).attr("method"),
+            dataType: "json",
+            data: data,
+            beforeSend: function() {
+                $('.preloader').show();
+            },
+            complete: function() {
+                $('.preloader').hide();
+            },
+            success: function(response) {
+                $('.loderIcon').hide();
+                $('.loderButton').prop("disabled", false);
+                if (response.responseCode == 200) {
+                    toastr.success(response.responseMessage);
+                    if (response.responseUrl) {
+                        location.href = response.responseUrl;
+                    } else {
+                        location.reload();
+                    }
+
+                } else {
+                    toastr.error(response.responseMessage);
+                    if(response.responseUrl)
+                        {
+                            location.href = response.responseUrl;
+                        }
+                }
+            }
+        });
+    });
+
+</script>
+<script type="text/javascript">
+    $(document).on('submit', 'form.formSubmit2', function(e) {
+
+        e.preventDefault();
+        var data = new FormData(this);
+        $('.loderIcon2').show();
+        $('.loderButton2').prop("disabled", true);
+        $.ajax({
+            cache: false,
+            contentType: false,
+            processData: false,
+            url: $(this).attr("action"),
+            method: $(this).attr("method"),
+            dataType: "json",
+            data: data,
+            beforeSend: function() {
+                $('.preloader2').show();
+            },
+            complete: function() {
+                $('.preloader2').hide();
+            },
+            success: function(response) {
+                $('.loderIcon2').hide();
+                $('.loderButton2').prop("disabled", false);
+                if (response.responseCode == 200) {
+                    toastr.success(response.responseMessage);
+                    if (response.responseUrl) {
+                        location.href = response.responseUrl;
+                    } else {
+                        location.reload();
+                    }
+
+                } else {
+                    toastr.error(response.responseMessage);
+                    if(response.responseUrl)
+                        {
+                            location.href = response.responseUrl;
+                        }
+                }
+            }
+        });
+    });
+
+</script>
     {{-- <script src="https://unpkg.com/aos@next/dist/aos.js"></script> --}}
     <script>
     AOS.init({

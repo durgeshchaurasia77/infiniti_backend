@@ -10,10 +10,10 @@ use DB;
 use File;
 use Exception;
 use Illuminate\Validation\Rule;
-use App\Models\FrroLocation;
+// use App\Models\FrroLocation;
 use App\Models\GetEnquiry;
 use App\Models\GetEnquiryType;
-use App\Models\PageBanner;
+// use App\Models\PageBanner;
 
 class FrroLocationController extends Controller
 {
@@ -27,23 +27,23 @@ class FrroLocationController extends Controller
      * @return
      */
     function __construct(
-        FrroLocation                  $frrolocation,
+        // FrroLocation                  $frrolocation,
         GetEnquiryType                $getenquerytypes,
-        PageBanner                    $pageBanner
+        // PageBanner                    $pageBanner
     ) {
-        $this->frrolocation         = $frrolocation;
+        // $this->frrolocation         = $frrolocation;
         $this->getenquerytypes      = $getenquerytypes;
-        $this->pageBanner           = $pageBanner;
+        // $this->pageBanner           = $pageBanner;
     }
-    public function index(Request $request)
-    {
-        $details = [];
-        $details['frrolocation']        = $this->frrolocation::where(['status' => 1])->get();
-        $details['getenquerytypes']     = $this->getenquerytypes::where(['status' => 1])->get();
-        $details['pageBanner']          = $this->pageBanner::select('image')->where('page_name','FFRO Location')->first();
+    // public function index(Request $request)
+    // {
+    //     $details = [];
+    //     $details['frrolocation']        = $this->frrolocation::where(['status' => 1])->get();
+    //     $details['getenquerytypes']     = $this->getenquerytypes::where(['status' => 1])->get();
+    //     $details['pageBanner']          = $this->pageBanner::select('image')->where('page_name','FFRO Location')->first();
 
-        return view('website.frro_loc', $details);
-    }
+    //     return view('website.frro_loc', $details);
+    // }
     public function getenquerysubmit(Request $request)
     {
         $rules = [
@@ -63,8 +63,7 @@ class FrroLocationController extends Controller
                 'numeric',
                 'digits:10',
             ],
-            'question' => 'required|string',
-            'query_type'=> 'required'
+            'subject' => 'required|string',
         ];
 
         $messages = [
@@ -90,34 +89,33 @@ class FrroLocationController extends Controller
                 'name'           => $request->name ?? '',
                 'email'          => $request->email ?? '',
                 'phone'          => $request->phone ?? '',
-                'question'       => $request->question ?? '',
-                'get_question_id'=> $request->query_type?? '',
+                'subject'       => $request->subject ?? '',
             ]);
-            $getenquerytypesData = GetEnquiryType::where('id',$request->query_type)->first();
-            // Prepare the data for the admin email
-            $mailArray = [
-                'name'          => $request->name ?? '',
-                'email'         => $request->email ?? '',
-                'contact'       => $request->phone ?? '',
-                'question'      => $request->question ?? '',
-                'question_type' => $getenquerytypesData->name ?? 'None'
-            ];
-            $adminEmail = 'durgesh.alobha@gmail.com';
-            $subject    = 'Request For Enquiry';
+            // $getenquerytypesData = GetEnquiryType::where('id',$request->query_type)->first();
+            // // Prepare the data for the admin email
+            // $mailArray = [
+            //     'name'          => $request->name ?? '',
+            //     'email'         => $request->email ?? '',
+            //     'contact'       => $request->phone ?? '',
+            //     'question'      => $request->question ?? '',
+            //     'question_type' => $getenquerytypesData->name ?? 'None'
+            // ];
+            // $adminEmail = 'durgesh.alobha@gmail.com';
+            // $subject    = 'Request For Enquiry';
 
-            // Send email to admin with all details
-            \Mail::send('mail.enquery.admin_template', ['mailArray' => $mailArray], function ($message) use ($adminEmail, $subject) {
-                $message->from('globalstudentsservices@gmail.com', 'Infiniti');
-                $message->subject($subject);
-                $message->to($adminEmail);
-            });
+            // // Send email to admin with all details
+            // \Mail::send('mail.enquery.admin_template', ['mailArray' => $mailArray], function ($message) use ($adminEmail, $subject) {
+            //     $message->from('globalstudentsservices@gmail.com', 'Infiniti');
+            //     $message->subject($subject);
+            //     $message->to($adminEmail);
+            // });
 
-            // Send thank-you email to the user
-            \Mail::send('mail.enquery.thankyou-email', ['mailArray' => $mailArray], function ($message) use ($request) {
-                $message->from('globalstudentsservices@gmail.com', 'Infiniti');
-                $message->subject('Thank You for Your Enquiry');
-                $message->to($request->email);
-            });
+            // // Send thank-you email to the user
+            // \Mail::send('mail.enquery.thankyou-email', ['mailArray' => $mailArray], function ($message) use ($request) {
+            //     $message->from('globalstudentsservices@gmail.com', 'Infiniti');
+            //     $message->subject('Thank You for Your Enquiry');
+            //     $message->to($request->email);
+            // });
 
             // DB::commit();
 

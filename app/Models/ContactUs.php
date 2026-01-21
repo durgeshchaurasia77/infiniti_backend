@@ -13,7 +13,7 @@ class ContactUs extends Model
      *
      * @var string
      */
-	protected $table 	= 	'contact_us';
+	protected $table 	= 	'contact';
 
 	/**
      * The attributes that are mass assignable.
@@ -24,8 +24,8 @@ class ContactUs extends Model
                                     'name',
                                     'phone',
                                     'email',
-                                    'subject',
-                                    'message',
+                                    'launch',
+                                    'about',
                                 ];
 
     /**
