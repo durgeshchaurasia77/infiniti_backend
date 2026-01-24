@@ -262,4 +262,20 @@ class HomeController extends Controller
 
         return view('website.about', $details);
     }
+
+    public function digitalMarketing(Request $request)
+    {
+
+        return view('dubai.digital-marketing-dubai');
+    }
+    public function mobileDevelopement(Request $request)
+    {
+
+        return view('dubai.mobile-app-devlopment-dubai');
+    }
+    public function performMarketing(Request $request)
+    {
+
+        return view('dubai.performance-marketing-dubai');
+    }
 }
