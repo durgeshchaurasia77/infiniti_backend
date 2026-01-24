@@ -369,3 +369,7 @@ Route::post('comment-form', [WebVideoLibraryController::class, 'commentsubmit'])
 // Route::get('expact-service/{slug}', [WebExpactServicesController::class, 'index'])->name('expact-service');
 // Route::post('get-expact-form', [WebExpactServicesController::class, 'expactsubmit'])->name('get-expact-form');
 
+
+Route::get('digital-marketing-dubai', [HomeController::class, 'digitalMarketing'])->name('digital-marketing-dubai');
+Route::get('mobile-app-devlopment-dubai', [HomeController::class, 'mobileDevelopement'])->name('mobile-app-devlopment-dubai');
+Route::get('performance-marketing-dubai', [HomeController::class, 'performMarketing'])->name('performance-marketing-dubai');

@@ -563,11 +563,92 @@
     color: #cbd5e1;
     line-height: 1.7;
 }
+/* @media (max-width: 767px){
+
+  .case-section{
+    padding: 50px 0;
+  }
+
+  .case-top{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+
+  .case-title h1{
+    font-size: 26px;
+    line-height: 1.25;
+  }
+
+  .case-actions{
+    width: 100%;
+    display: flex;
+    gap: 12px;
+  }
+
+  .case-actions a,
+  .case-actions button{
+    width: 100%;
+    text-align: center;
+  }
+
+
+  .case-tabs{
+    overflow-x: auto;
+    gap: 18px;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    scrollbar-width: none;
+  }
+
+  .case-tabs::-webkit-scrollbar{
+    display: none;
+  }
+
+  .tab-features{
+    white-space: nowrap;
+    font-size: 14px;
+  }
+
+
+  .case-content{
+    height: auto;
+  }
+
+  .case-item{
+    position: relative;
+    height: 360px;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+    margin-bottom: 24px;
+  }
+
+  .case-item::before{
+    border-radius: 16px;
+  }
+
+  .case-overlay{
+    width: 100%;
+    padding: 30px 22px;
+  }
+
+  .case-overlay h3{
+    font-size: 22px;
+  }
+
+  .case-overlay p{
+    font-size: 14px;
+    line-height: 1.6;
+  }
+} */
+
 
 </style>
 <style>
 #tech-tab {
-    scroll-margin-top: 100px; /* navbar height + gap */
+    scroll-margin-top: 100px; 
 }
 
 </style>
