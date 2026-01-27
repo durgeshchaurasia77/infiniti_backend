@@ -252,13 +252,13 @@ class HomeController extends Controller
             ]);
         }
     }
-    public function about(Request $request)
+    public function aboutUs(Request $request)
     {
         $details = [];
-        $details['aboutus']            = $this->aboutus::first();
-        $details['ourmissions']        = $this->ourmissions::first();
-        $details['ourservicesheader']  = $this->ourservicesheader::first();
-        $details['ourservices']        = $this->ourservices::where(['status' => 1])->get();
+        // $details['aboutus']            = $this->aboutus::first();
+        // $details['ourmissions']        = $this->ourmissions::first();
+        // $details['ourservicesheader']  = $this->ourservicesheader::first();
+        // $details['ourservices']        = $this->ourservices::where(['status' => 1])->get();
 
         return view('website.about', $details);
     }
@@ -268,9 +268,8 @@ class HomeController extends Controller
 
         return view('dubai.digital-marketing-dubai');
     }
-    public function mobileDevelopement(Request $request)
+    public function mobileDevelopment(Request $request)
     {
-
         return view('dubai.mobile-app-devlopment-dubai');
     }
     public function performMarketing(Request $request)

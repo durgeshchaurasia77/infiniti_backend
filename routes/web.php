@@ -352,7 +352,7 @@ Route::get('/', [HomeController::class, 'home'])->name('web_home');
 // Route::get('frro-optin', [WebOurServicesController::class, 'frroOptin'])->name('frro-optin');
 // Route::post('get-report-form', [WebOurServicesController::class, 'reportsubmit'])->name('get-report-form');
 Route::post('contact', [HomeController::class, 'contactsubmit'])->name('contact-us-form');
-// Route::get('about', [WebAboutController::class, 'index'])->name('about');
+Route::get('about-us', [HomeController::class, 'aboutUs'])->name('about-us');
 // Route::get('frro-location', [WebFrroLocationController::class, 'index'])->name('frrolocation');
 Route::post('get-enquery-form', [WebFrroLocationController::class, 'getenquerysubmit'])->name('get-enquery-form');
 // Route::get('destination-services', [WebDestinationServicesController::class, 'index'])->name('destination-services');
@@ -371,5 +371,5 @@ Route::post('comment-form', [WebVideoLibraryController::class, 'commentsubmit'])
 
 
 Route::get('digital-marketing-dubai', [HomeController::class, 'digitalMarketing'])->name('digital-marketing-dubai');
-Route::get('mobile-app-devlopment-dubai', [HomeController::class, 'mobileDevelopement'])->name('mobile-app-devlopment-dubai');
+Route::get('mobile-app-development-dubai', [HomeController::class, 'mobileDevelopment'])->name('mobile-app-development-dubai');
 Route::get('performance-marketing-dubai', [HomeController::class, 'performMarketing'])->name('performance-marketing-dubai');

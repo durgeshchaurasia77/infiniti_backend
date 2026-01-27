@@ -417,6 +417,55 @@
   color:#fff;
   text-decoration:none;
 }
+@media (max-width: 768px) {
+
+  .apptunix-footer {
+    padding: 60px 15px;
+    text-align: left;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .brand .logo {
+    font-size: 28px;
+  }
+
+  .brand p {
+    font-size: 14px;
+  }
+
+  .footer-col ul li a {
+    font-size: 14px;
+  }
+
+  /* Button full width */
+  .footer-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Subscribe form stack */
+  .subscribe-form {
+    flex-direction: column;
+  }
+
+  .subscribe-form input {
+    border-radius: 6px;
+    margin-bottom: 10px;
+  }
+
+  .subscribe-form button {
+    border-radius: 6px;
+    width: 100%;
+  }
+
+  .social {
+    justify-content: flex-start;
+  }
+}8
 </style>
 <style>
     /* =========================
@@ -443,7 +492,7 @@
     font-weight: 600;
     line-height: 1.2;
 }
-
+ 
 .case-title span {
     color: #60a5fa;
 }

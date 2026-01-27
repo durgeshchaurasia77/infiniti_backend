@@ -2,7 +2,7 @@
             <div class="consult-wrapper">
 
                 <!-- LEFT SIDE -->
-                <div class="left-consult">
+              <div class="left-consult">
                     <p class="tag">
                         Partner with tech catalysts who transform ideas into impact.
                     </p>
@@ -36,8 +36,8 @@
                         </div>
 
                         <div class="nav">
-                            <button class="prev">←</button>
-                            <button class="next">→</button>
+                            <button class="prev consult-prev-btn">←</button>
+                            <button class="next consult-next-btn">→</button>
                         </div>
                     </div>
                 </div>

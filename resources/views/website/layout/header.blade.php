@@ -94,6 +94,7 @@
          </div>
 
         <ul class="menu">
+            <span class="menu-close">&times;</span>
             <li><a href="#">Portfolio</a></li>
             <li>
                 <a href="#">Services ▾</a>
