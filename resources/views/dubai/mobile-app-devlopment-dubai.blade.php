@@ -33,15 +33,16 @@
 <body>
 
 
- <header class="navbar">
+    <header class="navbar">
         <!-- LEFT -->
         <div class="logo header-logo"><img src="{{ asset('dubai/assets/images/infiniti-logo.png')}}" alt=""></div>
         <!-- CENTER -->
          <div class="mobile-toggle">
-  <i class="fa-solid fa-bars"></i>
-</div>
+            <i class="fa-solid fa-bars"></i>
+        </div>
 
         <ul class="menu">
+            <span class="menu-close">&times;</span>
             <li><a href="#">Portfolio</a></li>
             <li>
                 <a href="#">Services ▾</a>
@@ -207,7 +208,7 @@
         Dubai UAE
       </h1>
       <p>
-        Apptunix is the No.1 best mobile app development company in Dubai,
+        Infiniti is the No.1 best mobile app development company in Dubai,
         UAE, specializing in cutting-edge AI-powered Android and iOS solutions.
       </p>
       <a href="#" class="mobile-app-devlopment-dubai-hero-btn">
@@ -285,253 +286,253 @@
 
         <!-- mobile-app-devlopment-dubai-partner-section start here  -->
         <section class="mobile-app-devlopment-dubai-partner-section">
-        <div class="mobile-app-devlopment-dubai-partner-container">
+            <div class="mobile-app-devlopment-dubai-partner-container">
 
-    <!-- LEFT CONTENT -->
-    <div class="mobile-app-devlopment-dubai-partner-content">
-      <h2>Dubai’s No.1 Trusted Partner for<br>Digital Transformation</h2>
-      <p>
-        Over the years, we’ve helped businesses in Dubai and across the UAE grow
-        with reliable, high-quality mobile app development and digital innovation
-        solutions. Our presence at events like GITEX Dubai reflects our expertise
-        and the trust startups, enterprises, and government brands place in us.
-      </p>
-      <a href="#" class="cta-btn">Get a Free Project Estimate</a>
-    </div>
+                <!-- LEFT CONTENT -->
+                <div class="mobile-app-devlopment-dubai-partner-content">
+                    <h2>Dubai’s No.1 Trusted Partner for<br>Digital Transformation</h2>
+                    <p>
+                        Over the years, we’ve helped businesses in Dubai and across the UAE grow
+                        with reliable, high-quality mobile app development and digital innovation
+                        solutions. Our presence at events like GITEX Dubai reflects our expertise
+                        and the trust startups, enterprises, and government brands place in us.
+                    </p>
+                    <a href="#" class="cta-btn">Get a Free Project Estimate</a>
+                </div>
 
-    <!-- RIGHT SLIDER -->
-    <div class="mobile-app-devlopment-dubai-partner-slider">
-      <div class="mobile-app-devlopment-dubai-slider-track">
-        <div class="mobile-app-devlopment-dubai-slide"><img src="./assets/images/background-about.jpeg"></div>
-        <div class="mobile-app-devlopment-dubai-slide"><img src="./assets/images/airlane.jpg"></div>
-        <div class="mobile-app-devlopment-dubai-slide"><img src="./assets/images/mdbnr_image.png"></div>
-        <div class="mobile-app-devlopment-dubai-slide"><img src="./assets/images/background-about.jpeg"></div>
+                <!-- RIGHT SLIDER -->
+                <div class="mobile-app-devlopment-dubai-partner-slider">
+                    <div class="mobile-app-devlopment-dubai-slider-track">
+                        <div class="mobile-app-devlopment-dubai-slide"><img src="{{ asset('dubai/assets/images/background-about.jpeg')}}"></div>
+                        <div class="mobile-app-devlopment-dubai-slide"><img src="{{ asset('dubai/assets/images/airlane.jpg')}}"></div>
+                        <div class="mobile-app-devlopment-dubai-slide"><img src="{{ asset('dubai/assets/images/mdbnr_image.png')}}"></div>
+                        <div class="mobile-app-devlopment-dubai-slide"><img src="{{ asset('dubai/assets/images/background-about.jpeg')}}"></div>
 
-        <!-- duplicate for smooth loop -->
-        <div class="mobile-app-devlopment-dubai-slide"><img src="./assets/images/slider/banner-01.png"></div>
-        <div class="mobile-app-devlopment-dubai-slide"><img src="./assets/images/mdbnr_image.png"></div>
-      </div>
-    </div>
-
-  </div>
+                        <!-- duplicate for smooth loop -->
+                        <div class="mobile-app-devlopment-dubai-slide"><img src="{{ asset('dubai/assets/images/slider/banner-01.png')}}"></div>
+                        <div class="mobile-app-devlopment-dubai-slide"><img src="{{ asset('dubai/assets/images/mdbnr_image.png')}}"></div>
+                    </div>
+                </div>
+            </div>
         </section>
         <!-- mobile-app-devlopment-dubai-partner-section end here  -->
 
 
 
      <!-- our-premium-mobile-development-for-dubai-section start  -->
-     <section class="our-premium-mobile-development-for-dubai-section">
-  <div class="our-premium-mobile-development-for-dubai-container">
+    <section class="our-premium-mobile-development-for-dubai-section">
+            <div class="our-premium-mobile-development-for-dubai-container">
 
- <div class="our-premium-mobile-development-for-dubai-heading">
-      <h2>
-        Our Premium Mobile App Development<br>
-        Services In Dubai, UAE
-      </h2>
+                <div class="our-premium-mobile-development-for-dubai-heading">
+                    <h2>
+                        Our Premium Mobile App Development<br>
+                        Services In Dubai, UAE
+                    </h2>
 
-      <p>
-        With Apptunix you can instantly hire mobile app developers and get service
-        assistance for building top-notch mobile experiences that shine even in a
-        competitive market.
-      </p>
-    </div>
-    <div class="our-premium-mobile-development-for-dubai-flip-grid">
+                    <p>
+                        With Infiniti you can instantly hire mobile app developers and get service
+                        assistance for building top-notch mobile experiences that shine even in a
+                        competitive market.
+                    </p>
+                </div>
+                <div class="our-premium-mobile-development-for-dubai-flip-grid">
 
-      <!-- CARD 1 -->
-      <div class="our-premium-mobile-development-for-dubai-flip-card">
-        <div class="our-premium-mobile-development-for-dubai-flip-inner">
-          <div class="our-premium-mobile-development-for-dubai-flip-front"
-               style="background-image:url('./assets/images/background-about.jpeg')">
-            <div class="our-premium-mobile-development-for-dubai-front-icon">
-              <i class="fa-solid fa-mobile-screen"></i>
+                    <!-- CARD 1 -->
+                    <div class="our-premium-mobile-development-for-dubai-flip-card">
+                        <div class="our-premium-mobile-development-for-dubai-flip-inner">
+                        <div
+                            class="our-premium-mobile-development-for-dubai-flip-front"
+                            style="background-image: url('{{ asset('dubai/assets/images/background-about.jpeg') }}')">
+                            <div class="our-premium-mobile-development-for-dubai-front-icon">
+                            <i class="fa-solid fa-mobile-screen"></i>
+                            </div>
+                            <h3>Custom App Development</h3>
+                        </div>
+
+                        <div class="our-premium-mobile-development-for-dubai-flip-back">
+                            <p class="our-premium-mobile-development-for-dubai-flip-desc">
+                            We also provide cutting-edge Blockchain mobile app development services
+                            in Dubai, helping businesses leverage the power of distributed ledger
+                            technology for enhanced security.
+                            </p>
+
+                            <span class="our-premium-mobile-development-for-dubai-flip-divider"></span>
+
+                            <ul class="our-premium-mobile-development-for-dubai-flip-list">
+                            <li>Smart Contract Development</li>
+                            <li>dApps Development</li>
+                            <li>Blockchain Integration</li>
+                            <li>Cryptocurrency Wallet Development</li>
+                            </ul>
+
+                            <a href="#" class="our-premium-mobile-development-for-dubai-btn">
+                            Get in Touch <span>›</span>
+                            </a>
+                        </div>
+                        </div>
+                    </div>
+
+                    <!-- CARD 2 -->
+                    <div class="our-premium-mobile-development-for-dubai-flip-card">
+                        <div class="our-premium-mobile-development-for-dubai-flip-inner">
+                        <div class="our-premium-mobile-development-for-dubai-flip-front" style="background-image:url('{{ asset('dubai/assets/images/airlane.jpg') }}')">
+                            <div class="our-premium-mobile-development-for-dubai-front-icon"><i class="fa-solid fa-cube"></i></div>
+                            <h3>Blockchain Development</h3>
+                        </div>
+                        <div class="our-premium-mobile-development-for-dubai-flip-back">
+
+                            <p class="our-premium-mobile-development-for-dubai-flip-desc">
+                                We also provide cutting-edge Blockchain mobile app development services
+                                in Dubai, helping businesses leverage the power of distributed ledger
+                                technology for enhanced security.
+                            </p>
+
+                            <span class="our-premium-mobile-development-for-dubai-flip-divider"></span>
+
+                            <ul class="our-premium-mobile-development-for-dubai-flip-list">
+                                <li>Smart Contract Development</li>
+                                <li>dApps Development</li>
+                                <li>Blockchain Integration</li>
+                                <li>Cryptocurrency Wallet Development</li>
+                            </ul>
+
+                            <a href="#" class="our-premium-mobile-development-for-dubai-btn">
+                                Get in Touch <span>›</span>
+                            </a>
+
+                    </div>
+                </div>
+                    </div>
+
+                    <!-- CARD 3 -->
+                    <div class="our-premium-mobile-development-for-dubai-flip-card">
+                        <div class="our-premium-mobile-development-for-dubai-flip-inner">
+                            <div class="our-premium-mobile-development-for-dubai-flip-front" style="background-image:url('{{ asset('dubai/assets/images/custom-industries2.png') }}')">
+                                <div class="our-premium-mobile-development-for-dubai-front-icon"><i class="fa-solid fa-vr-cardboard"></i></div>
+                                <h3>Metaverse Apps</h3>
+                            </div>
+                            <div class="our-premium-mobile-development-for-dubai-flip-back">
+
+                                <p class="our-premium-mobile-development-for-dubai-flip-desc">
+                                    We also provide cutting-edge Blockchain mobile app development services
+                                    in Dubai, helping businesses leverage the power of distributed ledger
+                                    technology for enhanced security.
+                                </p>
+
+                                <span class="our-premium-mobile-development-for-dubai-flip-divider"></span>
+
+                                <ul class="our-premium-mobile-development-for-dubai-flip-list">
+                                    <li>Smart Contract Development</li>
+                                    <li>dApps Development</li>
+                                    <li>Blockchain Integration</li>
+                                    <li>Cryptocurrency Wallet Development</li>
+                                </ul>
+
+                                <a href="#" class="our-premium-mobile-development-for-dubai-btn">
+                                    Get in Touch <span>›</span>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="our-premium-mobile-development-for-dubai-flip-card">
+                        <div class="our-premium-mobile-development-for-dubai-flip-inner">
+                            <div class="our-premium-mobile-development-for-dubai-flip-front"
+                                style="background-image:url('{{ asset('dubai/assets/images/background-about.jpeg')}}')">
+                                <div class="our-premium-mobile-development-for-dubai-front-icon">
+                                <i class="fa-solid fa-mobile-screen"></i>
+                                </div>
+                                <h3>Custom App Development</h3>
+                            </div>
+
+                            <div class="our-premium-mobile-development-for-dubai-flip-back">
+                                <p class="our-premium-mobile-development-for-dubai-flip-desc">
+                                We also provide cutting-edge Blockchain mobile app development services
+                                in Dubai, helping businesses leverage the power of distributed ledger
+                                technology for enhanced security.
+                                </p>
+
+                                <span class="our-premium-mobile-development-for-dubai-flip-divider"></span>
+
+                                <ul class="our-premium-mobile-development-for-dubai-flip-list">
+                                <li>Smart Contract Development</li>
+                                <li>dApps Development</li>
+                                <li>Blockchain Integration</li>
+                                <li>Cryptocurrency Wallet Development</li>
+                                </ul>
+
+                                <a href="#" class="our-premium-mobile-development-for-dubai-btn">
+                                Get in Touch <span>›</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="our-premium-mobile-development-for-dubai-flip-card">
+                        <div class="our-premium-mobile-development-for-dubai-flip-inner">
+                        <div class="our-premium-mobile-development-for-dubai-flip-front"
+                            style="background-image:url('{{ asset('dubai/assets/images/background-about.jpeg')}}')">
+                            <div class="our-premium-mobile-development-for-dubai-front-icon">
+                            <i class="fa-solid fa-mobile-screen"></i>
+                            </div>
+                            <h3>Custom App Development</h3>
+                        </div>
+
+                        <div class="our-premium-mobile-development-for-dubai-flip-back">
+                            <p class="our-premium-mobile-development-for-dubai-flip-desc">
+                            We also provide cutting-edge Blockchain mobile app development services
+                            in Dubai, helping businesses leverage the power of distributed ledger
+                            technology for enhanced security.
+                            </p>
+
+                            <span class="our-premium-mobile-development-for-dubai-flip-divider"></span>
+
+                            <ul class="our-premium-mobile-development-for-dubai-flip-list">
+                            <li>Smart Contract Development</li>
+                            <li>dApps Development</li>
+                            <li>Blockchain Integration</li>
+                            <li>Cryptocurrency Wallet Development</li>
+                            </ul>
+
+                            <a href="#" class="our-premium-mobile-development-for-dubai-btn">
+                            Get in Touch <span>›</span>
+                            </a>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="our-premium-mobile-development-for-dubai-flip-card">
+                        <div class="our-premium-mobile-development-for-dubai-flip-inner">
+                            <div class="our-premium-mobile-development-for-dubai-flip-front"
+                                style="background-image:url('{{ asset('dubai/assets/images/background-about.jpeg')}}')">
+                                <div class="our-premium-mobile-development-for-dubai-front-icon">
+                                <i class="fa-solid fa-mobile-screen"></i>
+                                </div>
+                                <h3>Custom App Development</h3>
+                            </div>
+
+                            <div class="our-premium-mobile-development-for-dubai-flip-back">
+                                <p class="our-premium-mobile-development-for-dubai-flip-desc">
+                                We also provide cutting-edge Blockchain mobile app development services
+                                in Dubai, helping businesses leverage the power of distributed ledger
+                                technology for enhanced security.
+                                </p>
+
+                                <span class="our-premium-mobile-development-for-dubai-flip-divider"></span>
+
+                                <ul class="our-premium-mobile-development-for-dubai-flip-list">
+                                <li>Smart Contract Development</li>
+                                <li>dApps Development</li>
+                                <li>Blockchain Integration</li>
+                                <li>Cryptocurrency Wallet Development</li>
+                                </ul>
+
+                                <a href="#" class="our-premium-mobile-development-for-dubai-btn">
+                                Get in Touch <span>›</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <h3>Custom App Development</h3>
-          </div>
-
-          <div class="our-premium-mobile-development-for-dubai-flip-back">
-            <p class="our-premium-mobile-development-for-dubai-flip-desc">
-              We also provide cutting-edge Blockchain mobile app development services
-              in Dubai, helping businesses leverage the power of distributed ledger
-              technology for enhanced security.
-            </p>
-
-            <span class="our-premium-mobile-development-for-dubai-flip-divider"></span>
-
-            <ul class="our-premium-mobile-development-for-dubai-flip-list">
-              <li>Smart Contract Development</li>
-              <li>dApps Development</li>
-              <li>Blockchain Integration</li>
-              <li>Cryptocurrency Wallet Development</li>
-            </ul>
-
-            <a href="#" class="our-premium-mobile-development-for-dubai-btn">
-              Get in Touch <span>›</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
-  <!-- CARD 2 -->
-  <div class="our-premium-mobile-development-for-dubai-flip-card">
-    <div class="our-premium-mobile-development-for-dubai-flip-inner">
-      <div class="our-premium-mobile-development-for-dubai-flip-front" style="background-image:url('./assets/images/airlane.jpg')">
-        <div class="our-premium-mobile-development-for-dubai-front-icon"><i class="fa-solid fa-cube"></i></div>
-        <h3>Blockchain Development</h3>
-      </div>
-      <div class="our-premium-mobile-development-for-dubai-flip-back">
-
-  <p class="our-premium-mobile-development-for-dubai-flip-desc">
-    We also provide cutting-edge Blockchain mobile app development services
-    in Dubai, helping businesses leverage the power of distributed ledger
-    technology for enhanced security.
-  </p>
-
-  <span class="our-premium-mobile-development-for-dubai-flip-divider"></span>
-
-  <ul class="our-premium-mobile-development-for-dubai-flip-list">
-    <li>Smart Contract Development</li>
-    <li>dApps Development</li>
-    <li>Blockchain Integration</li>
-    <li>Cryptocurrency Wallet Development</li>
-  </ul>
-
-  <a href="#" class="our-premium-mobile-development-for-dubai-btn">
-    Get in Touch <span>›</span>
-  </a>
-
-</div>
-    </div>
-  </div>
-
-  <!-- CARD 3 -->
-  <div class="our-premium-mobile-development-for-dubai-flip-card">
-    <div class="our-premium-mobile-development-for-dubai-flip-inner">
-      <div class="our-premium-mobile-development-for-dubai-flip-front" style="background-image:url('./assets/images/custom-industries2.png')">
-        <div class="our-premium-mobile-development-for-dubai-front-icon"><i class="fa-solid fa-vr-cardboard"></i></div>
-        <h3>Metaverse Apps</h3>
-      </div>
-      <div class="our-premium-mobile-development-for-dubai-flip-back">
-
-  <p class="our-premium-mobile-development-for-dubai-flip-desc">
-    We also provide cutting-edge Blockchain mobile app development services
-    in Dubai, helping businesses leverage the power of distributed ledger
-    technology for enhanced security.
-  </p>
-
-  <span class="our-premium-mobile-development-for-dubai-flip-divider"></span>
-
-  <ul class="our-premium-mobile-development-for-dubai-flip-list">
-    <li>Smart Contract Development</li>
-    <li>dApps Development</li>
-    <li>Blockchain Integration</li>
-    <li>Cryptocurrency Wallet Development</li>
-  </ul>
-
-  <a href="#" class="our-premium-mobile-development-for-dubai-btn">
-    Get in Touch <span>›</span>
-  </a>
-
-</div>
-    </div>
-  </div>
-   <div class="our-premium-mobile-development-for-dubai-flip-card">
-        <div class="our-premium-mobile-development-for-dubai-flip-inner">
-          <div class="our-premium-mobile-development-for-dubai-flip-front"
-               style="background-image:url('./assets/images/background-about.jpeg')">
-            <div class="our-premium-mobile-development-for-dubai-front-icon">
-              <i class="fa-solid fa-mobile-screen"></i>
-            </div>
-            <h3>Custom App Development</h3>
-          </div>
-
-          <div class="our-premium-mobile-development-for-dubai-flip-back">
-            <p class="our-premium-mobile-development-for-dubai-flip-desc">
-              We also provide cutting-edge Blockchain mobile app development services
-              in Dubai, helping businesses leverage the power of distributed ledger
-              technology for enhanced security.
-            </p>
-
-            <span class="our-premium-mobile-development-for-dubai-flip-divider"></span>
-
-            <ul class="our-premium-mobile-development-for-dubai-flip-list">
-              <li>Smart Contract Development</li>
-              <li>dApps Development</li>
-              <li>Blockchain Integration</li>
-              <li>Cryptocurrency Wallet Development</li>
-            </ul>
-
-            <a href="#" class="our-premium-mobile-development-for-dubai-btn">
-              Get in Touch <span>›</span>
-            </a>
-          </div>
-        </div>
-      </div>
-       <div class="our-premium-mobile-development-for-dubai-flip-card">
-        <div class="our-premium-mobile-development-for-dubai-flip-inner">
-          <div class="our-premium-mobile-development-for-dubai-flip-front"
-               style="background-image:url('./assets/images/background-about.jpeg')">
-            <div class="our-premium-mobile-development-for-dubai-front-icon">
-              <i class="fa-solid fa-mobile-screen"></i>
-            </div>
-            <h3>Custom App Development</h3>
-          </div>
-
-          <div class="our-premium-mobile-development-for-dubai-flip-back">
-            <p class="our-premium-mobile-development-for-dubai-flip-desc">
-              We also provide cutting-edge Blockchain mobile app development services
-              in Dubai, helping businesses leverage the power of distributed ledger
-              technology for enhanced security.
-            </p>
-
-            <span class="our-premium-mobile-development-for-dubai-flip-divider"></span>
-
-            <ul class="our-premium-mobile-development-for-dubai-flip-list">
-              <li>Smart Contract Development</li>
-              <li>dApps Development</li>
-              <li>Blockchain Integration</li>
-              <li>Cryptocurrency Wallet Development</li>
-            </ul>
-
-            <a href="#" class="our-premium-mobile-development-for-dubai-btn">
-              Get in Touch <span>›</span>
-            </a>
-          </div>
-        </div>
-      </div>
-       <div class="our-premium-mobile-development-for-dubai-flip-card">
-        <div class="our-premium-mobile-development-for-dubai-flip-inner">
-          <div class="our-premium-mobile-development-for-dubai-flip-front"
-               style="background-image:url('./assets/images/background-about.jpeg')">
-            <div class="our-premium-mobile-development-for-dubai-front-icon">
-              <i class="fa-solid fa-mobile-screen"></i>
-            </div>
-            <h3>Custom App Development</h3>
-          </div>
-
-          <div class="our-premium-mobile-development-for-dubai-flip-back">
-            <p class="our-premium-mobile-development-for-dubai-flip-desc">
-              We also provide cutting-edge Blockchain mobile app development services
-              in Dubai, helping businesses leverage the power of distributed ledger
-              technology for enhanced security.
-            </p>
-
-            <span class="our-premium-mobile-development-for-dubai-flip-divider"></span>
-
-            <ul class="our-premium-mobile-development-for-dubai-flip-list">
-              <li>Smart Contract Development</li>
-              <li>dApps Development</li>
-              <li>Blockchain Integration</li>
-              <li>Cryptocurrency Wallet Development</li>
-            </ul>
-
-            <a href="#" class="our-premium-mobile-development-for-dubai-btn">
-              Get in Touch <span>›</span>
-            </a>
-          </div>
-        </div>
-      </div>
-</div>
-
     </section>
     <!-- our-premium-mobile-development-for-dubai-section end here  -->
 
@@ -566,9 +567,9 @@
 
       <div class="our-succes-story-of-fitness-industry-page case-image">
         <div class="our-succes-story-of-fitness-industry-page case-phone-bg">
-          <img src="./assets/images/prflo_bg.png" alt="">
+          <img src="{{ asset('dubai/assets/images/prflo_bg.png')}}" alt="">
         </div>
-        <img src="./assets/images/Williamson.png"
+        <img src="{{ asset('dubai/assets/images/Williamson.png')}}"
              class="our-succes-story-of-fitness-industry-page case-phone">
       </div>
 
@@ -597,9 +598,9 @@
 
       <div class="our-succes-story-of-fitness-industry-page case-image">
         <div class="our-succes-story-of-fitness-industry-page case-phone-bg">
-          <img src="./assets/images/prflo_bg.png" alt="">
+          <img src="{{ asset('dubai/assets/images/prflo_bg.png')}}" alt="">
         </div>
-        <img src="./assets/images/Williamson.png"
+        <img src="{{ asset('dubai/assets/images/Williamson.png')}}"
              class="our-succes-story-of-fitness-industry-page case-phone">
       </div>
 
@@ -633,7 +634,7 @@
     <p>
       With a dedicated team, our mobile app development company in UAE
       serves a diverse range of industries providing tailored tech
-      solutions. Businesses can hire Android app developer from Apptunix,
+      solutions. Businesses can hire Android app developer from Infiniti,
       ensuring timely and desired results.
     </p>
   </div>
@@ -643,10 +644,10 @@
 
     <div class="mobile-development-for-dubai-businesses-with-exceptional-service-card">
       <div class="mobile-development-for-dubai-businesses-with-exceptional-card-front">
-        <img src="./assets/images/background-about.jpeg" alt="">
+        <img src="{{ asset('dubai/assets/images/background-about.jpeg')}}" alt="">
             <!-- CENTER ICON -->
     <div class="mobile-development-for-dubai-businesses-with-exceptional-center-icon">
-      <img src="./assets/images/resolve5.png" alt="">
+      <img src="{{ asset('dubai/assets/images/resolve5.png')}}" alt="">
     </div>
 
         <h4>Healthcare App<br>Development</h4>
@@ -661,7 +662,7 @@
 
     <div class="mobile-development-for-dubai-businesses-with-exceptional-service-card">
       <div class="mobile-development-for-dubai-businesses-with-exceptional-card-front">
-        <img src="./assets/images/background-about.jpeg" alt="">
+        <img src="{{ asset('dubai/assets/images/background-about.jpeg')}}" alt="">
         <h4>Blockchain<br>Development</h4>
       </div>
       <div class="mobile-development-for-dubai-businesses-with-exceptional-card-hover">
@@ -674,7 +675,7 @@
 
     <div class="mobile-development-for-dubai-businesses-with-exceptional-service-card">
       <div class="mobile-development-for-dubai-businesses-with-exceptional-card-front">
-        <img src="./assets/images/background-about.jpeg" alt="">
+        <img src="{{ asset('dubai/assets/images/background-about.jpeg')}}" alt="">
         <h4>EV Software<br>Development</h4>
       </div>
       <div class="mobile-development-for-dubai-businesses-with-exceptional-card-hover">
@@ -687,7 +688,7 @@
 
     <div class="mobile-development-for-dubai-businesses-with-exceptional-service-card">
       <div class="mobile-development-for-dubai-businesses-with-exceptional-card-front">
-        <img src="./assets/images/background-about.jpeg" alt="">
+        <img src="{{ asset('dubai/assets/images/background-about.jpeg')}}" alt="">
         <h4>Internet Of Things<br>(IoT)</h4>
       </div>
       <div class="mobile-development-for-dubai-businesses-with-exceptional-card-hover">
@@ -698,7 +699,7 @@
     </div>
     <div class="mobile-development-for-dubai-businesses-with-exceptional-service-card">
       <div class="mobile-development-for-dubai-businesses-with-exceptional-card-front">
-        <img src="./assets/images/background-about.jpeg" alt="">
+        <img src="{{ asset('dubai/assets/images/background-about.jpeg')}}" alt="">
         <h4>Internet Of Things<br>(IoT)</h4>
       </div>
       <div class="mobile-development-for-dubai-businesses-with-exceptional-card-hover">
@@ -709,7 +710,7 @@
     </div>
     <div class="mobile-development-for-dubai-businesses-with-exceptional-service-card">
       <div class="mobile-development-for-dubai-businesses-with-exceptional-card-front">
-        <img src="./assets/images/background-about.jpeg" alt="">
+        <img src="{{ asset('dubai/assets/images/background-about.jpeg')}}" alt="">
         <h4>Internet Of Things<br>(IoT)</h4>
       </div>
       <div class="mobile-development-for-dubai-businesses-with-exceptional-card-hover">
@@ -720,7 +721,7 @@
     </div>
     <div class="mobile-development-for-dubai-businesses-with-exceptional-service-card">
       <div class="mobile-development-for-dubai-businesses-with-exceptional-card-front">
-        <img src="./assets/images/background-about.jpeg" alt="">
+        <img src="{{ asset('dubai/assets/images/background-about.jpeg')}}" alt="">
         <h4>Internet Of Things<br>(IoT)</h4>
       </div>
       <div class="mobile-development-for-dubai-businesses-with-exceptional-card-hover">
@@ -731,7 +732,7 @@
     </div>
     <div class="mobile-development-for-dubai-businesses-with-exceptional-service-card">
       <div class="mobile-development-for-dubai-businesses-with-exceptional-card-front">
-        <img src="./assets/images/background-about.jpeg" alt="">
+        <img src="{{ asset('dubai/assets/images/background-about.jpeg')}}" alt="">
         <h4>Internet Of Things<br>(IoT)</h4>
       </div>
       <div class="mobile-development-for-dubai-businesses-with-exceptional-card-hover">
@@ -761,25 +762,25 @@
 
             <div class="col-md-3">
                 <div class="emprowing-the-fidrel-inner-section-image">
-       <img  src="./assets/images/airplane.png" alt="">
+       <img  src="{{ asset('dubai/assets/images/airplane.png')}}" alt="">
                 </div>
 
             </div>
             <div class="col-md-3">
                 <div class="emprowing-the-fidrel-inner-section-image">
-       <img src="./assets/images/airplane.png" alt="">
+       <img src="{{ asset('dubai/assets/images/airplane.png')}}" alt="">
                 </div>
 
             </div>
             <div class="col-md-3">
                 <div class="emprowing-the-fidrel-inner-section-image">
-       <img src="./assets/images/airplane.png" alt="">
+       <img src="{{ asset('dubai/assets/images/airplane.png')}}" alt="">
                 </div>
 
             </div>
             <div class="col-md-3">
                 <div class="emprowing-the-fidrel-inner-section-image">
-       <img src="./assets/images/airplane.png" alt="">
+       <img src="{{ asset('dubai/assets/images/airplane.png')}}" alt="">
                 </div>
 
             </div>
@@ -816,7 +817,7 @@
   <!-- RIGHT VIDEO IMAGE -->
 <div class="buid-service-videosection-service-page-video-banner video-trigger">
 
-  <img src="./assets/images/custom-cta1-img.png" alt="Software Video">
+  <img src="{{ asset('dubai/assets/images/custom-cta1-img.png')}}" alt="Software Video">
 
   <div class="buid-service-videosection-service-page-play-btn">
     ▶
@@ -1055,7 +1056,7 @@
     <div class="reson-to-trust-mobile-development-for-dubai-trust-left">
       <h2>
         4 Reasons To Trust<br>
-        Apptunix For Mobile<br>
+        Infiniti For Mobile<br>
         App Development In<br>
         The UAE
       </h2>
@@ -1075,7 +1076,7 @@
     <div class="reson-to-trust-mobile-development-for-dubai-trust-right">
 
       <div class="reson-to-trust-mobile-development-for-dubai-trust-card">
-        <img src="https://cdn-icons-png.flaticon.com/512/1006/1006363.png" alt="">
+        <img src="https://cdn-icons-png.flaticon.com/512/1006/1006363.png')}}" alt="">
         <h4>Full-Stack IT Outsourcing</h4>
         <p>
           From design to deployment, our all-included approach guarantees
@@ -1084,7 +1085,7 @@
       </div>
 
       <div class="reson-to-trust-mobile-development-for-dubai-trust-card">
-        <img src="https://cdn-icons-png.flaticon.com/512/1157/1157109.png" alt="">
+        <img src="https://cdn-icons-png.flaticon.com/512/1157/1157109.png')}}" alt="">
         <h4>Get CTO as a Service</h4>
         <p>
           Access the expertise of our seasoned CTO on demand to
@@ -1093,7 +1094,7 @@
       </div>
 
       <div class="reson-to-trust-mobile-development-for-dubai-trust-card">
-        <img src="https://cdn-icons-png.flaticon.com/512/1688/1688400.png" alt="">
+        <img src="https://cdn-icons-png.flaticon.com/512/1688/1688400.png')}}" alt="">
         <h4>Complex Core Development</h4>
         <p>
           Tackle even the most intricate app challenges with
@@ -1102,7 +1103,7 @@
       </div>
 
       <div class="reson-to-trust-mobile-development-for-dubai-trust-card">
-        <img src="https://cdn-icons-png.flaticon.com/512/942/942748.png" alt="">
+        <img src="https://cdn-icons-png.flaticon.com/512/942/942748.png')}}" alt="">
         <h4>Entrepreneurial Guidance</h4>
         <p>
           We help you navigate challenges and seize opportunities
@@ -1119,7 +1120,7 @@
    <!-- infiniti-help-you-mobile-development-for-dubai-tech-tabs-section start  -->
    <section class="infiniti-help-you-mobile-development-for-dubai-tech-tabs-section">
     <div class="infiniti-help-you-mobile-development-for-dubai-tech-tabs-section-heading">
-     <h2>Apptunix Helps You<br/> to Stay Ahead with Emerging Tech </h2>
+     <h2>Infiniti Helps You<br/> to Stay Ahead with Emerging Tech </h2>
      <p> Our app development agency prides itself on staying at the forefront of innovation by integrating cutting-edge<br/> technologies into our solutions. By leveraging emerging tech, we empower our clients with future-ready applications<br/> that drive growth and efficiency. </p>
      </div>
    <div class="container">
@@ -1140,10 +1141,10 @@
     </div>
   </div>
 <!-- ARROWS -->
-<div class="infiniti-help-you-mobile-development-for-dubai-arrows">
+{{-- <div class="infiniti-help-you-mobile-development-for-dubai-arrows">
   <button onclick="prevStep()">&#8592;</button>
   <button onclick="nextStep()">&#8594;</button>
-</div>
+</div> --}}
 </div>
    </section>
    <!-- infiniti-help-you-mobile-development-for-dubai-tech-tabs-section end here  -->
@@ -1204,7 +1205,7 @@
 
       <!-- IMAGE -->
       <div class="drive-out-of-mobile-development-for-dubai-case-image">
-        <img id="drive-out-of-mobile-development-for-dubai-phoneImg" src="./assets/images/airplane.png" alt="">
+        <img id="drive-out-of-mobile-development-for-dubai-phoneImg" src="{{ asset('dubai/assets/images/airplane.png')}}" alt="">
       </div>
 
     </div>
@@ -1306,7 +1307,7 @@
     <div class="from-ident-launch-mobile-development-for-dubai-process-card">
       <!-- LEFT IMAGE -->
       <div class="from-ident-launch-mobile-development-for-dubai-process-image">
-        <img id="processImg" src="./assets/images/idea_dbnw.png" alt="">
+        <img id="processImg" src="{{ asset('dubai/assets/images/idea_dbnw.png')}}" alt="">
       </div>
 
       <!-- RIGHT CONTENT -->
@@ -1355,91 +1356,91 @@
 
     <div class="the-behind-company-succese-service-page-tech-slider active" id="lang">
       <div class="the-behind-company-succese-service-page-slider-track">
-        <img src="./assets/images/aws1_icon.png">
-        <img src="./assets/images/airlane.jpg">
-        <img src="./assets/images/client/png/client1.png">
-        <img src="./assets/images/client/png/client2.png">
-        <img src="./assets/images/client/png/client3.png">
-        <img src="./assets/images/client/png/client4.png">
-        <img src="./assets/images/client/png/client5.png">
-        <img src="./assets/images/client/png/client1.png">
-        <img src="./assets/images/aws1_icon.png">
-        <img src="./assets/images/airlane.jpg">
+        <img src="{{ asset('dubai/assets/images/aws1_icon.png')}}">
+        <img src="{{ asset('dubai/assets/images/airlane.jpg')}}">
+        <img src="{{ asset('dubai/assets/images/client/png/client1.png')}}">
+        <img src="{{ asset('dubai/assets/images/client/png/client2.png')}}">
+        <img src="{{ asset('dubai/assets/images/client/png/client3.png')}}">
+        <img src="{{ asset('dubai/assets/images/client/png/client4.png')}}">
+        <img src="{{ asset('dubai/assets/images/client/png/client5.png')}}">
+        <img src="{{ asset('dubai/assets/images/client/png/client1.png')}}">
+        <img src="{{ asset('dubai/assets/images/aws1_icon.png')}}">
+        <img src="{{ asset('dubai/assets/images/airlane.jpg')}}">
       </div>
     </div>
 
     <div class="the-behind-company-succese-service-page-tech-slider" id="framework">
         <div class="the-behind-company-succese-service-page-slider-track">
-        <img src="./assets/images/icons/icons-01.png">
-        <img src="./assets/images/icons/icons-02.png">
-        <img src="./assets/images/icons/icons-03.png">
-        <img src="./assets/images/icons/tech_logo17.png">
-        <img src="./assets/images/icons/tech_logo52.png">
-        <img src="./assets/images/icons/tech_logo53.png">
-        <img src="./assets/images/icons/tech_logo54.png">
-        <img src="./assets/images/icons/tech_logo52.png">
-        <img src="./assets/images/icons/tech_logo54.png">
-        <img src="./assets/images/icons/tech_logo51.png">
+        <img src="{{ asset('dubai/assets/images/icons/icons-01.png')}}">
+        <img src="{{ asset('dubai/assets/images/icons/icons-02.png')}}">
+        <img src="{{ asset('dubai/assets/images/icons/icons-03.png')}}">
+        <img src="{{ asset('dubai/assets/images/icons/tech_logo17.png')}}">
+        <img src="{{ asset('dubai/assets/images/icons/tech_logo52.png')}}">
+        <img src="{{ asset('dubai/assets/images/icons/tech_logo53.png')}}">
+        <img src="{{ asset('dubai/assets/images/icons/tech_logo54.png')}}">
+        <img src="{{ asset('dubai/assets/images/icons/tech_logo52.png')}}">
+        <img src="{{ asset('dubai/assets/images/icons/tech_logo54.png')}}">
+        <img src="{{ asset('dubai/assets/images/icons/tech_logo51.png')}}">
       </div>
     </div>
 
     <div class="the-behind-company-succese-service-page-tech-slider" id="db">
         <div class="the-behind-company-succese-service-page-slider-track">
-        <img src="./assets/images/client/png/client1.png">
-        <img src="./assets/images/client/png/client2.png">
-        <img src="./assets/images/client/png/client3.png">
-        <img src="./assets/images/client/png/client4.png">
-        <img src="./assets/images/client/png/client5.png">
-        <img src="./assets/images/client/png/client1.png">
-        <img src="./assets/images/client/png/client2.png">
-        <img src="./assets/images/client/png/client3.png">
-        <img src="./assets/images/client/png/client4.png">
-        <img src="./assets/images/client/png/client5.png">
+        <img src="{{ asset('dubai/assets/images/client/png/client1.png')}}">
+        <img src="{{ asset('dubai/assets/images/client/png/client2.png')}}">
+        <img src="{{ asset('dubai/assets/images/client/png/client3.png')}}">
+        <img src="{{ asset('dubai/assets/images/client/png/client4.png')}}">
+        <img src="{{ asset('dubai/assets/images/client/png/client5.png')}}">
+        <img src="{{ asset('dubai/assets/images/client/png/client1.png')}}">
+        <img src="{{ asset('dubai/assets/images/client/png/client2.png')}}">
+        <img src="{{ asset('dubai/assets/images/client/png/client3.png')}}">
+        <img src="{{ asset('dubai/assets/images/client/png/client4.png')}}">
+        <img src="{{ asset('dubai/assets/images/client/png/client5.png')}}">
       </div>
     </div>
 
     <div class="the-behind-company-succese-service-page-tech-slider" id="devops">
       <div class="the-behind-company-succese-service-page-slider-track">
-        <img src="./assets/images/aws1_icon.png">
-        <img src="./assets/images/airlane.jpg">
-        <img src="./assets/images/aws1_icon.png">
-        <img src="./assets/images/airlane.jpg">
-        <img src="./assets/images/airlane.jpg">
-        <img src="./assets/images/aws1_icon.png">
-        <img src="./assets/images/aws1_icon.png">
-        <img src="./assets/images/aws1_icon.png">
-        <img src="./assets/images/aws1_icon.png">
-        <img src="./assets/images/aws1_icon.png">
+        <img src="{{ asset('dubai/assets/images/aws1_icon.png')}}">
+        <img src="{{ asset('dubai/assets/images/airlane.jpg')}}">
+        <img src="{{ asset('dubai/assets/images/aws1_icon.png')}}">
+        <img src="{{ asset('dubai/assets/images/airlane.jpg')}}">
+        <img src="{{ asset('dubai/assets/images/airlane.jpg')}}">
+        <img src="{{ asset('dubai/assets/images/aws1_icon.png')}}">
+        <img src="{{ asset('dubai/assets/images/aws1_icon.png')}}">
+        <img src="{{ asset('dubai/assets/images/aws1_icon.png')}}">
+        <img src="{{ asset('dubai/assets/images/aws1_icon.png')}}">
+        <img src="{{ asset('dubai/assets/images/aws1_icon.png')}}">
       </div>
     </div>
 
     <div class="the-behind-company-succese-service-page-tech-slider" id="payment">
        <div class="the-behind-company-succese-service-page-slider-track">
-        <img src="./assets/images/aws1_icon.png">
-        <img src="./assets/images/airlane.jpg">
-        <img src="./assets/images/aws1_icon.png">
-        <img src="./assets/images/airlane.jpg">
-        <img src="./assets/images/airlane.jpg">
-        <img src="./assets/images/aws1_icon.png">
-        <img src="./assets/images/aws1_icon.png">
-        <img src="./assets/images/aws1_icon.png">
-        <img src="./assets/images/aws1_icon.png">
-        <img src="./assets/images/aws1_icon.png">
+        <img src="{{ asset('dubai/assets/images/aws1_icon.png')}}">
+        <img src="{{ asset('dubai/assets/images/airlane.jpg')}}">
+        <img src="{{ asset('dubai/assets/images/aws1_icon.png')}}">
+        <img src="{{ asset('dubai/assets/images/airlane.jpg')}}">
+        <img src="{{ asset('dubai/assets/images/airlane.jpg')}}">
+        <img src="{{ asset('dubai/assets/images/aws1_icon.png')}}">
+        <img src="{{ asset('dubai/assets/images/aws1_icon.png')}}">
+        <img src="{{ asset('dubai/assets/images/aws1_icon.png')}}">
+        <img src="{{ asset('dubai/assets/images/aws1_icon.png')}}">
+        <img src="{{ asset('dubai/assets/images/aws1_icon.png')}}">
       </div>
     </div>
 
     <div class="the-behind-company-succese-service-page-tech-slider" id="cloud">
         <div class="the-behind-company-succese-service-page-slider-track">
-        <img src="./assets/images/aws1_icon.png">
-        <img src="./assets/images/airlane.jpg">
-        <img src="./assets/images/aws1_icon.png">
-        <img src="./assets/images/airlane.jpg">
-        <img src="./assets/images/airlane.jpg">
-        <img src="./assets/images/aws1_icon.png">
-        <img src="./assets/images/aws1_icon.png">
-        <img src="./assets/images/aws1_icon.png">
-        <img src="./assets/images/aws1_icon.png">
-        <img src="./assets/images/aws1_icon.png">
+        <img src="{{ asset('dubai/assets/images/aws1_icon.png')}}">
+        <img src="{{ asset('dubai/assets/images/airlane.jpg')}}">
+        <img src="{{ asset('dubai/assets/images/aws1_icon.png')}}">
+        <img src="{{ asset('dubai/assets/images/airlane.jpg')}}">
+        <img src="{{ asset('dubai/assets/images/airlane.jpg')}}">
+        <img src="{{ asset('dubai/assets/images/aws1_icon.png')}}">
+        <img src="{{ asset('dubai/assets/images/aws1_icon.png')}}">
+        <img src="{{ asset('dubai/assets/images/aws1_icon.png')}}">
+        <img src="{{ asset('dubai/assets/images/aws1_icon.png')}}">
+        <img src="{{ asset('dubai/assets/images/aws1_icon.png')}}">
       </div>
     </div>
 
@@ -1448,98 +1449,98 @@
    <!-- end  -->
 
 
-     <!-- start  -->
-      <section class="navy-testimonial-slider">
+    <!-- start  -->
+    <section class="navy-testimonial-slider">
 
         <div class="navy-testimonial-header">
             <h2>Client Testimonials</h2>
 
             <div class="navy-slider-controls">
-            <button id="navyPrev">‹</button>
-            <button id="navyNext">›</button>
+                <button id="navyPrev">‹</button>
+                <button id="navyNext">›</button>
             </div>
         </div>
 
         <div class="navy-slider-viewport">
             <div class="navy-slider-track">
 
-            <!-- CARD -->
-            <div class="navy-testimonial-card" data-video="./video/home_banner_video.mp4">
-                <img src="./assets/images/airlane.jpg">
-                <span class="play">▶</span>
-                <h3>David Ams</h3>
-                <p>Co Founder – Luxbubble</p>
-            </div>
+                <!-- CARD -->
+                <div class="navy-testimonial-card" data-video="{{asset('dubai/video/home_banner_video.mp4')}}">
+                    <img src="{{ asset('dubai/assets/images/airlane.jpg')}}">
+                    <span class="play">▶</span>
+                    <h3>David Ams</h3>
+                    <p>Co Founder – Luxbubble</p>
+                </div>
 
-            <div class="navy-testimonial-card" data-video="./video/home_banner_video.mp4">
-                <img src="./assets/images/airlane.jpg">
-                <span class="play">▶</span>
-                <h3>Marco Perez</h3>
-                <p>Co Founder – Bancreach</p>
-            </div>
+                <div class="navy-testimonial-card" data-video="{{asset('dubai/video/home_banner_video.mp4')}}">
+                    <img src="{{ asset('dubai/assets/images/airlane.jpg')}}">
+                    <span class="play">▶</span>
+                    <h3>Marco Perez</h3>
+                    <p>Co Founder – Bancreach</p>
+                </div>
 
-            <div class="navy-testimonial-card" data-video="./video/home_banner_video.mp4">
-                <img src="./assets/images/airlane.jpg">
-                <span class="play">▶</span>
-                <h3>Mishari</h3>
-                <p>CEO – Logibids</p>
-            </div>
+                <div class="navy-testimonial-card" data-video="{{asset('dubai/video/home_banner_video.mp4')}}">
+                    <img src="{{ asset('dubai/assets/images/airlane.jpg')}}">
+                    <span class="play">▶</span>
+                    <h3>Mishari</h3>
+                    <p>CEO – Logibids</p>
+                </div>
 
-            <div class="navy-testimonial-card" data-video="./video/home_banner_video.mp4">
-                <img src="./assets/images/airlane.jpg">
-                <span class="play">▶</span>
-                <h3>Sarah Kim</h3>
-                <p>Founder – BrandPro</p>
-            </div>
+                <div class="navy-testimonial-card" data-video="{{asset('dubai/video/home_banner_video.mp4')}}">
+                    <img src="{{ asset('dubai/assets/images/airlane.jpg')}}">
+                    <span class="play">▶</span>
+                    <h3>Sarah Kim</h3>
+                    <p>Founder – BrandPro</p>
+                </div>
 
-            <div class="navy-testimonial-card" data-video="./video/home_banner_video.mp4">
-                <img src="./assets/images/airlane.jpg">
-                <span class="play">▶</span>
-                <h3>John Carter</h3>
-                <p>CTO – FinTech Hub</p>
-            </div>
+                <div class="navy-testimonial-card" data-video="{{asset('dubai/video/home_banner_video.mp4')}}">
+                    <img src="{{ asset('dubai/assets/images/airlane.jpg')}}">
+                    <span class="play">▶</span>
+                    <h3>John Carter</h3>
+                    <p>CTO – FinTech Hub</p>
+                </div>
 
-            <div class="navy-testimonial-card" data-video="./video/home_banner_video.mp4">
-                <img src="./assets/images/airlane.jpg">
-                <span class="play">▶</span>
-                <h3>Maria Lopez</h3>
-                <p>Director – Bright Labs</p>
-            </div>
-            <div class="navy-testimonial-card" data-video="./video/home_banner_video.mp4">
-                <img src="./assets/images/airlane.jpg">
-                <span class="play">▶</span>
-                <h3>Maria Lopez</h3>
-                <p>Director – Bright Labs</p>
-            </div>
-            <div class="navy-testimonial-card" data-video="./video/home_banner_video.mp4">
-                <img src="./assets/images/airlane.jpg">
-                <span class="play">▶</span>
-                <h3>Maria Lopez</h3>
-                <p>Director – Bright Labs</p>
-            </div>
-            <div class="navy-testimonial-card" data-video="./video/home_banner_video.mp4">
-                <img src="./assets/images/airlane.jpg">
-                <span class="play">▶</span>
-                <h3>Maria Lopez</h3>
-                <p>Director – Bright Labs</p>
-            </div>
-            <div class="navy-testimonial-card" data-video="./video/home_banner_video.mp4">
-                <img src="./assets/images/airlane.jpg">
-                <span class="play">▶</span>
-                <h3>Maria Lopez</h3>
-                <p>Director – Bright Labs</p>
-            </div>
-            <div class="navy-testimonial-card" data-video="./video/home_banner_video.mp4">
-                <img src="./assets/images/airlane.jpg">
-                <span class="play">▶</span>
-                <h3>Maria Lopez</h3>
-                <p>Director – Bright Labs</p>
-            </div>
+                <div class="navy-testimonial-card" data-video="{{asset('dubai/video/home_banner_video.mp4')}}">
+                    <img src="{{ asset('dubai/assets/images/airlane.jpg')}}">
+                    <span class="play">▶</span>
+                    <h3>Maria Lopez</h3>
+                    <p>Director – Bright Labs</p>
+                </div>
+                <div class="navy-testimonial-card" data-video="{{asset('dubai/video/home_banner_video.mp4')}}">
+                    <img src="{{ asset('dubai/assets/images/airlane.jpg')}}">
+                    <span class="play">▶</span>
+                    <h3>Maria Lopez</h3>
+                    <p>Director – Bright Labs</p>
+                </div>
+                <div class="navy-testimonial-card" data-video="{{asset('dubai/video/home_banner_video.mp4')}}">
+                    <img src="{{ asset('dubai/assets/images/airlane.jpg')}}">
+                    <span class="play">▶</span>
+                    <h3>Maria Lopez</h3>
+                    <p>Director – Bright Labs</p>
+                </div>
+                <div class="navy-testimonial-card" data-video="{{asset('dubai/video/home_banner_video.mp4')}}">
+                    <img src="{{ asset('dubai/assets/images/airlane.jpg')}}">
+                    <span class="play">▶</span>
+                    <h3>Maria Lopez</h3>
+                    <p>Director – Bright Labs</p>
+                </div>
+                <div class="navy-testimonial-card" data-video="{{asset('dubai/video/home_banner_video.mp4')}}">
+                    <img src="{{ asset('dubai/assets/images/airlane.jpg')}}">
+                    <span class="play">▶</span>
+                    <h3>Maria Lopez</h3>
+                    <p>Director – Bright Labs</p>
+                </div>
+                <div class="navy-testimonial-card" data-video="{{asset('dubai/video/home_banner_video.mp4')}}">
+                    <img src="{{ asset('dubai/assets/images/airlane.jpg')}}">
+                    <span class="play">▶</span>
+                    <h3>Maria Lopez</h3>
+                    <p>Director – Bright Labs</p>
+                </div>
 
             </div>
         </div>
 
-        </section>
+    </section>
       <!-- end  -->
 
 
@@ -1632,7 +1633,7 @@
                     <div class="col-lg-4 col-md-6 mt--30" data-aos="fade-up" data-aos-delay="100">
                         <div class="rn-blog smart-blog-card">
                             <div class="thumbnail">
-                                <img src="assets/images/blog/blog-01.jpg" alt="Blog Image">
+                                <img src="{{asset('dubai/assets/images/blog/blog-01.jpg')}}" alt="Blog Image">
                                 <span class="tag">Canada</span>
                             </div>
                             <div class="content">
@@ -1653,7 +1654,7 @@
                     <div class="col-lg-4 col-md-6 mt--30" data-aos="fade-up" data-aos-delay="200">
                         <div class="rn-blog smart-blog-card">
                             <div class="thumbnail">
-                                <img src="assets/images/blog/blog-02.jpg" alt="Blog Image">
+                                <img src="{{asset('dubai/assets/images/blog/blog-02.jpg')}}" alt="Blog Image">
                                 <span class="tag">Development</span>
                             </div>
                             <div class="content">
@@ -1674,7 +1675,7 @@
                     <div class="col-lg-4 col-md-6 mt--30" data-aos="fade-up" data-aos-delay="300">
                         <div class="rn-blog smart-blog-card">
                             <div class="thumbnail">
-                                <img src="assets/images/blog/blog-03.jpg" alt="Blog Image">
+                                <img src="{{asset('dubai/assets/images/blog/blog-03.jpg')}}" alt="Blog Image">
                                 <span class="tag">Application</span>
                             </div>
                             <div class="content">
@@ -1736,8 +1737,8 @@
                         </div>
 
                         <div class="nav">
-                            <button class="prev">←</button>
-                            <button class="next">→</button>
+                            <button class="prev consult-prev-btn">←</button>
+                            <button class="next consult-next-btn">→</button>
                         </div>
                     </div>
                 </div>
@@ -1776,17 +1777,17 @@
 
     <!-- BRAND -->
       <div class="footer-col brand">
-      <h2 class="logo">Apptunix</h2>
+      <h2 class="logo">Infiniti</h2>
       <p>Ready to transform your business digitally?</p>
 
       <a href="#" class="footer-btn">Contact Now!</a>
 
       <div class="sales">
         <strong>For sales enquiries:</strong>
-        <a href="mailto:sales@apptunix.com">sales@apptunix.com</a>
+        <a href="mailto:sales@Infiniti.com">sales@Infiniti.com</a>
       </div>
 
-      <img src="assets/images/dmca.png" class="dmca" alt="DMCA">
+      <img src="assets/images/dmca.png')}}" class="dmca" alt="DMCA">
     </div>
 
     <!-- RECENT GUIDES -->
@@ -2096,7 +2097,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "40% more downloads",
         "25% fewer support tickets"
       ],
-      img:"./assets/images/airplane.png"
+      img:"{{asset('dubai/assets/images/airplane.png')}}"
     },
     {
       title:"Healthcare Appointment App",
@@ -2111,7 +2112,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "35% faster check-ins",
         "High user satisfaction"
       ],
-      img:"./assets/images/background-about.jpeg"
+      img:"{{asset('dubai/assets/images/background-about.jpeg')}}"
     },
     {
       title:"E-Commerce Mobile App",
@@ -2126,7 +2127,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "60% retention growth",
         "Smooth checkout"
       ],
-      img:"./assets/images/airlane.jpg"
+      img:"{{asset('dubai/assets/images/airlane.jpg')}}"
     },
     {
       title:"Fitness & Wellness App",
@@ -2141,7 +2142,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "4.8 app rating",
         "Global users"
       ],
-      img:"./assets/images/background-about.jpeg"
+      img:"{{asset('dubai/assets/images/background-about.jpeg')}}"
     }
   ];
 
@@ -2230,7 +2231,7 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       title: "Mobile App Ideation",
       desc: "Ideation is the first step in refining innovative mobile app concepts.",
-      img: "./assets/images/idea_dbnw.png",
+      img: "{{asset('dubai/assets/images/idea_dbnw.png')}}",
       list: [
         "Product Discovery",
         "Market Research",
@@ -2242,7 +2243,7 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       title: "UI / UX Design",
       desc: "We design intuitive and engaging user interfaces for your app.",
-      img: "./assets/images/idea_dbnw.png",
+      img: "{{asset('dubai/assets/images/idea_dbnw.png')}}",
       list: [
         "Wireframing",
         "Prototyping",
@@ -2253,7 +2254,7 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       title: "App Development",
       desc: "Robust and scalable mobile app development using modern technologies.",
-      img: "./assets/images/idea_dbnw.png",
+      img: "{{asset('dubai/assets/images/idea_dbnw.png')}}",
       list: [
         "Frontend Development",
         "Backend Development",
@@ -2350,58 +2351,53 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
+  const track = document.querySelector(".navy-slider-track");
+  const cards = document.querySelectorAll(".navy-testimonial-card");
+  const nextBtn = document.getElementById("navyNext");
+  const prevBtn = document.getElementById("navyPrev");
 
-        const track = document.querySelector(".navy-slider-track");
-        const cards = document.querySelectorAll(".navy-testimonial-card");
-        const nextBtn = document.getElementById("navyNext");
-        const prevBtn = document.getElementById("navyPrev");
+  if (!track || !cards.length || !nextBtn || !prevBtn) return;
 
-        if (!track || !cards.length || !nextBtn || !prevBtn) {
-            console.warn("Slider elements missing");
-            return;
-        }
+  let index = 0;
+  let visible = 3;
+  const gap = 24;
 
-        let index = 0;
-        let visible = 3;
-        const gap = 24;
+  function updateVisible() {
+    if (window.innerWidth < 600) visible = 1;
+    else if (window.innerWidth < 900) visible = 2;
+    else visible = 3;
+  }
 
-        function updateVisible() {
-            if (window.innerWidth < 600) visible = 1;
-            else if (window.innerWidth < 900) visible = 2;
-            else visible = 3;
-        }
+  function slide() {
+    const cardWidth = cards[0].getBoundingClientRect().width + gap;
+    track.style.transform = `translateX(-${index * cardWidth}px)`;
+  }
 
-        function slide() {
-            const cardWidth = cards[0].offsetWidth + gap;
-            track.style.transform = `translateX(-${index * cardWidth}px)`;
-        }
+  nextBtn.addEventListener("click", () => {
+    updateVisible();
+    index = Math.min(index + 1, cards.length - visible);
+    slide();
+  });
 
-        nextBtn.addEventListener("click", () => {
-            updateVisible();
-            if (index < cards.length - visible) {
-            index++;
-            slide();
-            }
-        });
+  prevBtn.addEventListener("click", () => {
+    index = Math.max(index - 1, 0);
+    slide();
+  });
 
-        prevBtn.addEventListener("click", () => {
-            if (index > 0) {
-            index--;
-            slide();
-            }
-        });
+  window.addEventListener("resize", () => {
+    index = 0;
+    updateVisible();
+    slide();
+  });
 
-        window.addEventListener("resize", () => {
-            index = 0;
-            updateVisible();
-            slide();
-        });
+  updateVisible();
+  slide();
+});
+</script>
 
-        });
-        </script>
 
 </body>
 </html>

@@ -526,7 +526,6 @@
 
     transition: all 0.6s ease;
     scroll-snap-align: start;
-
     box-shadow: 0 25px 60px rgba(0,0,0,0.45);
 } */
 
