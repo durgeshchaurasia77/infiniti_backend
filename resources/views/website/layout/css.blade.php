@@ -298,7 +298,7 @@
   max-width:1400px;
   margin:auto;
   display:grid;
-  grid-template-columns: 1.5fr 1.3fr 1.3fr 1.3fr;
+  grid-template-columns: 1.2fr 1.2fr 1.2fr 1.2fr 1.2fr;
   gap:50px;
 }
 
@@ -492,7 +492,7 @@
     font-weight: 600;
     line-height: 1.2;
 }
- 
+
 .case-title span {
     color: #60a5fa;
 }
@@ -696,7 +696,7 @@
 </style>
 <style>
 #tech-tab {
-    scroll-margin-top: 100px; 
+    scroll-margin-top: 100px;
 }
 
 </style>

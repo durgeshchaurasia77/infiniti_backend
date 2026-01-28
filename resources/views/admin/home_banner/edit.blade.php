@@ -30,12 +30,12 @@ Home Banner
                                         <label class="col-form-label">Title<span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" name="title" id="title" placeholder="Please Enter title..." value="{{ $homeBannerData->title ?? '' }}" required>
                                     </div>
-                                    <div class="mb-2 w-100">
+                                    {{-- <div class="mb-2 w-100">
                                         <label class="col-form-label">
                                             Image <span class="text-danger">*</span>
                                         </label>
 
-                                        <input 
+                                        <input
                                             type="file"
                                             class="form-control"
                                             name="image"
@@ -46,14 +46,41 @@ Home Banner
 
                                         @if(!empty($homeBannerData->image))
                                             <div class="mt-2">
-                                                <img 
+                                                <img
                                                     src="{{ asset($homeBannerData->image) }}"
                                                     alt="Banner Image"
                                                     style="max-width: 200px; border-radius: 6px;"
                                                 >
                                             </div>
                                         @endif
+                                    </div> --}}
+                                    <div class="mb-2 w-100">
+                                        <label class="col-form-label">
+                                            Video <span class="text-danger">*</span>
+                                        </label>
+
+                                        <input
+                                            type="file"
+                                            class="form-control"
+                                            name="video"
+                                            id="video"
+                                            accept="video/*"
+                                        >
+
+                                        @if(!empty($homeBannerData->image))
+                                            <div class="mt-2">
+                                                <video
+                                                    width="260"
+                                                    controls
+                                                    style="border-radius: 6px;"
+                                                >
+                                                    <source src="{{ asset($homeBannerData->image) }}" type="video/mp4">
+                                                    Your browser does not support the video tag.
+                                                </video>
+                                            </div>
+                                        @endif
                                     </div>
+
                                 </div>
                                 <div id="dynamic-fields">
                                     @if(isset($homeBannerData->detais) && count($homeBannerData->detais) > 0)

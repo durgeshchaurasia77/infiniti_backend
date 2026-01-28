@@ -87,7 +87,9 @@
         <header class="navbar">
         <!-- LEFT -->
         <div class="logo header-logo">
-            <img src="{{ asset($settingData->header_logo ?? 'website1/assets/images/infiniti-logo.png') }}" alt=""></div>
+            <a href="{{ route('web_home') }}">
+                <img src="{{ asset($settingData->header_logo ?? 'website1/assets/images/infiniti-logo.png') }}" alt=""></div>
+            </a>
         <!-- CENTER -->
          <div class="mobile-toggle">
             <i class="fa-solid fa-bars"></i>
@@ -236,7 +238,7 @@
             </li>
 
 
-            <li><a href="#">About</a></li>
+            <li><a href="{{ route('about-us') }}">About</a></li>
             <li><a href="#">Blog</a></li>
             <div class="nav-right">
                 <a class="btn-primary">Get In Touch</a>

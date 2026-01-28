@@ -10,7 +10,9 @@
     <div class="footer-col brand">
       {{-- <h2 class="logo">Apptunix</h2> --}}
       <div class="logo header-logo">
+        <a href="{{ route('web_home') }}">
             <img src="{{ asset($settingData->footer_logo ?? 'website1/assets/images/infiniti-logo.png') }}" alt=""></div>
+      </a>
       <p>{{ $settingData->footer_about ?? '' }}</p>
 
       <a href="#" class="footer-btn">Contact Now!</a>
@@ -20,7 +22,7 @@
         <a href="mailto:{{ $settingData->email ?? 'example@email.com' }}">{{ $settingData->email ?? 'example@email.com' }}</a>
       </div>
 
-      <img src="assets/images/dmca.png" class="dmca" alt="DMCA">
+      {{-- <img src="assets/images/dmca.png" class="dmca" alt="DMCA"> --}}
     </div>
 
     <!-- RECENT GUIDES -->
@@ -56,6 +58,15 @@
             @endforeach
             </ul>
         @endif
+    </div>
+    <div class="footer-col">
+
+            <h4>We Are In Dubai</h4>
+            <ul>
+            <li><a href="{{ route('digital-marketing-dubai') }}">Digital Marketing</a></li>
+            <li><a href="{{ route('mobile-app-development-dubai') }}">Mobile App Development</a></li>
+            <li><a href="{{ route('performance-marketing-dubai') }}">Performance Marketing</a></li>
+            </ul>
     </div>
 
     <!-- SUBSCRIBE -->

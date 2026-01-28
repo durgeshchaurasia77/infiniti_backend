@@ -14,8 +14,7 @@ class HomeBanner extends Model
                             'id',
                             'title',
                             'image',
-                            'detais',
-                            'image',
+                            'detais'
                         ];
 
 

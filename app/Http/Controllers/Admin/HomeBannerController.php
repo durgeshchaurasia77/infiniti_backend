@@ -64,78 +64,77 @@ class HomeBannerController extends Controller
     * @return Illuminate\Http\Response;
     */
 
-    public function update(Request $request)
-    {
-        $rules = [
-            'id'              => 'nullable|exists:banners,id',
-            'title'           => 'required|string|max:50|unique:banners,title,' . $request->id,
-            'details'         => 'nullable|array',
-            'image'           => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+public function update(Request $request)
+{
+    // dd($request->all());
+    $rules = [
+        'id'      => 'nullable|exists:banners,id',
+        'title'   => 'required|string|max:50|unique:banners,title,' . $request->id,
+        'details' => 'nullable|array',
+    ];
 
-            // 'seo_title'       => 'nullable|string|max:255',
-            // 'seo_keywords'    => 'nullable|string|max:255',
-            // 'seo_description' => 'nullable|string',
-            // 'seo_image'       => 'nullable|string|max:255',
-        ];
-// dd($request->all());
-        $validator = Validator::make($request->all(), $rules);
+    $validator = Validator::make($request->all(), $rules);
 
-        if ($validator->fails()) {
-            return response()->json([
-                'responseCode'    => (string)$this->errorStatus,
-                'responseMessage' => $validator->errors()->first(),
-            ]);
-        }
+    if ($validator->fails()) {
+        return response()->json([
+            'responseCode'    => (string) $this->errorStatus,
+            'responseMessage' => $validator->errors()->first(),
+        ]);
+    }
+    try {
+        DB::beginTransaction();
+dd($request->file('video'));
+        $banner = HomeBanner::firstOrNew(['id' => $request->id]);
+        /* ========= VIDEO UPLOAD (SAVED IN IMAGE COLUMN) ========= */
+        if ($request->hasFile('video')) {
 
-        try {
-            DB::beginTransaction();
+            $file = $request->file('video');
 
-            // create or update
-            $banner = HomeBanner::firstOrNew(['id' => $request->id]);
-
-            if ($request->hasfile('image')) {
-                $file = $request->file('image');
-                $extension = $file->getClientOriginalExtension();
-                $filename = ((string)(microtime(true) * 10000)) . '.' . $extension;
-                $file->move(public_path('images/admin/banners/'), $filename);
-                $imagePath = 'images/admin/banners/' . $filename;
-            }else{
-                $imagePath = $banner->image ?? '';
-            }
-
-            // SEO image upload (optional)
-            // if ($request->hasFile('seo_image')) {
-            //     $banner->seo_image = $request->file('seo_image')
-            //         ->store('seo/banners', 'public');
+            // if (!$file->isValid()) {
+            //     throw new \Exception('Invalid video file');
             // }
 
-            // Map fields
-            $banner->title  = $request->title;
-            $banner->image  = $imagePath ?? '' ;
-            $banner->detais = $request->details ?? '';
-            // $banner->seo_title        = $request->seo_title;
-            // $banner->seo_keywords     = $request->seo_keywords;
-            // $banner->seo_description  = $request->seo_description;
+            $filename = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
 
-            $banner->save();
+            $destination = public_path('videos/admin/banners');
 
-            DB::commit();
+            if (!file_exists($destination)) {
+                mkdir($destination, 0755, true);
+            }
 
-            return response()->json([
-                'responseCode'    => (string)$this->successStatus,
-                'responseMessage' => $request->id
-                    ? 'Banner Updated Successfully.'
-                    : 'Banner Created Successfully.',
-            ]);
+            $file->move($destination, $filename);
 
-        } catch (\Exception $e) {
-            DB::rollBack();
+            $mediaPath = 'videos/admin/banners/' . $filename;
 
-            return response()->json([
-                'responseCode'    => (string)$this->errorStatus,
-                'responseMessage' => 'Something went wrong. Please try again.',
-            ]);
+        } else {
+            // keep old video
+            $mediaPath = $banner->image ?? '';
         }
+        /* ========= SAVE ========= */
+        $banner->title   = $request->title;
+        $banner->image   = $mediaPath;   // ✅ VIDEO PATH SAVED IN IMAGE COLUMN
+        $banner->detais = $request->details ?? [];
+
+        $banner->save();
+
+        DB::commit();
+
+        return response()->json([
+            'responseCode'    => (string) $this->successStatus,
+            'responseMessage' => $request->id
+                ? 'Banner Updated Successfully.'
+                : 'Banner Created Successfully.',
+        ]);
+
+    } catch (\Exception $e) {
+        DB::rollBack();
+
+        return response()->json([
+            'responseCode'    => (string) $this->errorStatus,
+            'responseMessage' => $e->getMessage().'dd', // show real error while testing
+        ]);
     }
+}
+
 
 }

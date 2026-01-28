@@ -64,6 +64,9 @@ use App\Http\Controllers\Website\OurServicesController as WebOurServicesControll
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/phpinfo', function () {
+    phpinfo();
+});
 
 // Route::get('mobile_privacy_policy', [CMSController::class,'mobile_privacy_policy'])->name('mobile_privacy_policy');
 // Route::get('mobile_term_condition', [CMSController::class,'mobile_term_condition'])->name('mobile_term_condition');
