@@ -71,6 +71,7 @@ public function update(Request $request)
         'id'      => 'nullable|exists:banners,id',
         'title'   => 'required|string|max:50|unique:banners,title,' . $request->id,
         'details' => 'nullable|array',
+        'video'=> 'nullable|max',
     ];
 
     $validator = Validator::make($request->all(), $rules);
