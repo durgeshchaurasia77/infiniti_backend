@@ -262,7 +262,36 @@ class HomeController extends Controller
 
         return view('website.about', $details);
     }
+    public function blog(Request $request)
+    {
+        $details = [];
+        // $details['aboutus']            = $this->aboutus::first();
+        // $details['ourmissions']        = $this->ourmissions::first();
+        // $details['ourservicesheader']  = $this->ourservicesheader::first();
+        // $details['ourservices']        = $this->ourservices::where(['status' => 1])->get();
 
+        return view('website.blog', $details);
+    }
+    public function blogDetails(Request $request)
+    {
+        $details = [];
+        // $details['aboutus']            = $this->aboutus::first();
+        // $details['ourmissions']        = $this->ourmissions::first();
+        // $details['ourservicesheader']  = $this->ourservicesheader::first();
+        // $details['ourservices']        = $this->ourservices::where(['status' => 1])->get();
+
+        return view('website.blog-details', $details);
+    }
+    public function services(Request $request)
+    {
+        $details = [];
+        // $details['aboutus']            = $this->aboutus::first();
+        // $details['ourmissions']        = $this->ourmissions::first();
+        // $details['ourservicesheader']  = $this->ourservicesheader::first();
+        // $details['ourservices']        = $this->ourservices::where(['status' => 1])->get();
+
+        return view( 'website.services', $details);
+    }
     public function digitalMarketing(Request $request)
     {
 

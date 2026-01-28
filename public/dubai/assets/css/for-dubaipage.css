@@ -1,0 +1,3738 @@
+body {
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+}
+
+
+.navbar{
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-height: 100px;
+  z-index: 9999;
+  padding: 16px 40px;
+  background: linear-gradient(
+    to bottom,
+    rgba(6,18,40,0.75),
+    rgba(6,18,40,0.45),
+    rgba(6,18,40,0.15)
+  );
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  transition: all 0.3s ease;
+}
+.navbar.is-fixed{
+  position:fixed;
+  background:#ffffff;
+  box-shadow:0 10px 30px rgba(0,0,0,.12);
+}
+.menu-close{
+position:absolute;
+top:22px;
+right:25px;
+font-size:34px;
+color:#fff;
+cursor:pointer;
+}
+.navbar.is-fixed a,
+.navbar.is-fixed .item,
+.navbar.is-fixed li{
+  color:#111 !important;
+}
+.logo img {
+    width: 250px !important;
+    height: 50px !important;
+}
+.nav-right-wrap{
+  display:flex !important;
+  align-items:center !important;
+  gap:25px !important;
+}
+.menu {
+    list-style: none !important;
+    display: flex !important;
+    gap: 35px !important;
+    margin-left: auto !important;
+    align-items: center !important;
+}
+.menu a{
+  color:#fff !important;
+  text-decoration:none !important;
+}
+.nav-right{
+  display:flex !important;
+  gap:12px !important;
+}
+.btn-primary{
+  background:#0d7bff !important;
+  padding:10px 22px !important;
+  border-radius:24px !important;
+  color:#fff !important;
+  text-decoration:none !important;
+}
+.btn-outline{
+  border:1px solid rgba(255,255,255,.6) !important;
+  padding:10px 22px !important;
+  border-radius:24px !important;
+  color:#fff !important;
+  text-decoration:none !important;
+}
+.menu li{
+ position:relative !important;
+}
+.mega-menu{
+ position:absolute !important;
+ top: 209% !important;
+ left: 103% !important;
+ transform:translateX(-50%) !important;
+ width:1150px !important;
+ background:linear-gradient(140deg,#0a1f44,#021025) !important;
+ padding:35px 40px !important;
+ border-radius:18px !important;
+ display:block !important;
+ opacity:0 !important;
+ visibility:hidden !important;
+ transition:.2s ease !important;
+ box-shadow:0 40px 80px rgba(0,0,0,.45) !important;
+ border:1px solid rgba(255,255,255,.06) !important;
+}
+.menu li:hover .mega-menu{
+ opacity:1 !important;
+ visibility:visible !important;
+}
+.mega-wrap{
+ display:flex !important;
+ justify-content:space-between !important;
+ gap:20px !important;
+}
+.left{
+ width:70% !important;
+ display:grid !important;
+ grid-template-columns:repeat(3,1fr) !important;
+ gap:25px !important;
+}
+.col h4{
+ color:#9ec0ff !important;
+ letter-spacing:.5px !important;
+ font-size:13px !important;
+ margin-bottom:10px !important;
+}
+.item{
+ color:#fff !important;
+ margin-bottom:12px !important;
+ display:flex !important;
+ align-items:center !important;
+ gap:10px !important;
+ font-size:14px !important;
+}
+.item i{
+ color:#3ea3ff !important;
+ font-size:18px !important;
+}
+.right{
+ width:28% !important;
+ display:flex !important;
+ flex-direction:column !important;
+ align-items:center !important;
+ justify-content:center !important;
+ color:white !important;
+ gap:10px !important;
+ border-left:1px solid rgba(255,255,255,.15) !important;
+}
+.right img{
+ width:210px !important;
+}
+.item:hover{
+ opacity:.9 !important;
+ cursor:pointer !important;
+}
+.carousel{
+  width:230px !important;
+  height:230px !important;
+  overflow:hidden !important;
+  position:relative !important;
+  border-radius:14px !important;
+}
+.carousel1{
+  width:100% !important;
+  height:100% !important;
+  overflow:hidden !important;
+  position:relative !important;
+  border-radius:14px !important;
+}
+.slides{
+  display:flex !important;
+  width:100% !important;
+  height:100% !important;
+  transition:0.5s ease !important;
+}
+.slides img{
+  width:230px !important;
+  height:230px !important;
+  object-fit:contain !important;
+}
+.crousel-caption h3 {
+    font-size: 25px !important;
+    text-align: center;
+}
+.dots{
+  margin-top:10px !important;
+}
+.dot{
+  width:8px !important;
+  height:8px !important;
+  display:inline-block !important;
+  margin:0 4px !important;
+  border-radius:50% !important;
+  background:#6d7fae !important;
+  cursor:pointer !important;
+}
+.dot.active{
+  background:white !important;
+}
+.mobile-toggle{
+  display: none;
+}
+  .mobile-toggle,
+  .menu-close{
+    display:none;
+  }
+@media (max-width: 991px) {
+  .mobile-toggle,
+  .menu-close{
+    display:block;
+  }
+  .navbar{
+    padding: 12px 18px;
+    background:#061228;
+  }
+
+  /* logo */
+  .logo img{
+    width:180px !important;
+    height:auto !important;
+  }
+
+  /* hamburger */
+  .mobile-toggle{
+    display:block;
+    margin-left:auto;
+    font-size:24px;
+    color:#fff;
+    cursor:pointer;
+  }
+
+  /* hide menu by default */
+  .menu{
+    position:fixed;
+    top:0;
+    right:-100%;
+    width:100%;
+    height:100vh;
+    background:#061228;
+    flex-direction:column;
+    padding:90px 25px;
+    gap:25px;
+    transition:.4s ease;
+  }
+
+  .menu.active{
+    right:0;
+  }
+
+  .menu li{
+    width:100%;
+  }
+
+  .menu a{
+    font-size:18px;
+  }
+
+  /* nav buttons */
+  .nav-right{
+    flex-direction:column;
+    width:100%;
+    margin-top:20px;
+  }
+
+  .nav-right a{
+    width:100%;
+    text-align:center;
+  }
+
+  /* mega menu mobile */
+  .mega-menu{
+    position:static !important;
+    width:100% !important;
+    transform:none !important;
+    background:#081a3a !important;
+    padding:20px !important;
+    border-radius:12px !important;
+    opacity:1 !important;
+    visibility:visible !important;
+    display:none !important;
+    margin-top:15px;
+  }
+
+  .menu li.open .mega-menu{
+    display:block !important;
+  }
+
+  .mega-wrap{
+    flex-direction:column !important;
+  }
+
+  .left{
+    grid-template-columns:1fr !important;
+    width:100% !important;
+  }
+
+  .right{
+    width:100% !important;
+    border-left:none !important;
+    border-top:1px solid rgba(255,255,255,.2);
+    padding-top:15px;
+  }
+
+  .carousel{
+    width:180px !important;
+    height:180px !important;
+  }
+
+}
+
+
+
+
+
+.mobile-app-devlopment-dubai-hero-left h1 {
+    color: #000;
+    font-size: 40px;
+
+}
+.mobile-app-devlopment-dubai-hero-section{
+  min-height: 480px;
+  background: url("../images/dubaibnr_bg.jpg") no-repeat center / cover;
+  display: flex;
+  align-items: center;
+  padding-top: 100px;
+}
+
+
+.mobile-app-devlopment-dubai-hero-container{
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobile-app-devlopment-dubai-hero-left{
+  width: 50%;
+}
+
+
+.mobile-app-devlopment-dubai-hero-left h1 span{
+  color: #0d6efd;
+
+}
+
+.mobile-app-devlopment-dubai-hero-left p{
+  margin: 20px 0;
+  line-height: 1.7;
+  color: #555;
+}
+
+.mobile-app-devlopment-dubai-hero-btn{
+  display: inline-block;
+  padding: 14px 26px;
+  background: #0d6efd;
+  color: #fff;
+  border-radius: 30px;
+  text-decoration: none;
+}
+
+.mobile-app-devlopment-dubai-hero-right{
+  width: 45%;
+  display: flex;
+  justify-content: center;
+}
+
+.mobile-app-devlopment-dubai-hero-right img{
+  width: 100%;
+  max-width: 420px;
+  border-radius: 24px;
+}
+@media(max-width: 768px){
+  .mobile-app-devlopment-dubai-hero-container{
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .mobile-app-devlopment-dubai-hero-left,
+  .mobile-app-devlopment-dubai-hero-right{
+    width: 100%;
+  }
+
+  .mobile-app-devlopment-dubai-hero-right img{
+    margin-top: 30px;
+  }
+}
+
+/* mobile-app-devlopment-dubai-hero-right img end  */
+
+.trusted{
+  background:linear-gradient(140deg,#0a1f44,#021025) !important;
+  padding:15px 0 !important;
+}
+
+.trusted-wrap{
+  max-width:1200px !important;
+  margin:auto !important;
+  display:flex !important;
+  align-items:center !important;
+  gap:35px !important;
+  color:white !important;
+}
+
+.trusted-badge {
+    min-width: 150px;
+    display: inline-flex;
+    background: linear-gradient(90deg, #006bef 0, rgba(13, 16, 17, 0) 90%);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.logo-slider{
+  overflow:hidden !important;
+  flex:1 !important;
+}
+
+.logos{
+  display:flex !important;
+  gap:45px !important;
+  align-items:center !important;
+  animation:scroll 18s linear infinite !important;
+}
+.logos img{
+  height:38px !important;
+  opacity:.85 !important;
+  filter:brightness(0) invert(1) !important;
+  transition:.3s ease !important;
+}
+.logo-box{
+  width:150px;
+  height:60px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.logo-box img{
+  max-width:157px;
+  max-height:100%;
+  object-fit:contain;
+  opacity:.85;
+  filter:brightness(0) invert(1);
+  transition:.3s ease;
+}
+
+.logo-box img:hover{
+  filter:none;
+  opacity:1;
+  transform:scale(1.05);
+}
+
+.logos img:hover{
+  filter:none !important;
+  opacity:1 !important;
+  transform:scale(1.05);
+  filter:drop-shadow(0 0 6px rgba(255,255,255,.4));
+}
+@keyframes scroll{
+  from{ transform:translateX(0); }
+  to{ transform:translateX(-50%); }
+}
+
+/* /* trusted-badge end  */
+
+.homepage-statssection-stats {
+    display: flex;
+    justify-content: center;
+    gap: 13px;
+    flex-wrap: wrap;
+    padding: 40px 0px;
+}
+
+.homepage-statssection-stats .homepage-stat-card{
+background:linear-gradient(
+  180deg,
+  #001a3d 0%,
+  #06419c 60%,
+  #06419c 100%
+);
+
+
+  padding:25px 25px;
+  border-radius:18px;
+  text-align:center;
+  color:#fff;
+  min-width:210px;
+  box-shadow:
+      inset 0 2px 6px rgba(255,255,255,.08),
+      0 8px 18px rgba(0,0,0,.25);
+  transition:all .35s ease;
+  cursor:pointer;
+}
+
+
+.homepage-statssection-stats .homepage-stat-card h2 {
+    font-size: 40px;
+    margin: 0;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.homepage-statssection-stats .homepage-stat-card p {
+    margin-top: 8px;
+    font-size: 16px;
+    opacity: .9;
+    font-weight: 300;
+}
+
+.homepage-statssection-stats .homepage-stat-card:hover{
+  transform:translateY(-8px) scale(1.03);
+  box-shadow:0 18px 35px rgba(0,0,0,.35);
+  background:linear-gradient(#0a4db3,#033375);
+}
+
+.homepage-statssection-stats.bg-image{
+  position:relative;
+  padding:80px 20px;
+  background:linear-gradient(140deg,#062b5c,#0a4aa3);
+  overflow:hidden;
+}
+
+.homepage-statssection-stats.bg-image::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url("../images/peoples.png") center/cover no-repeat;
+
+  opacity:.2;
+}
+
+.homepage-statssection-stats.bg-image .homepage-stat-card{
+  position:relative;
+  z-index:2;
+}
+
+
+/* homepage-statssection-stats.bg-image end  */
+
+/* =========================
+   SECTION BASE
+========================= */
+
+.mobile-app-devlopment-dubai-partner-section{
+  padding:80px 20px;
+  background:#fff;
+}
+
+.mobile-app-devlopment-dubai-partner-container{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1.1fr 1fr;
+  gap:60px;
+  align-items:center;
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.mobile-app-devlopment-dubai-partner-content h2{
+  font-size:36px;
+  line-height:1.25;
+  margin-bottom:20px;
+  font-weight:500;
+}
+
+.mobile-app-devlopment-dubai-partner-content p{
+  font-size:16px;
+  line-height:1.7;
+  color:#555;
+  margin-bottom:30px;
+}
+
+.mobile-app-devlopment-dubai-partner-section .cta-btn{
+  display:inline-block;
+  background:#0a58ff;
+  color:#fff;
+  padding:14px 30px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+  transition:.3s ease;
+}
+
+.mobile-app-devlopment-dubai-partner-section .cta-btn:hover{
+  background:#0847d8;
+}
+
+/* =========================
+   SLIDER
+========================= */
+
+.mobile-app-devlopment-dubai-partner-slider{
+  width:100%;
+  max-width:500px;
+  overflow:hidden;
+  border-radius:18px;
+}
+
+.mobile-app-devlopment-dubai-slider-track{
+  display:flex;
+  gap:16px;
+  width:max-content;
+  animation: mobileDubaiSlide 22s linear infinite;
+}
+
+.mobile-app-devlopment-dubai-slide{
+  min-width:500px;
+  height:320px;
+  border-radius:18px;
+  overflow:hidden;
+  flex-shrink:0;
+}
+
+.mobile-app-devlopment-dubai-slide img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* =========================
+   SLIDER ANIMATION (SMOOTH)
+========================= */
+
+@keyframes mobileDubaiSlide{
+  from{
+    transform:translateX(0);
+  }
+  to{
+    transform:translateX(-50%);
+  }
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media(max-width:900px){
+
+  .mobile-app-devlopment-dubai-partner-container{
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+
+  .mobile-app-devlopment-dubai-partner-content h2{
+    font-size:32px;
+  }
+
+  .mobile-app-devlopment-dubai-partner-slider{
+    max-width:100%;
+  }
+
+  .mobile-app-devlopment-dubai-slide{
+    min-width:100%;
+    height:300px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+  .mobile-app-devlopment-dubai-partner-section{
+    padding:60px 16px;
+  }
+
+  .mobile-app-devlopment-dubai-partner-content h2{
+    font-size:28px;
+  }
+
+  .mobile-app-devlopment-dubai-slide{
+    height:240px;
+  }
+}
+
+
+.mobile-app-devlopment-dubai-slide{
+  min-width:500px;
+  height:320px;
+  border-radius:18px;
+  overflow:hidden;
+}
+
+.mobile-app-devlopment-dubai-slide img{
+  width:500px;
+  height:100%;
+  object-fit:cover;
+}
+
+
+@keyframes mobileDubaiSlide{
+  0%,20%{
+    transform:translateX(0);
+  }
+
+  30%,50%{
+    transform:translateX(-516px);
+  }
+
+  60%,80%{
+    transform:translateX(-1032px);
+  }
+
+  100%{
+    transform:translateX(-1548px);
+  }
+}
+
+
+@media(max-width:900px){
+  .mobile-app-devlopment-dubai-partner-container{
+    grid-template-columns:1fr;
+  }
+
+  .mobile-app-devlopment-dubai-partner-content h2{
+    font-size:32px;
+  }
+}
+
+
+
+/*mobile-app-devlopment-dubai-partner-section end  */
+
+.our-premium-mobile-development-for-dubai-flip-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  justify-items: center;
+  margin-top: 40px;
+}
+
+.our-premium-mobile-development-for-dubai-flip-card{
+  width: 100%;
+  max-width: 400px;
+  height: 420px;
+  perspective: 1200px;
+}
+
+.our-premium-mobile-development-for-dubai-flip-inner{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease;
+}
+
+.our-premium-mobile-development-for-dubai-flip-card:hover
+.our-premium-mobile-development-for-dubai-flip-inner{
+  transform: rotateY(180deg);
+}
+
+
+.our-premium-mobile-development-for-dubai-flip-front,
+.our-premium-mobile-development-for-dubai-flip-back{
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+
+
+.our-premium-mobile-development-for-dubai-flip-front{
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  padding: 24px;
+  color: #fff;
+}
+
+.our-premium-mobile-development-for-dubai-flip-front h3{
+  font-size: 22px;
+  font-weight: 600;
+}
+
+
+.our-premium-mobile-development-for-dubai-front-icon{
+  position: absolute;
+  bottom: 101px;
+  left: 18px;
+  width: 48px;
+  height: 48px;
+  background: #fff;
+  color: #0a2e63;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+.our-premium-mobile-development-for-dubai-flip-card:hover
+.our-premium-mobile-development-for-dubai-front-icon{
+  transform: scale(1.1);
+  transition: 0.3s ease;
+}
+
+.our-premium-mobile-development-for-dubai-flip-back{
+  background: linear-gradient(135deg, #061d3c, #0a2e63);
+  color: #fff;
+  transform: rotateY(180deg);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+}
+
+.our-premium-mobile-development-for-dubai-flip-back h3{
+  font-size: 22px;
+}
+
+.our-premium-mobile-development-for-dubai-flip-back p{
+  font-size: 15px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+
+.our-premium-mobile-development-for-dubai-btn{
+  margin-top: 10px;
+  align-self: flex-start;
+  padding: 10px 18px;
+  background: #fff;
+  color: #0a2e63;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+
+.our-premium-mobile-development-for-dubai-flip-back .flip-desc{
+  font-size: 15px;
+  line-height: 1.7;
+  opacity: 0.95;
+  margin-bottom: 20px;
+}
+
+
+.our-premium-mobile-development-for-dubai-flip-back .flip-divider{
+  display: block;
+  height: 1px;
+  background: rgba(255,255,255,0.25);
+  margin: 18px 0;
+}
+
+
+.our-premium-mobile-development-for-dubai-flip-back .flip-list{
+  list-style: none;
+  padding: 0;
+  margin: 0 0 26px;
+}
+
+.our-premium-mobile-development-for-dubai-flip-back .flip-list li{
+  position: relative;
+  padding-left: 26px;
+  margin-bottom: 14px;
+  font-size: 15px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.our-premium-mobile-development-for-dubai-flip-back .flip-list li::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: linear-gradient(135deg,#2ec5ff,#007bff);
+}
+
+
+.our-premium-mobile-development-for-dubai-btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  background: linear-gradient(135deg,#0084ff,#005eff);
+  color: #fff;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 15px;
+  transition: 0.3s ease;
+}
+
+.our-premium-mobile-development-for-dubai-btn:hover{
+  transform: translateX(4px);
+  box-shadow: 0 10px 24px rgba(0,120,255,0.4);
+}
+.our-premium-mobile-development-for-dubai-container{
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+.our-premium-mobile-development-for-dubai-heading{
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 60px;
+}
+
+.our-premium-mobile-development-for-dubai-heading h2 {
+    font-size: 40px;
+    line-height: 1.25;
+    font-weight: 700;
+    color: #0b0b0b;
+    margin-bottom: 20px;
+}
+
+.our-premium-mobile-development-for-dubai-heading p{
+  font-size: 18px;
+  line-height: 1.7;
+  color: #444;
+}
+
+/* RESPONSIVE */
+@media (max-width: 991px){
+  .our-premium-mobile-development-for-dubai-heading h2{
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 575px){
+  .our-premium-mobile-development-for-dubai-heading h2{
+    font-size: 28px;
+  }
+
+  .our-premium-mobile-development-for-dubai-heading p{
+    font-size: 16px;
+  }
+}
+@media (max-width: 991px){
+  .our-premium-mobile-development-for-dubai-flip-grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 575px){
+  .our-premium-mobile-development-for-dubai-flip-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .our-premium-mobile-development-for-dubai-flip-card{
+    height: 380px;
+  }
+
+  .our-premium-mobile-development-for-dubai-front-icon{
+    bottom: 90px;
+  }
+}
+
+
+
+
+
+/* our-premium-mobile-development-for-dubai-flip-grid end  */
+
+
+
+.mobile-development-for-dubai-businesses-with-exceptional-industries-heading{
+  max-width: 1100px;
+  margin: 0 auto 50px;
+  text-align: center;
+}
+
+.mobile-development-for-dubai-businesses-with-exceptional-industries-heading h2{
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.mobile-development-for-dubai-businesses-with-exceptional-industries-heading h2 span{
+  color: #0d6efd;
+}
+
+.mobile-development-for-dubai-businesses-with-exceptional-industries-heading p{
+  margin-top: 18px;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #555;
+}
+
+
+.mobile-development-for-dubai-businesses-with-exceptional-services-row{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+
+.mobile-development-for-dubai-businesses-with-exceptional-service-card{
+  position: relative;
+  height: 340px;
+  border-radius: 28px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+
+.mobile-development-for-dubai-businesses-with-exceptional-card-front{
+  position: absolute;
+  inset: 0;
+  background: #f5fbff;
+  text-align: center;
+  z-index: 1;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-development-for-dubai-businesses-with-exceptional-card-front img{
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 28px 28px 0 0;
+}
+
+.mobile-development-for-dubai-businesses-with-exceptional-card-front h4{
+  margin-top: 14px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.mobile-development-for-dubai-businesses-with-exceptional-card-hover{
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg,#35b6ff,#0a5aa8);
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px;
+
+  z-index: 2;
+  transition: top 0.45s ease;
+}
+
+.mobile-development-for-dubai-businesses-with-exceptional-service-card:hover
+.mobile-development-for-dubai-businesses-with-exceptional-card-front{
+  opacity: 0;
+  visibility: hidden;
+}
+
+.mobile-development-for-dubai-businesses-with-exceptional-service-card:hover
+.mobile-development-for-dubai-businesses-with-exceptional-card-hover{
+  top: 0;
+}
+
+
+.mobile-development-for-dubai-businesses-with-exceptional-image-wrap{
+  position: relative;
+  width: 100%;
+  height: 230px;
+}
+
+.mobile-development-for-dubai-businesses-with-exceptional-image-wrap img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 28px 28px 0 0;
+}
+
+
+.mobile-development-for-dubai-businesses-with-exceptional-center-icon{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 70px;
+  height: 70px;
+  background: #1e9bf0;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+
+.mobile-development-for-dubai-businesses-with-exceptional-center-icon img{
+  width: 32px;
+  height: 32px;
+}
+.custom-container{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+.mobile-development-for-dubai-businesses-with-exceptional-service-card{
+  position: relative;
+  height: 340px;
+  border-radius: 28px;
+  overflow: hidden;
+  cursor: pointer;
+
+  transition: box-shadow 0.35s ease, transform 0.35s ease;
+}
+.mobile-development-for-dubai-businesses-with-exceptional-service-card:hover{
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+  transform: translateY(-6px);
+}
+
+@media (max-width: 992px){
+  .mobile-development-for-dubai-businesses-with-exceptional-services-row{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px){
+  .industries-heading h2{
+    font-size: 32px;
+  }
+
+  .mobile-development-for-dubai-businesses-with-exceptional-services-row{
+    grid-template-columns: 1fr;
+  }
+}
+
+/*mobile-development-for-dubai-businesses-with-exceptional-industries-section end  */
+
+
+
+.emprowing-the-fidrel-inner-section-image img {
+    max-width: 250px;
+    width: 100%;
+    height: auto;
+}
+.emprowing-the-fidrel-mobile-development-for-dubai-businesses-heading
+
+ {
+    text-align: center;
+}
+.emprowing-the-fidrel-mobile-development-for-dubai-businesses-heading h2 {
+    font-size: 40px;
+    font-weight: 900;
+}
+.emprowing-the-fidrel-mobile-development-for-dubai-businesses-heading span {
+    color: blue;
+}
+
+
+/*emprowing-the-fidrel-inner-section-image img end  */
+
+
+
+
+
+
+
+
+.what-make-us-mobile-development-for-dubai-service-tabs{
+  padding:90px 20px;
+  background:#fff;
+}
+
+.what-make-us-mobile-development-for-dubai-dubai-wrapper{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1.4fr;
+  gap:60px;
+  align-items:center;
+}
+
+.what-make-us-mobile-development-for-dubai-dubai-left-card{
+  background:#f5fbff;
+  padding:40px 30px;
+  border-radius:28px;
+}
+
+.what-make-us-mobile-development-for-dubai-timeline{
+  position:relative;
+  padding-left:30px;
+}
+
+.what-make-us-mobile-development-for-dubai-timeline::before{
+  content:"";
+  position:absolute;
+  left:9px;
+  top:0;
+  width:2px;
+  height:100%;
+  background:#dbeeff;
+}
+
+.what-make-us-mobile-development-for-dubai-timeline::after{
+  content:"";
+  position:absolute;
+  left:9px;
+  top:0;
+  width:2px;
+  height:var(--line-height,0%);
+  background:#0d6efd;
+  transition:.3s;
+}
+
+.what-make-us-mobile-development-for-dubai-timeline-item{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  margin-bottom:28px;
+  cursor:pointer;
+}
+
+.what-make-us-mobile-development-for-dubai-timeline-item p{
+  margin:0;
+  font-weight:500;
+  color:#222;
+}
+
+.what-make-us-mobile-development-for-dubai-timeline-item .dot{
+  width:14px;
+  height:14px;
+  background:#e3eef6;
+  border-radius:50%;
+  z-index:2;
+}
+
+.what-make-us-mobile-development-for-dubai-timeline-item.active .dot,
+.what-make-us-mobile-development-for-dubai-timeline-item.completed .dot{
+  background:#0d6efd;
+}
+
+.what-make-us-mobile-development-for-dubai-timeline-item.active p{
+  color:#0d6efd;
+  font-weight:600;
+}
+
+.what-make-us-mobile-development-for-dubai-dubai-right-card{
+  background:#f4fbff;
+  padding:45px 50px;
+  border-radius:28px;
+}
+
+.what-make-us-mobile-development-for-dubai-tab-content{
+  display:none;
+}
+
+.what-make-us-mobile-development-for-dubai-tab-content.active{
+  display:block;
+}
+
+.what-make-us-mobile-development-for-dubai-tab-content h3{
+  font-size:30px;
+  margin-bottom:14px;
+}
+
+.what-make-us-mobile-development-for-dubai-tab-content p{
+  color:#555;
+  line-height:1.7;
+  margin-bottom:22px;
+}
+
+.what-make-us-mobile-development-for-dubai-tab-content ul{
+  padding:0;
+  margin-bottom:30px;
+}
+
+.what-make-us-mobile-development-for-dubai-tab-content ul li{
+  list-style:none;
+  position:relative;
+  padding-left:28px;
+  margin-bottom:16px;
+  font-weight:500;
+}
+
+.what-make-us-mobile-development-for-dubai-tab-content ul li::before{
+  content:"";
+  width:9px;
+  height:9px;
+  background:#0d6efd;
+  border-radius:50%;
+  position:absolute;
+  left:0;
+  top:9px;
+}
+
+.what-make-us-mobile-development-for-dubai-tab-content ul li a{
+  color:#000;
+  text-decoration:underline;
+  text-underline-offset:4px;
+}
+
+.what-make-us-mobile-development-for-dubai-cta-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:12px 26px;
+  background:#0d6efd;
+  color:#fff;
+  border-radius:30px;
+  text-decoration:none;
+}
+
+.what-make-us-mobile-development-for-dubai-cta-btn::after{
+  content:"›";
+  font-size:18px;
+}
+
+@media(max-width:768px){
+  .what-make-us-mobile-development-for-dubai-dubai-wrapper{
+    grid-template-columns:1fr;
+  }
+
+  .what-make-us-mobile-development-for-dubai-timeline{
+    display:flex;
+    overflow-x:auto;
+    gap:20px;
+    padding-left:0;
+  }
+
+  .what-make-us-mobile-development-for-dubai-timeline::before,
+  .what-make-us-mobile-development-for-dubai-timeline::after{
+    display:none;
+  }
+
+  .what-make-us-mobile-development-for-dubai-timeline-item{
+    flex-direction:column;
+    align-items:center;
+    min-width:200px;
+    text-align:center;
+    margin-bottom:0;
+  }
+}
+.what-make-us-mobile-development-for-dubai-heading{
+  max-width:900px;
+  margin:0 auto 60px;
+  text-align:center;
+}
+
+.what-make-us-mobile-development-for-dubai-heading h2{
+  font-size:40px;
+  font-weight:700;
+  line-height:1.3;
+  margin-bottom:12px;
+  color:#000;
+}
+
+.what-make-us-mobile-development-for-dubai-heading span{
+  display:block;
+  font-size:16px;
+  font-style:italic;
+  font-weight:500;
+  margin-bottom:14px;
+  color:#000;
+}
+
+.what-make-us-mobile-development-for-dubai-heading p{
+  font-size:16px;
+  color:#555;
+  line-height:1.6;
+}
+
+@media(max-width:768px){
+  .what-make-us-mobile-development-for-dubai-heading h2{
+    font-size:28px;
+  }
+
+  .what-make-us-mobile-development-for-dubai-heading p{
+    font-size:15px;
+  }
+}
+/* ===============================
+   RESPONSIVE IMPROVEMENTS
+================================ */
+
+/* ---------- Tablet (max-width: 991px) ---------- */
+@media (max-width: 991px) {
+
+  .what-make-us-mobile-development-for-dubai-service-tabs {
+    padding: 70px 20px;
+  }
+
+  .what-make-us-mobile-development-for-dubai-heading h2 {
+    font-size: 32px;
+  }
+
+  .what-make-us-mobile-development-for-dubai-dubai-wrapper {
+    gap: 40px;
+  }
+
+  .what-make-us-mobile-development-for-dubai-dubai-left-card,
+  .what-make-us-mobile-development-for-dubai-dubai-right-card {
+    padding: 35px 30px;
+  }
+
+  .what-make-us-mobile-development-for-dubai-tab-content h3 {
+    font-size: 26px;
+  }
+}
+
+/* ---------- Mobile (max-width: 768px) ---------- */
+@media (max-width: 768px) {
+
+  .what-make-us-mobile-development-for-dubai-service-tabs {
+    padding: 60px 15px;
+  }
+
+  /* Heading */
+  .what-make-us-mobile-development-for-dubai-heading {
+    margin-bottom: 40px;
+  }
+
+  .what-make-us-mobile-development-for-dubai-heading h2 {
+    font-size: 26px;
+    line-height: 1.35;
+  }
+
+  .what-make-us-mobile-development-for-dubai-heading span {
+    font-size: 14px;
+  }
+
+  .what-make-us-mobile-development-for-dubai-heading p {
+    font-size: 14px;
+  }
+
+  /* Timeline becomes cards */
+  .what-make-us-mobile-development-for-dubai-dubai-left-card {
+    padding: 20px;
+  }
+
+  .what-make-us-mobile-development-for-dubai-timeline {
+    gap: 16px;
+    padding-bottom: 10px;
+    scrollbar-width: none;
+  }
+
+  .what-make-us-mobile-development-for-dubai-timeline::-webkit-scrollbar {
+    display: none;
+  }
+
+  .what-make-us-mobile-development-for-dubai-timeline-item {
+    min-width: 220px;
+    padding: 14px;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+  }
+
+  .what-make-us-mobile-development-for-dubai-timeline-item.active {
+    border: 2px solid #0d6efd;
+  }
+
+  .what-make-us-mobile-development-for-dubai-timeline-item p {
+    font-size: 14px;
+  }
+
+  /* Right content */
+  .what-make-us-mobile-development-for-dubai-dubai-right-card {
+    padding: 30px 25px;
+  }
+
+  .what-make-us-mobile-development-for-dubai-tab-content h3 {
+    font-size: 22px;
+  }
+
+  .what-make-us-mobile-development-for-dubai-tab-content p {
+    font-size: 14px;
+  }
+
+  .what-make-us-mobile-development-for-dubai-tab-content ul li {
+    font-size: 14px;
+  }
+
+  /* CTA Button */
+  .what-make-us-mobile-development-for-dubai-cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ---------- Small Mobile (max-width: 480px) ---------- */
+@media (max-width: 480px) {
+
+  .what-make-us-mobile-development-for-dubai-heading h2 {
+    font-size: 22px;
+  }
+
+  .what-make-us-mobile-development-for-dubai-timeline-item {
+    min-width: 190px;
+  }
+
+  .what-make-us-mobile-development-for-dubai-tab-content h3 {
+    font-size: 20px;
+  }
+
+  .what-make-us-mobile-development-for-dubai-tab-content ul li {
+    padding-left: 22px;
+  }
+
+  .what-make-us-mobile-development-for-dubai-tab-content ul li::before {
+    top: 7px;
+  }
+}
+@media (max-width: 768px) {
+
+  .what-make-us-mobile-development-for-dubai-service-tabs {
+    overflow-x: hidden;
+  }
+
+  .what-make-us-mobile-development-for-dubai-dubai-wrapper {
+    width: 100%;
+    overflow: hidden;
+  }
+}
+/* ===============================
+   FINAL MOBILE FIX (NO CUT)
+================================ */
+@media (max-width: 768px) {
+
+  /* Section safety */
+  .what-make-us-mobile-development-for-dubai-service-tabs {
+    overflow-x: hidden;
+  }
+
+  /* Wrapper */
+  .what-make-us-mobile-development-for-dubai-dubai-wrapper {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  /* Left card edge-to-edge */
+  .what-make-us-mobile-development-for-dubai-dubai-left-card {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Timeline scroll container */
+  .what-make-us-mobile-development-for-dubai-timeline {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding: 0 16px 10px;
+    margin: 0;
+    scrollbar-width: none;
+  }
+
+  .what-make-us-mobile-development-for-dubai-timeline::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Timeline cards */
+  .what-make-us-mobile-development-for-dubai-timeline-item {
+    min-width: 180px;   /* 👈 MOST IMPORTANT */
+    padding: 14px;
+    margin: 0;
+    flex-shrink: 0;
+    background: #fff;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+  }
+
+  .what-make-us-mobile-development-for-dubai-timeline-item.active {
+    border: 2px solid #0d6efd;
+  }
+
+  /* Smooth swipe feel */
+  .what-make-us-mobile-development-for-dubai-timeline {
+    scroll-snap-type: x mandatory;
+  }
+
+  .what-make-us-mobile-development-for-dubai-timeline-item {
+    scroll-snap-align: start;
+  }
+}
+
+
+/*what-make-us-mobile-development-for-dubai-service-tabs end  */
+
+
+
+
+
+.infiniti-help-you-mobile-development-for-dubai-tech-tabs-section{
+  max-width:100%;
+  margin:auto;
+  padding:20px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.infiniti-help-you-mobile-development-for-dubai-tech-tabs-section-heading h2 {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 900;
+}
+.infiniti-help-you-mobile-development-for-dubai-tech-tabs-section-heading p {
+    text-align: center;
+    font-size: 17px;
+    font-weight: 500;
+}
+.infiniti-help-you-mobile-development-for-dubai-tech-tabs{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:40px;
+  margin-bottom:60px;
+}
+
+.infiniti-help-you-mobile-development-for-dubai-tech-tabs button{
+  background:none;
+  border:none;
+  text-align:left;
+  cursor:pointer;
+  padding-bottom:12px;
+  border-bottom:1px solid #ddd;
+  color:#777;
+  font-size:16px;
+}
+
+.infiniti-help-you-mobile-development-for-dubai-tech-tabs button span{
+  display:inline-flex;
+  width:30px;
+  height:30px;
+  border:1px solid #aaa;
+  border-radius:50%;
+  align-items:center;
+  justify-content:center;
+  margin-right:10px;
+  font-size:14px;
+}
+
+.infiniti-help-you-mobile-development-for-dubai-tech-tabs button.active{
+  color:#0066ff;
+  border-color:#0066ff;
+}
+
+.infiniti-help-you-mobile-development-for-dubai-tech-tabs button.active span{
+  border-color:#0066ff;
+}
+
+.infiniti-help-you-mobile-development-for-dubai-tech-content{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
+}
+
+.infiniti-help-you-mobile-development-for-dubai-content-left h2{
+  font-size:36px;
+  margin-bottom:20px;
+}
+
+.infiniti-help-you-mobile-development-for-dubai-content-left p{
+  color:#555;
+  line-height:1.7;
+  font-size:16px;
+}
+
+.infiniti-help-you-mobile-development-for-dubai-content-right img{
+  width:100%;
+  border-radius:20px;
+}
+
+.infiniti-help-you-mobile-development-for-dubai-tech-content .btn{
+  display:inline-block;
+  margin-top:25px;
+  padding:12px 28px;
+  background:#0066ff;
+  color:#fff;
+  border-radius:30px;
+  text-decoration:none;
+  font-size:15px;
+}
+
+.infiniti-help-you-mobile-development-for-dubai-arrows{
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  margin-top:50px;
+}
+
+.infiniti-help-you-mobile-development-for-dubai-arrows button{
+  width:46px;
+  height:46px;
+  border:1px solid #111;
+  background:#fff;
+  border-radius:50%;
+  font-size:18px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:all 0.25s ease;
+}
+
+.infiniti-help-you-mobile-development-for-dubai-arrows button:hover{
+  background:#0066ff;
+  color:#fff;
+  border-color:#0066ff;
+  transform:translateY(-2px);
+}
+
+@media (max-width: 992px){
+
+  .infiniti-help-you-mobile-development-for-dubai-tech-tabs{
+    gap:25px;
+  }
+
+  .infiniti-help-you-mobile-development-for-dubai-tech-content{
+    gap:40px;
+  }
+
+  .infiniti-help-you-mobile-development-for-dubai-content-left h2{
+    font-size:30px;
+  }
+}
+
+@media (max-width: 768px){
+  .infiniti-help-you-mobile-development-for-dubai-tech-tabs{
+    display:flex;
+    gap:20px;
+    overflow-x:auto;
+    padding-bottom:10px;
+  }
+
+  .infiniti-help-you-mobile-development-for-dubai-tech-tabs::-webkit-scrollbar{
+    display:none;
+  }
+
+  .infiniti-help-you-mobile-development-for-dubai-tech-tabs button{
+    min-width:220px;
+    white-space:nowrap;
+  }
+
+  .infiniti-help-you-mobile-development-for-dubai-tech-content{
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+
+  .infiniti-help-you-mobile-development-for-dubai-content-left h2{
+    font-size:26px;
+  }
+
+  .infiniti-help-you-mobile-development-for-dubai-content-right img{
+    border-radius:16px;
+  }
+}
+@media (max-width: 480px){
+
+  .infiniti-help-you-mobile-development-for-dubai-tech-tabs button{
+    min-width:190px;
+    font-size:14px;
+  }
+
+  .infiniti-help-you-mobile-development-for-dubai-tech-tabs button span{
+    width:26px;
+    height:26px;
+    font-size:12px;
+  }
+
+  .infiniti-help-you-mobile-development-for-dubai-content-left h2{
+    font-size:22px;
+  }
+
+  .infiniti-help-you-mobile-development-for-dubai-content-left p{
+    font-size:14px;
+  }
+
+  .infiniti-help-you-mobile-development-for-dubai-tech-content .btn{
+    padding:10px 22px;
+    font-size:14px;
+  }
+}
+
+/* infiniti-help-you-mobile-development-for-dubai-tech-tabs-section */
+
+
+
+
+
+
+  .reson-to-trust-mobile-development-for-dubai-trust-section{
+  padding:80px 20px;
+  background:#fff;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.reson-to-trust-mobile-development-for-dubai-trust-container{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap:60px;
+  align-items:start;
+}
+
+.reson-to-trust-mobile-development-for-dubai-trust-left h2{
+  font-size:38px;
+  line-height:1.3;
+  font-weight:700;
+  color:#000;
+}
+
+.reson-to-trust-mobile-development-for-dubai-trust-left p{
+  margin:20px 0 30px;
+  font-size:16px;
+  color:#555;
+  line-height:1.7;
+}
+
+.reson-to-trust-mobile-development-for-dubai-trust-left p a{
+  color:#0a66ff;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.reson-to-trust-mobile-development-for-dubai-trust-btn{
+  display:inline-block;
+  padding:14px 26px;
+  background:#0a66ff;
+  color:#fff;
+  border-radius:30px;
+  text-decoration:none;
+  font-size:15px;
+  font-weight:600;
+}
+
+.reson-to-trust-mobile-development-for-dubai-trust-right{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap:25px;
+}
+
+.reson-to-trust-mobile-development-for-dubai-trust-card{
+  background:#eef6ff;
+  padding:25px;
+  border-radius:16px;
+}
+
+.reson-to-trust-mobile-development-for-dubai-trust-card img{
+  width:45px;
+  margin-bottom:15px;
+}
+
+.reson-to-trust-mobile-development-for-dubai-trust-card h4{
+  font-size:18px;
+  margin-bottom:10px;
+  font-weight:700;
+}
+
+.reson-to-trust-mobile-development-for-dubai-trust-card p{
+  font-size:14px;
+  color:#555;
+  line-height:1.6;
+}
+.reson-to-trust-mobile-development-for-dubai-trust-card{
+  background:#eef6ff;
+  padding:25px;
+  border-radius:16px;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  cursor:pointer;
+}
+
+.reson-to-trust-mobile-development-for-dubai-trust-card:hover{
+  transform: scale(1.06);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.12);
+  z-index:2;
+}
+
+.reson-to-trust-mobile-development-for-dubai-trust-card:active{
+  transform: scale(1.08);
+}
+
+
+@media(max-width:992px){
+  .reson-to-trust-mobile-development-for-dubai-trust-container{
+    grid-template-columns:1fr;
+  }
+
+  .reson-to-trust-mobile-development-for-dubai-trust-right{
+    grid-template-columns:1fr;
+  }
+
+  .reson-to-trust-mobile-development-for-dubai-trust-left h2{
+    font-size:30px;
+  }
+}
+
+/* reson-to-trust-mobile-development-for-dubai-trust-section */
+
+
+
+
+
+
+.drive-out-of-mobile-development-for-dubai-case-study-section{
+  padding:30px 20px;
+  font-family:"Plus Jakarta Sans", Arial, sans-serif;
+  background:#f5fbff;
+}
+
+.drive-out-of-mobile-development-for-dubai-case-study-section h2{
+  text-align:center;
+  font-size:36px;
+  font-weight:700;
+}
+
+.drive-out-of-mobile-development-for-dubai-case-study-section h2 span{
+  color:#0a58ff;
+}
+
+.drive-out-of-mobile-development-for-dubai-sub-text{
+  max-width:780px;
+  margin:18px auto 55px;
+  text-align:center;
+  color:#555;
+  font-size:16px;
+}
+
+.drive-out-of-mobile-development-for-dubai-case-slider{
+  position:relative;
+  max-width:1200px;
+  margin:auto;
+}
+
+.drive-out-of-mobile-development-for-dubai-case-content{
+  display:grid;
+  grid-template-columns:1.3fr 1fr;
+  gap:60px;
+  align-items:center;
+  background:#f8f9fc;
+  border-radius:22px;
+  padding:55px 60px;
+  box-shadow:0 25px 60px rgba(0,0,0,0.06);
+}
+
+.drive-out-of-mobile-development-for-dubai-case-text h3{
+  font-size:28px;
+  margin-bottom:12px;
+}
+
+.drive-out-of-mobile-development-for-dubai-case-text p{
+  color:#555;
+  line-height:1.7;
+  max-width:520px;
+}
+
+.drive-out-of-mobile-development-for-dubai-case-cols{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  margin:35px 0;
+}
+
+.drive-out-of-mobile-development-for-dubai-case-cols h4{
+  margin-bottom:12px;
+  font-size:16px;
+}
+
+.drive-out-of-mobile-development-for-dubai-case-text ul{
+  padding-left:18px;
+  color:#444;
+  line-height:1.7;
+}
+
+.drive-out-of-mobile-development-for-dubai-case-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:14px 26px;
+  background:#0a58ff;
+  color:#fff;
+  border-radius:30px;
+  text-decoration:none;
+  font-size:15px;
+  font-weight:500;
+}
+
+.drive-out-of-mobile-development-for-dubai-case-image{
+  text-align:center;
+}
+
+.drive-out-of-mobile-development-for-dubai-case-image img{
+  width:100%;
+  max-width:280px;
+  filter:drop-shadow(0 20px 40px rgba(0,0,0,.15));
+}
+
+.drive-out-of-mobile-development-for-dubai-nav-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  background:#ffffff;
+  border:none;
+  font-size:20px;
+  cursor:pointer;
+  box-shadow:0 8px 24px rgba(0,0,0,.15);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:all .3s ease;
+}
+
+.drive-out-of-mobile-development-for-dubai-nav-btn:hover{
+  background:#0a58ff;
+  color:#fff;
+  transform:translateY(-50%) scale(1.05);
+}
+
+.drive-out-of-mobile-development-for-dubai-nav-btn-left{
+  left:-25px;
+}
+
+.drive-out-of-mobile-development-for-dubai-nav-btn-right{
+  right:-25px;
+}
+
+@media(max-width:900px){
+  .drive-out-of-mobile-development-for-dubai-case-content{
+    grid-template-columns:1fr;
+    padding:40px 30px;
+    text-align:center;
+  }
+
+  .drive-out-of-mobile-development-for-dubai-case-cols{
+    grid-template-columns:1fr;
+  }
+
+  .drive-out-of-mobile-development-for-dubai-nav-btn{
+    display:none;
+  }
+}
+
+@media (max-width: 1024px){
+  .drive-out-of-mobile-development-for-dubai-case-content{
+    gap:40px;
+    padding:45px 40px;
+  }
+
+  .drive-out-of-mobile-development-for-dubai-case-text h3{
+    font-size:24px;
+  }
+
+  .drive-out-of-mobile-development-for-dubai-case-image img{
+    max-width:240px;
+  }
+}
+
+@media (max-width: 768px){
+  .drive-out-of-mobile-development-for-dubai-case-content{
+    grid-template-columns:1fr;
+    text-align:center;
+    padding:35px 22px;
+  }
+
+  .drive-out-of-mobile-development-for-dubai-case-text p{
+    max-width:100%;
+  }
+
+  .drive-out-of-mobile-development-for-dubai-case-cols{
+    grid-template-columns:1fr;
+    gap:25px;
+  }
+
+  .drive-out-of-mobile-development-for-dubai-case-image img{
+    max-width:200px;
+    margin-top:20px;
+  }
+
+  .drive-out-of-mobile-development-for-dubai-nav-btn{
+    display:none;
+  }
+}
+
+@media (max-width: 480px){
+  .drive-out-of-mobile-development-for-dubai-case-study-section h2{
+    font-size:26px;
+  }
+
+  .drive-out-of-mobile-development-for-dubai-sub-text{
+    font-size:14px;
+  }
+
+  .drive-out-of-mobile-development-for-dubai-case-btn{
+    padding:12px 22px;
+    font-size:14px;
+  }
+}
+/* drive-out-of-mobile-development-for-dubai-case-study-section  */
+
+
+
+
+
+
+
+.presios-perfomance-mobile-development-for-dubai-me-tabs{
+  padding:40px 20px;
+  font-family:Arial, sans-serif;
+}
+
+.presios-perfomance-mobile-development-for-dubai-me-title{
+  text-align:center;
+  font-size:36px;
+  margin-bottom:60px;
+  font-weight: 700;
+}
+
+.presios-perfomance-mobile-development-for-dubai-me-tabs-wrapper{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1.3fr;
+  gap:50px;
+}
+
+.presios-perfomance-mobile-development-for-dubai-me-tab-list{
+  list-style:none;
+  background:#f7f7f7;
+  padding:20px;
+  border-radius:12px;
+}
+
+.presios-perfomance-mobile-development-for-dubai-me-tab-list li{
+  padding:18px 20px;
+  cursor:pointer;
+  border-radius:10px;
+  margin-bottom:10px;
+  transition:0.3s;
+}
+
+.presios-perfomance-mobile-development-for-dubai-me-tab-list li:hover,
+.presios-perfomance-mobile-development-for-dubai-me-tab-list li.presios-perfomance-mobile-development-for-dubai-active{
+  background:#fff;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+  color:#0066ff;
+}
+
+.presios-perfomance-mobile-development-for-dubai-me-tab-content{
+  position:relative;
+}
+
+.presios-perfomance-mobile-development-for-dubai-tab-box{
+  display:none;
+}
+
+.presios-perfomance-mobile-development-for-dubai-tab-box.active{
+  display:block;
+}
+
+.presios-perfomance-mobile-development-for-dubai-icon{
+  font-size:40px;
+  margin-bottom:15px;
+}
+
+.presios-perfomance-mobile-development-for-dubai-tab-box h3{
+  font-size:24px;
+  margin-bottom:10px;
+}
+
+.presios-perfomance-mobile-development-for-dubai-tab-box p{
+  color:#555;
+  margin-bottom:20px;
+}
+
+.presios-perfomance-mobile-development-for-dubai-btn{
+  display:inline-block;
+  padding:12px 24px;
+  background:#0066ff;
+  color:#fff;
+  border-radius:30px;
+  text-decoration:none;
+}
+
+@media(max-width:768px){
+  .presios-perfomance-mobile-development-for-dubai-me-tabs-wrapper{
+    grid-template-columns:1fr;
+  }
+
+  .presios-perfomance-mobile-development-for-dubai-me-tab-list{
+    display:flex;
+    overflow-x:auto;
+    gap:10px;
+  }
+
+  .presios-perfomance-mobile-development-for-dubai-me-tab-list li{
+    white-space:nowrap;
+    margin-bottom:0;
+    min-width:max-content;
+  }
+}
+
+
+/* presios-perfomance-mobile-development-for-dubai-me-tabs */
+
+
+
+.from-ident-launch-mobile-development-for-dubai-app-process-section{
+  padding:40px 20px;
+  background:#f3fbff;
+  font-family:Arial, sans-serif;
+}
+
+.from-ident-launch-mobile-development-for-dubai-app-process-section .container{
+  max-width:1200px;
+  margin:auto;
+}
+
+.from-ident-launch-mobile-development-for-dubai-app-process-section h2{
+  text-align:center;
+  font-size:40px;
+  margin-bottom:50px;
+  font-weight: 700;
+}
+
+.from-ident-launch-mobile-development-for-dubai-app-process-section h2 span{
+  color:#000;
+}
+
+.from-ident-launch-mobile-development-for-dubai-process-card{
+  background:#fff;
+  border-radius:16px;
+  padding:40px;
+  display:grid;
+  grid-template-columns:1fr 1.2fr;
+  gap:40px;
+  align-items:center;
+}
+
+.from-ident-launch-mobile-development-for-dubai-process-image{
+  background:#cfe9ff;
+  border-radius:16px;
+  padding:30px;
+  display:flex;
+  justify-content:center;
+}
+
+.from-ident-launch-mobile-development-for-dubai-process-image img {
+    width: 297px;
+    height: 240px;
+}
+
+.from-ident-launch-mobile-development-for-dubai-process-content h3{
+  font-size:26px;
+  margin-bottom:15px;
+}
+
+.from-ident-launch-mobile-development-for-dubai-process-content p{
+  color:#555;
+  margin-bottom:20px;
+  line-height:1.6;
+}
+
+.from-ident-launch-mobile-development-for-dubai-process-content ul{
+  list-style:none;
+  padding:0;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.from-ident-launch-mobile-development-for-dubai-process-content ul li{
+  position:relative;
+  padding-left:22px;
+  font-weight:500;
+}
+
+.from-ident-launch-mobile-development-for-dubai-process-content ul li::before{
+  content:"";
+  width:8px;
+  height:8px;
+  background:#0d6efd;
+  border-radius:50%;
+  position:absolute;
+  left:0;
+  top:7px;
+}
+
+.from-ident-launch-mobile-development-for-dubai-process-nav{
+  margin-top:30px;
+  display:flex;
+  justify-content:center;
+  gap:20px;
+}
+
+.from-ident-launch-mobile-development-for-dubai-process-nav button{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  border:1px solid #000;
+  background:#fff;
+  cursor:pointer;
+  font-size:18px;
+}
+
+@media(max-width:900px){
+  .from-ident-launch-mobile-development-for-dubai-process-card{
+    grid-template-columns:1fr;
+  }
+
+  .from-ident-launch-mobile-development-for-dubai-process-content ul{
+    grid-template-columns:1fr;
+  }
+}
+
+
+/* from-ident-launch-mobile-development-for-dubai-app-process-section */
+
+
+
+
+
+/* buid-service-videosection-service-page-cta */
+
+.buid-service-videosection-service-page-cta{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:40px;
+  padding:40px;
+  background:#0b0b0b;
+  border-radius:30px;
+  overflow:hidden;
+  position:relative;
+      margin-top: 40px;
+}
+
+
+.buid-service-videosection-service-page-cta-content{
+  width:50%;
+  color:#fff;
+  position:relative;
+  z-index:1;
+}
+
+
+.buid-service-videosection-service-page-video-banner{
+  position:relative;
+  width:50%;
+  cursor:pointer;
+  z-index:5;
+}
+
+
+.buid-service-videosection-service-page-video-banner img{
+  width:100%;
+  height:300px;
+  object-fit:cover;
+  border-radius:20px;
+  display:block;
+}
+
+.buid-service-videosection-service-page-play-btn{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:70px;
+  height:70px;
+  background:#fff;
+  color:#000;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+  box-shadow:0 0 0 10px rgba(255,255,255,0.2);
+  z-index:6;
+  pointer-events:auto;
+}
+.buid-service-videosection-service-page-video-popup{
+  z-index: 99999;
+}
+.buid-service-videosection-service-page-video-popup{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999999;
+}
+
+.buid-service-videosection-service-page-video-popup-content{
+  position: relative;
+  width: 80%;
+  max-width: 900px;
+}
+
+.buid-service-videosection-service-page-video-popup-content iframe{
+  width: 100%;
+  height: 500px;
+  border-radius: 16px;
+  background:#000;
+}
+.buid-service-videosection-service-page-cta-content h2 {
+    font-size: 36px;
+}
+.buid-service-videosection-service-page-cta-content p {
+    font-size: 20px;
+}
+a.buid-service-videosection-service-page-btn.video-trigger {
+    background: #2f80ff;
+    padding: 15px 15px;
+    border-radius: 26px;
+}
+.buid-service-videosection-service-page-play-btn{
+  position:absolute;
+  top:50%;
+  left:-3%;
+  transform:translate(-50%,-50%);
+  width:70px;
+  height:70px;
+  background:#fff;
+  color:#000;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+  z-index:6;
+  cursor:pointer;
+  animation: pulse 2s infinite;
+}
+
+
+.buid-service-videosection-service-page-play-btn::before{
+  content:"";
+  position:absolute;
+  inset:-12px;
+  border-radius:50%;
+  border:6px solid rgba(255,255,255,0.6);
+  animation:pulseRing 2s infinite;
+}
+
+@keyframes pulse{
+  0%{ transform:translate(-50%,-50%) scale(1); }
+  50%{ transform:translate(-50%,-50%) scale(1.1); }
+  100%{ transform:translate(-50%,-50%) scale(1); }
+}
+
+@keyframes pulseRing{
+  0%{ transform:scale(.8); opacity:.8; }
+  100%{ transform:scale(1.6); opacity:0; }
+}
+/* buid-service-videosection-service-page-cta */
+
+
+/* our-succes-story-of-fitness-industry-page.case-study-slider start */
+
+.our-succes-story-of-fitness-industry-page.case-study-slider{
+  width:100%;
+  padding:30px 0;
+}
+
+.our-succes-story-of-fitness-industry-page.case-study-wrapper{
+  max-width:1200px;
+  margin:auto;
+  position:relative;
+  overflow:hidden;
+  min-height:500px;
+}
+
+.our-succes-story-of-fitness-industry-page .case-slide{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:60px;
+  border-radius:30px;
+  background:linear-gradient(135deg,#f9efe4,#e9f2ff);
+  position:absolute;
+  inset:0;
+  opacity:0;
+  transform:translateX(100px);
+  transition:.6s ease;
+}
+
+.our-succes-story-of-fitness-industry-page .case-slide.active{
+  opacity:1;
+  transform:translateX(0);
+  position:relative;
+}
+
+.our-succes-story-of-fitness-industry-page .case-content{width:50%;}
+.our-succes-story-of-fitness-industry-page .logo{
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  border:3px solid #b89cff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+  margin-bottom:20px;
+      color: #000;
+}
+.our-succes-story-of-fitness-industry-page h2 {
+    color: #000;
+    font-size: 40px;
+    text-align:center;
+    font-weight:700;
+}
+.our-succes-story-of-fitness-industry-page p {
+    color: #000;
+}
+.our-succes-story-of-fitness-industry-page .case-meta{
+  display:flex;gap:40px;margin:25px 0;
+      color: #000;
+}
+
+.our-succes-story-of-fitness-industry-page .case-btn{
+  padding:14px 26px;
+  border:2px solid #000;
+  border-radius:
+  30px;text-decoration:none;
+  color:#000;
+  font-weight:600;
+}
+
+.our-succes-story-of-fitness-industry-page .case-image{
+  width:40%;position:relative;display:flex;justify-content:center;align-items:center;
+}
+
+.our-succes-story-of-fitness-industry-page .case-phone-bg{
+  position:absolute;width:340px;height:420px;
+  background:radial-gradient(circle at top,#cfa8ff,#eaf1ff,#f7efe3);
+  border-radius:50% 50% 40% 40%;
+  filter:blur(30px);z-index:1;
+}
+
+.our-succes-story-of-fitness-industry-page .case-phone{
+  width:260px;position:relative;z-index:2;
+}
+
+.our-succes-story-of-fitness-industry-page .case-nav{
+  display:flex;justify-content:center;gap:20px;margin-top:30px;
+  position:relative;z-index:10;
+}
+
+.our-succes-story-of-fitness-industry-page .case-nav button{
+  width:55px;height:55px;border-radius:50%;
+  border:1px solid #000;background:none;font-size:20px;cursor:pointer;
+}
+
+@media(max-width:768px){
+  .our-succes-story-of-fitness-industry-page .case-slide{
+    flex-direction:column;text-align:center;padding:30px;
+  }
+  .our-succes-story-of-fitness-industry-page .case-content,
+  .our-succes-story-of-fitness-industry-page .case-image{
+    width:100%;
+  }
+}
+
+/* our-succes-story-of-fitness-industry-page.case-study-slider end  */
+
+
+
+
+
+
+/* wall-of-fame start  */
+
+    .wall-of-fame {
+  background: linear-gradient(
+  90deg,
+  #74afff 0%,
+  rgba(116,175,255,0.4) 50%,
+  rgba(116,175,255,0) 100%
+);
+
+    padding: 40px 20px;
+    }
+
+    .wall-of-fame h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 50px;
+    }
+
+    .container {
+    max-width: 1300px;
+    margin: auto;
+    }
+    .awards-wrapper {
+    overflow: hidden;
+    width: 100%;
+    }
+
+    .awards-row {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease;
+    }
+
+    .award-card {
+    min-width: 200px;
+    height: 260px;
+    background: #cfe6ff;
+    border: 1.5px solid #0a66ff;
+    border-radius: 16px;
+    padding: 20px 15px;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+
+    .awards-row {
+    display: flex;
+    gap: 6px;
+    flex-wrap: nowrap;
+    }
+
+    .award-card {
+    width: 200px;
+    height: 260px;
+    background: #cfe6ff;
+    border: 1.5px solid #0a66ff;
+    border-radius: 16px;
+    padding: 20px 15px;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    }
+    .award-card img {
+    max-width: 110px;
+    max-height: 80px;
+    object-fit: contain;
+    margin-bottom: 14px;
+    }
+    .award-card h5 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    }
+    .award-card p {
+    font-size: 13px;
+    line-height: 1.4;
+    color: #222;
+    }
+    .award-card.highlight h5 {
+    background: #ffb703;
+    padding: 2px 6px;
+    border-radius: 4px;
+    }
+    .dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 10px;
+    }
+    .dots span {
+    width: 8px;
+    height: 8px;
+    background: #ccc;
+    border-radius: 50%;
+    }
+    .dots .active {
+    background: #0a66ff;
+    }
+    .award-card {
+    width: 200px;
+    height: 260px;
+    padding: 20px 16px;
+    border-radius: 18px;
+    background:
+     linear-gradient(180deg, #0b4ea2, #083b7a),
+     radial-gradient(200px at top, rgba(255,255,255,.25), transparent 60%);
+    background-blend-mode: overlay;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    color: #fff;
+    text-align: center;
+    box-shadow:
+     0 12px 30px rgba(0,0,0,.25),
+     inset 0 0 0 1px rgba(255,255,255,.15);
+    transition: all .45s ease;
+    }
+    .award-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    padding: 1px;
+
+    background: linear-gradient(
+        120deg,
+        rgba(255,255,255,.5),
+        rgba(0,140,255,.6),
+        rgba(255,255,255,.4)
+    );
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    pointer-events: none;
+    }
+    .award-card::after {
+    content: "";
+    position: absolute;
+    top: -60%;
+    left: -60%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        120deg,
+        transparent 40%,
+        rgba(255,255,255,.18),
+        transparent 60%
+    );
+    transform: rotate(25deg);
+    opacity: 0;
+    transition: opacity .4s ease;
+    }
+    .award-card img {
+    max-width: 110px;
+    max-height: 80px;
+    object-fit: contain;
+    margin-bottom: 16px;
+    filter: drop-shadow(0 6px 12px rgba(0,0,0,.4));
+    }
+    .award-card h5 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #fff;
+    }
+    .award-card p {
+    font-size: 13px;
+    line-height: 1.45;
+    color: #e2efff;
+    }
+    .award-card:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow:
+        0 25px 50px rgba(0,0,0,.45),
+        inset 0 0 0 1px rgba(255,255,255,.25);
+    }
+    .award-card:hover::after {
+    opacity: 1;
+    animation: shine 1.2s ease forwards;
+    }
+    @keyframes shine {
+    0% {
+        transform: translateX(-50%) rotate(25deg);
+    }
+    100% {
+        transform: translateX(50%) rotate(25deg);
+    }
+    }
+  /* wall-of-fame end */
+
+
+
+
+/* he-behind-company-succese-service-page-tech-top-tabs stat  */
+.the-behind-company-succese-service-page-tech-system h2 {
+    text-align: center;
+}
+ .the-behind-company-succese-service-page-tech-top-tabs{
+  display:flex;
+  justify-content:space-between;
+  border-bottom:1px solid #ddd;
+}
+
+.the-behind-company-succese-service-page-tech-tab{
+  padding:15px 20px;
+  cursor:pointer;
+  font-weight:600;
+  white-space:nowrap;
+}
+
+.the-behind-company-succese-service-page-tech-tab.active{
+  color:#0d6efd;
+  border-bottom:2px solid #0d6efd;
+}
+
+.the-behind-company-succese-service-page-tech-slider{
+  display:none;
+  overflow:hidden;
+  margin-top:30px;
+}
+
+.the-behind-company-succese-service-page-tech-slider.active{
+  display:block;
+}
+
+.the-behind-company-succese-service-page-slider-track{
+  display:flex;
+  gap:40px;
+  width:max-content;
+  animation:techMove 65s linear infinite;
+}
+
+@keyframes techMove{
+  from{ transform:translateX(0); }
+  to{ transform:translateX(-100%); }
+}
+
+.the-behind-company-succese-service-page-slider-track img {
+    width: 119px;
+    border-radius: 15px;
+    /* box-shadow: 0 5px 20px rgba(0, 0, 0, .1); */
+    height: 100px;
+}
+
+
+.the-behind-company-succese-service-page-tech-slider{
+  position:relative;
+}
+.the-behind-company-succese-service-page-tech-system p {
+    text-align: center;
+    font-size: 17px;
+    font-weight: 400;
+}
+/* =========================
+   RESPONSIVE FIXES
+========================= */
+
+/* ---------- Tablet (max-width: 991px) ---------- */
+@media (max-width: 991px) {
+
+  .the-behind-company-succese-service-page-tech-system h2 {
+    font-size: 28px;
+    line-height: 1.3;
+  }
+
+  .the-behind-company-succese-service-page-tech-system p {
+    font-size: 16px;
+    padding: 0 20px;
+  }
+
+  .the-behind-company-succese-service-page-tech-top-tabs {
+    gap: 10px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .the-behind-company-succese-service-page-tech-top-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .the-behind-company-succese-service-page-tech-tab {
+    padding: 12px 16px;
+    font-size: 15px;
+  }
+
+  .the-behind-company-succese-service-page-slider-track {
+    gap: 30px;
+    animation-duration: 50s;
+  }
+
+  .the-behind-company-succese-service-page-slider-track img {
+    width: 100px;
+    height: 85px;
+  }
+}
+
+/* ---------- Mobile (max-width: 767px) ---------- */
+@media (max-width: 767px) {
+
+  .the-behind-company-succese-service-page-tech-system {
+    padding: 40px 15px;
+  }
+
+  .the-behind-company-succese-service-page-tech-system h2 {
+    font-size: 22px;
+  }
+
+  .the-behind-company-succese-service-page-tech-system p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .the-behind-company-succese-service-page-tech-top-tabs {
+    justify-content: flex-start;
+    gap: 8px;
+    padding-bottom: 5px;
+  }
+
+  .the-behind-company-succese-service-page-tech-tab {
+    font-size: 14px;
+    padding: 10px 14px;
+    flex-shrink: 0;
+  }
+
+  .the-behind-company-succese-service-page-slider-track {
+    gap: 20px;
+    animation-duration: 45s;
+  }
+
+  .the-behind-company-succese-service-page-slider-track img {
+    width: 80px;
+    height: 70px;
+    border-radius: 10px;
+  }
+}
+
+/* ---------- Small Mobile (max-width: 480px) ---------- */
+@media (max-width: 480px) {
+
+  .the-behind-company-succese-service-page-tech-system h2 {
+    font-size: 20px;
+  }
+
+  .the-behind-company-succese-service-page-tech-system p {
+    font-size: 13px;
+  }
+
+  .the-behind-company-succese-service-page-slider-track img {
+    width: 70px;
+    height: 60px;
+  }
+}
+
+/* he-behind-company-succese-service-page-tech-top-tabs end  */
+
+
+
+
+/* navy-testimonial-slider start */
+
+.navy-testimonial-slider {
+    padding: 30px 20px;
+    background: linear-gradient(180deg, #05142e, #071c3e);
+    margin: 30px 0px;
+}
+
+
+  .navy-testimonial-header{
+ display: flex;
+ justify-content:space-between;
+align-items:center;
+margin-bottom:40px;
+ }
+
+ .navy-testimonial-header h2{
+ color:#fff;
+ font-size:32px;
+ }
+
+
+ .navy-slider-controls button{
+height:42px;
+ border-radius:50%;
+ border:1px solid rgba(255,255,255,.2);
+background:rgba(255,255,255,.08);
+color:#fff;
+font-size:22px;
+cursor:pointer;
+transition:.3s;
+ }
+
+ .navy-slider-controls button:hover{
+ background:#fff;
+color:#05142e;
+  }
+
+.navy-slider-viewport{
+  overflow:hidden;
+ }
+
+.navy-slider-track{
+display:flex;
+ gap:24px;
+ transition:transform .5s ease;
+ }
+
+.navy-testimonial-card{
+min-width: calc(33.333% - 16px);
+background:rgba(255,255,255,.06);
+ border:1px solid rgba(255,255,255,.08);
+ border-radius:18px;
+ padding:16px;
+ text-align:center;
+ position:relative;
+ transition:.3s;
+ cursor: pointer;
+ }
+
+ .navy-testimonial-card:hover{
+ transform:translateY(-6px);
+ background:rgba(255,255,255,.1);
+}
+
+ .navy-testimonial-card img{
+ width:100%;
+ height:200px;
+object-fit:cover;
+ border-radius:14px;
+}
+
+.navy-testimonial-card .play{
+position:absolute;
+  top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+ width:54px;
+ height:54px;
+background:rgba(0,0,0,.55);
+color:#fff;
+ border-radius:50%;
+  display:flex;
+ align-items:center;
+ justify-content:center;
+ pointer-events: none;
+ }
+
+.navy-testimonial-card h3{
+margin-top:14px;
+ color:#fff;
+font-size:17px;
+}
+
+.navy-testimonial-card p{
+ font-size:13px;
+color:rgba(255,255,255,.7);
+}
+
+@media(max-width:900px){
+.navy-testimonial-card{
+   min-width: calc(50% - 12px);
+  cursor: pointer;
+ }
+ }
+
+@media(max-width:600px){
+ .navy-testimonial-card{
+ min-width:100%;
+ cursor: pointer;
+}
+}
+.navy-video-modal{
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.navy-video-modal__overlay{
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(12px);
+}
+
+.navy-video-modal__content{
+  position: relative;
+  width: 80%;
+  max-width: 900px;
+  background: #000;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 40px 90px rgba(0,0,0,0.45);
+  z-index: 2;
+}
+
+.navy-video-modal video{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.navy-video-modal__close{
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.25s;
+}
+
+.navy-video-modal__close:hover{
+  background: #ffffff;
+  color: #000;
+}
+
+.navy-blog {
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+.section-title .subtitle {
+    letter-spacing: 1px;
+    font-weight: 500;
+    font-size: 35px !important;
+}
+
+.section-title .title {
+    color: #ffffff;
+}
+
+.smart-blog-card {
+    background: #081c33;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.smart-blog-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(59, 130, 246, 0.3);
+}
+.smart-blog-card .thumbnail {
+    position: relative;
+    overflow: hidden;
+}
+
+.smart-blog-card img {
+    width: 100%;
+    transition: transform 0.5s ease;
+}
+
+.smart-blog-card:hover img {
+    transform: scale(1.08);
+}
+
+.smart-blog-card .tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: #1e3a8a;
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 12px;
+}
+
+.smart-blog-card .content {
+    padding: 25px;
+}
+
+.smart-blog-card .meta {
+    color: #9ca3af;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.smart-blog-card .title {
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+.smart-blog-card .read-more {
+    color: #3b82f6;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.3s ease;
+}
+
+.smart-blog-card .read-more:hover {
+    color: #60a5fa;
+    gap: 10px;
+}
+
+/* end blog  */
+
+
+/* start footer  */
+
+  .apptunix-footer{
+  background: radial-gradient(circle at top left,#0b1d3a,#020814);
+  padding:80px 20px;
+  color:#fff;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+.footer-container{
+  max-width:1400px;
+  margin:auto;
+  display:grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr 1fr;
+  gap:50px;
+}
+
+.footer-col h4{
+  margin-bottom:20px;
+  font-size:18px;
+}
+
+.footer-col ul{
+  list-style:none;
+  padding:0;
+}
+
+.footer-col ul li{
+  margin-bottom:14px;
+}
+
+.footer-col ul li a{
+  color:#cfd8e3;
+  text-decoration:none;
+  font-size:15px;
+  line-height:1.6;
+}
+
+.footer-col ul li a:hover{
+  color:#0a7cff;
+}
+
+.footer-col .highlight{
+  color:#0a7cff;
+}
+
+.brand .logo{
+  font-size:34px;
+  font-weight:700;
+  margin-bottom:15px;
+}
+
+.brand p{
+  color:#cfd8e3;
+  margin-bottom:25px;
+}
+
+.footer-btn{
+  display:inline-block;
+  background:#0a7cff;
+  padding:12px 28px;
+  border-radius:30px;
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  margin-bottom:25px;
+}
+
+.sales{
+  margin:20px 0;
+}
+
+.sales a{
+  display:block;
+  margin-top:5px;
+  color:#fff;
+}
+
+.dmca{
+  margin-top:20px;
+  width:120px;
+}
+
+.subscribe p{
+  margin-bottom:15px;
+  color:#cfd8e3;
+}
+
+.subscribe-form{
+  display:flex;
+  margin-bottom:10px;
+}
+
+.subscribe-form input{
+  flex:1;
+  padding:12px;
+  border:none;
+  outline:none;
+  border-radius:6px 0 0 6px;
+}
+
+.subscribe-form button{
+  background:#0a7cff;
+  color:#fff;
+  border:none;
+  padding:12px 20px;
+  border-radius:0 6px 6px 0;
+  cursor:pointer;
+}
+
+.subscribe small{
+  display:block;
+  margin-bottom:20px;
+  color:#8aa0b6;
+}
+
+.social{
+  display:flex;
+  gap:12px;
+}
+
+.social a{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  background:#0a7cff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  text-decoration:none;
+}
+
+/* ---------- Tablet (max-width: 1200px) ---------- */
+@media (max-width: 1200px) {
+  .footer-container {
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 40px;
+  }
+}
+
+/* ---------- Tablet (max-width: 991px) ---------- */
+@media (max-width: 991px) {
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+  }
+
+  .brand .logo {
+    font-size: 30px;
+  }
+
+  .footer-col h4 {
+    font-size: 17px;
+  }
+}
+
+/* ---------- Mobile (max-width: 768px) ---------- */
+@media (max-width: 768px) {
+
+  .apptunix-footer {
+    padding: 60px 15px;
+    text-align: left;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .brand .logo {
+    font-size: 28px;
+  }
+
+  .brand p {
+    font-size: 14px;
+  }
+
+  .footer-col ul li a {
+    font-size: 14px;
+  }
+
+  /* Button full width */
+  .footer-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Subscribe form stack */
+  .subscribe-form {
+    flex-direction: column;
+  }
+
+  .subscribe-form input {
+    border-radius: 6px;
+    margin-bottom: 10px;
+  }
+
+  .subscribe-form button {
+    border-radius: 6px;
+    width: 100%;
+  }
+
+  .social {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .brand .logo {
+    font-size: 24px;
+  }
+
+  .footer-col h4 {
+    font-size: 16px;
+  }
+
+  .footer-col ul li {
+    margin-bottom: 12px;
+  }
+
+  .social a {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+/* end footer  */
+
+
+
+.consult-section {
+  position: relative;
+  background:
+    radial-gradient(600px at 70% 20%, rgba(30,120,255,0.25), transparent 60%),
+    radial-gradient(500px at 10% 60%, rgba(0,90,200,0.18), transparent 65%),
+    linear-gradient(180deg, #020812, #030d1f);
+  padding: 60px 8%;
+  color: #fff;
+  overflow: hidden;
+}
+
+.consult-wrapper {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 0px;
+  align-items: center;
+}
+
+.left-consult {
+  position: relative;
+}
+
+.left-consult .tag {
+  font-size: 20px;
+  line-height: 1.6;
+  max-width: 520px;
+  color: #eef4ff;
+}
+
+.left-consult .sub-tag {
+  margin-top: 12px;
+  font-size: 15px;
+  color: #9bb7ff;
+}
+
+.left-consult h1 {
+  margin: 45px 0 35px;
+  font-size: 64px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  background: linear-gradient(90deg, #4ea2ff, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 40px rgba(78,162,255,0.35);
+}
+
+.country-slider {
+  position: relative;
+  max-width: 520px;
+  padding-left: 50px;
+}
+
+
+.country-slider::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 4px;
+  height: 70px;
+  background: linear-gradient(180deg, #4ea2ff, #1c5cff);
+  border-radius: 10px;
+}
+
+.country {
+  display: none;
+}
+
+.country.active {
+  display: block;
+}
+
+.country h3 {
+  font-size: 17px;
+  letter-spacing: 1px;
+  margin-bottom: 14px;
+}
+
+.country p {
+  font-size: 14px;
+  opacity: 0.85;
+  margin-bottom: 6px;
+}
+
+.nav {
+  margin-top: 25px;
+}
+
+.nav button {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(78,162,255,0.6);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-right: 14px;
+  transition: all .3s ease;
+}
+
+.nav button:hover {
+  background: rgba(78,162,255,0.2);
+}
+
+.right-consult {
+  display: flex;
+  justify-content: center;
+}
+
+.form-box {
+  position: relative;
+  width: 100%;
+max-width: 421px;
+max-height: 624px;
+padding: 19px;
+border-radius: 24px;
+  background:
+    radial-gradient(300px at 80% 10%, rgba(60,150,255,0.25), transparent 70%),
+    linear-gradient(180deg, #061b36, #020c1d);
+  box-shadow:
+    0 40px 80px rgba(0,0,0,0.6),
+    inset 0 0 0 1px rgba(120,170,255,0.25);
+}
+
+.form-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 22px;
+  pointer-events: none;
+  padding: 1px;
+  background: linear-gradient(180deg, rgba(100,170,255,.6), transparent 40%);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+}
+
+.form-box h2 {
+  font-size: 26px;
+  margin-bottom: 32px;
+}
+
+.form-box input,
+.form-box select,
+.form-box textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255,255,255,0.25);
+  padding: 12px 0;
+  color: #fff;
+  font-size: 14px;
+}
+
+.form-box textarea {
+  resize: none;
+  height: 90px;
+}
+
+.form-box input::placeholder,
+.form-box textarea::placeholder {
+  color: #b7caff;
+}
+
+.form-box select {
+  color: #b7caff;
+}
+
+.form-box button {
+  margin-top: 25px;
+  background: linear-gradient(90deg, #0a7cff, #5db2ff);
+  border: none;
+  color: #fff;
+  padding: 14px 36px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 10px 30px rgba(10,124,255,0.45);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.form-box button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 40px rgba(10,124,255,0.6);
+}
+
+.left-consult {
+  position: relative;
+  padding: 40px 40px 40px 0;
+  background-image: url("https://cdn-hjokj.nitrocdn.com/xKvPrJeRKcMfBVHKpjbxbYMvqmxtHXge/assets/images/optimized/rev-1cdd7d0/www.apptunix.com/wp-content/assets/images/home_new/footer_form_map.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right center;
+}
+
+.left-consult > * {
+  position: relative;
+  z-index: 2;
+}
+
+.country-track {
+  position: relative;
+  min-height: 140px;
+}
+
+/* .country {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.country.active {
+  opacity: 1;
+  transform: translateY(0);
+  position: relative;
+} */
+
+
+.country{
+  opacity:0;
+  transform: translateX(30px);
+  transition:
+    opacity .45s ease,
+    transform .45s ease;
+  position:absolute;
+  inset:0;
+}
+
+.country.active{
+  opacity:1;
+  transform: translateX(0);
+  position:relative;
+}
+
+
+
+/* start faq  */
+.faq{
+  max-width:1100px;
+  margin:40px auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+  font-family:system-ui;
+}
+
+
+.faq-item{
+  background:#0b1628;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.15);
+  padding:18px 22px;
+  color:#fff;
+  cursor:pointer;
+  display:block;
+}
+.faq-item input{
+  display:none;
+}
+.question{
+  display:flex;
+  justify-content:space-between;
+  font-size:18px;
+}
+.question::after{
+  content:"⌄";
+  font-size:22px;
+  transition:.35s;
+  opacity:.8;
+}
+.answer{
+  max-height:0;
+  overflow:hidden;
+  opacity:0;
+  transition:max-height .45s ease, opacity .35s ease, margin .3s ease;
+}
+.faq-item input:checked ~ .answer{
+  max-height:300px;
+  opacity:1;
+  margin-top:12px;
+}
+.faq-item input:checked ~ .question::after{
+  transform:rotate(180deg);
+}
+.home-cert-section h2 {
+    font-size: 40px;
+    font-weight: 600;
+    padding: 0px 0px 0px 30px;;
+}
+
+.faq-top-section h2 {
+    font-size: 40px;
+    font-weight: 600;
+    padding: 0px 89px;
+}
+/* end faq  */
+
+
+.country-slider{
+  position:relative;
+  overflow:hidden;
+}
+
+.country-track{
+  display:flex;
+  transition:transform .5s ease;
+}
+
+.country{
+  min-width:100%;
+  opacity:0;
+  transition:opacity .3s ease;
+}
+
+.country.active{
+  opacity:1;
+}
