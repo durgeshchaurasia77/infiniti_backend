@@ -26,7 +26,8 @@ use App\Models\Industry;
 use App\Models\Blog;
 use App\Models\Testimonials;
 use App\Models\ContactUs;
-// use App\Models\Setting;// use App\Models\AboutUs;
+// use App\Models\Setting;
+use App\Models\Service;
 use App\Models\HomeBanner;
 // use App\Models\HomeBannerDetails;
 use App\Models\FAQ;
@@ -282,10 +283,14 @@ class HomeController extends Controller
 
         return view('website.blog-details', $details);
     }
-    public function services(Request $request)
+    public function services(Request $request, $slug)
     {
         $details = [];
-        // $details['aboutus']            = $this->aboutus::first();
+            $data   = Service::where('seo_slug', $slug)->first();
+        if(!$data){
+            $data   = Service::where('status', 1)->first();
+        }
+        $details['serviceData'] = $data;
         // $details['ourmissions']        = $this->ourmissions::first();
         // $details['ourservicesheader']  = $this->ourservicesheader::first();
         // $details['ourservices']        = $this->ourservices::where(['status' => 1])->get();

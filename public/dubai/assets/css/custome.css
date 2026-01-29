@@ -392,7 +392,7 @@ body{
   list-style:none !important;
   font-size:17px !important;
   opacity:.9 !important;
-    
+
     flex-wrap: wrap !important;
     margin: 0 auto 27px !important;
 }
@@ -476,7 +476,7 @@ body{
 }
 
 .inf-hero-text {
-    
+
     line-height: 1.65;
     color: #dce7ff;
     max-width: 620px;
@@ -564,7 +564,7 @@ body{
 .logos img{
   height:38px !important;
   opacity:.85 !important;
-  filter:brightness(0) invert(1) !important; 
+  filter:brightness(0) invert(1) !important;
   transition:.3s ease !important;
 }
 .logo-box{
@@ -700,7 +700,7 @@ body{
 .industry-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
-    
+
 }
 
 .industry-card {
@@ -767,12 +767,12 @@ h5.title {
 .homepage-statssection-stats .homepage-stat-card{
 background:linear-gradient(
   180deg,
-  #001a3d 0%,   
-  #06419c 60%,   
-  #06419c 100% 
+  #001a3d 0%,
+  #06419c 60%,
+  #06419c 100%
 );
 
-  
+
   padding:25px 25px;
   border-radius:18px;
   text-align:center;
@@ -949,7 +949,7 @@ background:linear-gradient(
     font-weight: 600;
     padding: 0px 0px 0px 30px;;
 }
-   
+
 .faq-top-section h2 {
     font-size: 40px;
     font-weight: 600;
@@ -1036,7 +1036,7 @@ background:linear-gradient(
 }
 
 .tech-card{
-  flex:1;                
+  flex:1;
   height:420px;
   border-radius:22px;
   overflow:hidden;
@@ -1046,7 +1046,7 @@ background:linear-gradient(
 }
 
 .tech-card.active{
-  flex:2.5;               
+  flex:2.5;
   z-index:10;
   box-shadow:0 25px 60px rgba(0,0,0,.35);
 }
@@ -1326,7 +1326,7 @@ background:linear-gradient(
     animation: shine 1.2s ease forwards;
     }
 
-    
+
     @keyframes shine {
     0% {
         transform: translateX(-50%) rotate(25deg);
@@ -1571,13 +1571,7 @@ border-radius: 24px;
 .hero-banner-one{
   width:100%;
   padding:120px 20px 140px;
-background: linear-gradient(
-  90deg,
-  #74afff 0%,
-  rgba(116,175,255,0.4) 50%,
-  rgba(116,175,255,0) 100%
-);
-
+  background: linear-gradient(90deg,rgb(10 40 80 / 92%) 50%, rgb(7 27 55 / 94%) 100%);
   display:flex;
   justify-content:center;
   position:relative;
@@ -2272,7 +2266,7 @@ background: linear-gradient(
     rgba(255,255,255,.4),
     rgba(255,255,255,.2)
   ),
-   
+
 
   background-size:cover;
   background-position:center;
@@ -2468,7 +2462,7 @@ background: linear-gradient(
   margin:15px 0;
 }
 .service-page-below-the-counter-content img{
-  background:#eaf2ff;  
+  background:#eaf2ff;
 }
 
 .software-devlopment-soluction-servicepage{
@@ -2657,12 +2651,12 @@ background: linear-gradient(
     transform:scale(1.06);
   }
 
-  .service-with-right-enginnering-service-page-hover-card:hover 
+  .service-with-right-enginnering-service-page-hover-card:hover
   .service-with-right-enginnering-service-page-card-front{
     opacity:0;
   }
 
-  .service-with-right-enginnering-service-page-hover-card:hover 
+  .service-with-right-enginnering-service-page-hover-card:hover
   .service-with-right-enginnering-service-page-card-hover{
     opacity:1;
     transform:translateX(0);
@@ -2688,8 +2682,8 @@ background: linear-gradient(
   background:#0b0b0b;
   border-radius:30px;
   overflow:hidden;
-  position:relative;  
-      margin-top: 40px;          
+  position:relative;
+      margin-top: 40px;
 }
 
 
@@ -2697,7 +2691,7 @@ background: linear-gradient(
   width:50%;
   color:#fff;
   position:relative;
-  z-index:1;                  
+  z-index:1;
 }
 
 
@@ -2705,7 +2699,7 @@ background: linear-gradient(
   position:relative;
   width:50%;
   cursor:pointer;
-  z-index:5;                
+  z-index:5;
 }
 
 
@@ -2732,8 +2726,8 @@ background: linear-gradient(
   justify-content:center;
   font-size:28px;
   box-shadow:0 0 0 10px rgba(255,255,255,0.2);
-  z-index:6;                   
-  pointer-events:auto;          
+  z-index:6;
+  pointer-events:auto;
 }
 .buid-service-videosection-service-page-video-popup{
   z-index: 99999;
@@ -2745,7 +2739,7 @@ background: linear-gradient(
   width: 100vw;
   height: 100vh;
   background: rgba(0,0,0,0.85);
-  display: none;                 
+  display: none;
   align-items: center;
   justify-content: center;
   z-index: 999999;
@@ -2989,12 +2983,12 @@ a.buid-service-videosection-service-page-btn.video-trigger {
 }
 
 
-.advance-technoloy-in-service-page-card-inner:hover 
+.advance-technoloy-in-service-page-card-inner:hover
 .advance-technoloy-in-service-page-hover{
   transform:translateY(0);
 }
 
-.advance-technoloy-in-service-page-card-inner:hover 
+.advance-technoloy-in-service-page-card-inner:hover
 .advance-technoloy-in-service-page-front{
   opacity:0;
   transform:translateY(30px);
@@ -3043,19 +3037,19 @@ a.buid-service-videosection-service-page-btn.video-trigger {
   background:#fff;
 }
 
-.enterprise-custome-softawere-devlopment-software-service-page-pagination-section 
+.enterprise-custome-softawere-devlopment-software-service-page-pagination-section
 .software-pagination-wrapper{
   max-width:1400px;
   margin:auto;
   position:relative;
 }
 
-.enterprise-custome-softawere-devlopment-software-service-page-pagination-section 
+.enterprise-custome-softawere-devlopment-software-service-page-pagination-section
 .software-pagination-window{
   overflow:hidden;
 }
 
-.enterprise-custome-softawere-devlopment-software-service-page-pagination-section 
+.enterprise-custome-softawere-devlopment-software-service-page-pagination-section
 .software-pagination-track{
   display:flex;
   gap:30px;
@@ -3063,7 +3057,7 @@ a.buid-service-videosection-service-page-btn.video-trigger {
 }
 
 /* CARD */
-.enterprise-custome-softawere-devlopment-software-service-page-pagination-section 
+.enterprise-custome-softawere-devlopment-software-service-page-pagination-section
 .software-page-card{
   flex:0 0 25%;
   max-width:25%;
@@ -3075,7 +3069,7 @@ a.buid-service-videosection-service-page-btn.video-trigger {
 }
 
 /* Icon animation */
-.enterprise-custome-softawere-devlopment-software-service-page-pagination-section 
+.enterprise-custome-softawere-devlopment-software-service-page-pagination-section
 .software-page-card img{
   width:60px;
   margin-bottom:25px;
@@ -3091,7 +3085,7 @@ a.buid-service-videosection-service-page-btn.video-trigger {
 }
 
 /* Pagination buttons */
-.enterprise-custome-softawere-devlopment-software-service-page-pagination-section 
+.enterprise-custome-softawere-devlopment-software-service-page-pagination-section
 .software-page-btn{
   position:absolute;
   bottom:-70px;
@@ -3104,14 +3098,14 @@ a.buid-service-videosection-service-page-btn.video-trigger {
   cursor:pointer;
 }
 
-.enterprise-custome-softawere-devlopment-software-service-page-pagination-section 
+.enterprise-custome-softawere-devlopment-software-service-page-pagination-section
 .software-page-btn.prev{
   left:50%;
   transform:translateX(-70px);
    color: #000;
 }
 
-.enterprise-custome-softawere-devlopment-software-service-page-pagination-section 
+.enterprise-custome-softawere-devlopment-software-service-page-pagination-section
 .software-page-btn.next{
   left:50%;
   transform:translateX(20px);
@@ -3866,7 +3860,7 @@ a.buid-service-videosection-service-page-btn.video-trigger {
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:40px;
-  
+
 }
 
 .choose-the-right-model-service-page-image img{
@@ -3903,7 +3897,7 @@ a.buid-service-videosection-service-page-btn.video-trigger {
 
 
 /* /////////////////////////////////////////
-////industry page statr here //////////// 
+////industry page statr here ////////////
 //////////////////////////////////////*/
 
 
@@ -4291,7 +4285,7 @@ a.buid-service-videosection-service-page-btn.video-trigger {
 
 .ai-powered-fitness-app-industry-ai-left h3{
   font-size:28px;
-  margin-bottom:20px;  
+  margin-bottom:20px;
   color: #000
 }
 

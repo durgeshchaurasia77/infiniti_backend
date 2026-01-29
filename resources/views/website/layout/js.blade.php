@@ -501,7 +501,50 @@ closeBtn.addEventListener("click", closeModal);
   });
 </script>
 
+<script>
+document.querySelectorAll('.menu .nav-link').forEach(link=>{
+    link.addEventListener('click',()=>{
+        document.querySelectorAll('.menu .nav-link')
+        .forEach(l=>l.classList.remove('active'));
+        link.classList.add('active');
+    });
+});
+</script>
+<script>
+const counters = document.querySelectorAll('.counter');
 
+const speed = 220;
+
+const startCounter = (counter) => {
+    const target = +counter.getAttribute('data-target');
+    let count = 0;
+
+    const updateCount = () => {
+        const increment = Math.max(1, Math.floor(target / speed));
+
+        if (count < target) {
+            count += increment;
+            counter.innerText = count;
+            setTimeout(updateCount, 35);
+        } else {
+            counter.innerText = target + '+';
+        }
+    };
+
+    updateCount();
+};
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            startCounter(entry.target);
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.6 });
+
+counters.forEach(counter => observer.observe(counter));
+</script>
 
 
 </body>
