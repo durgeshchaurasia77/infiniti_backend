@@ -156,7 +156,7 @@ class HomeController extends Controller
 
         return view('website.index', $details);
     }
-    public function contact(Request $request)
+    public function contact1(Request $request)
     {
         $details['settingDetails'] = $this->settingDetails::first();
         $details['pageBanner']     = $this->pageBanner::select('image')->where('page_name','Contact Us')->first();
@@ -291,6 +291,26 @@ class HomeController extends Controller
         // $details['ourservices']        = $this->ourservices::where(['status' => 1])->get();
 
         return view( 'website.services', $details);
+    }
+    public function industry(Request $request)
+    {
+        $details = [];
+        // $details['aboutus']            = $this->aboutus::first();
+        // $details['ourmissions']        = $this->ourmissions::first();
+        // $details['ourservicesheader']  = $this->ourservicesheader::first();
+        // $details['ourservices']        = $this->ourservices::where(['status' => 1])->get();
+
+        return view( 'website.industry', $details);
+    }
+    public function contact(Request $request)
+    {
+        $details = [];
+        // $details['aboutus']            = $this->aboutus::first();
+        // $details['ourmissions']        = $this->ourmissions::first();
+        // $details['ourservicesheader']  = $this->ourservicesheader::first();
+        // $details['ourservices']        = $this->ourservices::where(['status' => 1])->get();
+
+        return view( 'website.contact', $details);
     }
     public function digitalMarketing(Request $request)
     {

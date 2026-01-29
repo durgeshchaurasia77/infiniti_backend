@@ -359,6 +359,8 @@ Route::get('about-us', [HomeController::class, 'aboutUs'])->name('about-us');
 Route::get('blog', [HomeController::class, 'blog'])->name('blog');
 Route::get('blog-details', [HomeController::class, 'blogDetails'])->name('blog-details');
 Route::get('services', [HomeController::class, 'services'])->name('services');
+Route::get('industry', [HomeController::class, 'industry'])->name('industry');
+Route::get('contact', [HomeController::class, 'contact'])->name('contact');
 // Route::get('frro-location', [WebFrroLocationController::class, 'index'])->name('frrolocation');
 Route::post('get-enquery-form', [WebFrroLocationController::class, 'getenquerysubmit'])->name('get-enquery-form');
 // Route::get('destination-services', [WebDestinationServicesController::class, 'index'])->name('destination-services');

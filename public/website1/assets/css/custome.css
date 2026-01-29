@@ -2862,56 +2862,7 @@ h5.title {
 .service-page-below-the-counter-content img{
   background:#eaf2ff;  
 }
-@media (max-width: 576px){
 
-  .service-page-below-the-counter-tab-item{
-    font-size:16px;
-    line-height:1.3;
-  }
-
-  .service-page-below-the-counter-content h2{
-    font-size:22px;
-  }
-
-  .service-page-below-the-counter-content p{
-    font-size:14px;
-  }
-
-  .service-page-below-the-counter-content img{
-    width:48px;
-    height:48px;
-  }
-}
-@media (max-width: 992px){
-
-  .service-page-below-the-counter-service-tabs{
-    flex-direction:column;
-    padding:16px;
-    margin:50px 15px;
-  }
-
-  .service-page-below-the-counter-tab-menu,
-  .service-page-below-the-counter-tab-content{
-    width:100%;
-    border-radius:20px;
-  }
-
-  .service-page-below-the-counter-tab-menu{
-    padding:25px 20px;
-  }
-
-  .service-page-below-the-counter-tab-item{
-    font-size:18px;
-    padding:16px 10px;
-  }
-
-  .service-page-below-the-counter-tab-content{
-    padding:30px 25px;
-    margin-top:15px;
-  }
-}
-
-/* end here */
 
 .software-devlopment-soluction-servicepage{
   width:100%;
@@ -2997,65 +2948,10 @@ h5.title {
     font-size: 35px;
     text-align: center;
 }
-@media (max-width: 992px){
 
-  .software-devlopment-soluction-servicepage{
-    padding:30px 15px;
-  }
 
-  .software-devlopment-soluction-servicepage-software-hero{
-    padding:40px 40px;
-    border-radius:20px;
-  }
 
-  .software-devlopment-soluction-servicepage-software-hero-content{
-    max-width:100%;
-  }
 
-  .software-devlopment-soluction-servicepage-software-hero-content h2{
-    font-size:28px;
-    line-height:1.3;
-  }
-
-  .software-devlopment-soluction-servicepage-software-hero-content p{
-    font-size:16px;
-    margin-bottom:25px;
-  }
-}
-@media (max-width: 576px){
-
-  .software-devlopment-soluction-servicepage-software-hero{
-    padding:30px 20px;
-    background:
-      linear-gradient(
-        180deg,
-        rgba(0,0,0,0.85) 0%,
-        rgba(0,0,0,0.75) 100%
-      ),
-      url("../images/custom-cta1img.png") center/cover no-repeat;
-  }
-
-  .software-devlopment-soluction-servicepage-software-hero-content h2{
-    font-size:24px;
-  }
-
-  .software-devlopment-soluction-servicepage-software-hero-content p{
-    font-size:14px;
-  }
-
-  .software-devlopment-soluction-servicepage .hero-btn{
-    padding:12px 22px;
-    font-size:14px;
-  }
-
-  .service-page-below-the-counter-service-tabs-top h2{
-    font-size:26px;
-  }
-
-  .service-page-below-the-counter-service-tabs-top p{
-    font-size:16px;
-  }
-}
 
 
 
@@ -3170,34 +3066,6 @@ h5.title {
       0 18px 40px rgba(0,0,0,0.45); /* spread shadow */
   }
 }
-@media (max-width: 768px){
-
-  .service-with-right-enginnering-service-page-hover-card-section{
-    padding:60px 15px;
-  }
-
-  .service-with-right-enginnering-service-page-hover-card-grid{
-    grid-template-columns:repeat(2,1fr);
-    gap:16px;
-  }
-
-  .service-with-right-enginnering-service-page-hover-card{
-    height:260px;
-  }
-
-  .service-with-right-enginnering-service-page-card-front h3{
-    font-size:18px;
-  }
-
-  .service-with-right-enginnering-service-page-hover-card-section h2{
-    font-size:26px;
-  }
-
-  .service-with-right-enginnering-service-page-hover-card-section p{
-    font-size:14px;
-  }
-}
-
 
 
 /* service page video section start  */
@@ -3338,37 +3206,7 @@ a.buid-service-videosection-service-page-btn.video-trigger {
   0%{ transform:scale(.8); opacity:.8; }
   100%{ transform:scale(1.6); opacity:0; }
 }
-@media (max-width: 576px){
 
-  .buid-service-videosection-service-page-cta{
-    padding:24px 18px;
-    border-radius:22px;
-  }
-
-  .buid-service-videosection-service-page-cta-content h2{
-    font-size:22px;
-    line-height:1.3;
-  }
-
-  .buid-service-videosection-service-page-cta-content p{
-    font-size:14px;
-  }
-
-  a.buid-service-videosection-service-page-btn{
-    padding:12px 18px;
-    font-size:14px;
-  }
-
-  .buid-service-videosection-service-page-video-banner img{
-    height:220px;
-  }
-
-  .buid-service-videosection-service-page-play-btn{
-    width:56px;
-    height:56px;
-    font-size:22px;
-  }
-}
 
 
 
@@ -3475,49 +3313,6 @@ a.buid-service-videosection-service-page-btn.video-trigger {
     max-width: 1200px;
     margin: 0 auto;
     padding: 40px 16px;
-}
-@media (max-width: 768px){
-
-  .process-accordion-servicepage{
-    padding:30px 15px;
-  }
-
-  .process-accordion-servicepage h2{
-    font-size:26px;
-    line-height:1.3;
-  }
-
-  .process-accordion-servicepage p{
-    font-size:14px;
-  }
-
-  .process-title-servicepage{
-    padding:18px 0;
-  }
-
-  .process-title-servicepage h3{
-    font-size:18px;
-  }
-
-  .process-blackbox-servicepage{
-    flex-direction:column;
-    padding:26px;
-    gap:20px;
-  }
-
-  .process-blackbox-left-servicepage,
-  .process-blackbox-right-servicepage{
-    width:100%;
-  }
-
-  .process-blackbox-left-servicepage h4{
-    font-size:20px;
-  }
-
-  .process-blackbox-right-servicepage li{
-    font-size:15px;
-    margin-bottom:14px;
-  }
 }
 
 
@@ -3630,46 +3425,6 @@ a.buid-service-videosection-service-page-btn.video-trigger {
 .advance-technoloy-in-service-page-hover p {
     color: #fff;
 }
-@media (max-width: 768px){
-
-  .advance-technoloy-in-service-page{
-    padding:60px 15px;
-  }
-
-  .advance-technoloy-in-service-page-grid{
-    grid-template-columns:1fr;
-    gap:20px;
-  }
-
-  .advance-technoloy-in-service-page-card{
-    height:auto;
-    min-height:260px;
-  }
-
-  .advance-technoloy-in-service-page-front{
-    bottom:20px;
-    left:20px;
-  }
-
-  .advance-technoloy-in-service-page-front h3{
-    font-size:20px;
-  }
-
-  .advance-technoloy-in-service-page-icon{
-    width:45px;
-    height:45px;
-    font-size:20px;
-  }
-
-  .advance-technoloy-in-service-page h2{
-    font-size:26px;
-    line-height:1.3;
-  }
-
-  .advance-technoloy-in-service-page p{
-    font-size:14px;
-  }
-}
 
 
 
@@ -3777,60 +3532,9 @@ a.buid-service-videosection-service-page-btn.video-trigger {
     font-size: 16px;
     font-style: italic;
 }
-@media (max-width: 768px){
-
-  /* .enterprise-custome-softawere-devlopment-software-service-page-pagination-section{
-    padding:50px 15px;
-  } */
-.brand-slider-section-service-page h2 {
-    font-size: 30px;}
 
 
-  .software-pagination-track{
-    gap:20px;
-  }
-
-  .software-page-card{
-        flex: 0 0 100% !important;
-        max-width: 100% !important;
-    padding:26px 20px;
-  }
-
-  .enterprise-custome-softawere-devlopment-software-service-page-pagination-section h2{
-    font-size:26px;
-    line-height:1.3;
-  }
-
-  .enterprise-custome-softawere-devlopment-software-service-page-pagination-section p.itlc{
-    font-size:14px;
-  }
-
-  .software-page-card h3{
-    font-size:18px;
-  }
-
-  .software-page-card p{
-    font-size:14px;
-  }
-
-  .software-page-btn{
-    bottom:-45px;
-    width:46px;
-    height:46px;
-    font-size:22px;
-  }
-
-  .software-page-btn.prev{
-    transform:translateX(-55px);
-  }
-
-  .software-page-btn.next{
-    transform:translateX(10px);
-  }
-}
-
-
-/* enterprise-custome-softawere-devlopment-software-service-page-pagination-section end */
+/* enterprise-custome-softawere-devlopment-software-service-page-pagination-section */
 
 .brand-slider-section-service-page{
   background:#000;
@@ -3971,40 +3675,6 @@ a.buid-service-videosection-service-page-btn.video-trigger {
 
 .the-behind-company-succese-service-page-tech-slider{
   position:relative;
-}
-@media (max-width: 768px){
-
-  /* Tabs → horizontal scroll */
-  .the-behind-company-succese-service-page-tech-top-tabs{
-    justify-content:flex-start;
-    overflow-x:auto;
-    gap:12px;
-  }
-
-  .the-behind-company-succese-service-page-tech-top-tabs::-webkit-scrollbar{
-    display:none;
-  }
-
-  .the-behind-company-succese-service-page-tech-tab{
-    padding:10px 14px;
-    font-size:13px;
-  }
-
-  /* Slider */
-  .the-behind-company-succese-service-page-slider-track{
-    gap:20px;
-    animation-duration:45s;
-  }
-
-  .the-behind-company-succese-service-page-slider-track img{
-    width:80px;
-    height:60px;
-    border-radius:10px;
-  }
-
-  .the-behind-company-succese-service-page-tech-slider{
-    margin-top:20px;
-  }
 }
 
 
@@ -4624,48 +4294,6 @@ a.buid-service-videosection-service-page-btn.video-trigger {
 .choose-the-right-model-service-page-text ul li {
     color: #000;
 }
-@media (max-width: 768px){
-
-  /* Tabs → horizontal scroll */
-  .choose-the-right-model-service-page-tabs{
-    justify-content:flex-start;
-    overflow-x:auto;
-    gap:12px;
-    padding-bottom:8px;
-  }
-
-  .choose-the-right-model-service-page-tabs::-webkit-scrollbar{
-    display:none;
-  }
-
-  .choose-the-right-model-service-page-tab{
-    white-space:nowrap;
-    padding:10px 20px;
-    font-size:15px;
-  }
-
-  /* Content */
-  .choose-the-right-model-service-page-content{
-    padding:26px;
-  }
-
-  .choose-the-right-model-service-page-grid{
-    grid-template-columns:1fr;
-    gap:24px;
-  }
-
-  .choose-the-right-model-service-page-text h2{
-    font-size:22px;
-  }
-
-  .choose-the-right-model-service-page-text p{
-    font-size:14px;
-  }
-
-  .choose-the-right-model-service-page-text li{
-    font-size:14px;
-  }
-}
 
 
 /* /////////////////////////////////////////
@@ -5258,6 +4886,10 @@ a.buid-service-videosection-service-page-btn.video-trigger {
   text-decoration:none;
   font-weight:600;
 }
+
+
+
+
 .launch-your-dream-fitness-industry-page-gym-app-tab-bar {
     color: #000;
 }
@@ -5376,7 +5008,6 @@ a.buid-service-videosection-service-page-btn.video-trigger {
   left:0;
   color:#1e90ff;
 }
-
 
 /* end  */
 
@@ -5656,7 +5287,6 @@ a.buid-service-videosection-service-page-btn.video-trigger {
     transform:translateY(0);
   }
 }
-
 
 
 /*////////////////////////////////
