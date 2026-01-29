@@ -703,16 +703,30 @@
         <style>
             /* SECTION */
             .navy-services {
-                background: linear-gradient(180deg, #05132b, #071c3e);
-                padding: 80px 0 60px;
+                /* background: linear-gradient(180deg, #05132b, #071c3e); */
+           background: linear-gradient(
+                180deg,
+                #0C2347 0%,
+                #081A33 100%
+            );
+            padding: 90px 0 80px;
             }
 
             /* HEADING */
             .navy-services__heading h2 {
-                color: #fff;
+                /* color: #fff;
                 font-size: 32px;
                 line-height: 1.25;
-                margin-bottom: 45px;
+                margin-bottom: 45px; */
+
+                  font-size:34px;
+                font-weight:700;
+                line-height:1.25;
+                margin-bottom:50px;
+                color:#FFFFFF;
+            }
+            .navy-services__heading h2 span{
+                color:var(--brand-soft);
             }
 
             /* GRID */
@@ -724,16 +738,24 @@
 
             /* CARD */
             .navy-service-card {
-                background: rgba(255, 255, 255, 0.06);
+                /* background: rgba(255, 255, 255, 0.06);
                 border-radius: 16px;
                 padding: 26px 22px;
-                border: 1px solid rgba(255, 255, 255, 0.08);
+                border: 1px solid rgba(255, 255, 255, 0.08); */
 
-                transition: 0.35s ease;
-                position: relative;
+                /* transition: 0.35s ease;
+                position: relative; */
                 overflow: hidden;
-            }
 
+                background: #0E2A52;
+                border-radius: 14px;
+                padding: 30px 26px;
+                border: 1px solid rgba(255,255,255,.08);
+                transition: .25s ease;
+            }
+            .navy-service-card svg{
+                color: #fff;
+            }
             /* ICON */
             .navy-service-card i {
                 width: 22px;
@@ -767,9 +789,13 @@
 
             /* HOVER */
             .navy-service-card:hover {
-                transform: translateY(-6px);
+                /* transform: translateY(-6px);
                 background: rgba(255, 255, 255, 0.1);
-                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35); */
+
+                  border-color: #18499D;
+                transform: translateY(-3px);
+                box-shadow: 0 12px 24px rgba(0,0,0,.35);
             }
 
             .navy-service-card:hover .navy-arrow {
@@ -992,14 +1018,14 @@
 }
 
 .section-title .subtitle {
-    color: #ffffff !important;
+    color: #0C2347 !important;
     letter-spacing: 1px;
     font-weight: 500;
     font-size: 35px !important;
 }
 
 .section-title .title {
-    color: #ffffff;
+    color: #0C2347;
 }
 
 /* Blog Card */

@@ -69,7 +69,7 @@
         </div>
     </section>
 
-    
+
 
     <section class="trusted">
 
@@ -128,34 +128,35 @@
 
         <!-- trusted client section start       -->
 
-        <section class="homepage-statssection-stats mt-4">
+        <section class="homepage-statssection-stats">
 
             <div class="homepage-stat-card">
-                <h2>{{ $excellanceCounting->industry_count ?? '1'}}+</h2>
+                <h2 class="counter" data-target="{{ $excellanceCounting->industry_count ?? 1 }}">0</h2>
                 <p>Industry Excellence</p>
             </div>
 
             <div class="homepage-stat-card">
-                <h2>{{ $excellanceCounting->empowered_count ?? '1' }}+</h2>
+                <h2 class="counter" data-target="{{ $excellanceCounting->empowered_count ?? 1 }}">0</h2>
                 <p>Empowered Clients</p>
             </div>
 
             <div class="homepage-stat-card">
-                <h2>{{ $excellanceCounting->coutries_count ?? '1' }}+</h2>
+                <h2 class="counter" data-target="{{ $excellanceCounting->coutries_count ?? 1 }}">0</h2>
                 <p>Countries Served</p>
             </div>
 
             <div class="homepage-stat-card">
-                <h2>{{ $excellanceCounting->teach_engineer_count ?? '1' }}+</h2>
+                <h2 class="counter" data-target="{{ $excellanceCounting->teach_engineer_count ?? 1 }}">0</h2>
                 <p>Tech Engineers</p>
             </div>
 
             <div class="homepage-stat-card">
-                <h2>{{ $excellanceCounting->digital_solution_count ?? '1' }}+</h2>
+                <h2 class="counter" data-target="{{ $excellanceCounting->digital_solution_count ?? 1 }}">0</h2>
                 <p>Digital Solutions Launched</p>
             </div>
 
         </section>
+
         <!-- trusted client section start   end    -->
 
         <!-- Start Client Area -->
@@ -246,7 +247,7 @@
         </div>
     </section>
     @if(count($craftingTechnologyList) > 0)
-        <section class="mt-4" id="tech-tab">
+        <section class="tech-wrapper-section" id="tech-tab">
             <!-- tech wrapper  -->
             <div class="tech-wrapper" >
                 <h2>Crafting Solutions with Technology<br /> that Works For You</h2>
@@ -278,10 +279,8 @@
                         Let’s Work Together
                         <span>➜</span>
                     </a>
-
                 </div>
             </section>
-
         </div>
         <!-- home below banner two end  -->
         <!-- Start Service Area -->
@@ -499,7 +498,6 @@
         <!-- home cert section start  -->
         @if(count($certificateSoftwareList) > 0)
         <section class="home-cert-section  rn-section-gap">
-
             <div class="container">
                 <h2> Industry Standard Certified Software <br />and Mobile App Development Company </h2>
                 <div class="row justify-content-center aws">

@@ -84,166 +84,125 @@
 
 
 <body class="template-color-1 spybody" data-spy="scroll" data-target=".navbar-example2" data-offset="70">
-        <header class="navbar">
-        <!-- LEFT -->
-        <div class="logo header-logo">
-            <a href="{{ route('web_home') }}">
-                <img src="{{ asset($settingData->header_logo ?? 'website1/assets/images/infiniti-logo.png') }}" alt=""></div>
-            </a>
-        <!-- CENTER -->
-         <div class="mobile-toggle">
-            <i class="fa-solid fa-bars"></i>
-         </div>
+<header class="navbar">
+<!-- LEFT -->
+<div class="logo header-logo">
+    <a href="{{ route('web_home') }}">
+        <img src="{{ asset($settingData->header_logo ?? 'website1/assets/images/infiniti-logo.png') }}" alt=""></div>
+    </a>
+<!-- CENTER -->
+    <div class="mobile-toggle">
+    <i class="fa-solid fa-bars"></i>
+    </div>
 
-        <ul class="menu">
-            <span class="menu-close">&times;</span>
-            <li><a href="#">Portfolio</a></li>
-            <li>
-                <a href="#">Services ▾</a>
-                <div class="mega-menu">
-                    <div class="mega-wrap">
-                        <div class="left">
-                            @php
-                                $serviceChunks = $serviceHeaderList->chunk(
-                                    ceil($serviceHeaderList->count() / 3)
-                                );
-                            @endphp
-                        @foreach ($serviceChunks as $chunk)
-                            <div class="col">
-                                <h4>Services</h4>
+<ul class="menu">
+    <span class="menu-close">&times;</span>
+    <li><a href="#" class="nav-link action">Portfolio</a></li>
+    <li>
+        <a href="#" class="nav-link {{ request()->routeIs('services') ? 'active' : '' }}">Services ▾</a>
+        <div class="mega-menu">
+            <div class="mega-wrap">
+                <div class="left">
+                    @php
+                        $serviceChunks = $serviceHeaderList->chunk(
+                            ceil($serviceHeaderList->count() / 3)
+                        );
+                    @endphp
+                @foreach ($serviceChunks as $chunk)
+                    <div class="col">
+                        <h4>Services</h4>
 
-                                @foreach ($chunk as $service)
-                                    <div class="item">
-                                        <i class="fa-solid fa-circle-dot"></i>
-                                        <a href="{{ url($service->seo_slug) }}">
-                                            {{ $service->name }}
-                                        </a>
-                                    </div>
-                                @endforeach
+                        @foreach ($chunk as $service)
+                            <div class="item">
+                                <i class="fa-solid fa-circle-dot"></i>
+                                <a href="{{ route('services',$service->seo_slug) }}">
+                                    {{ $service->name }}
+                                </a>
                             </div>
                         @endforeach
-
                     </div>
+                @endforeach
 
-                        <div class="right">
-
-                            <div class="carousel">
-                                <div class="slides">
-                                    <img src="./assets/images/airplane.png">
-                                    <img src="./assets/images/airlane.jpg">
-                                    <img src="./assets/images/mobile-app-image.png">
-                                </div>
-
-                                <div class="dots">
-                                    <span class="dot active"></span>
-                                    <span class="dot"></span>
-                                    <span class="dot"></span>
-                                </div>
-                            </div>
-                            <div class="crousel-caption">
-                                <h3>Clutch</h3>
-                                <p>Top Developers in India 2025</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <a href="#">Industries ▾</a>
-                <div class="mega-menu">
-                    <div class="mega-wrap">
-                        <div class="left">
-                            @php
-                                $industryChunks = $industryHeaderList->chunk(
-                                    ceil($industryHeaderList->count() / 3)
-                                );
-                            @endphp
-                            @foreach ($industryChunks as $chunk1)
-                            <div class="col">
-                                <h4>Services</h4>
-
-                                @foreach ($chunk1 as $industry)
-                                    <div class="item">
-                                        <i class="fa-solid fa-circle-dot"></i>
-                                        <a href="{{ url($industry->seo_slug) }}">
-                                            {{ $industry->title ?? '' }}
-                                        </a>
-                                    </div>
-                                @endforeach
-                            </div>
-                        @endforeach
-                            {{-- <div class="col">
-                                <h4>INDUSTRIES</h4>
-
-                                <div class="item"><i class="fa-solid fa-graduation-cap"></i>Education</div>
-                                <div class="item"><i class="fa-solid fa-truck-fast"></i>Logistics</div>
-                                <div class="item"><i class="fa-solid fa-sack-dollar"></i>Finance</div>
-                                <div class="item"><i class="fa-solid fa-cart-shopping"></i>Ecommerce</div>
-
-                                <h4 style="margin-top:12px;">ON DEMAND APPS</h4>
-
-                                <div class="item"><i class="fa-solid fa-burger"></i>Food Delivery</div>
-                                <div class="item"><i class="fa-solid fa-taxi"></i>Taxi Booking</div>
-                            </div>
-
-                            <div class="col">
-                                <h4>FEATURED</h4>
-
-                                <div class="item"><i class="fa-solid fa-dumbbell"></i>Fitness</div>
-                                <div class="item"><i class="fa-solid fa-heart"></i>Dating App Development</div>
-                                <div class="item"><i class="fa-solid fa-gamepad"></i>Game Development</div>
-                                <div class="item"><i class="fa-solid fa-house"></i>Real Estate</div>
-
-                                <div class="item"><i class="fa-solid fa-bag-shopping"></i>Grocery Delivery</div>
-                                <div class="item"><i class="fa-solid fa-hand-sparkles"></i>Home Services</div>
-                            </div>
-
-                            <div class="col">
-                                <h4>SOLUTIONS</h4>
-
-                                <div class="item"><i class="fa-solid fa-stethoscope"></i>Healthcare</div>
-                                <div class="item"><i class="fa-solid fa-users"></i>Social Networking</div>
-                                <div class="item"><i class="fa-solid fa-trophy"></i>Sports Betting</div>
-                                <div class="item"><i class="fa-solid fa-vr-cardboard"></i>AR / VR</div>
-
-                                <div class="item"><i class="fa-solid fa-truck"></i>Pickup & Delivery</div>
-                                <div class="item"><i class="fa-solid fa-wand-magic-sparkles"></i>Beauty & Salon Booking
-                                </div>
-                            </div> --}}
-
-                        </div>
-
-                        <div class="right">
-
-                            <div class="carousel">
-                                <div class="slides">
-                                    <img src="./assets/images/airplane.png">
-                                    <img src="./assets/images/airlane.jpg">
-                                    <img src="./assets/images/mobile-app-image.png">
-                                </div>
-
-                                <div class="dots">
-                                    <span class="dot active"></span>
-                                    <span class="dot"></span>
-                                    <span class="dot"></span>
-                                </div>
-                            </div>
-                            <div class="crousel-caption">
-                                <h3>Clutch</h3>
-                                <p>Top Developers in India 2025</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-
-
-            <li><a href="{{ route('about-us') }}">About</a></li>
-            <li><a href="#">Blog</a></li>
-            <div class="nav-right">
-                <a class="btn-primary">Get In Touch</a>
-                <a class="btn-outline">For Entrepreneurs</a>
             </div>
-        </ul>
-        <!-- RIGHT BUTTONS -->
-    </header>
+
+                <div class="right">
+
+                    <div class="carousel">
+                        <div class="slides">
+                            <img src="./assets/images/airplane.png">
+                            <img src="./assets/images/airlane.jpg">
+                            <img src="./assets/images/mobile-app-image.png">
+                        </div>
+
+                        <div class="dots">
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+                    </div>
+                    <div class="crousel-caption">
+                        <h3>Clutch</h3>
+                        <p>Top Developers in India 2025</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <a href="#" class="nav-link {{ request()->routeIs('industries') ? 'active' : '' }}">Industries ▾</a>
+        <div class="mega-menu">
+            <div class="mega-wrap">
+                <div class="left">
+                    @php
+                        $industryChunks = $industryHeaderList->chunk(
+                            ceil($industryHeaderList->count() / 3)
+                        );
+                    @endphp
+                    @foreach ($industryChunks as $chunk1)
+                    <div class="col">
+                        <h4>Services</h4>
+
+                        @foreach ($chunk1 as $industry)
+                            <div class="item">
+                                <i class="fa-solid fa-circle-dot"></i>
+                                <a href="{{ url($industry->seo_slug) }}">
+                                    {{ $industry->title ?? '' }}
+                                </a>
+                            </div>
+                        @endforeach
+                    </div>
+                @endforeach
+                </div>
+
+                <div class="right">
+
+                    <div class="carousel">
+                        <div class="slides">
+                            <img src="./assets/images/airplane.png">
+                            <img src="./assets/images/airlane.jpg">
+                            <img src="./assets/images/mobile-app-image.png">
+                        </div>
+
+                        <div class="dots">
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+                    </div>
+                    <div class="crousel-caption">
+                        <h3>Clutch</h3>
+                        <p>Top Developers in India 2025</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li><a href="{{ route('about-us') }}" class="nav-link {{ request()->routeIs('about-us') ? 'active' : '' }}">About</a></li>
+    <li><a href="{{ route('blog') }}" class="nav-link {{ request()->routeIs('blog') ? 'active' : '' }}">Blog</a></li>
+    <div class="nav-right">
+        <a href="#" class="btn-primary" class="nav-link {{ request()->routeIs('contact-us') ? 'active' : '' }}">Get In Touch</a>
+        <a class="btn-outline"></a>
+    </div>
+</ul>
+<!-- RIGHT BUTTONS -->
+</header>
