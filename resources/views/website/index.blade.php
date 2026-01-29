@@ -69,7 +69,7 @@
         </div>
     </section>
 
-    
+
 
     <section class="trusted">
 
@@ -128,7 +128,7 @@
 
         <!-- trusted client section start       -->
 
-        <section class="homepage-statssection-stats mt-4">
+        <section class="homepage-statssection-stats">
 
             <div class="homepage-stat-card">
                 <h2>{{ $excellanceCounting->industry_count ?? '1'}}+</h2>

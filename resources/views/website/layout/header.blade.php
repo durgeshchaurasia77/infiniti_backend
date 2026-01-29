@@ -242,7 +242,7 @@
             <li><a href="#">Blog</a></li>
             <div class="nav-right">
                 <a class="btn-primary">Get In Touch</a>
-                <a class="btn-outline">For Entrepreneurs</a>
+                <a class="btn-outline"></a>
             </div>
         </ul>
         <!-- RIGHT BUTTONS -->
