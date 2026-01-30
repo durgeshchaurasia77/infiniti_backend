@@ -3,7 +3,7 @@
 
     <section class="hero page-hero">
         <video autoplay muted loop playsinline class="hero-video">
-            <source src="{{ asset('website1/video/home_banner_video.mp4') }}" type="video/mp4">
+            <source src="{{ asset('website1/video/Home-banner.mp4') }}" type="video/mp4">
         </video>
         <div class="overlay"></div>
         <div class="hero-content">
@@ -104,7 +104,8 @@
                         <h1 class="inf-hero-title">{{ $trunkeyPartner->title ?? 'AI DISRUPTION' }}</h1>
 
                         <p class="inf-hero-text">
-                            {{ $trunkeyPartner->short_description ?? '' }}
+                            {{-- {{ $trunkeyPartner->short_description ?? '' }} --}}
+                            Infiniti is a leading AI app development company, redefining digital possibilities with over a decade of experience. With 300+ agile thinkers, we build AI-native solutions that empower businesses to innovate, scale, and lead their industries.
                         </p>
 
                         <div class="inf-hero-wide-img">
@@ -159,8 +160,14 @@
 
         <!-- trusted client section start   end    -->
 
+        
         <!-- Start Client Area -->
         <section class="tab-section">
+           <div class="top-heading-tab-section">
+             <p>Mastering Every Technology To Build Your</p>
+            <h2>Perfect Solution</h2>
+        </div>
+        <div class="tab-warpeper">
             @if(count($technologyUsedList) > 0)
             <!-- LEFT SIDE -->
             <div class="tabs">
@@ -203,11 +210,13 @@
 
 
             @endif
+            </div>
         </section>
         <!-- End client section -->
 
     <section class="case-section">
-        <div class="container" style="margin-top: -36px;">
+     
+        <div class="container">
 
             <div class="case-top">
                 <div class="case-title">
@@ -245,7 +254,10 @@
                 @endforeach
             </div>
         </div>
+          
+     
     </section>
+     <div class="case-spacer"></div>
     @if(count($craftingTechnologyList) > 0)
         <section class="tech-wrapper-section" id="tech-tab">
             <!-- tech wrapper  -->
