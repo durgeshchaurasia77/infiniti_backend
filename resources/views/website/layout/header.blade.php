@@ -161,11 +161,10 @@
                     @foreach ($industryChunks as $chunk1)
                     <div class="col">
                         <h4>Services</h4>
-
                         @foreach ($chunk1 as $industry)
                             <div class="item">
                                 <i class="fa-solid fa-circle-dot"></i>
-                                <a href="{{ url($industry->seo_slug) }}">
+                                <a href="{{ route('industry',$industry->seo_slug) }}">
                                     {{ $industry->title ?? '' }}
                                 </a>
                             </div>
@@ -200,7 +199,7 @@
     <li><a href="{{ route('about-us') }}" class="nav-link {{ request()->routeIs('about-us') ? 'active' : '' }}">About</a></li>
     <li><a href="{{ route('blog') }}" class="nav-link {{ request()->routeIs('blog') ? 'active' : '' }}">Blog</a></li>
     <div class="nav-right">
-        <a href="#" class="btn-primary" class="nav-link {{ request()->routeIs('contact-us') ? 'active' : '' }}">Get In Touch</a>
+        <a href="{{ route('contact') }}" class="btn-primary" class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }}">Get In Touch</a>
         <a class="btn-outline"></a>
     </div>
 </ul>

@@ -32,7 +32,7 @@
             imJs.onePageNav();
         },
 
-        
+
         activePopupDemo: function (e) {
             $('.popuptab-area li a.demo-dark').on('click', function (e) {
                 $('.demo-modal-area').addClass('dark-version');
@@ -88,8 +88,8 @@
 			});
         },
 
-        
-        
+
+
         wowActive: function () {
             new WOW().init();
         },
@@ -324,7 +324,7 @@
                     $(scrollTop).css('opacity', '0');
                 }
             });
-            
+
             //Click event to scroll to top
             $(scrollTop).on('click', function () {
                 $('html, body').animate({
@@ -441,7 +441,7 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 
-  const triggers = document.querySelectorAll(".video-trigger");
+  const triggers = document.querySelectorAll(".video-trigger1");
   const popup = document.getElementById(
     "buid-service-videosection-service-page-videoPopup"
   );
