@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
+use App\Models\AdvanceAi;
 use Illuminate\Http\Request;
 use App\Http\Traits\MessageStatusTrait;
 use Illuminate\Support\Facades\Validator;
@@ -10,26 +11,32 @@ use DB;
 use File;
 use Exception;
 use Illuminate\Validation\Rule;
-// use App\Models\OurServices;
-// use App\Models\OurServicesHeader;
+use App\Models\WeDeliver;
+use App\Models\ClientSatisfation;
+use App\Models\LeverageAi;
 use App\Models\TrustedBy;
 use App\Models\ExcellanceCounting;
 use App\Models\TechnologyUsed;
 use App\Models\OurPeople;
 use App\Models\CraftingTechnology;
+use App\Models\PowerPacked;
 use App\Models\OurJourney;
 use App\Models\WhyBusinessChoose;
 use App\Models\CertificateSoftware;
 use App\Models\TrunkeyPartner;
 use App\Models\FameMobileApp;
 use App\Models\Industry;
+use App\Models\Features;
+use App\Models\CaseStudy;
+use App\Models\AdvanceTechnology;
 use App\Models\Blog;
 use App\Models\Testimonials;
 use App\Models\ContactUs;
-// use App\Models\Setting;
+use App\Models\ServiceWeOffer;
 use App\Models\Service;
 use App\Models\HomeBanner;
-// use App\Models\HomeBannerDetails;
+use App\Models\RoadMap;
+use App\Models\OurProven;
 use App\Models\FAQ;
 // use App\Models\PageBanner;
 
@@ -291,20 +298,51 @@ class HomeController extends Controller
             $data   = Service::where('status', 1)->first();
         }
         $details['serviceData'] = $data;
+        $details['trustedByList']                = $this->trustedBy::select('image','name')->where('status',1)->get();
+        $details['excellanceCounting']               = $this->excellanceCounting::first();
+        $details['serviceWeOfferList'] = ServiceWeOffer::where('status',1)->get();
+        $details['clientSatisfationList'] = ClientSatisfation::where('status',1)->get();
+        $details['ourProvenList'] = OurProven::where('status',1)->get();
+        $details['advanceAiList'] = AdvanceAi::where('status',1)->get();
+        $details['weDeliverList'] = WeDeliver::where('status',1)->get();
+
+        $details['testimonials']  = $this->testimonials::where('status', 1)
+                                                                     ->select('name','video_path','designation','description','rating')
+                                                                        ->get();
+        // $details['advanceTechnologyList'] = AdvanceTechnology::where('status',1)->get();
         // $details['ourmissions']        = $this->ourmissions::first();
         // $details['ourservicesheader']  = $this->ourservicesheader::first();
         // $details['ourservices']        = $this->ourservices::where(['status' => 1])->get();
 
         return view( 'website.services', $details);
     }
-    public function industry(Request $request)
+    public function industry(Request $request, $slug)
     {
         $details = [];
+            $data   = Industry::where('seo_slug', $slug)->first();
+        if(!$data){
+            $data   = Industry::where('status', 1)->first();
+        }
         // $details['aboutus']            = $this->aboutus::first();
         // $details['ourmissions']        = $this->ourmissions::first();
         // $details['ourservicesheader']  = $this->ourservicesheader::first();
         // $details['ourservices']        = $this->ourservices::where(['status' => 1])->get();
+        $details['featuresData'] = Features::first();
+        $details['fameMobileAppList']             = $this->fameMobileApp::where('status', 1)
+                                                                        ->select('title','name','image')
+                                                                        ->get();
 
+        $details['caseStudyList']  = CaseStudy::where('status',1)->get();
+        $details['LeverageAiList'] = LeverageAi::where('status',1)->get();
+        $details['testimonials']   = $this->testimonials::where('status', 1)
+                                                                     ->select('name','video_path','designation','description','rating')
+                                                                        ->get();
+
+        $details['advanceTechnologyList'] = AdvanceTechnology::where('status',1)->get();
+        $details['powerPackedList'] = PowerPacked::where('status',1)->get();
+        $details['roadMapList'] = RoadMap::where('status',1)->get();
+        $details['industryData'] = $data;
+        $details['fAQList']                        = $this->fAQ::where('status', 1)->select('question','answer')->get();
         return view( 'website.industry', $details);
     }
     public function contact(Request $request)

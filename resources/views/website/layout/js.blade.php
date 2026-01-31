@@ -528,7 +528,7 @@ const bar = document.querySelector(".power-packed-feature-industry-page .progres
 const nextBtn = document.querySelector(".power-packed-feature-industry-page .next");
 const prevBtn = document.querySelector(".power-packed-feature-industry-page .prev");
 
-const cardWidth = 350;  
+const cardWidth = 350;
 const totalCards = track.children.length / 2;   // original 6
 let index = 0;
 
@@ -569,7 +569,7 @@ function move(){
   }
 }
 </script>
-   
+
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -601,7 +601,7 @@ document.addEventListener("DOMContentLoaded", function () {
     modalVideo.src = "";
     document.body.style.overflow = "auto";
   }
-  
+
 const closeBtn = document.querySelector(".navy-video-modal__close");
 
 closeBtn.addEventListener("click", closeModal);
@@ -651,7 +651,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 </script>
-    
+
 <script>
 document.querySelectorAll(".ai-powered-fitness-app-industry-ai-tab").forEach(tab=>{
   tab.addEventListener("click",()=>{
@@ -686,7 +686,7 @@ tabs.forEach(tab=>{
   tab.addEventListener("click",()=>activateTab(tab));
 });
 </script>
-     
+
 <script>
 document.addEventListener("DOMContentLoaded", function(){
 
@@ -824,12 +824,12 @@ prev.addEventListener("click", ()=>{
   }
 });
 </script>
+<script>
+  const wrapper = document.querySelector(
+    ".service-page-below-the-counter-service-tabs"
+  );
 
-  <script>
-    const wrapper = document.querySelector(
-      ".service-page-below-the-counter-service-tabs"
-    );
-
+  if (wrapper) {
     const tabs = wrapper.querySelectorAll(
       ".service-page-below-the-counter-tab-item"
     );
@@ -838,18 +838,23 @@ prev.addEventListener("click", ()=>{
       ".service-page-below-the-counter-content"
     );
 
+    function activateTab(tab) {
+      const targetId = tab.dataset.tab;
+
+      tabs.forEach(t => t.classList.remove("active"));
+      contents.forEach(c => c.classList.remove("show"));
+
+      tab.classList.add("active");
+      wrapper.querySelector("#" + targetId)?.classList.add("show");
+    }
+
     tabs.forEach(tab => {
-      tab.addEventListener("mouseover", function () {
-
-        tabs.forEach(t => t.classList.remove("active"));
-        this.classList.add("active");
-
-        contents.forEach(c => c.classList.remove("show"));
-        wrapper.querySelector("#" + this.dataset.tab).classList.add("show");
-
-      });
+      tab.addEventListener("mouseenter", () => activateTab(tab));
+      tab.addEventListener("click", () => activateTab(tab));
     });
-  </script>
+  }
+</script>
+
 
  <script>
 document.querySelectorAll(".process-title-servicepage").forEach(title=>{

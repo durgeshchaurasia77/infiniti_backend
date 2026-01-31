@@ -65,7 +65,7 @@ Advance Ai
                                            required>
                                 </div>
                                 {{-- Short Detail --}}
-                                {{-- <div class="col-md-6 mb-3">
+                                <div class="col-md-6 mb-3">
                                     <label class="col-form-label">
                                         Short Description <span class="text-danger">*</span>
                                     </label>
@@ -74,7 +74,7 @@ Advance Ai
                                             rows="3"
                                             placeholder="Enter short description"
                                             required></textarea>
-                                </div> --}}
+                                </div>
                                 <div class="col-md-12 mb-3">
                                     <div id="dynamic-fields">
                                         <div class="dynamic-field d-flex align-items-end mb-3" data-index="0">
