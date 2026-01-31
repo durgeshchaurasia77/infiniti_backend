@@ -301,28 +301,41 @@
         <!-- End Service Area  -->
 
         @if(count($ourJourneyList) > 0)
-            <section class="navy-services" id="features">
-                <div class="container">
+           <section class="navy-services" id="features">
+  <div class="container">
 
-                    <div class="navy-services__heading">
-                        <h2>
-                            Empower Your Journey In the Digital World<br>
-                            with Services You Can Trust
-                        </h2>
-                    </div>
+   <div class="navy-services__heading">
+  <h2>
+    Empower Your Journey In the Digital World<br>
+    with Services You Can Trust
+  </h2>
 
-                    <div class="navy-services__grid">
-                        @foreach ($ourJourneyList as $ourJourney)
-                            <div class="navy-service-card">
-                                <i data-feather="menu"></i>
-                                <h5>{{ $ourJourney->title ?? '' }}</h5>
-                                <p>{{ $ourJourney->sub_title ?? '' }}</p>
-                                <span class="navy-arrow">→</span>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            </section>
+  <a href="#" class="navy-services-btn">
+    View all services
+    <span class="btn-icon">↗</span>
+  </a>
+</div>
+
+
+    <div class="navy-services__grid">
+      @foreach ($ourJourneyList as $ourJourney)
+        <div class="navy-service-card">
+
+          <div class="service-icon">
+            <i data-feather="settings"></i>
+          </div>
+
+          <h5>{{ $ourJourney->title }}</h5>
+          <p>{{ $ourJourney->sub_title }}</p>
+
+          <span class="navy-arrow">→</span>
+        </div>
+      @endforeach
+    </div>
+
+  </div>
+           </section>
+
         @endif
 
         <!-- ================= SLIDER START ================= -->
@@ -337,6 +350,30 @@
                 <video id="homepage-testimonial-video" controls></video>
             </div>
         </div>
+
+
+
+
+                <!-- home cert section start  -->
+        @if(count($certificateSoftwareList) > 0)
+        <section class="home-cert-section  rn-section-gap">
+            <div class="container">
+                <h2> Industry Standard Certified Software <br />and Mobile App Development Company </h2>
+                <div class="row justify-content-center aws">
+                    @foreach ($certificateSoftwareList as $certificateSoftware)
+                        <div class="col-md-2 col-6 home-cert-box">
+                            <div class="home-cert-card">
+                                <img src="{{ asset($certificateSoftware->image ?? 'notImage.jpg') }}">
+                                <h4>{{ $certificateSoftware->name ?? '' }}</h4>
+                                <p>{{ $certificateSoftware->sub_title ?? '' }}</p>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+        @endif
+        <!-- home cert section end  -->
 
 
 
@@ -370,25 +407,29 @@
 
 
         <!-- home-below-banner-carousel-one -->
-        <div class="home-below-banner-carousel-one">
+          <section class="home-below-banner-carousel-one">
+  <div class="home-below-banner-carousel-one-container">
 
-            <section class="hero-banner-one">
-                <div class="hero-content-one">
+    <!-- LEFT CONTENT -->
+    <div class="home-below-banner-carousel-one-content">
+      <h1>
+        We’ve Built Some of the Most-Loved<br>
+        Software and Mobile Apps in the World
+      </h1>
 
-                    <h1>
-                        We’ve Built Some of the Most-Loved<br>
-                        Software and Mobile Apps in the World
-                    </h1>
+      <a href="#" class="home-below-banner-carousel-one-hero-btn">
+        Let’s work together
+        <span>➜</span>
+      </a>
+    </div>
 
-                    <a href="#" class="hero-btn">
-                        Let’s Work Together
-                        <span>➜</span>
-                    </a>
+    <!-- RIGHT IMAGE -->
+    <div class="home-below-banner-carousel-one-hero-image">
+      <img src="./assets/images/Group 24.png" alt="Team Working">
+    </div>
 
-                </div>
-            </section>
-
-        </div>
+  </div>
+</section>
         <!-- home-below-banner-carousel-one -->
 
 
@@ -401,7 +442,7 @@
                     <div class="col-lg-12">
                         <div class="section-title text-center">
                             <!-- <span class="subtitle">7+ Years of Experience</span> -->
-                            <h5 class="title">A Seamless Vision that Adapts to Every <br />Industry’s Demands</h5>
+                            <h5 class="title">A Seamless Vision that Adapts to Every <br /><span>Industry’s Demands</span></h5>
                         </div>
                     </div>
                 </div>
@@ -507,26 +548,7 @@
 
         </section>
     @endif
-        <!-- home cert section start  -->
-        @if(count($certificateSoftwareList) > 0)
-        <section class="home-cert-section  rn-section-gap">
-            <div class="container">
-                <h2> Industry Standard Certified Software <br />and Mobile App Development Company </h2>
-                <div class="row justify-content-center aws">
-                    @foreach ($certificateSoftwareList as $certificateSoftware)
-                        <div class="col-md-2 col-6 home-cert-box">
-                            <div class="home-cert-card">
-                                <img src="{{ asset($certificateSoftware->image ?? 'notImage.jpg') }}">
-                                <h4>{{ $certificateSoftware->name ?? '' }}</h4>
-                                <p>{{ $certificateSoftware->sub_title ?? '' }}</p>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </section>
-        @endif
-        <!-- home cert section end  -->
+
 
         <!-- Start News Area -->
         @if(count($blogsList) > 0)
