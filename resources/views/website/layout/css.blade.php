@@ -92,14 +92,6 @@
         cursor: pointer;
         color: black;
     }
-
-
-    /* .homepage-popup-left{
-  width:50%;
-  padding:40px;
-  background:linear-gradient(180deg,#07387a,#0e4ea3);
-  color:#fff;
-} */
     .homepage-popup-left {
         width: 50%;
         padding: 45px 40px;
@@ -587,13 +579,8 @@
         <style>
     /* SECTION */
 .navy-services{
-  /* background:radial-gradient(
-    circle at top,
-    #0e2a52 0%,
-    #07162f 45%,
-    #040d1d 100%
-  ); */
-  padding:100px 0 110px;
+
+  padding:10px 10px;
 }
 
 /* HEADING */
@@ -754,7 +741,7 @@
         <style>
            .navy-testimonial-slider{
                 padding: 100px 20px;
-                background: linear-gradient(180deg,#05142e,#071c3e);
+                /* background: linear-gradient(180deg,#05142e,#071c3e); */
                 }
 
                 /* Header */
@@ -766,8 +753,8 @@
                 }
 
                 .navy-testimonial-header h2{
-                color:#fff;
-                font-size:32px;
+                color:#102442;
+                font-size:40px;
                 }
 
                 /* Controls */
@@ -775,9 +762,9 @@
                 width:42px;
                 height:42px;
                 border-radius:50%;
-                border:1px solid rgba(255,255,255,.2);
+                border:1px solid #102442;
                 background:rgba(255,255,255,.08);
-                color:#fff;
+                color:#102442;
                 font-size:22px;
                 cursor:pointer;
                 transition:.3s;
@@ -802,7 +789,7 @@
                 /* Card */
                 .navy-testimonial-card{
                 min-width: calc(33.333% - 16px);
-                background:rgba(255,255,255,.06);
+                /* background:rgba(255,255,255,.06); */
                 border:1px solid rgba(255,255,255,.08);
                 border-radius:18px;
                 padding:16px;
@@ -814,7 +801,7 @@
 
                 .navy-testimonial-card:hover{
                 transform:translateY(-6px);
-                background:rgba(255,255,255,.1);
+                /* background:rgba(255,255,255,.1); */
                 }
 
                 .navy-testimonial-card img{
@@ -1671,4 +1658,211 @@
 }
 
 
+</style>
+
+
+<style>
+  .latest-insight-section{
+  position:relative;
+  padding:80px 0;
+  background-image:url("images/bg-insight.jpg");
+  background-size:cover;
+  background-position:center;
+}
+
+/* overlay */
+.latest-insight-section::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(6,20,52,0.85);
+}
+
+.latest-insight-container{
+  position:relative;
+  z-index:2;
+  max-width:1200px;
+  margin:auto;
+  padding:0 20px;
+}
+
+/* TOP BAR */
+.latest-insight-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:40px;
+}
+
+.latest-insight-top h2 {
+    color: #fff;
+    font-size: 40px;
+    margin: 0;
+    font-weight: 700;
+}
+
+.view-btn{
+  background:#fff;
+  padding:10px 18px;
+  border-radius:30px;
+  font-size:14px;
+  text-decoration:none;
+  color:#000;
+  font-weight:500;
+}
+
+/* CARDS */
+.latest-insight-cards{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:24px;
+}
+
+.insight-card{
+  background:#fff;
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 15px 40px rgba(0,0,0,0.2);
+}
+
+/* IMAGE */
+.card-img{
+  position:relative;
+}
+.card-img img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+}
+
+.date{
+  position:absolute;
+  top:12px;
+  right:12px;
+  background:#2b6cff;
+  color:#fff;
+  padding:6px 10px;
+  border-radius:8px;
+  font-size:12px;
+  text-align:center;
+  line-height:1.2;
+}
+
+/* CONTENT */
+.card-content{
+  padding:18px;
+}
+.card-content h3{
+  font-size:16px;
+  margin:0 0 8px;
+  color:#292929;
+}
+.card-content p{
+  font-size:13px;
+  color:#666;
+  margin:0;
+}
+
+/* RESPONSIVE */
+@media(max-width:992px){
+  .latest-insight-cards{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+@media(max-width:576px){
+  .latest-insight-cards{
+    grid-template-columns:1fr;
+  }
+  .latest-insight-top{
+    flex-direction:column;
+    gap:16px;
+    align-items:flex-start;
+  }
+}
+</style>
+
+
+
+<style>
+.our-wall-of-fame-home-page-award-section{
+  background:#bcdcff;
+  padding:60px 0 40px;
+}
+
+.our-wall-of-fame-home-page-award-track{
+  display:flex;
+  gap:20px;
+  padding:0 20px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  scrollbar-width:none;
+}
+
+.our-wall-of-fame-home-page-award-track::-webkit-scrollbar{
+  display:none;
+}
+
+/* .our-wall-of-fame-home-page-award-card{
+  min-width:220px;
+  background:#cfe6ff;
+  border:2px solid #2b6fff;
+  border-radius:18px;
+  padding:30px 20px;
+  text-align:center;
+  scroll-snap-align:start;
+  flex-shrink:0;
+} */
+
+.our-wall-of-fame-home-page-award-card {
+    min-width: 298px;
+    background: #cfe6ff;
+    border: 2px solid #2b6fff;
+    border-radius: 18px;
+    padding: 30px 20px;
+    text-align: center;
+    scroll-snap-align: unset;
+    flex-shrink: 14;
+}
+
+.our-wall-of-fame-home-page-award-card img{
+  width:90px;
+  margin-bottom:16px;
+}
+
+.our-wall-of-fame-home-page-award-card h3{
+  font-size:18px;
+  margin-bottom:6px;
+}
+
+.our-wall-of-fame-home-page-award-card p{
+  font-size:14px;
+  line-height:1.6;
+  color:#333;
+}
+
+/* dots */
+.our-wall-of-fame-home-page-award-dots{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  margin-top:20px;
+}
+
+.our-wall-of-fame-home-page-award-dots span{
+  width:8px;
+  height:8px;
+  background:#c7d6e6;
+  border-radius:50%;
+  cursor:pointer;
+}
+
+.our-wall-of-fame-home-page-award-dots span.active{
+  background:#1f6fff;
+}
+.our-wall-of-fame-home-page-award-section h1 {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 700;
+    color: #0C2347;
+}
 </style>

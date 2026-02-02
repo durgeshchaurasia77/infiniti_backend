@@ -279,7 +279,7 @@
     @endif
 
         <!-- home below banner start two -->
-        <div class="home-below-banner-carousel-two">
+       <div class="home-below-banner-carousel-two">
             <section class="hero-banner-two">
                 <div class="hero-content-two">
                     <h1>
@@ -293,10 +293,10 @@
                     </a>
                 </div>
             </section>
-        </div>
+        </div> 
         <!-- home below banner two end  -->
         <!-- Start Service Area -->
-        <!-- <div class="rn-service-area rn-section-pga section-separator" id="features"> -->
+        <div class="rn-service-area rn-section-pga section-separator" id="features"> 
 
         <!-- End Service Area  -->
 
@@ -354,7 +354,7 @@
 
 
 
-                <!-- home cert section start  -->
+        <!-- home cert section start  -->
         @if(count($certificateSoftwareList) > 0)
         <section class="home-cert-section  rn-section-gap">
             <div class="container">
@@ -375,38 +375,7 @@
         @endif
         <!-- home cert section end  -->
 
-
-
-        <!-- wall-of-fame -->
-        @if(count($fameMobileAppList) > 0)
-            <section class="wall-of-fame ">
-                <div class="container">
-
-                    <h2>Our Wall of Fame as a Mobile App<br>Development Company</h2>
-
-                    <div class="awards-wrapper">
-                        <div class="awards-row" id="awardTrack">
-                            @foreach ($fameMobileAppList as $fameMobileApp)
-
-                                <div class="award-card">
-                                    <img src="{{ asset($fameMobileApp->image ?? 'notImage.jpg') }}">
-                                    <h5>{{ $fameMobileApp->name ?? '' }}</h5>
-                                    <p>{{ $fameMobileApp->title ?? '' }}</p>
-                                </div>
-
-                            @endforeach
-                        </div>
-                    </div>
-
-                    <div class="dots" id="dots"></div>
-
-                </div>
-            </section>
-        @endif
-        <!-- wall-of-fame end  -->
-
-
-        <!-- home-below-banner-carousel-one -->
+       <!-- home-below-banner-carousel-one -->
           <section class="home-below-banner-carousel-one">
   <div class="home-below-banner-carousel-one-container">
 
@@ -429,12 +398,11 @@
     </div>
 
   </div>
-</section>
-        <!-- home-below-banner-carousel-one -->
+         </section>
 
 
 
-        @if(count($industryList) > 0)
+           @if(count($industryList) > 0)
         <!-- Start Resume Area -->
         <div class="rn-resume-area rn-section-gap section-separator" id="resume">
             <div class="container">
@@ -475,11 +443,112 @@
             </div>
         </div>
         <!-- End Resume Area -->
+           @endif
+        <!-- home-below-banner-carousel-one -->
+
+
+                <!-- Start News Area -->
+        @if(count($blogsList) > 0)
+       <section class="latest-insight-section">
+  <div class="latest-insight-container">
+
+    <!-- TOP BAR -->
+    <div class="latest-insight-top">
+      <h2>Latest Insight</h2>
+      <a href="#" class="view-btn">View all blogs ↗</a>
+    </div>
+
+    <!-- CARDS -->
+    <div class="latest-insight-cards">
+      
+      <div class="insight-card">
+        <div class="card-img">
+          <span class="date">22<br>APRIL</span>
+          <img src="images/blog1.jpg" alt="">
+        </div>
+        <div class="card-content">
+          <h3>AI + Apps - The Future Of Everyday Business</h3>
+          <p>Artificial Intelligence is moving at the speed of light...</p>
+        </div>
+      </div>
+
+      <div class="insight-card">
+        <div class="card-img">
+          <span class="date">22<br>APRIL</span>
+          <img src="images/blog2.jpg" alt="">
+        </div>
+        <div class="card-content">
+          <h3>AI + Apps - The Future Of Everyday Business</h3>
+          <p>Artificial Intelligence is moving at the speed of light...</p>
+        </div>
+      </div>
+
+      <div class="insight-card">
+        <div class="card-img">
+          <span class="date">22<br>APRIL</span>
+          <img src="images/blog3.jpg" alt="">
+        </div>
+        <div class="card-content">
+          <h3>AI + Apps - The Future Of Everyday Business</h3>
+          <p>Artificial Intelligence is moving at the speed of light...</p>
+        </div>
+      </div>
+
+      <div class="insight-card">
+        <div class="card-img">
+          <span class="date">22<br>APRIL</span>
+          <img src="images/blog4.jpg" alt="">
+        </div>
+        <div class="card-content">
+          <h3>AI + Apps - The Future Of Everyday Business</h3>
+          <p>Artificial Intelligence is moving at the speed of light...</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
         @endif
+        <!-- ENd Mews Area -->
+        <!-- wall-of-fame -->
+        {{-- @if(count($fameMobileAppList) > 0)
+            <section class="wall-of-fame ">
+                <div class="container">
+
+                    <h2>Our Wall of Fame as a Mobile App<br>Development Company</h2>
+
+                    <div class="awards-wrapper">
+                        <div class="awards-row" id="awardTrack">
+                            @foreach ($fameMobileAppList as $fameMobileApp)
+
+                                <div class="award-card">
+                                    <img src="{{ asset($fameMobileApp->image ?? 'notImage.jpg') }}">
+                                    <h5>{{ $fameMobileApp->name ?? '' }}</h5>
+                                    <p>{{ $fameMobileApp->title ?? '' }}</p>
+                                </div>
+
+                            @endforeach
+                        </div>
+                    </div>
+
+                    <div class="dots" id="dots"></div>
+
+                </div>
+            </section>
+        @endif --}}
+        <!-- wall-of-fame end  -->
+
+
+     
+
+
+
+      
 
 
         <!-- why area section start  -->
-        @if($whyBusinessChoose->status == 1)
+          @if($whyBusinessChoose->status == 1)
         <section class="why-area  rn-section-gap ">
             <h2>Why Businesses Choose Infiniti for AI Transformation?</h2>
             <div class="why-grid">
@@ -511,9 +580,9 @@
             </div>
         </section>
         <!-- why section end  -->
-        @endif
+          @endif
 
-    @if(count($testimonials) > 0)
+  @if(count($testimonials) > 0)
         <section class="navy-testimonial-slider">
 
         <div class="navy-testimonial-header">
@@ -547,53 +616,62 @@
         </div>
 
         </section>
-    @endif
+          @endif
 
 
-        <!-- Start News Area -->
-        @if(count($blogsList) > 0)
-        <div class="rn-blog-area rn-section-gap section-separator navy-blog" id="blog">
-            <div class="container" style=" margin-top: -35px;">
-                <div class="row " style=" margin-bottom: 30px;">
-                    <div class="col-lg-12">
-                        <div data-aos="fade-up" data-aos-duration="700"
-                            class="section-title text-center">
-                            <span class="subtitle">Insights & Articles</span>
-                            <!-- <h2 class="title">My Blog</h2> -->
-                        </div>
-                    </div>
-                </div>
 
-                <div class="row row--25 mt--30">
+          <section class="our-wall-of-fame-home-page-award-section">
+            <h1>Our Wall of Fame as a Mobile App Development Comapany</h1>
 
-                    <!-- Blog Card -->
-                    @foreach ($blogsList as $key => $blogsData)
-                        <div class="col-lg-4 col-md-6 mt--30" data-aos="fade-up" data-aos-delay="{{ $key+1 }}*100">
-                            <div class="rn-blog smart-blog-card">
-                                <div class="thumbnail">
-                                    <img src="{{ asset($blogsData->image ?? 'notImage.jpg') }}" alt="Blog Image">
-                                    <span class="tag">{{ optional($blogsData->category)->name }}</span>
-                                </div>
-                                <div class="content">
-                                    <div class="meta">
-                                        <i class="feather-clock"></i> 2 min read
-                                    </div>
-                                    <h4 class="title">
-                                        {{ $blogsData->title ?? '' }}
-                                    </h4>
-                                    <a href="{{ $blogsData->seo_slug ?? '' }}" class="read-more">
-                                        Read More <i class="feather-arrow-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
+  <div class="our-wall-of-fame-home-page-award-track">
+    <div class="our-wall-of-fame-home-page-award-card">
+      <img src="badge1.png">
+      <h3>Appfutura</h3>
+      <p>Top App<br>Development Company</p>
+    </div>
 
-                </div>
-            </div>
-        </div>
-        @endif
-        <!-- ENd Mews Area -->
+    <div class="our-wall-of-fame-home-page-award-card">
+      <img src="badge2.png">
+      <h3>GoodFirms</h3>
+      <p>Top Mobile App<br>Developers UK</p>
+    </div>
+
+    <div class="our-wall-of-fame-home-page-award-card">
+      <img src="badge3.png">
+      <h3>Clutch</h3>
+      <p>Top 100<br>Companies 2022</p>
+    </div>
+
+    <div class="our-wall-of-fame-home-page-award-card">
+      <img src="badge4.png">
+      <h3>ITFirms</h3>
+      <p>World’s Top Mobile App<br>Companies</p>
+    </div>
+
+    <div class="our-wall-of-fame-home-page-award-card">
+      <img src="badge5.png">
+      <h3>Clutch</h3>
+      <p>Top Developers<br>India 2022</p>
+    </div>
+
+    <div class="our-wall-of-fame-home-page-award-card">
+      <img src="badge6.png">
+      <h3>Global 100 - 2026</h3>
+      <p>Best IT Services Firm<br>United States</p>
+    </div>
+  </div>
+
+<div class="our-wall-of-fame-home-page-award-dots">
+  <span data-indexourwall="0" class="active"></span>
+  <span data-indexourwall="1"></span>
+  
+</div>
+         </section>
+
+        
+
+
+
 
 
         <!-- faq section start  -->

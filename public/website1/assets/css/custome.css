@@ -999,7 +999,7 @@ display: none;
 }
 
 .homepage-statssection-stats .homepage-stat-card h2{
-  font-size:34px;
+  font-size:40px;
   font-weight:700;
   margin:0;
   color:#fff;
@@ -1045,7 +1045,7 @@ display: none;
     text-align: center;
     /* min-height: 278px; */
     background:#ffffff;
-    /* border:1px solid #06152a; */
+    border:1px solid #06152a;
     border-radius:14px;
     padding:22px 16px;
     text-align:center;
@@ -1063,12 +1063,12 @@ display: none;
   transform:translateY(-6px);
 }
 
-.home-cert-card img{
-  /* width:140px;
-  margin-bottom:18px; */
-  height:60px;
-  object-fit:contain;
-  margin-bottom:14px;
+.home-cert-card img {
+    width: 158px !important;
+    margin-bottom: 8px !important;
+    height: 96px;
+    /* object-fit: contain; */
+    margin-bottom: 14px;
 }
 
 .home-cert-card h4{
@@ -1101,6 +1101,7 @@ display: none;
   transform:translateY(-6px);
   border-color:var(--brand-primary);
   box-shadow:0 16px 32px rgba(12,35,71,.15);
+      border-radius: 6px;
 }
 
 .home-cert-card:hover::after{
@@ -1218,8 +1219,7 @@ display: none;
 }
 .home-cert-section h2 {
   font-size: 40px;
-    font-weight: 400;
-    /* padding: 0px 0px 0px 30px; */
+    font-weight: 700;
     color: #0C2347;
     text-align: center;
     line-height: 100%;
@@ -1248,9 +1248,11 @@ display: none;
 
 .faq-top-section h2 {
     font-size: 40px;
-    font-weight: 600;
+    font-weight: 700;
     padding: 0px 89px;
-}
+    color:#0C2347;
+    text-align: center;
+  }
 
 /* faq section home page  end  */
 
@@ -1259,9 +1261,10 @@ display: none;
 .why-area h2{
   padding: 0 70px;
   font-size: 40px;
-  font-weight: 800;
-
-  background: linear-gradient(
+  font-weight: 700;
+color: #0C2347;
+text-align:center;
+  /* background: linear-gradient(
     90deg,
     #18499D,
     #9d69f0
@@ -1270,7 +1273,7 @@ display: none;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  color: transparent;
+  color: transparent; */
 }
 
 .why-grid{
@@ -2174,6 +2177,51 @@ border-radius: 24px;
 }
 
 
+.hero-banner-two{
+  width:100%;
+  padding:120px 20px 140px;
+  /* background-image: linear-gradient(180deg, #3681da 0, #4c91e3 100%); */
+  display:flex;
+  justify-content:center;
+  position:relative;
+}
+
+.hero-banner-two::before {
+    content: "";
+    width: 92%;
+    max-width: 1500px;
+    height: 311px;
+    background: url(../images/lovable_bg.png) center / cover no-repeat;
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    z-index: 1;
+    border-radius: 4px;
+    /* clip-path: polygon(7% 0%, 93% 0%, 100% 22%, 100% 78%, 93% 100%, 7% 100%, 0% 78%, 0% 22%); */
+    filter: brightness(.65);
+}
+
+.hero-content-two{
+  position:relative;
+  z-index:2;
+  text-align:center;
+  color:#fff;
+  max-width:1050px;
+}
+
+.hero-content-two h1{
+  font-size:40px;
+  font-weight:700;
+  line-height:1.25;
+  margin-bottom:45px;
+}
+.hero-content-two a.hero-btn {
+    border: 1px solid;
+    padding: 21px;
+    border-radius: 35px;
+}
+
+
 
 
 .tab-section{
@@ -2507,13 +2555,13 @@ border-radius: 24px;
  .navy-testimonial-slider{
  padding: 100px 20px;
  /* background: linear-gradient(180deg,#05142e,#071c3e); */
-   background:linear-gradient(
+   /* background:linear-gradient(
     180deg,
     #0C2347,
     #081A33
   );
-  }
-
+  } */
+ }
                 /* Header */
                 .navy-testimonial-header{
                 display:flex;
@@ -2523,10 +2571,9 @@ border-radius: 24px;
                 }
 
                 .navy-testimonial-header h2{
-                /* color:#fff;
-                font-size:32px; */
-                    color:#FFFFFF;
-                    font-size:32px;
+             
+                    color:#102442;
+                    font-size:40px;
                     font-weight:700;
                 }
 

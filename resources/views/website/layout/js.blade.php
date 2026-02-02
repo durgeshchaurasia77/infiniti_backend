@@ -449,11 +449,11 @@ closeBtn.addEventListener("click", closeModal);
 
 
 <script>
-  const toggle = document.querySelector('.mobile-toggle');
-  const menu = document.querySelector('.menu');
+  const toggleMobile = document.querySelector('.mobile-toggle');
+  const menuMobile = document.querySelector('.menu');
 
-  toggle.addEventListener('click', () => {
-    menu.classList.toggle('active');
+  toggleMobile.addEventListener('click', () => {
+    menuMobile.classList.toggle('active');
   });
 </script>
 
@@ -669,23 +669,26 @@ document.querySelectorAll(".ai-powered-fitness-app-industry-ai-tab").forEach(tab
 </script>
 
 <script>
-const page = document.querySelector(".launch-your-dream-fitness-industry-page");
-const tabs = page.querySelectorAll(".launch-your-dream-fitness-industry-page-gym-app-tab");
-const contents = page.querySelectorAll(".launch-your-dream-fitness-industry-page-gym-app-content");
+const container = document.querySelector(".launch-your-dream-fitness-industry-page");
+const tabList = container.querySelectorAll(".launch-your-dream-fitness-industry-page-gym-app-tab");
+const contentList = container.querySelectorAll(".launch-your-dream-fitness-industry-page-gym-app-content");
 
-function activateTab(tab){
-  tabs.forEach(t=>t.classList.remove("active"));
-  contents.forEach(c=>c.classList.remove("active"));
+function switchTab(currentTab) {
+  tabList.forEach(item => item.classList.remove("active"));
+  contentList.forEach(item => item.classList.remove("active"));
 
-  tab.classList.add("active");
-  page.querySelector("#"+tab.dataset.tab).classList.add("active");
+  currentTab.classList.add("active");
+  container
+    .querySelector("#" + currentTab.dataset.tab)
+    .classList.add("active");
 }
 
-tabs.forEach(tab=>{
-  tab.addEventListener("mouseenter",()=>activateTab(tab));
-  tab.addEventListener("click",()=>activateTab(tab));
+tabList.forEach(tab => {
+  tab.addEventListener("mouseenter", () => switchTab(tab));
+  tab.addEventListener("click", () => switchTab(tab));
 });
 </script>
+
 
 <script>
 document.addEventListener("DOMContentLoaded", function(){
@@ -796,8 +799,8 @@ const section = document.querySelector(
 ".enterprise-custome-softawere-devlopment-software-service-page-pagination-section"
 );
 
-const track = section.querySelector(".software-pagination-track");
-const cards = section.querySelectorAll(".software-page-card");
+const tracksoftware = section.querySelector(".software-pagination-track");
+const cards123 = section.querySelectorAll(".software-page-card");
 const next = section.querySelector(".software-page-btn.next");
 const prev = section.querySelector(".software-page-btn.prev");
 
@@ -805,12 +808,12 @@ const perPage = 4;
 let page = 0;
 
 function moveSlider(){
-  const cardWidth = cards[0].offsetWidth + 30;
-  track.style.transform = `translateX(-${page * perPage * cardWidth}px)`;
+  const cardWidth = cards123[0].offsetWidth + 30;
+  tracksoftware.style.transform = `translateX(-${page * perPage * cardWidth}px)`;
 }
 
 next.addEventListener("click", ()=>{
-  const maxPage = Math.ceil(cards.length / perPage) - 1;
+  const maxPage = Math.ceil(cards123.length / perPage) - 1;
   if(page < maxPage){
     page++;
     moveSlider();
@@ -870,7 +873,55 @@ document.querySelectorAll(".process-title-servicepage").forEach(title=>{
   });
 });
  </script>
+<script>
+let indexourwall = 0;
 
+const trackourwall = document.querySelector(
+  '.our-wall-of-fame-home-page-award-track'
+);
+
+const dotsourwalls = document.querySelectorAll(
+  '.our-wall-of-fame-home-page-award-dots span'
+);
+
+const card = document.querySelector('.our-wall-of-fame-home-page-award-card');
+const cardWidth1 = card.offsetWidth + 20;
+
+const cardsPerSlide = 2;   // 👈 IMPORTANT
+const totalSlides = dotsourwalls.length;
+
+/* ===== MOVE SLIDER ===== */
+function moveOurWallSlider() {
+  // dots active
+  dotsourwalls.forEach(d => d.classList.remove('active'));
+  dotsourwalls[indexourwall].classList.add('active');
+
+  // scroll
+  trackourwall.scrollTo({
+    left: indexourwall * cardWidth1 * cardsPerSlide,
+    behavior: 'smooth'
+  });
+}
+
+/* ===== DOT CLICK ===== */
+dotsourwalls.forEach(dot => {
+  dot.addEventListener('click', () => {
+    indexourwall = Number(dot.dataset.indexourwall);
+    moveOurWallSlider();
+  });
+});
+
+/* ===== AUTO SLIDE ===== */
+setInterval(() => {
+  indexourwall++;
+
+  if (indexourwall >= totalSlides) {
+    indexourwall = 0;
+  }
+
+  moveOurWallSlider();
+}, 3000);
+</script>
 
 </body>
 </html>
