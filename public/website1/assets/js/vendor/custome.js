@@ -39,19 +39,19 @@ cards.forEach(card => {
 
 
 
-// one end 
-
- const customerAwardTrack = document.getElementById("awardTrack");
+// one end
+document.addEventListener("DOMContentLoaded", () => {
+    const customerAwardTrack = document.getElementById("awardTrack");
     const customerAwardCards = document.querySelectorAll(".award-card");
+
+    if (!customerAwardCards.length) return; // safety check
 
     let customerScrollPosition = 0;
     const customerGap = 20;
 
-    // calculate single card width
     const customerCardWidth =
         customerAwardCards[0].offsetWidth + customerGap;
 
-    // duplicate cards for infinite effect
     customerAwardCards.forEach(card => {
         customerAwardTrack.appendChild(card.cloneNode(true));
     });
@@ -59,28 +59,26 @@ cards.forEach(card => {
     function customerAutoScroll() {
         customerScrollPosition += 1;
 
-        // move slider
         customerAwardTrack.style.transform =
-        `translateX(-${customerScrollPosition}px`;
+            `translateX(-${customerScrollPosition}px)`;
 
-        // reset smoothly when half scrolled
         if (
-        customerScrollPosition >=
-        customerCardWidth * customerAwardCards.length
+            customerScrollPosition >=
+            customerCardWidth * customerAwardCards.length
         ) {
-        customerScrollPosition = 0;
-        customerAwardTrack.style.transform = `translateX(0px)`;
+            customerScrollPosition = 0;
+            customerAwardTrack.style.transform = `translateX(0px)`;
         }
     }
 
-    // START AUTO SCROLL
     setInterval(customerAutoScroll, 20);
-   
-  
-    // two end 
+});
 
 
-   
+    // two end
+
+
+
 const toggle = document.querySelector('.mobile-toggle');
 const menu = document.querySelector('.menu');
 const closeBtn = document.querySelector('.menu-close');
@@ -107,7 +105,7 @@ document.querySelectorAll('.has-mega > a').forEach(link => {
   });
 });
 
-// three end 
+// three end
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -132,7 +130,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-// four 
+// four
 
 document.addEventListener("DOMContentLoaded", () => {
 

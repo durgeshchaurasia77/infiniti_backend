@@ -504,20 +504,21 @@ counters.forEach(counter => observer.observe(counter));
 
 
 <script>
+let steps11 = 0;
 const roadmap = document.querySelector(".roadmap-exceptional-indusrty-page-fitness-process");
-const steps = roadmap.querySelectorAll(".roadmap-exceptional-indusrty-page-fitness-step");
+const steps11 = roadmap.querySelectorAll(".roadmap-exceptional-indusrty-page-fitness-step");
 const boxes = roadmap.querySelectorAll(".roadmap-exceptional-indusrty-page-fitness-box");
 
-function activate(step){
-  steps.forEach(s => s.classList.remove("active"));
+function activate(step11){
+  steps11.forEach(s => s.classList.remove("active"));
   boxes.forEach(b => b.classList.remove("active"));
 
-  step.classList.add("active");
-  roadmap.querySelector("#step" + step.dataset.step).classList.add("active");
+  step11.classList.add("active");
+  roadmap.querySelector("#step" + step11.dataset.step11).classList.add("active");
 }
 
-steps.forEach(step => {
-  step.addEventListener("mouseenter", () => activate(step));
+steps11.forEach(step11 => {
+  step11.addEventListener("mouseenter", () => activate(step11));
 });
 </script>
 
