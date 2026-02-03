@@ -160,7 +160,7 @@
 
         <!-- trusted client section start   end    -->
 
-        
+
         <!-- Start Client Area -->
         <section class="tab-section">
            <div class="top-heading-tab-section">
@@ -214,8 +214,8 @@
         </section>
         <!-- End client section -->
 
-    <section class="case-section">
-     
+    {{-- <section class="case-section">
+
         <div class="container">
 
             <div class="case-top">
@@ -254,9 +254,570 @@
                 @endforeach
             </div>
         </div>
-          
-     
-    </section>
+
+
+    </section> --}}
+
+    <style>
+
+html{
+  scroll-behavior:smooth;
+}
+
+.case-section-section-slide{
+  position:relative;
+  height:calc(var(--slides) * 100vh);
+  background:linear-gradient(180deg,#071a2f,#0a2540);
+  color:#fff;
+}
+
+.case-inner-section-slide{
+  padding:80px 0 30px;
+}
+.container-section-slide{
+  max-width:1200px;
+  margin:auto;
+  padding:0 20px;
+}
+.case-top-section-slide{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:40px;
+}
+.case-title-section-slide h1{
+  font-size:44px;
+  line-height:1.2;
+}
+/* .case-title-section-slide span{
+  color:#60a5fa;
+} */
+.case-actions-section-slide{
+  display:flex;
+  gap:14px;
+}
+
+.btn-primary-case-actions-section{
+  background:#fff;
+  border:none;
+  padding:12px 28px;
+  border-radius:999px;
+  color:#2563eb;
+  font-size:18px;
+  box-shadow:0 10px 25px rgba(37,99,235,.35);
+  text-decoration: none;
+  font-weight: 400;
+}
+.btn-outline-case-actions-section{
+  padding:12px 28px;
+  border-radius:999px;
+  font-size:18px;
+  color:#fff;
+  border:1px solid rgba(255,255,255,.35);
+  background:transparent;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.case-tabs-section-slide{
+  display:flex;
+  gap:26px;
+  border-bottom:1px solid rgba(255,255,255,.2);
+}
+.tab-features-section-slide{
+  background:none;
+  border:none;
+  color:#fff;
+  font-size:14px;
+  padding-bottom:12px;
+  cursor:pointer;
+  position:relative;
+}
+.tab-features-section-slide.active{
+  color:#fff;
+}
+.tab-features-section-slide.active::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:-10px;
+  width:100%;
+  height:2px;
+  transform:translateX(-50%);
+  background:#fff;
+}
+
+.case-content-section-slide{
+  position:sticky;
+  top:260px;
+  height:calc(100vh - 260px);
+  overflow:hidden;
+}
+
+.case-item-section-slide{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .6s ease;
+}
+.case-item-section-slide.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.case-overlay-section-slide{
+  max-width:1200px;
+  margin:auto;
+  padding:0 20px;
+  display:grid;
+  grid-template-columns:0.4fr 0.6fr;
+  gap:60px;
+}
+
+.case-text-section-slide h3{
+  font-size:34px;
+  font-weight:700;
+  margin-bottom:16px;
+}
+.case-text-section-slide p{
+  max-width:420px;
+  font-size:15px;
+  line-height:1.7;
+  color:#cbd5e1;
+  margin-bottom:24px;
+}
+.case-buttons-section-slide{
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.case-media-section-slide img{
+  width:100%;
+  border-radius:5px;
+  box-shadow:0 30px 80px rgba(0,0,0,.45);
+  max-height: 350px;
+}
+.case-text-section-slide > *{
+  opacity:1;
+  transform:translateY(20px);
+  transition:.6s ease;
+}
+.case-item-section-slide.active .case-text-section-slide > *{
+  opacity:1;
+  transform:translateY(0);
+}
+.case-item-section-slide.active h3{ transition-delay:.2s }
+.case-item-section-slide.active p{ transition-delay:.35s }
+.case-item-section-slide.active .case-buttons-section-slide{ transition-delay:.5s }
+@media (max-width:991px){
+
+  .case-title-section-slide h1{
+    font-size:26px;
+  }
+
+  .case-inner-section-slide{
+    padding:50px 0 20px;
+  }
+
+
+  .case-section-section-slide{
+    height:auto;
+  }
+
+  .case-content-section-slide{
+    position:relative;
+    top:0;
+    height:auto;
+  }
+
+  .case-item-section-slide{
+    position:relative;
+    opacity:1;
+    pointer-events:auto;
+    margin-bottom:60px;
+  }
+
+  .case-item-section-slide.active{
+    opacity:1;
+  }
+
+
+
+  .case-tabs-section-slide{
+    gap:14px;
+    overflow-x:auto;
+    white-space:nowrap;
+  }
+
+  .case-overlay-section-slide{
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+
+  .btn-primary,
+  .btn-outline{
+    padding:10px 20px;
+    font-size:13px;
+  }
+}
+
+@media (max-width:480px){
+
+  .case-content-section-slide{
+    top:45px;
+  }
+
+  .case-title-section-slide h1{
+    font-size:22px;
+  }
+
+  .case-top-section-slide{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:20px;
+  }
+}
+    </style>
+<section class="case-section-section-slide">
+   <div class="case-inner-section-slide">
+      <div class="container-section-slide">
+         <!-- TOP -->
+         <div class="case-top-section-slide">
+            <div class="case-title-section-slide">
+               <h1>
+                  Inspiring the Next, Powered By <br>
+                  <span>Our People and Precision</span>
+               </h1>
+            </div>
+            <div class="case-actions-section-slide">
+               <a href="#" class="btn-outline-case-actions-section">Skip</a>
+               <a href="#" class="btn-primary-case-actions-section">View all case studies →</a>
+            </div>
+         </div>
+         <!-- TABS -->
+         <div class="case-tabs-section-slide">
+            <button class="tab-features-section-slide active">Drone Delivery</button>
+            <button class="tab-features-section-slide">AI Solutions</button>
+            <button class="tab-features-section-slide">On Demand</button>
+            <button class="tab-features-section-slide">ERP</button>
+            <button class="tab-features-section-slide">Real Estate</button>
+            <button class="tab-features-section-slide">E-commerce</button>
+            <button class="tab-features-section-slide">Gaming</button>
+            <button class="tab-features-section-slide">Fintech</button>
+            <button class="tab-features-section-slide">Blockchain</button>
+         </div>
+      </div>
+   </div>
+   <!-- STICKY CONTENT -->
+   <div class="case-content-section-slide">
+      <!-- SLIDE 1 -->
+      <div class="case-item-section-slide active">
+         <div class="case-overlay-section-slide">
+            <!-- LEFT -->
+            <div class="case-text-section-slide">
+               <h3>AI-powered mobile app that analyse stock market trends</h3>
+               <p>
+                  A renowned Japanese automobile manufacturer and a global leader
+                  in commercial vehicles and diesel engines.
+               </p>
+               <div class="case-buttons-section-slide">
+                  <a href="#" class="btn-primary-case-actions-section">Let’s Build Yours →</a>
+                  <a href="#" class="btn-outline-case-actions-section">View Case Study</a>
+               </div>
+            </div>
+            <!-- RIGHT -->
+            <div class="case-media-section-slide">
+               <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984" alt="">
+            </div>
+         </div>
+      </div>
+      <!-- SLIDE 2 -->
+      <div class="case-item-section-slide">
+         <div class="case-overlay-section-slide">
+            <!-- LEFT -->
+            <div class="case-text-section-slide">
+               <h3>AI-powered mobile app that analyse stock market trends</h3>
+               <p>
+                  A renowned Japanese automobile manufacturer and a global leader
+                  in commercial vehicles and diesel engines.
+               </p>
+               <div class="case-buttons-section-slide">
+                  <a href="#" class="btn-primary-case-actions-section">Let’s Build Yours →</a>
+                  <a href="#" class="btn-outline-case-actions-section">View Case Study</a>
+               </div>
+            </div>
+            <!-- RIGHT -->
+            <div class="case-media-section-slide">
+               <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984" alt="">
+            </div>
+         </div>
+      </div>
+      <!-- SLIDE 3 -->
+      <div class="case-item-section-slide">
+         <div class="case-overlay-section-slide">
+        <!-- LEFT -->
+        <div class="case-text-section-slide">
+            <h3>AI-powered mobile app that analyse stock market trends</h3>
+            <p>
+                A renowned Japanese automobile manufacturer and a global leader
+                in commercial vehicles and diesel engines.
+            </p>
+            <div class="case-buttons-section-slide">
+                <a href="#" class="btn-primary-case-actions-section">Let’s Build Yours →</a>
+                <a href="#" class="btn-outline-case-actions-section">View Case Study</a>
+            </div>
+        </div>
+        <!-- RIGHT -->
+            <div class="case-media-section-slide">
+               <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984" alt="">
+            </div>
+         </div>
+      </div>
+      <!-- SLIDE 4 -->
+      <div class="case-item-section-slide">
+         <div class="case-overlay-section-slide">
+            <!-- LEFT -->
+            <div class="case-text-section-slide">
+               <h3>AI-powered mobile app that analyse stock market trends</h3>
+               <p>
+                  A renowned Japanese automobile manufacturer and a global leader
+                  in commercial vehicles and diesel engines.
+               </p>
+               <div class="case-buttons-section-slide">
+                  <a href="#" class="btn-primary-case-actions-section">Let’s Build Yours →</a>
+                  <a href="#" class="btn-outline-case-actions-section">View Case Study</a>
+               </div>
+            </div>
+            <!-- RIGHT -->
+            <div class="case-media-section-slide">
+               <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984" alt="">
+            </div>
+         </div>
+      </div>
+      <!-- SLIDE 5 -->
+      <div class="case-item-section-slide">
+         <div class="case-overlay-section-slide">
+            <!-- LEFT -->
+            <div class="case-text-section-slide">
+               <h3>AI-powered mobile app that analyse stock market trends</h3>
+               <p>
+                  A renowned Japanese automobile manufacturer and a global leader
+                  in commercial vehicles and diesel engines.
+               </p>
+               <div class="case-buttons-section-slide">
+                  <a href="#" class="btn-primary-case-actions-section">Let’s Build Yours →</a>
+                  <a href="#" class="btn-outline-case-actions-section">View Case Study</a>
+               </div>
+            </div>
+            <!-- RIGHT -->
+            <div class="case-media-section-slide">
+               <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984" alt="">
+            </div>
+         </div>
+      </div>
+      <!-- SLIDE 6 -->
+      <div class="case-item-section-slide">
+         <div class="case-overlay-section-slide">
+            <!-- LEFT -->
+            <div class="case-text-section-slide">
+               <h3>AI-powered mobile app that analyse stock market trends</h3>
+               <p>
+                  A renowned Japanese automobile manufacturer and a global leader
+                  in commercial vehicles and diesel engines.
+               </p>
+               <div class="case-buttons-section-slide">
+                  <a href="#" class="btn-primary-case-actions-section">Let’s Build Yours →</a>
+                  <a href="#" class="btn-outline-case-actions-section">View Case Study</a>
+               </div>
+            </div>
+            <!-- RIGHT -->
+            <div class="case-media-section-slide">
+               <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984" alt="">
+            </div>
+         </div>
+      </div>
+      <!-- SLIDE 7 -->
+      <div class="case-item-section-slide">
+         <div class="case-overlay-section-slide">
+            <!-- LEFT -->
+            <div class="case-text-section-slide">
+               <h3>AI-powered mobile app that analyse stock market trends</h3>
+               <p>
+                  A renowned Japanese automobile manufacturer and a global leader
+                  in commercial vehicles and diesel engines.
+               </p>
+               <div class="case-buttons-section-slide">
+                  <a href="#" class="btn-primary-case-actions-section">Let’s Build Yours →</a>
+                  <a href="#" class="btn-outline-case-actions-section">View Case Study</a>
+               </div>
+            </div>
+            <!-- RIGHT -->
+            <div class="case-media-section-slide">
+               <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984" alt="">
+            </div>
+         </div>
+      </div>
+      <!-- SLIDE 8 -->
+      <div class="case-item-section-slide">
+         <div class="case-overlay-section-slide">
+            <!-- LEFT -->
+            <div class="case-text-section-slide">
+               <h3>AI-powered mobile app that analyse stock market trends</h3>
+               <p>
+                  A renowned Japanese automobile manufacturer and a global leader
+                  in commercial vehicles and diesel engines.
+               </p>
+               <div class="case-buttons-section-slide">
+                  <a href="#" class="btn-primary-case-actions-section">Let’s Build Yours →</a>
+                  <a href="#" class="btn-outline-case-actions-section">View Case Study</a>
+               </div>
+            </div>
+            <!-- RIGHT -->
+            <div class="case-media-section-slide">
+               <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984" alt="">
+            </div>
+         </div>
+      </div>
+      <!-- SLIDE 9 -->
+      <div class="case-item-section-slide">
+         <div class="case-overlay-section-slide">
+            <!-- LEFT -->
+            <div class="case-text-section-slide">
+               <h3>AI-powered mobile app that analyse stock market trends</h3>
+               <p>
+                  A renowned Japanese automobile manufacturer and a global leader
+                  in commercial vehicles and diesel engines.
+               </p>
+               <div class="case-buttons-section-slide">
+                  <a href="#" class="btn-primary-case-actions-section">Let’s Build Yours →</a>
+                  <a href="#" class="btn-outline-case-actions-section">View Case Study</a>
+               </div>
+            </div>
+            <!-- RIGHT -->
+            <div class="case-media-section-slide">
+               <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984" alt="">
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const isMobileView = window.matchMedia("(max-width: 991px)").matches;
+
+  const caseSlideSection = document.querySelector(".case-section-section-slide");
+  const caseSlideItems   = [...document.querySelectorAll(".case-item-section-slide")];
+  const caseSlideTabs    = [...document.querySelectorAll(".tab-features-section-slide")];
+
+  if (!caseSlideSection || !caseSlideItems.length || !caseSlideTabs.length) return;
+
+  let caseSlideIndex = 0;
+  let caseSlideLocked = false;
+  let caseSlideAnimating = false;
+  let caseSlideScrollBuffer = 0;
+
+  const CASE_SLIDE_SCROLL_THRESHOLD = 80;
+  const CASE_SLIDE_ANIM_DURATION = 900;
+
+  function caseSlideActivate(i){
+    caseSlideItems.forEach(el => el.classList.remove("active"));
+    caseSlideTabs.forEach(el => el.classList.remove("active"));
+
+    caseSlideItems[i]?.classList.add("active");
+    caseSlideTabs[i]?.classList.add("active");
+  }
+
+  caseSlideActivate(0);
+
+  function caseSlideLock(){
+    if (caseSlideLocked || isMobileView) return;
+    document.body.style.overflow = "hidden";
+    caseSlideLocked = true;
+  }
+
+  function caseSlideUnlock(){
+    document.body.style.overflow = "";
+    caseSlideLocked = false;
+    caseSlideScrollBuffer = 0;
+  }
+
+  /* 🔒 LOCK WHEN SECTION IS CENTERED (DESKTOP ONLY) */
+  const caseSlideObserver = new IntersectionObserver(
+    ([entry]) => {
+      if (isMobileView) return;
+      entry.isIntersecting ? caseSlideLock() : caseSlideUnlock();
+    },
+    { threshold: 0.65 }
+  );
+
+  caseSlideObserver.observe(caseSlideSection);
+
+  /* 🖱️ DESKTOP SCROLL CONTROL */
+  window.addEventListener("wheel", (e) => {
+
+    if (isMobileView || !caseSlideLocked) return;
+
+    e.preventDefault();
+
+    caseSlideScrollBuffer += e.deltaY;
+
+    if (caseSlideAnimating) return;
+    if (Math.abs(caseSlideScrollBuffer) < CASE_SLIDE_SCROLL_THRESHOLD) return;
+
+    caseSlideAnimating = true;
+
+    if (caseSlideScrollBuffer > 0) {
+      if (caseSlideIndex < caseSlideItems.length - 1) {
+        caseSlideIndex++;
+        caseSlideActivate(caseSlideIndex);
+      } else {
+        caseSlideUnlock();
+        caseSlideAnimating = false;
+        return;
+      }
+    } else {
+      if (caseSlideIndex > 0) {
+        caseSlideIndex--;
+        caseSlideActivate(caseSlideIndex);
+      } else {
+        caseSlideUnlock();
+        caseSlideAnimating = false;
+        return;
+      }
+    }
+
+    caseSlideScrollBuffer = 0;
+
+    setTimeout(() => {
+      caseSlideAnimating = false;
+    }, CASE_SLIDE_ANIM_DURATION);
+
+  }, { passive:false });
+
+  /* 🖱️ TAB CLICK (DESKTOP + MOBILE) */
+  caseSlideTabs.forEach((tab, i) => {
+    tab.addEventListener("click", () => {
+      if (i === caseSlideIndex) return;
+
+      caseSlideIndex = i;
+      caseSlideActivate(i);
+
+      if (isMobileView) {
+        caseSlideItems[i].scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }
+    });
+  });
+
+});
+</script>
+
      <div class="case-spacer"></div>
     @if(count($craftingTechnologyList) > 0)
         <section class="tech-wrapper-section" id="tech-tab">
@@ -293,10 +854,10 @@
                     </a>
                 </div>
             </section>
-        </div> 
+        </div>
         <!-- home below banner two end  -->
         <!-- Start Service Area -->
-        <div class="rn-service-area rn-section-pga section-separator" id="features"> 
+        <div class="rn-service-area rn-section-pga section-separator" id="features">
 
         <!-- End Service Area  -->
 
@@ -460,7 +1021,7 @@
 
     <!-- CARDS -->
     <div class="latest-insight-cards">
-      
+
       <div class="insight-card">
         <div class="card-img">
           <span class="date">22<br>APRIL</span>
@@ -540,11 +1101,11 @@
         <!-- wall-of-fame end  -->
 
 
-     
 
 
 
-      
+
+
 
 
         <!-- why area section start  -->
@@ -662,11 +1223,11 @@
 <div class="our-wall-of-fame-home-page-award-dots">
   <span data-indexourwall="0" class="active"></span>
   <span data-indexourwall="1"></span>
-  
+
 </div>
          </section>
 
-        
+
 
 
 
