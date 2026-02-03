@@ -911,7 +911,6 @@ dotsourwalls.forEach(dot => {
   });
 });
 
-/* ===== AUTO SLIDE ===== */
 setInterval(() => {
   indexourwall++;
 
@@ -923,5 +922,158 @@ setInterval(() => {
 }, 3000);
 </script>
 
+
+<script>
+const commonSectionEverypageTrack = document.querySelector(
+  ".common-section-everypage-blog-listing-track"
+);
+
+let commonSectionEverypageCards = Array.from(
+  commonSectionEverypageTrack.querySelectorAll(
+    ".common-section-everypage-blog-listing-card"
+  )
+);
+
+const commonSectionEverypageNextBtn = document.querySelector(
+  ".common-section-everypage-blog-listing-nav-btn.next"
+);
+
+const commonSectionEverypagePrevBtn = document.querySelector(
+  ".common-section-everypage-blog-listing-nav-btn.prev"
+);
+
+/* RESPONSIVE COUNT */
+function commonSectionEverypageVisibleCards() {
+  if (window.innerWidth <= 768) return 1;
+  if (window.innerWidth <= 1024) return 2;
+  return 3;
+}
+
+let commonSectionEverypageVisible =
+  commonSectionEverypageVisibleCards();
+
+/* 🔁 CLONE CARDS (SEAMLESS LOOP) */
+const commonSectionEverypageFirstClones =
+  commonSectionEverypageCards
+    .slice(0, commonSectionEverypageVisible)
+    .map(card => card.cloneNode(true));
+
+const commonSectionEverypageLastClones =
+  commonSectionEverypageCards
+    .slice(
+      commonSectionEverypageCards.length -
+        commonSectionEverypageVisible
+    )
+    .map(card => card.cloneNode(true));
+
+commonSectionEverypageLastClones.forEach(clone =>
+  commonSectionEverypageTrack.prepend(clone)
+);
+
+commonSectionEverypageFirstClones.forEach(clone =>
+  commonSectionEverypageTrack.append(clone)
+);
+
+commonSectionEverypageCards = Array.from(
+  commonSectionEverypageTrack.querySelectorAll(
+    ".common-section-everypage-blog-listing-card"
+  )
+);
+
+/* START FROM REAL FIRST CARD */
+let commonSectionEverypageIndex = commonSectionEverypageVisible;
+
+/* SLIDE FUNCTION */
+function commonSectionEverypageSlide(noAnim = false) {
+  const gap = 24;
+  const cardWidth =
+    commonSectionEverypageCards[0].offsetWidth + gap;
+
+  commonSectionEverypageTrack.style.transition = noAnim
+    ? "none"
+    : "transform .6s cubic-bezier(.22,.61,.36,1)";
+
+  commonSectionEverypageTrack.style.transform =
+    `translateX(-${commonSectionEverypageIndex * cardWidth}px)`;
+}
+
+commonSectionEverypageSlide(true);
+
+/* NEXT */
+commonSectionEverypageNextBtn.addEventListener("click", () => {
+  commonSectionEverypageIndex++;
+  commonSectionEverypageSlide();
+
+  if (
+    commonSectionEverypageIndex ===
+    commonSectionEverypageCards.length -
+      commonSectionEverypageVisible
+  ) {
+    setTimeout(() => {
+      commonSectionEverypageIndex =
+        commonSectionEverypageVisible;
+      commonSectionEverypageSlide(true);
+    }, 600);
+  }
+});
+
+/* PREV */
+commonSectionEverypagePrevBtn.addEventListener("click", () => {
+  commonSectionEverypageIndex--;
+  commonSectionEverypageSlide();
+
+  if (commonSectionEverypageIndex === 0) {
+    setTimeout(() => {
+      commonSectionEverypageIndex =
+        commonSectionEverypageCards.length -
+        commonSectionEverypageVisible * 2;
+      commonSectionEverypageSlide(true);
+    }, 600);
+  }
+});
+
+/* RESIZE */
+window.addEventListener("resize", () => {
+  commonSectionEverypageVisible =
+    commonSectionEverypageVisibleCards();
+  commonSectionEverypageSlide(true);
+});
+
+/* VIDEO POPUP */
+const commonSectionEverypagePopup = document.querySelector(
+  ".common-section-everypage-blog-listing-video-popup"
+);
+
+const commonSectionEverypageIframe =
+  commonSectionEverypagePopup.querySelector("iframe");
+
+document.querySelectorAll(
+  ".common-section-everypage-blog-listing-play-btn"
+).forEach(btn => {
+  btn.addEventListener("click", () => {
+    commonSectionEverypagePopup.classList.add("active");
+    commonSectionEverypageIframe.src =
+      "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1";
+  });
+});
+
+/* CLOSE POPUP */
+commonSectionEverypagePopup
+  .querySelector(
+    ".common-section-everypage-blog-listing-popup-close"
+  )
+  .addEventListener("click", commonSectionEverypageClosePopup);
+
+commonSectionEverypagePopup
+  .querySelector(
+    ".common-section-everypage-blog-listing-popup-overlay"
+  )
+  .addEventListener("click", commonSectionEverypageClosePopup);
+
+function commonSectionEverypageClosePopup() {
+  commonSectionEverypagePopup.classList.remove("active");
+  commonSectionEverypageIframe.src = "";
+}
+</script>
 </body>
 </html>
