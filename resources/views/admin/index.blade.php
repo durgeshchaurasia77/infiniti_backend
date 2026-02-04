@@ -29,7 +29,7 @@ Dashboard
 					</div>
 				</div>
 				<div class="row">
-                    <div class="col-sm-6 col-md-4">
+                    {{-- <div class="col-sm-6 col-md-4">
                         <div class="card card-stats card-primary card-round user-card">
                             <a href="{{route('ourServices-list')}}">
                                 <div class="card-body">
@@ -199,7 +199,7 @@ Dashboard
                                 </div>
                             </a>
                         </div>
-                    </div>
+                    </div> --}}
 				</div>
 			</div>
 		</div>

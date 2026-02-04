@@ -3,7 +3,7 @@
 
     <section class="hero page-hero">
         <video autoplay muted loop playsinline class="hero-video">
-            <source src="{{ asset('website1/video/home_banner_video.mp4') }}" type="video/mp4">
+            <source src="{{ asset('website1/video/Home-banner.mp4') }}" type="video/mp4">
         </video>
         <div class="overlay"></div>
         <div class="hero-content">
@@ -69,6 +69,8 @@
         </div>
     </section>
 
+
+
     <section class="trusted">
 
         <div class="trusted-wrap">
@@ -102,7 +104,8 @@
                         <h1 class="inf-hero-title">{{ $trunkeyPartner->title ?? 'AI DISRUPTION' }}</h1>
 
                         <p class="inf-hero-text">
-                            {{ $trunkeyPartner->short_description ?? '' }}
+                            {{-- {{ $trunkeyPartner->short_description ?? '' }} --}}
+                            Infiniti is a leading AI app development company, redefining digital possibilities with over a decade of experience. With 300+ agile thinkers, we build AI-native solutions that empower businesses to innovate, scale, and lead their industries.
                         </p>
 
                         <div class="inf-hero-wide-img">
@@ -126,38 +129,45 @@
 
         <!-- trusted client section start       -->
 
-        <section class="homepage-statssection-stats mt-4">
+        <section class="homepage-statssection-stats">
 
             <div class="homepage-stat-card">
-                <h2>{{ $excellanceCounting->industry_count ?? '1'}}+</h2>
+                <h2 class="counter" data-target="{{ $excellanceCounting->industry_count ?? 1 }}">0</h2>
                 <p>Industry Excellence</p>
             </div>
 
             <div class="homepage-stat-card">
-                <h2>{{ $excellanceCounting->empowered_count ?? '1' }}+</h2>
+                <h2 class="counter" data-target="{{ $excellanceCounting->empowered_count ?? 1 }}">0</h2>
                 <p>Empowered Clients</p>
             </div>
 
             <div class="homepage-stat-card">
-                <h2>{{ $excellanceCounting->coutries_count ?? '1' }}+</h2>
+                <h2 class="counter" data-target="{{ $excellanceCounting->coutries_count ?? 1 }}">0</h2>
                 <p>Countries Served</p>
             </div>
 
             <div class="homepage-stat-card">
-                <h2>{{ $excellanceCounting->teach_engineer_count ?? '1' }}+</h2>
+                <h2 class="counter" data-target="{{ $excellanceCounting->teach_engineer_count ?? 1 }}">0</h2>
                 <p>Tech Engineers</p>
             </div>
 
             <div class="homepage-stat-card">
-                <h2>{{ $excellanceCounting->digital_solution_count ?? '1' }}+</h2>
+                <h2 class="counter" data-target="{{ $excellanceCounting->digital_solution_count ?? 1 }}">0</h2>
                 <p>Digital Solutions Launched</p>
             </div>
 
         </section>
+
         <!-- trusted client section start   end    -->
+
 
         <!-- Start Client Area -->
         <section class="tab-section">
+           <div class="top-heading-tab-section">
+             <p>Mastering Every Technology To Build Your</p>
+            <h2>Perfect Solution</h2>
+        </div>
+        <div class="tab-warpeper">
             @if(count($technologyUsedList) > 0)
             <!-- LEFT SIDE -->
             <div class="tabs">
@@ -169,45 +179,8 @@
                         <span class="arrow">➜</span>
                     </div>
                 @endforeach
-                {{-- </div> --}}
-                {{-- <div class="tab active" data-tab="microsoft">
-                    <img src="https://cdn-icons-png.flaticon.com/512/732/732221.png">
-                    <span>Microsoft</span>
-                    <span class="arrow">➜</span>
-                </div>
-
-                <div class="tab" data-tab="database">
-                    <img src="https://cdn-icons-png.flaticon.com/512/4248/4248443.png">
-                    <span>Database</span>
-                    <span class="arrow">➜</span>
-                </div>
-
-                <div class="tab" data-tab="bigdata">
-                    <img src="https://cdn-icons-png.flaticon.com/512/2933/2933245.png">
-                    <span>Big Data</span>
-                    <span class="arrow">➜</span>
-                </div>
-
-                <div class="tab" data-tab="frontend">
-                    <img src="https://cdn-icons-png.flaticon.com/512/919/919827.png">
-                    <span>Frontend</span>
-                    <span class="arrow">➜</span>
-                </div>
-
-                <div class="tab" data-tab="backend">
-                    <img src="https://cdn-icons-png.flaticon.com/512/2721/2721295.png">
-                    <span>Backend</span>
-                    <span class="arrow">➜</span>
-                </div>
-
-                <div class="tab" data-tab="devops">
-                    <img src="https://cdn-icons-png.flaticon.com/512/906/906324.png">
-                    <span>DevOps</span>
-                    <span class="arrow">➜</span>
-                </div> --}}
 
             </div>
-{{-- @dd($technologyUsedList) --}}
             <!-- RIGHT SIDE -->
             <div class="tab-content">
                 @foreach($technologyUsedList as $index => $tech)
@@ -237,11 +210,13 @@
 
 
             @endif
+            </div>
         </section>
         <!-- End client section -->
 
-    <section class="case-section">
-        <div class="container" style="margin-top: -36px;">
+    {{-- <section class="case-section">
+
+        <div class="container">
 
             <div class="case-top">
                 <div class="case-title">
@@ -279,9 +254,573 @@
                 @endforeach
             </div>
         </div>
-    </section>
+
+
+    </section> --}}
+
+    <style>
+
+html{
+  scroll-behavior:smooth;
+}
+
+.case-section-section-slide{
+  position:relative;
+  height:calc(var(--slides) * 100vh);
+  background:linear-gradient(180deg,#071a2f,#0a2540);
+  color:#fff;
+}
+
+.case-inner-section-slide{
+  padding:80px 0 30px;
+}
+.container-section-slide{
+  max-width:1200px;
+  margin:auto;
+  padding:0 20px;
+}
+.case-top-section-slide{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:40px;
+}
+.case-title-section-slide h1{
+  font-size:44px;
+  line-height:1.2;
+}
+/* .case-title-section-slide span{
+  color:#60a5fa;
+} */
+.case-actions-section-slide{
+  display:flex;
+  gap:14px;
+}
+
+.btn-primary-case-actions-section{
+  background:#fff;
+  border:none;
+  padding:12px 28px;
+  border-radius:999px;
+  color:#2563eb;
+  font-size:18px;
+  box-shadow:0 10px 25px rgba(37,99,235,.35);
+  text-decoration: none;
+  font-weight: 400;
+}
+.btn-outline-case-actions-section{
+  padding:12px 28px;
+  border-radius:999px;
+  font-size:18px;
+  color:#fff;
+  border:1px solid rgba(255,255,255,.35);
+  background:transparent;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.case-tabs-section-slide{
+  display:flex;
+  gap:26px;
+  border-bottom:1px solid rgba(255,255,255,.2);
+}
+.tab-features-section-slide{
+  background:none;
+  border:none;
+  color:#fff;
+  font-size:14px;
+  padding-bottom:12px;
+  cursor:pointer;
+  position:relative;
+}
+.tab-features-section-slide.active{
+  color:#fff;
+}
+.tab-features-section-slide.active::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:-10px;
+  width:100%;
+  height:2px;
+  transform:translateX(-50%);
+  background:#fff;
+}
+
+.case-content-section-slide{
+  position:sticky;
+  top:260px;
+  height:calc(100vh - 260px);
+  overflow:hidden;
+}
+
+.case-item-section-slide{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .6s ease;
+}
+.case-item-section-slide.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.case-overlay-section-slide{
+  max-width:1200px;
+  margin:auto;
+  padding:0 20px;
+  display:grid;
+  grid-template-columns:0.4fr 0.6fr;
+  gap:60px;
+}
+
+.case-text-section-slide h3{
+  font-size:34px;
+  font-weight:700;
+  margin-bottom:16px;
+}
+.case-text-section-slide p{
+  max-width:420px;
+  font-size:15px;
+  line-height:1.7;
+  color:#cbd5e1;
+  margin-bottom:24px;
+}
+.case-buttons-section-slide{
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.case-media-section-slide img{
+  width:100%;
+  border-radius:5px;
+  box-shadow:0 30px 80px rgba(0,0,0,.45);
+  max-height: 350px;
+}
+.case-text-section-slide > *{
+  opacity:1;
+  transform:translateY(20px);
+  transition:.6s ease;
+}
+.case-item-section-slide.active .case-text-section-slide > *{
+  opacity:1;
+  transform:translateY(0);
+}
+.case-item-section-slide.active h3{ transition-delay:.2s }
+.case-item-section-slide.active p{ transition-delay:.35s }
+.case-item-section-slide.active .case-buttons-section-slide{ transition-delay:.5s }
+@media (max-width:991px){
+
+  .case-title-section-slide h1{
+    font-size:26px;
+  }
+
+  .case-inner-section-slide{
+    padding:50px 0 20px;
+  }
+
+
+  .case-section-section-slide{
+    height:auto;
+  }
+
+  .case-content-section-slide{
+    position:relative;
+    top:0;
+    height:auto;
+  }
+
+  .case-item-section-slide{
+    position:relative;
+    opacity:1;
+    pointer-events:auto;
+    margin-bottom:60px;
+  }
+
+  .case-item-section-slide.active{
+    opacity:1;
+  }
+
+
+
+  .case-tabs-section-slide{
+    gap:14px;
+    overflow-x:auto;
+    white-space:nowrap;
+  }
+
+  .case-overlay-section-slide{
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+
+  .btn-primary,
+  .btn-outline{
+    padding:10px 20px;
+    font-size:13px;
+  }
+}
+
+@media (max-width:480px){
+
+  .case-content-section-slide{
+    top:45px;
+  }
+
+  .case-title-section-slide h1{
+    font-size:22px;
+  }
+
+  .case-top-section-slide{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:20px;
+  }
+}
+    </style>
+<section class="case-section-section-slide">
+   <div class="case-inner-section-slide">
+      <div class="container-section-slide">
+         <!-- TOP -->
+         <div class="case-top-section-slide">
+            <div class="case-title-section-slide">
+               <h1>
+                  Inspiring the Next, Powered By <br>
+                  <span>Our People and Precision</span>
+               </h1>
+            </div>
+            <div class="case-actions-section-slide">
+               <a href="#" class="btn-outline-case-actions-section">Skip</a>
+               <a href="#" class="btn-primary-case-actions-section">View all case studies →</a>
+            </div>
+         </div>
+         <!-- TABS -->
+         <div class="case-tabs-section-slide">
+            <button class="tab-features-section-slide active">Drone Delivery</button>
+            <button class="tab-features-section-slide">AI Solutions</button>
+            <button class="tab-features-section-slide">On Demand</button>
+            <button class="tab-features-section-slide">ERP</button>
+            <button class="tab-features-section-slide">Real Estate</button>
+            <button class="tab-features-section-slide">E-commerce</button>
+            <button class="tab-features-section-slide">Gaming</button>
+            <button class="tab-features-section-slide">Fintech</button>
+            <button class="tab-features-section-slide">Blockchain</button>
+         </div>
+      </div>
+   </div>
+   <!-- STICKY CONTENT -->
+   <div class="case-content-section-slide">
+      <!-- SLIDE 1 -->
+      <div class="case-item-section-slide active">
+         <div class="case-overlay-section-slide">
+            <!-- LEFT -->
+            <div class="case-text-section-slide">
+               <h3>AI-powered mobile app that analyse stock market trends</h3>
+               <p>
+                  A renowned Japanese automobile manufacturer and a global leader
+                  in commercial vehicles and diesel engines.
+               </p>
+               <div class="case-buttons-section-slide">
+                  <a href="#" class="btn-primary-case-actions-section">Let’s Build Yours →</a>
+                  <a href="#" class="btn-outline-case-actions-section">View Case Study</a>
+               </div>
+            </div>
+            <!-- RIGHT -->
+            <div class="case-media-section-slide">
+               <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984" alt="">
+            </div>
+         </div>
+      </div>
+      <!-- SLIDE 2 -->
+      <div class="case-item-section-slide">
+         <div class="case-overlay-section-slide">
+            <!-- LEFT -->
+            <div class="case-text-section-slide">
+               <h3>AI-powered mobile app that analyse stock market trends</h3>
+               <p>
+                  A renowned Japanese automobile manufacturer and a global leader
+                  in commercial vehicles and diesel engines.
+               </p>
+               <div class="case-buttons-section-slide">
+                  <a href="#" class="btn-primary-case-actions-section">Let’s Build Yours →</a>
+                  <a href="#" class="btn-outline-case-actions-section">View Case Study</a>
+               </div>
+            </div>
+            <!-- RIGHT -->
+            <div class="case-media-section-slide">
+               <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984" alt="">
+            </div>
+         </div>
+      </div>
+      <!-- SLIDE 3 -->
+      <div class="case-item-section-slide">
+         <div class="case-overlay-section-slide">
+        <!-- LEFT -->
+        <div class="case-text-section-slide">
+            <h3>AI-powered mobile app that analyse stock market trends</h3>
+            <p>
+                A renowned Japanese automobile manufacturer and a global leader
+                in commercial vehicles and diesel engines.
+            </p>
+            <div class="case-buttons-section-slide">
+                <a href="#" class="btn-primary-case-actions-section">Let’s Build Yours →</a>
+                <a href="#" class="btn-outline-case-actions-section">View Case Study</a>
+            </div>
+        </div>
+        <!-- RIGHT -->
+            <div class="case-media-section-slide">
+               <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984" alt="">
+            </div>
+         </div>
+      </div>
+      <!-- SLIDE 4 -->
+      <div class="case-item-section-slide">
+         <div class="case-overlay-section-slide">
+            <!-- LEFT -->
+            <div class="case-text-section-slide">
+               <h3>AI-powered mobile app that analyse stock market trends</h3>
+               <p>
+                  A renowned Japanese automobile manufacturer and a global leader
+                  in commercial vehicles and diesel engines.
+               </p>
+               <div class="case-buttons-section-slide">
+                  <a href="#" class="btn-primary-case-actions-section">Let’s Build Yours →</a>
+                  <a href="#" class="btn-outline-case-actions-section">View Case Study</a>
+               </div>
+            </div>
+            <!-- RIGHT -->
+            <div class="case-media-section-slide">
+               <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984" alt="">
+            </div>
+         </div>
+      </div>
+      <!-- SLIDE 5 -->
+      <div class="case-item-section-slide">
+         <div class="case-overlay-section-slide">
+            <!-- LEFT -->
+            <div class="case-text-section-slide">
+               <h3>AI-powered mobile app that analyse stock market trends</h3>
+               <p>
+                  A renowned Japanese automobile manufacturer and a global leader
+                  in commercial vehicles and diesel engines.
+               </p>
+               <div class="case-buttons-section-slide">
+                  <a href="#" class="btn-primary-case-actions-section">Let’s Build Yours →</a>
+                  <a href="#" class="btn-outline-case-actions-section">View Case Study</a>
+               </div>
+            </div>
+            <!-- RIGHT -->
+            <div class="case-media-section-slide">
+               <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984" alt="">
+            </div>
+         </div>
+      </div>
+      <!-- SLIDE 6 -->
+      <div class="case-item-section-slide">
+         <div class="case-overlay-section-slide">
+            <!-- LEFT -->
+            <div class="case-text-section-slide">
+               <h3>AI-powered mobile app that analyse stock market trends</h3>
+               <p>
+                  A renowned Japanese automobile manufacturer and a global leader
+                  in commercial vehicles and diesel engines.
+               </p>
+               <div class="case-buttons-section-slide">
+                  <a href="#" class="btn-primary-case-actions-section">Let’s Build Yours →</a>
+                  <a href="#" class="btn-outline-case-actions-section">View Case Study</a>
+               </div>
+            </div>
+            <!-- RIGHT -->
+            <div class="case-media-section-slide">
+               <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984" alt="">
+            </div>
+         </div>
+      </div>
+      <!-- SLIDE 7 -->
+      <div class="case-item-section-slide">
+         <div class="case-overlay-section-slide">
+            <!-- LEFT -->
+            <div class="case-text-section-slide">
+               <h3>AI-powered mobile app that analyse stock market trends</h3>
+               <p>
+                  A renowned Japanese automobile manufacturer and a global leader
+                  in commercial vehicles and diesel engines.
+               </p>
+               <div class="case-buttons-section-slide">
+                  <a href="#" class="btn-primary-case-actions-section">Let’s Build Yours →</a>
+                  <a href="#" class="btn-outline-case-actions-section">View Case Study</a>
+               </div>
+            </div>
+            <!-- RIGHT -->
+            <div class="case-media-section-slide">
+               <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984" alt="">
+            </div>
+         </div>
+      </div>
+      <!-- SLIDE 8 -->
+      <div class="case-item-section-slide">
+         <div class="case-overlay-section-slide">
+            <!-- LEFT -->
+            <div class="case-text-section-slide">
+               <h3>AI-powered mobile app that analyse stock market trends</h3>
+               <p>
+                  A renowned Japanese automobile manufacturer and a global leader
+                  in commercial vehicles and diesel engines.
+               </p>
+               <div class="case-buttons-section-slide">
+                  <a href="#" class="btn-primary-case-actions-section">Let’s Build Yours →</a>
+                  <a href="#" class="btn-outline-case-actions-section">View Case Study</a>
+               </div>
+            </div>
+            <!-- RIGHT -->
+            <div class="case-media-section-slide">
+               <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984" alt="">
+            </div>
+         </div>
+      </div>
+      <!-- SLIDE 9 -->
+      <div class="case-item-section-slide">
+         <div class="case-overlay-section-slide">
+            <!-- LEFT -->
+            <div class="case-text-section-slide">
+               <h3>AI-powered mobile app that analyse stock market trends</h3>
+               <p>
+                  A renowned Japanese automobile manufacturer and a global leader
+                  in commercial vehicles and diesel engines.
+               </p>
+               <div class="case-buttons-section-slide">
+                  <a href="#" class="btn-primary-case-actions-section">Let’s Build Yours →</a>
+                  <a href="#" class="btn-outline-case-actions-section">View Case Study</a>
+               </div>
+            </div>
+            <!-- RIGHT -->
+            <div class="case-media-section-slide">
+               <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984" alt="">
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const isMobileView = window.matchMedia("(max-width: 991px)").matches;
+
+  const caseSlideSection = document.querySelector(".case-section-section-slide");
+  const caseSlideItems   = [...document.querySelectorAll(".case-item-section-slide")];
+  const caseSlideTabs    = [...document.querySelectorAll(".tab-features-section-slide")];
+
+  if (!caseSlideSection || !caseSlideItems.length || !caseSlideTabs.length) return;
+
+  let caseSlideIndex = 0;
+  let caseSlideLocked = false;
+  let caseSlideAnimating = false;
+  let caseSlideScrollBuffer = 0;
+
+  const CASE_SLIDE_SCROLL_THRESHOLD = 80;
+  const CASE_SLIDE_ANIM_DURATION = 900;
+
+  function caseSlideActivate(i){
+    caseSlideItems.forEach(el => el.classList.remove("active"));
+    caseSlideTabs.forEach(el => el.classList.remove("active"));
+
+    caseSlideItems[i]?.classList.add("active");
+    caseSlideTabs[i]?.classList.add("active");
+  }
+
+  caseSlideActivate(0);
+
+  function caseSlideLock(){
+    if (caseSlideLocked || isMobileView) return;
+    document.body.style.overflow = "hidden";
+    caseSlideLocked = true;
+  }
+
+  function caseSlideUnlock(){
+    document.body.style.overflow = "";
+    caseSlideLocked = false;
+    caseSlideScrollBuffer = 0;
+  }
+
+  /* 🔒 LOCK WHEN SECTION IS CENTERED (DESKTOP ONLY) */
+  const caseSlideObserver = new IntersectionObserver(
+    ([entry]) => {
+      if (isMobileView) return;
+      entry.isIntersecting ? caseSlideLock() : caseSlideUnlock();
+    },
+    { threshold: 0.65 }
+  );
+
+  caseSlideObserver.observe(caseSlideSection);
+
+  /* 🖱️ DESKTOP SCROLL CONTROL */
+  window.addEventListener("wheel", (e) => {
+
+    if (isMobileView || !caseSlideLocked) return;
+
+    e.preventDefault();
+
+    caseSlideScrollBuffer += e.deltaY;
+
+    if (caseSlideAnimating) return;
+    if (Math.abs(caseSlideScrollBuffer) < CASE_SLIDE_SCROLL_THRESHOLD) return;
+
+    caseSlideAnimating = true;
+
+    if (caseSlideScrollBuffer > 0) {
+      if (caseSlideIndex < caseSlideItems.length - 1) {
+        caseSlideIndex++;
+        caseSlideActivate(caseSlideIndex);
+      } else {
+        caseSlideUnlock();
+        caseSlideAnimating = false;
+        return;
+      }
+    } else {
+      if (caseSlideIndex > 0) {
+        caseSlideIndex--;
+        caseSlideActivate(caseSlideIndex);
+      } else {
+        caseSlideUnlock();
+        caseSlideAnimating = false;
+        return;
+      }
+    }
+
+    caseSlideScrollBuffer = 0;
+
+    setTimeout(() => {
+      caseSlideAnimating = false;
+    }, CASE_SLIDE_ANIM_DURATION);
+
+  }, { passive:false });
+
+  /* 🖱️ TAB CLICK (DESKTOP + MOBILE) */
+  caseSlideTabs.forEach((tab, i) => {
+    tab.addEventListener("click", () => {
+      if (i === caseSlideIndex) return;
+
+      caseSlideIndex = i;
+      caseSlideActivate(i);
+
+      if (isMobileView) {
+        caseSlideItems[i].scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }
+    });
+  });
+
+});
+</script>
+
+     <div class="case-spacer"></div>
     @if(count($craftingTechnologyList) > 0)
-        <section class="mt-4" id="tech-tab">
+        <section class="tech-wrapper-section" id="tech-tab">
             <!-- tech wrapper  -->
             <div class="tech-wrapper" >
                 <h2>Crafting Solutions with Technology<br /> that Works For You</h2>
@@ -301,7 +840,7 @@
     @endif
 
         <!-- home below banner start two -->
-        <div class="home-below-banner-carousel-two">
+       <div class="home-below-banner-carousel-two">
             <section class="hero-banner-two">
                 <div class="hero-content-two">
                     <h1>
@@ -313,165 +852,52 @@
                         Let’s Work Together
                         <span>➜</span>
                     </a>
-
                 </div>
             </section>
-
         </div>
         <!-- home below banner two end  -->
         <!-- Start Service Area -->
-        <!-- <div class="rn-service-area rn-section-pga section-separator" id="features"> -->
+        <div class="rn-service-area rn-section-pga section-separator" id="features">
 
         <!-- End Service Area  -->
 
-        <style>
-            /* SECTION */
-            .navy-services {
-                background: linear-gradient(180deg, #05132b, #071c3e);
-                padding: 80px 0 60px;
-            }
+        @if(count($ourJourneyList) > 0)
+           <section class="navy-services" id="features">
+  <div class="container">
 
-            /* HEADING */
-            .navy-services__heading h2 {
-                color: #fff;
-                font-size: 32px;
-                line-height: 1.25;
-                margin-bottom: 45px;
-            }
+   <div class="navy-services__heading">
+  <h2>
+    Empower Your Journey In the Digital World<br>
+    with Services You Can Trust
+  </h2>
 
-            /* GRID */
-            .navy-services__grid {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 22px;
-            }
+  <a href="#" class="navy-services-btn">
+    View all services
+    <span class="btn-icon">↗</span>
+  </a>
+</div>
 
-            /* CARD */
-            .navy-service-card {
-                background: rgba(255, 255, 255, 0.06);
-                border-radius: 16px;
-                padding: 26px 22px;
-                border: 1px solid rgba(255, 255, 255, 0.08);
 
-                transition: 0.35s ease;
-                position: relative;
-                overflow: hidden;
-            }
+    <div class="navy-services__grid">
+      @foreach ($ourJourneyList as $ourJourney)
+        <div class="navy-service-card">
 
-            /* ICON */
-            .navy-service-card i {
-                width: 22px;
-                height: 22px;
-                color: #ffffff;
-                margin-bottom: 16px;
-            }
+          <div class="service-icon">
+            <i data-feather="settings"></i>
+          </div>
 
-            /* TITLE */
-            .navy-service-card h5 {
-                font-size: 18px;
-                color: #ffffff;
-                margin-bottom: 10px;
-            }
+          <h5>{{ $ourJourney->title }}</h5>
+          <p>{{ $ourJourney->sub_title }}</p>
 
-            /* TEXT */
-            .navy-service-card p {
-                font-size: 14px;
-                color: rgba(255, 255, 255, 0.75);
-                line-height: 1.5;
-            }
+          <span class="navy-arrow">→</span>
+        </div>
+      @endforeach
+    </div>
 
-            /* ARROW */
-            .navy-arrow {
-                display: inline-block;
-                margin-top: 16px;
-                font-size: 18px;
-                color: #ffffff;
-                transition: 0.3s;
-            }
+  </div>
+           </section>
 
-            /* HOVER */
-            .navy-service-card:hover {
-                transform: translateY(-6px);
-                background: rgba(255, 255, 255, 0.1);
-                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
-            }
-
-            .navy-service-card:hover .navy-arrow {
-                transform: translateX(6px);
-            }
-
-            /* RESPONSIVE */
-            @media(max-width: 991px) {
-                .navy-services__grid {
-                    grid-template-columns: repeat(2, 1fr);
-                }
-            }
-
-            @media(max-width: 576px) {
-                .navy-services__grid {
-                    grid-template-columns: 1fr;
-                }
-            }
-        </style>
-        <section class="navy-services" id="features">
-            <div class="container">
-
-                <div class="navy-services__heading">
-                    <h2>
-                        Empower Your Journey In the Digital World<br>
-                        with Services You Can Trust
-                    </h2>
-                </div>
-
-                <div class="navy-services__grid">
-
-                    <!-- Card -->
-                    <div class="navy-service-card">
-                        <i data-feather="menu"></i>
-                        <h5>Business Strategy</h5>
-                        <p>I throw myself down among the tall grass by the stream.</p>
-                        <span class="navy-arrow">→</span>
-                    </div>
-
-                    <div class="navy-service-card">
-                        <i data-feather="book-open"></i>
-                        <h5>App Development</h5>
-                        <p>It uses a dictionary of over 200 Latin words.</p>
-                        <span class="navy-arrow">→</span>
-                    </div>
-
-                    <div class="navy-service-card">
-                        <i data-feather="tv"></i>
-                        <h5>App Development</h5>
-                        <p>I throw myself down among the tall grass.</p>
-                        <span class="navy-arrow">→</span>
-                    </div>
-
-                    <div class="navy-service-card">
-                        <i data-feather="twitch"></i>
-                        <h5>Mobile App</h5>
-                        <p>There are many variations of passages available.</p>
-                        <span class="navy-arrow">→</span>
-                    </div>
-
-                    <div class="navy-service-card">
-                        <i data-feather="wifi"></i>
-                        <h5>CEO Marketing</h5>
-                        <p>Always free from repetition and injected humour.</p>
-                        <span class="navy-arrow">→</span>
-                    </div>
-
-                    <div class="navy-service-card">
-                        <i data-feather="slack"></i>
-                        <h5>Personal Portfolio</h5>
-                        <p>Combined with a handful of model sentences.</p>
-                        <span class="navy-arrow">→</span>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
+        @endif
 
         <!-- ================= SLIDER START ================= -->
 
@@ -488,87 +914,56 @@
 
 
 
-        <!-- wall-of-fame -->
-        <section class="wall-of-fame ">
+
+        <!-- home cert section start  -->
+        @if(count($certificateSoftwareList) > 0)
+        <section class="home-cert-section  rn-section-gap">
             <div class="container">
-
-                <h2>Our Wall of Fame as a Mobile App<br>Development Company</h2>
-
-                <div class="awards-wrapper">
-                    <div class="awards-row" id="awardTrack">
-
-                        <!-- CARD -->
-                        <div class="award-card">
-                            <img src="assets/images/portfolio/portfolio-01.jpg">
-                            <h5>Appfutura</h5>
-                            <p>Top App<br>Development Company</p>
+                <h2> Industry Standard Certified Software <br />and Mobile App Development Company </h2>
+                <div class="row justify-content-center aws">
+                    @foreach ($certificateSoftwareList as $certificateSoftware)
+                        <div class="col-md-2 col-6 home-cert-box">
+                            <div class="home-cert-card">
+                                <img src="{{ asset($certificateSoftware->image ?? 'notImage.jpg') }}">
+                                <h4>{{ $certificateSoftware->name ?? '' }}</h4>
+                                <p>{{ $certificateSoftware->sub_title ?? '' }}</p>
+                            </div>
                         </div>
-
-                        <div class="award-card">
-                            <img src="assets/images/portfolio/portfolio-01.jpg">
-                            <h5>GoodFirms</h5>
-                            <p>Top Mobile App<br>Developers UK</p>
-                        </div>
-
-                        <div class="award-card">
-                            <img src="assets/images/portfolio/portfolio-01.jpg">
-                            <h5>Clutch</h5>
-                            <p>Top 100<br>Companies 2022</p>
-                        </div>
-
-                        <div class="award-card">
-                            <img src="assets/images/portfolio/portfolio-01.jpg">
-                            <h5>ITFirms</h5>
-                            <p>World’s Top Mobile App<br>Development Companies 2022</p>
-                        </div>
-
-                        <div class="award-card">
-                            <img src="assets/images/portfolio/portfolio-01.jpg">
-                            <h5>Clutch</h5>
-                            <p>Top Developers in<br>India 2022</p>
-                        </div>
-
-                        <div class="award-card">
-                            <img src="assets/images/portfolio/portfolio-01.jpg">
-                            <h5>Feedspot</h5>
-                            <p>Mobile App Development<br>Blogs by Feedspot</p>
-                        </div>
-
-                    </div>
+                    @endforeach
                 </div>
-
-                <div class="dots" id="dots"></div>
-
             </div>
         </section>
-        <!-- wall-of-fame end  -->
+        @endif
+        <!-- home cert section end  -->
+
+       <!-- home-below-banner-carousel-one -->
+          <section class="home-below-banner-carousel-one">
+  <div class="home-below-banner-carousel-one-container">
+
+    <!-- LEFT CONTENT -->
+    <div class="home-below-banner-carousel-one-content">
+      <h1>
+        We’ve Built Some of the Most-Loved<br>
+        Software and Mobile Apps in the World
+      </h1>
+
+      <a href="#" class="home-below-banner-carousel-one-hero-btn">
+        Let’s work together
+        <span>➜</span>
+      </a>
+    </div>
+
+    <!-- RIGHT IMAGE -->
+    <div class="home-below-banner-carousel-one-hero-image">
+      <img src="./assets/images/Group 24.png" alt="Team Working">
+    </div>
+
+  </div>
+         </section>
 
 
-        <!-- home-below-banner-carousel-one -->
-        <div class="home-below-banner-carousel-one">
 
-            <section class="hero-banner-one">
-                <div class="hero-content-one">
-
-                    <h1>
-                        We’ve Built Some of the Most-Loved<br>
-                        Software and Mobile Apps in the World
-                    </h1>
-
-                    <a href="#" class="hero-btn">
-                        Let’s Work Together
-                        <span>➜</span>
-                    </a>
-
-                </div>
-            </section>
-
-        </div>
-        <!-- home-below-banner-carousel-one -->
-
-
-
-
+           @if(count($industryList) > 0)
         <!-- Start Resume Area -->
         <div class="rn-resume-area rn-section-gap section-separator" id="resume">
             <div class="container">
@@ -576,365 +971,179 @@
                     <div class="col-lg-12">
                         <div class="section-title text-center">
                             <!-- <span class="subtitle">7+ Years of Experience</span> -->
-                            <h5 class="title">A Seamless Vision that Adapts to Every <br />Industry’s Demands</h5>
+                            <h5 class="title">A Seamless Vision that Adapts to Every <br /><span>Industry’s Demands</span></h5>
                         </div>
                     </div>
                 </div>
 
                 <div class="industry-grid  ">
+                    @foreach ($industryList as $industryData)
+
                     <div class="industry-card">
                         <div class="thumbnail">
-                            <img src="assets/images/portfolio/portfolio-01.jpg" alt="Healthcare">
+                            <img src="{{ asset($industryData->image ?? 'notImage.jpg') }}" alt="{{$industryData->title ?? ''}}">
                         </div>
                         <div class="content1">
-                            <h4 class="title">Healthcare</h4>
-                            <ul class="feature-list">
+                            <h4 class="title">{{$industryData->title ?? ''}}</h4>
+                            {{-- <ul class="feature-list">
                                 <li>AI in Healthcare</li>
                                 <li>Augmented Reality</li>
                                 <li>IoMT in Healthcare</li>
-                            </ul>
+                            </ul> --}}
+                            <div class="feature-list sub-description">
+                                {!! nl2br(e($industryData->short_description ?? '')) !!}
+                            </div>
                             <div class="card-overlay">
                                 <a href="#" class="explore-btn">Explore →</a>
                             </div>
                         </div>
                     </div>
+                    @endforeach
 
-                    <div class="industry-card">
-                        <div class="thumbnail">
-                            <img src="assets/images/portfolio/portfolio-01.jpg" alt="Logistics">
-                        </div>
-                        <div class="content1">
-                            <h4 class="title">Logistics</h4>
-                            <ul class="feature-list">
-                                <li>AI in Logistics</li>
-                                <li>Challenges in Logistics</li>
-                                <li>AI in Demand Forecasting</li>
-                            </ul>
-                            <div class="card-overlay">
-                                <a href="#" class="explore-btn">Explore →</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="industry-card">
-                        <div class="thumbnail">
-                            <img src="assets/images/portfolio/portfolio-01.jpg" alt="Gaming">
-                        </div>
-                        <div class="content1">
-                            <h4 class="title">Gaming</h4>
-                            <ul class="feature-list">
-                                <li>AI in Gaming</li>
-                                <li>Game Streaming</li>
-                                <li>Generative AI in Gaming</li>
-                            </ul>
-                            <div class="card-overlay">
-                                <a href="#" class="explore-btn">Explore →</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="industry-card">
-                        <div class="thumbnail">
-                            <img src="assets/images/portfolio/portfolio-01.jpg" alt="Fintech">
-                        </div>
-                        <div class="content1">
-                            <h4 class="title">Fintech</h4>
-                            <ul class="feature-list">
-                                <li>AI in Fintech</li>
-                                <li>Cybersecurity in Fintech</li>
-                                <li>Blockchain in Fintech</li>
-                            </ul>
-                            <div class="card-overlay">
-                                <a href="#" class="explore-btn">Explore →</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="industry-card">
-                        <div class="thumbnail">
-                            <img src="assets/images/portfolio/portfolio-01.jpg" alt="Retail">
-                        </div>
-                        <div class="content1">
-                            <h4 class="title">Retail</h4>
-                            <ul class="feature-list">
-                                <li>IoT in Retail</li>
-                                <li>Data Analytics</li>
-                                <li>Inventory Management</li>
-                            </ul>
-                            <div class="card-overlay">
-                                <a href="#" class="explore-btn">Explore →</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="industry-card">
-                        <div class="thumbnail">
-                            <img src="assets/images/portfolio/portfolio-01.jpg" alt="Retail">
-                        </div>
-                        <div class="content1">
-                            <h4 class="title">Retail</h4>
-                            <ul class="feature-list">
-                                <li>IoT in Retail</li>
-                                <li>Data Analytics</li>
-                                <li>Inventory Management</li>
-                            </ul>
-                            <div class="card-overlay">
-                                <a href="#" class="explore-btn">Explore →</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="industry-card">
-                        <div class="thumbnail">
-                            <img src="assets/images/portfolio/portfolio-01.jpg" alt="Retail">
-                        </div>
-                        <div class="content1">
-                            <h4 class="title">Retail</h4>
-                            <ul class="feature-list">
-                                <li>IoT in Retail</li>
-                                <li>Data Analytics</li>
-                                <li>Inventory Management</li>
-                            </ul>
-                            <div class="card-overlay">
-                                <a href="#" class="explore-btn">Explore →</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="industry-card">
-                        <div class="thumbnail">
-                            <img src="assets/images/portfolio/portfolio-01.jpg" alt="Retail">
-                        </div>
-                        <div class="content1">
-                            <h4 class="title">Retail</h4>
-                            <ul class="feature-list">
-                                <li>IoT in Retail</li>
-                                <li>Data Analytics</li>
-                                <li>Inventory Management</li>
-                            </ul>
-                            <div class="card-overlay">
-                                <a href="#" class="explore-btn">Explore →</a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
         <!-- End Resume Area -->
+           @endif
+        <!-- home-below-banner-carousel-one -->
+
+
+                <!-- Start News Area -->
+        @if(count($blogsList) > 0)
+       <section class="latest-insight-section">
+  <div class="latest-insight-container">
+
+    <!-- TOP BAR -->
+    <div class="latest-insight-top">
+      <h2>Latest Insight</h2>
+      <a href="#" class="view-btn">View all blogs ↗</a>
+    </div>
+
+    <!-- CARDS -->
+    <div class="latest-insight-cards">
+
+      <div class="insight-card">
+        <div class="card-img">
+          <span class="date">22<br>APRIL</span>
+          <img src="images/blog1.jpg" alt="">
+        </div>
+        <div class="card-content">
+          <h3>AI + Apps - The Future Of Everyday Business</h3>
+          <p>Artificial Intelligence is moving at the speed of light...</p>
+        </div>
+      </div>
+
+      <div class="insight-card">
+        <div class="card-img">
+          <span class="date">22<br>APRIL</span>
+          <img src="images/blog2.jpg" alt="">
+        </div>
+        <div class="card-content">
+          <h3>AI + Apps - The Future Of Everyday Business</h3>
+          <p>Artificial Intelligence is moving at the speed of light...</p>
+        </div>
+      </div>
+
+      <div class="insight-card">
+        <div class="card-img">
+          <span class="date">22<br>APRIL</span>
+          <img src="images/blog3.jpg" alt="">
+        </div>
+        <div class="card-content">
+          <h3>AI + Apps - The Future Of Everyday Business</h3>
+          <p>Artificial Intelligence is moving at the speed of light...</p>
+        </div>
+      </div>
+
+      <div class="insight-card">
+        <div class="card-img">
+          <span class="date">22<br>APRIL</span>
+          <img src="images/blog4.jpg" alt="">
+        </div>
+        <div class="card-content">
+          <h3>AI + Apps - The Future Of Everyday Business</h3>
+          <p>Artificial Intelligence is moving at the speed of light...</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+        @endif
+        <!-- ENd Mews Area -->
+        <!-- wall-of-fame -->
+        {{-- @if(count($fameMobileAppList) > 0)
+            <section class="wall-of-fame ">
+                <div class="container">
+
+                    <h2>Our Wall of Fame as a Mobile App<br>Development Company</h2>
+
+                    <div class="awards-wrapper">
+                        <div class="awards-row" id="awardTrack">
+                            @foreach ($fameMobileAppList as $fameMobileApp)
+
+                                <div class="award-card">
+                                    <img src="{{ asset($fameMobileApp->image ?? 'notImage.jpg') }}">
+                                    <h5>{{ $fameMobileApp->name ?? '' }}</h5>
+                                    <p>{{ $fameMobileApp->title ?? '' }}</p>
+                                </div>
+
+                            @endforeach
+                        </div>
+                    </div>
+
+                    <div class="dots" id="dots"></div>
+
+                </div>
+            </section>
+        @endif --}}
+        <!-- wall-of-fame end  -->
+
+
+
+
+
+
 
 
 
         <!-- why area section start  -->
-
+          @if($whyBusinessChoose->status == 1)
         <section class="why-area  rn-section-gap ">
-            <h2>Why Businesses Choose Apptunix for AI Transformation?</h2>
+            <h2>Why Businesses Choose Infiniti for AI Transformation?</h2>
             <div class="why-grid">
 
                 <div class="why-card">
                     <div class="why-icon"><i class="fa-solid fa-users"></i></div>
-                    <h3>Expert Team of AI Engineers</h3>
-                    <p>Our in-house AI specialists craft custom software solutions and intelligent systems tailored to
-                        your business requirements and objectives.</p>
+                    <h3>{{ $whyBusinessChoose->ai_title?? '' }}</h3>
+                    <p>{{ $whyBusinessChoose->ai_description ?? '' }}</p>
                 </div>
 
                 <div class="why-card">
                     <div class="why-icon"><i class="fa-solid fa-lightbulb"></i></div>
-                    <h3>Scalable Solutions</h3>
-                    <p>From startups to global enterprises, our AI-powered solutions grow with your business, ensuring
-                        smooth performance at each stage.</p>
+                    <h3>{{ $whyBusinessChoose->scalable_title ?? '' }}</h3>
+                    <p>{{ $whyBusinessChoose->scalable_description ?? '' }}</p>
                 </div>
 
                 <div class="why-card">
                     <div class="why-icon"><i class="fa-solid fa-shield-heart"></i></div>
-                    <h3>Reliable Data & Insights</h3>
-                    <p>From startups to global enterprises, our AI-powered solutions grow with your business, ensuring
-                        smooth performance at each stage.</p>
+                    <h3>{{ $whyBusinessChoose->reliable_title ?? '' }}</h3>
+                    <p>{{ $whyBusinessChoose->reliable_description ?? '' }}</p>
                 </div>
 
                 <div class="why-card">
                     <div class="why-icon"><i class="fa-solid fa-microchip"></i></div>
-                    <h3>AI Security & Compliance</h3>
-                    <p>Your trust is our top priority. Our AI smart solutions are built on enterprise-grade security and
-                        global compliance standards.</p>
+                    <h3>{{ $whyBusinessChoose->security_title ?? '' }}</h3>
+                    <p>{{ $whyBusinessChoose->security_description ?? '' }}</p>
                 </div>
 
             </div>
         </section>
         <!-- why section end  -->
+          @endif
 
-
-
-        <style>
-           .navy-testimonial-slider{
-                padding: 100px 20px;
-                background: linear-gradient(180deg,#05142e,#071c3e);
-                }
-
-                /* Header */
-                .navy-testimonial-header{
-                display:flex;
-                justify-content:space-between;
-                align-items:center;
-                margin-bottom:40px;
-                }
-
-                .navy-testimonial-header h2{
-                color:#fff;
-                font-size:32px;
-                }
-
-                /* Controls */
-                .navy-slider-controls button{
-                width:42px;
-                height:42px;
-                border-radius:50%;
-                border:1px solid rgba(255,255,255,.2);
-                background:rgba(255,255,255,.08);
-                color:#fff;
-                font-size:22px;
-                cursor:pointer;
-                transition:.3s;
-                }
-
-                .navy-slider-controls button:hover{
-                background:#fff;
-                color:#05142e;
-                }
-
-                /* Slider */
-                .navy-slider-viewport{
-                overflow:visible;
-                }
-
-                .navy-slider-track{
-                display:flex;
-                gap:24px;
-                transition:transform .5s ease;
-                }
-
-                /* Card */
-                .navy-testimonial-card{
-                min-width: calc(33.333% - 16px);
-                background:rgba(255,255,255,.06);
-                border:1px solid rgba(255,255,255,.08);
-                border-radius:18px;
-                padding:16px;
-                text-align:center;
-                position:relative;
-                transition:.3s;
-                cursor: pointer;
-                }
-
-                .navy-testimonial-card:hover{
-                transform:translateY(-6px);
-                background:rgba(255,255,255,.1);
-                }
-
-                .navy-testimonial-card img{
-                width:100%;
-                height:200px;
-                object-fit:cover;
-                border-radius:14px;
-                }
-
-                .navy-testimonial-card .play{
-                position:absolute;
-                top:50%;
-                left:50%;
-                transform:translate(-50%,-50%);
-                width:54px;
-                height:54px;
-                background:rgba(0,0,0,.55);
-                color:#fff;
-                border-radius:50%;
-                display:flex;
-                align-items:center;
-                justify-content:center;
-                pointer-events: none;
-                }
-
-                .navy-testimonial-card h3{
-                margin-top:14px;
-                color:#fff;
-                font-size:17px;
-                }
-
-                .navy-testimonial-card p{
-                font-size:13px;
-                color:rgba(255,255,255,.7);
-                }
-
-                /* Responsive */
-                @media(max-width:900px){
-                .navy-testimonial-card{
-                    min-width: calc(50% - 12px);
-                    cursor: pointer;
-                }
-                }
-
-                @media(max-width:600px){
-                .navy-testimonial-card{
-                    min-width:100%;
-                    cursor: pointer;
-                }
-                }
-.navy-video-modal{
-  position: fixed;
-  inset: 0;
-  z-index: 99999;
-  display: none;
-  align-items: center;
-  justify-content: center;
-}
-
-.navy-video-modal__overlay{
-  position: absolute;
-  inset: 0;
-  background: rgba(255,255,255,0.75);
-  backdrop-filter: blur(12px);
-}
-
-.navy-video-modal__content{
-  position: relative;
-  width: 80%;
-  max-width: 900px;
-  background: #000;
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 40px 90px rgba(0,0,0,0.45);
-  z-index: 2;
-}
-
-.navy-video-modal video{
-  width: 100%;
-  height: auto;
-  display: block;
-}
-.navy-video-modal__close{
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  border: none;
-  background: rgba(255,255,255,0.15);
-  color: #fff;
-  font-size: 20px;
-  cursor: pointer;
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: 0.25s;
-}
-
-.navy-video-modal__close:hover{
-  background: #ffffff;
-  color: #000;
-}
-
-        </style>
+  {{-- @if(count($testimonials) > 0)
         <section class="navy-testimonial-slider">
 
         <div class="navy-testimonial-header">
@@ -949,454 +1158,191 @@
         <div class="navy-slider-viewport">
             <div class="navy-slider-track">
 
-            <!-- CARD -->
-            <div class="navy-testimonial-card" data-video="./video/home_banner_video.mp4">
-                <img src="./assets/images/airlane.jpg">
-                <span class="play">▶</span>
-                <h3>David Ams</h3>
-                <p>Co Founder – Luxbubble</p>
-            </div>
-
-            <div class="navy-testimonial-card" data-video="./video/home_banner_video.mp4">
-                <img src="./assets/images/airlane.jpg">
-                <span class="play">▶</span>
-                <h3>Marco Perez</h3>
-                <p>Co Founder – Bancreach</p>
-            </div>
-
-            <div class="navy-testimonial-card" data-video="./video/home_banner_video.mp4">
-                <img src="./assets/images/airlane.jpg">
-                <span class="play">▶</span>
-                <h3>Mishari</h3>
-                <p>CEO – Logibids</p>
-            </div>
-
-            <div class="navy-testimonial-card" data-video="./video/home_banner_video.mp4">
-                <img src="./assets/images/airlane.jpg">
-                <span class="play">▶</span>
-                <h3>Sarah Kim</h3>
-                <p>Founder – BrandPro</p>
-            </div>
-
-            <div class="navy-testimonial-card" data-video="./video/home_banner_video.mp4">
-                <img src="./assets/images/airlane.jpg">
-                <span class="play">▶</span>
-                <h3>John Carter</h3>
-                <p>CTO – FinTech Hub</p>
-            </div>
-
-            <div class="navy-testimonial-card" data-video="./video/home_banner_video.mp4">
-                <img src="./assets/images/airlane.jpg">
-                <span class="play">▶</span>
-                <h3>Maria Lopez</h3>
-                <p>Director – Bright Labs</p>
-            </div>
-            <div class="navy-testimonial-card" data-video="./video/home_banner_video.mp4">
-                <img src="./assets/images/airlane.jpg">
-                <span class="play">▶</span>
-                <h3>Maria Lopez</h3>
-                <p>Director – Bright Labs</p>
-            </div>
-            <div class="navy-testimonial-card" data-video="./video/home_banner_video.mp4">
-                <img src="./assets/images/airlane.jpg">
-                <span class="play">▶</span>
-                <h3>Maria Lopez</h3>
-                <p>Director – Bright Labs</p>
-            </div>
-            <div class="navy-testimonial-card" data-video="./video/home_banner_video.mp4">
-                <img src="./assets/images/airlane.jpg">
-                <span class="play">▶</span>
-                <h3>Maria Lopez</h3>
-                <p>Director – Bright Labs</p>
-            </div>
-            <div class="navy-testimonial-card" data-video="./video/home_banner_video.mp4">
-                <img src="./assets/images/airlane.jpg">
-                <span class="play">▶</span>
-                <h3>Maria Lopez</h3>
-                <p>Director – Bright Labs</p>
-            </div>
-            <div class="navy-testimonial-card" data-video="./video/home_banner_video.mp4">
-                <img src="./assets/images/airlane.jpg">
-                <span class="play">▶</span>
-                <h3>Maria Lopez</h3>
-                <p>Director – Bright Labs</p>
-            </div>
-
+            
+            @foreach ($testimonials as $testimonial)
+                <div class="navy-testimonial-card" data-video="{{ asset($testimonial->video_path ?? 'notImage.jpg') }}">
+                    <video class="video-thumb"
+                        src="{{ asset($testimonial->video_path ?? '') }}"
+                        preload="metadata"
+                        muted
+                        playsinline>
+                    </video>
+                    <span class="play">▶</span>
+                    <h3>{{ $testimonial->name ?? '' }}</h3>
+                    <p>{{ $testimonial->designation ?? '' }}</p>
+                </div>
+            @endforeach
             </div>
         </div>
 
         </section>
+          @endif --}}
 
-        <!-- home cert section start  -->
-        <section class="home-cert-section  rn-section-gap">
 
-            <div class="container">
-                <h2> Industry Standard Certified Software <br />and Mobile App Development Company </h2>
-                <div class="row justify-content-center aws">
+          <section class="our-wall-of-fame-home-page-award-section">
+            <h1>Our Wall of Fame as a Mobile App Development Comapany</h1>
 
-                    <div class="col-md-2 col-6 home-cert-box">
-                        <div class="home-cert-card">
-                            <img src="./assets/images/aws1_icon.png">
-                            <h4>AWS</h4>
-                            <p>Solution Architect,<br>Associate</p>
-                        </div>
-                    </div>
+  <div class="our-wall-of-fame-home-page-award-track">
+    <div class="our-wall-of-fame-home-page-award-card">
+      <img src="badge1.png">
+      <h3>Appfutura</h3>
+      <p>Top App<br>Development Company</p>
+    </div>
 
-                    <div class="col-md-2 col-6 home-cert-box">
-                        <div class="home-cert-card">
-                            <img src="./assets/images/aws1_icon.png">
-                            <h4>AWS</h4>
-                            <p>Security,<br>Speciality</p>
-                        </div>
-                    </div>
+    <div class="our-wall-of-fame-home-page-award-card">
+      <img src="badge2.png">
+      <h3>GoodFirms</h3>
+      <p>Top Mobile App<br>Developers UK</p>
+    </div>
 
-                    <div class="col-md-2 col-6 home-cert-box">
-                        <div class="home-cert-card">
-                            <img src="./assets/images/aws1_icon.png">
-                            <h4>Microsoft</h4>
-                            <p>Dynamic 365<br>Fundamentals</p>
-                        </div>
-                    </div>
+    <div class="our-wall-of-fame-home-page-award-card">
+      <img src="badge3.png">
+      <h3>Clutch</h3>
+      <p>Top 100<br>Companies 2022</p>
+    </div>
 
-                    <div class="col-md-2 col-6 home-cert-box">
-                        <div class="home-cert-card">
-                            <img src="./assets/images/aws1_icon.png">
-                            <h4>Microsoft</h4>
-                            <p>Associate</p>
-                        </div>
-                    </div>
+    <div class="our-wall-of-fame-home-page-award-card">
+      <img src="badge4.png">
+      <h3>ITFirms</h3>
+      <p>World’s Top Mobile App<br>Companies</p>
+    </div>
 
-                    <div class="col-md-2 col-6 home-cert-box">
-                        <div class="home-cert-card">
-                            <img src="./assets/images/aws1_icon.png">
-                            <h4>AWS</h4>
-                            <p>Developer<br>Associate</p>
-                        </div>
-                    </div>
+    <div class="our-wall-of-fame-home-page-award-card">
+      <img src="badge5.png">
+      <h3>Clutch</h3>
+      <p>Top Developers<br>India 2022</p>
+    </div>
 
-                </div>
-            </div>
-        </section>
-        <!-- home cert section end  -->
+    <div class="our-wall-of-fame-home-page-award-card">
+      <img src="badge6.png">
+      <h3>Global 100 - 2026</h3>
+      <p>Best IT Services Firm<br>United States</p>
+    </div>
+  </div>
 
-<style>
-    /* Blog Theme */
-.navy-blog {
-    background: #0a2540;
-}
+<div class="our-wall-of-fame-home-page-award-dots">
+  <span data-indexourwall="0" class="active"></span>
+  <span data-indexourwall="1"></span>
 
-.section-title .subtitle {
-    color: #ffffff !important;
-    letter-spacing: 1px;
-    font-weight: 500;
-    font-size: 35px !important;
-}
+</div>
+         </section>
 
-.section-title .title {
-    color: #ffffff;
-}
 
-/* Blog Card */
-.smart-blog-card {
-    background: #081c33;
-    border-radius: 16px;
-    overflow: hidden;
-    transition: all 0.4s ease;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
 
-.smart-blog-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 30px 60px rgba(59, 130, 246, 0.3);
-}
 
-/* Thumbnail */
-.smart-blog-card .thumbnail {
-    position: relative;
-    overflow: hidden;
-}
 
-.smart-blog-card img {
-    width: 100%;
-    transition: transform 0.5s ease;
-}
+<section class="common-section-everypage-blog-listing-section">
+<h2>Our Clients Love Us</h2>
 
-.smart-blog-card:hover img {
-    transform: scale(1.08);
-}
+<div class="common-section-everypage-blog-listing-wrapper">
+<button class="common-section-everypage-blog-listing-nav-btn prev">‹</button>
 
-/* Tag */
-.smart-blog-card .tag {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    background: #1e3a8a;
-    color: #fff;
-    padding: 6px 14px;
-    border-radius: 30px;
-    font-size: 12px;
-}
+<div class="common-section-everypage-blog-listing-track">
 
-/* Content */
-.smart-blog-card .content {
-    padding: 25px;
-}
+<div class="common-section-everypage-blog-listing-card">
+  <div class="common-section-everypage-blog-listing-video-thumb">
+    <img src="assets/images/home_cta.png">
+    <span class="common-section-everypage-blog-listing-play-btn"></span>
+  </div>
+  <p>"Amazing experience working with this team."</p>
+  <div class="common-section-everypage-blog-listing-user">
+    <img src="assets/images/home_cta.png">
+    <div><strong>Harrison Furman</strong><span>1–10 Units</span></div>
+  </div>
+</div>
 
-.smart-blog-card .meta {
-    color: #9ca3af;
-    font-size: 14px;
-    margin-bottom: 10px;
-}
+<div class="common-section-everypage-blog-listing-card">
+  <div class="common-section-everypage-blog-listing-video-thumb">
+    <img src="assets/images/home_cta.png">
+    <span class="common-section-everypage-blog-listing-play-btn"></span>
+  </div>
+  <p>"Support team is excellent."</p>
+  <div class="common-section-everypage-blog-listing-user">
+    <img src="assets/images/home_cta.png">
+    <div><strong>Alan Oviett</strong><span>50–200 Units</span></div>
+  </div>
+</div>
 
-.smart-blog-card .title {
-    color: #ffffff;
-    font-size: 18px;
-    line-height: 1.5;
-    margin-bottom: 20px;
-}
+<div class="common-section-everypage-blog-listing-card">
+  <div class="common-section-everypage-blog-listing-video-thumb">
+    <img src="assets/images/home_cta.png">
+    <span class="common-section-everypage-blog-listing-play-btn"></span>
+  </div>
+  <p>"Very professional service."</p>
+  <div class="common-section-everypage-blog-listing-user">
+    <img src="assets/images/home_cta.png">
+    <div><strong>Ken Durst</strong><span>500–1000 Units</span></div>
+  </div>
+</div>
 
-/* Read More */
-.smart-blog-card .read-more {
-    color: #3b82f6;
-    font-weight: 500;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    transition: all 0.3s ease;
-}
+<div class="common-section-everypage-blog-listing-card">
+  <div class="common-section-everypage-blog-listing-video-thumb">
+    <img src="assets/images/home_cta.png">
+    <span class="common-section-everypage-blog-listing-play-btn"></span>
+  </div>
+  <p>"Highly recommended."</p>
+  <div class="common-section-everypage-blog-listing-user">
+    <img src="assets/images/home_cta.png">
+    <div><strong>Sarah Lee</strong><span>100+ Units</span></div>
+  </div>
+</div>
 
-.smart-blog-card .read-more:hover {
-    color: #60a5fa;
-    gap: 10px;
-}
+<div class="common-section-everypage-blog-listing-card">
+  <div class="common-section-everypage-blog-listing-video-thumb">
+    <img src="assets/images/home_cta.png">
+    <span class="common-section-everypage-blog-listing-play-btn"></span>
+  </div>
+  <p>"Fantastic communication."</p>
+  <div class="common-section-everypage-blog-listing-user">
+    <img src="assets/images/home_cta.png">
+    <div><strong>John Carter</strong><span>200+ Units</span></div>
+  </div>
+</div>
 
-    </style>
-        <!-- Start News Area -->
-        <div class="rn-blog-area rn-section-gap section-separator navy-blog" id="blog">
-            <div class="container" style=" margin-top: -35px;">
-                <div class="row " style=" margin-bottom: 30px;">
-                    <div class="col-lg-12">
-                        <div data-aos="fade-up" data-aos-duration="700"
-                            class="section-title text-center">
-                            <span class="subtitle">Insights & Articles</span>
-                            <!-- <h2 class="title">My Blog</h2> -->
-                        </div>
-                    </div>
-                </div>
+</div>
 
-                <div class="row row--25 mt--30">
+<button class="common-section-everypage-blog-listing-nav-btn next">›</button>
+</div>
+</section>
 
-                    <!-- Blog Card -->
-                    <div class="col-lg-4 col-md-6 mt--30" data-aos="fade-up" data-aos-delay="100">
-                        <div class="rn-blog smart-blog-card">
-                            <div class="thumbnail">
-                                <img src="assets/images/blog/blog-01.jpg" alt="Blog Image">
-                                <span class="tag">Canada</span>
-                            </div>
-                            <div class="content">
-                                <div class="meta">
-                                    <i class="feather-clock"></i> 2 min read
-                                </div>
-                                <h4 class="title">
-                                    T-shirt design is the part of modern branding
-                                </h4>
-                                <a href="#" class="read-more">
-                                    Read More <i class="feather-arrow-right"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+<div class="common-section-everypage-blog-listing-video-popup" id="videoPopup">
+<div class="common-section-everypage-blog-listing-popup-overlay"></div>
+<div class="common-section-everypage-blog-listing-popup-content">
 
-                    <!-- Blog Card -->
-                    <div class="col-lg-4 col-md-6 mt--30" data-aos="fade-up" data-aos-delay="200">
-                        <div class="rn-blog smart-blog-card">
-                            <div class="thumbnail">
-                                <img src="assets/images/blog/blog-02.jpg" alt="Blog Image">
-                                <span class="tag">Development</span>
-                            </div>
-                            <div class="content">
-                                <div class="meta">
-                                    <i class="feather-clock"></i> 2 hour read
-                                </div>
-                                <h4 class="title">
-                                    Services that elevate your digital product
-                                </h4>
-                                <a href="#" class="read-more">
-                                    Read More <i class="feather-arrow-right"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+  <span class="common-section-everypage-blog-listing-popup-video-icon">▶</span>
 
-                    <!-- Blog Card -->
-                    <div class="col-lg-4 col-md-6 mt--30" data-aos="fade-up" data-aos-delay="300">
-                        <div class="rn-blog smart-blog-card">
-                            <div class="thumbnail">
-                                <img src="assets/images/blog/blog-03.jpg" alt="Blog Image">
-                                <span class="tag">Application</span>
-                            </div>
-                            <div class="content">
-                                <div class="meta">
-                                    <i class="feather-clock"></i> 5 min read
-                                </div>
-                                <h4 class="title">
-                                    Mobile app landing & long-term maintenance
-                                </h4>
-                                <a href="#" class="read-more">
-                                    Read More <i class="feather-arrow-right"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+  <span class="common-section-everypage-blog-listing-popup-close">&times;</span>
+  <iframe id="popupVideo" allow="autoplay" allowfullscreen></iframe>
+</div>
 
-                </div>
-            </div>
-        </div>
+</div>
 
-        <!-- ENd Mews Area -->
+
+
+
 
 
         <!-- faq section start  -->
+        @if(count($fAQList) > 0)
         <div class="faq-top-section" style=" margin-top: 35px;" >
             <h2 class="mt-2">Turning Your Questions into Confidence</h2>
             <div class="faq">
-
-                <label class="faq-item">
-                    <input type="radio" name="faq" checked>
-                    <div class="question">How do you ensure the security of the app?</div>
-                    <div class="answer">We follow secure coding standards & audits.</div>
-                </label>
-
-                <label class="faq-item">
-                    <input type="radio" name="faq">
-                    <div class="question">How do you handle project management?</div>
-                    <div class="answer">We use agile methodology & tools.</div>
-                </label>
-
-                <label class="faq-item">
-                    <input type="radio" name="faq">
-                    <div class="question">How do you ensure a seamless user experience?</div>
-                    <div class="answer">We follow UI/UX design principles.</div>
-                </label>
-
-                <label class="faq-item">
-                    <input type="radio" name="faq">
-                    <div class="question">What mobile app services do you offer?</div>
-                    <div class="answer">We develop Android, iOS & hybrid apps.</div>
-                </label>
-
-                <label class="faq-item">
-                    <input type="radio" name="faq">
-                    <div class="question">What makes your company different?</div>
-                    <div class="answer">Strong experience & reliable support.</div>
-                </label>
-
-                <label class="faq-item">
-                    <input type="radio" name="faq">
-                    <div class="question">What is the average cost?</div>
-                    <div class="answer">Cost depends on features & complexity.</div>
-                </label>
-
-                <label class="faq-item">
-                    <input type="radio" name="faq">
-                    <div class="question">Do you provide maintenance?</div>
-                    <div class="answer">Yes, we provide long-term support.</div>
-                </label>
-
-                <label class="faq-item">
-                    <input type="radio" name="faq">
-                    <div class="question">How long does it take to build an app?</div>
-                    <div class="answer">Typically 2-6 months depending on scope.</div>
-                </label>
-
-                <label class="faq-item">
-                    <input type="radio" name="faq">
-                    <div class="question">Do you sign NDA?</div>
-                    <div class="answer">Yes, we ensure full confidentiality.</div>
-                </label>
-
-                <label class="faq-item">
-                    <input type="radio" name="faq">
-                    <div class="question">Do you help with publishing apps?</div>
-                    <div class="answer">Yes, we assist with App Store & Play Store.</div>
-                </label>
+                @foreach ($fAQList as $key => $fAQData)
+                    <label class="faq-item">
+                        <input type="radio" name="faq" @if($key == 0) checked @endif>
+                        <div class="question">{{ $fAQData->question ?? '' }}</div>
+                        <div class="answer">{{ $fAQData->answer ?? '' }}</div>
+                    </label>
+                @endforeach
 
             </div>
         </div>
+        @endif
         <!-- faq section end  -->
 
 
         <!-- consult-section-start  -->
-        <section class="consult-section">
-            <div class="consult-wrapper">
-
-                <!-- LEFT SIDE -->
-                <div class="left-consult">
-                    <p class="tag">
-                        Partner with tech catalysts who transform ideas into impact.
-                    </p>
-
-                    <p class="sub-tag">Book your free consultation with us.</p>
-
-                    <h1>Let’s Talk!</h1>
-
-                    <div class="country-slider">
-                        <div class="country-track">
-
-                            <div class="country active">
-                                <h3>UNITED ARAB EMIRATES</h3>
-                                <p>One Central, The Offices 3, Level 3,</p>
-                                <p>DWTC, Sheikh Zayed Road, Dubai</p>
-                                <p>+971 50 782 1690</p>
-                            </div>
-
-                            <div class="country">
-                                <h3>UNITED STATES</h3>
-                                <p>42 Broadway, New York, NY 10004</p>
-                                <p>+1 (512) 872 3364</p>
-                            </div>
-
-                            <div class="country">
-                                <h3>UNITED KINGDOM</h3>
-                                <p>Covent Garden, London WC2H 9JQ</p>
-                                <p>+44 20 7183 9424</p>
-                            </div>
-
-                        </div>
-
-                        <div class="nav">
-                            <button class="prev">←</button>
-                            <button class="next">→</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- RIGHT SIDE -->
-                <div class="right-consult">
-                    <div class="form-box">
-                        <h2>Speak With Our Experts</h2>
-
-                        <form>
-                            <input type="text" placeholder="Full Name">
-                            <input type="text" placeholder="+91  Mobile Number">
-                            <input type="email" placeholder="Business Email">
-
-                            <select>
-                                <option>When do you want to launch a solution?</option>
-                                <option>Immediately</option>
-                                <option>1–3 Months</option>
-                                <option>3–6 Months</option>
-                            </select>
-
-                            <textarea placeholder="About Project"></textarea>
-
-                            <button type="submit">Submit</button>
-                        </form>
-                    </div>
-                </div>
-
-            </div>
-        </section>
+        @include('website.contact-form')
 
         <!-- Modal Portfolio Body area Start -->
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-hidden="true">

@@ -28,7 +28,7 @@ Advance Ai
                             <div class="row">
 
                                 {{-- Category --}}
-                                
+
                                 {{-- Title --}}
                                 <div class="col-md-6 mb-3">
                                     <label class="col-form-label">
@@ -39,7 +39,7 @@ Advance Ai
                                         name="name"
                                         value="{{ old('name', $data->name ?? '') }}"
                                         required>
-                                </div> 
+                                </div>
                                 {{-- <div class="col-md-6 mb-3">
                                     <label class="col-form-label">
                                         Title <span class="text-danger">*</span>
@@ -67,7 +67,7 @@ Advance Ai
                                     @endif
                                 </div>
                                 {{-- Short Detail --}}
-                                {{-- <div class="col-md-6 mb-3">
+                                <div class="col-md-6 mb-3">
                                     <label class="col-form-label">
                                         Short Description <span class="text-danger">*</span>
                                     </label>
@@ -75,7 +75,7 @@ Advance Ai
                                             name="short_description"
                                             rows="3"
                                             required>{{ old('short_description', $data->short_description ?? '') }}</textarea>
-                                </div> --}}
+                                </div>
                                 <div class="col-md-12 mb-3">
                                     <div id="dynamic-fields">
                                         @if(isset($data->features) && count($data->features) > 0)

@@ -1,0 +1,3714 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Infinit Tech Solution</title>
+    <meta name="robots" content="noindex, follow" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <!-- CSS 
+    ============================================ -->
+    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/slick.css">
+    <link rel="stylesheet" href="assets/css/vendor/slick-theme.css">
+    <link rel="stylesheet" href="assets/css/vendor/aos.css">
+    <link rel="stylesheet" href="assets/css/vendor/feature.css">
+    <!-- Style css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/custome.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+
+
+<style>
+    html {
+        scroll-behavior: smooth !important;
+    }
+    * {
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .homepage-popup-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(6, 15, 35, 0.7);
+        backdrop-filter: blur(8px);
+        display: none;
+        z-index: 99999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .homepage-popup-wrapper {
+        width: 700px;
+        max-width: 95%;
+        background: #ffffff;
+        border-radius: 26px;
+        box-shadow: 0 40px 90px rgba(0, 0, 0, 0.45);
+        display: flex;
+        overflow: hidden;
+        position: relative;
+        height: 551px;
+    }
+
+    /* .homepage-popup-left h2 {
+    font-size: 20px;
+} */
+
+    .homepage-popup-close {
+        position: absolute;
+        right: 18px;
+        top: 12px;
+        font-size: 24px;
+        cursor: pointer;
+        color: black;
+    }
+
+
+    /* .homepage-popup-left{
+  width:50%;
+  padding:40px;
+  background:linear-gradient(180deg,#07387a,#0e4ea3);
+  color:#fff;
+} */
+    .homepage-popup-left {
+        width: 50%;
+        padding: 45px 40px;
+        background: linear-gradient(180deg, #06152b, #0b2a5a);
+        color: #ffffff;
+    }
+
+    .homepage-popup-left h2 {
+        font-size: 22px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    .homepage-popup-left p {
+        font-size: 15px;
+        opacity: 0.85;
+    }
+
+    .homepage-slide {
+        display: none;
+    }
+
+    .homepage-slide.active {
+        display: block;
+    }
+
+    /* .homepage-test-box{
+  background:#0a4fa8;
+  padding:20px;
+  border-radius:18px;
+  margin-top:25px;
+}
+
+.homepage-test-user{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  margin-top:10px;
+} */
+
+    .homepage-test-box {
+        background: rgba(255, 255, 255, 0.08);
+        padding: 22px;
+        border-radius: 18px;
+        margin-top: 28px;
+    }
+
+    .homepage-test-box p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .homepage-test-user img {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+    }
+
+
+    .homepage-slider-dots {
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    /* .homepage-slider-dots span{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  display:inline-block;
+  margin:0 4px;
+  background:#9fbeff;
+  cursor:pointer;
+  opacity:.6;
+}
+
+.homepage-slider-dots span.active{
+  background:#fff;
+  opacity:1;
+} */
+    .homepage-slider-dots span {
+        width: 8px;
+        height: 8px;
+        background: #6c8ecf;
+        opacity: 0.5;
+    }
+
+    .homepage-slider-dots span.active {
+        background: #ffffff;
+        opacity: 1;
+    }
+
+    /* .homepage-popup-right{
+  width:50%;
+  padding:35px 30px;
+  background:#fff;
+} */
+    .homepage-popup-right {
+        width: 50%;
+        padding: 45px 40px;
+        background: #575361;
+    }
+
+    /* .homepage-popup-right input,
+.homepage-popup-right textarea{
+  width:100%;
+  border-radius:15px;
+  border:1px solid #dcdcdc;
+  padding:14px 18px;
+  font-size:15px;
+  margin-bottom:15px;
+  color: #000;
+}
+
+.homepage-popup-right textarea{
+  min-height:110px;
+  resize:none;
+} */
+
+    .homepage-popup-right input,
+    .homepage-popup-right textarea {
+        width: 100%;
+        border-radius: 14px;
+        border: 1px solid #d5dbea;
+        padding: 14px 18px;
+        font-size: 15px;
+        margin-bottom: 16px;
+        transition: 0.25s;
+    }
+
+    .homepage-popup-right input:focus,
+    .homepage-popup-right textarea:focus {
+        /* outline:none; */
+        border-color: #0b2a5a;
+        box-shadow: 0 0 0 2px rgba(11, 42, 90, 0.15);
+    }
+
+    /* .homepage-popup-btn{
+  background:linear-gradient(135deg,#1f75ff,#0057e7);
+  color:#fff;
+  font-size:18px;
+  border:none;
+  padding:14px 50px;
+  border-radius:40px;
+  cursor:pointer;
+} */
+
+    .homepage-popup-btn {
+        background: linear-gradient(135deg, #0b2a5a, #123d8c);
+        color: #fff;
+        font-size: 17px;
+        border: none;
+        padding: 14px 60px;
+        border-radius: 40px;
+        cursor: pointer;
+        margin-top: 10px;
+        transition: 0.3s;
+    }
+
+    .homepage-popup-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 30px rgba(11, 42, 90, 0.35);
+    }
+
+    /* .homepage-popup-points{
+  font-size:14px;
+  color:#444;
+  margin-top:10px;
+} */
+    .homepage-popup-points {
+        font-size: 14px;
+        color: #2a2a2a;
+        margin: 12px 0 5px;
+    }
+
+    @media(max-width:900px) {
+        .homepage-popup-wrapper {
+            flex-direction: column;
+        }
+
+        .homepage-popup-left,
+        .homepage-popup-right {
+            width: 100%;
+        }
+    }
+</style>
+
+
+
+
+<div class="homepage-popup-overlay" id="hpPopup" style="display:none;">
+
+    <div class="homepage-popup-wrapper">
+
+        <span class="homepage-popup-close" onclick="closePopup()">✕</span>
+        <div class="homepage-popup-left">
+
+            <h2>Ready to Transform Your Ideas?</h2>
+            <p>Get a quick expert response in under 5 minutes.</p>
+
+            <div id="homepage-slider">
+
+                <div class="homepage-slide active">
+                    <div class="homepage-test-box">
+                        <p>
+                            Apptunix delivered two fully integrated applications for our business…
+                        </p>
+                        <div class="homepage-test-user">
+                            <img src="https://i.pravatar.cc/100">
+                            <div><b>Jocelyn Pettitt</b><br>CEO - HiVibe</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="homepage-slide">
+                    <div class="homepage-test-box">
+                        <p>Amazing engineering team. Highly reliable & responsive.</p>
+                        <div class="homepage-test-user">
+                            <img src="https://i.pravatar.cc/101">
+                            <div><b>Michael Ross</b><br>Founder - startupX</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="homepage-slide">
+                    <div class="homepage-test-box">
+                        <p>We scaled our product with their support & guidance.</p>
+                        <div class="homepage-test-user">
+                            <img src="https://i.pravatar.cc/102">
+                            <div><b>Anna Smith</b><br>COO - GrowthHub</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="homepage-slider-dots"></div>
+
+        </div>
+
+
+        <!-- RIGHT -->
+        <div class="homepage-popup-right">
+
+            <form>
+                <input type="text" placeholder="Name*">
+                <input type="text" placeholder="Contact Number*">
+                <input type="email" placeholder="Business Email*">
+                <textarea placeholder="Description *"></textarea>
+
+                <ul class="homepage-popup-points">
+                    <li>✔ NDA Protected</li>
+                    <li>✔ Trusted by 2000+ Entrepreneurs</li>
+                </ul>
+
+                <button class="homepage-popup-btn">Submit</button>
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<body class="template-color-1 spybody" data-spy="scroll" data-target=".navbar-example2" data-offset="70">
+    <header class="navbar">
+        <!-- LEFT -->
+        <div class="logo header-logo"><img src="./assets/images/infiniti-logo.png" alt=""></div>
+        <!-- CENTER -->
+         <div class="mobile-toggle">
+  <i class="fa-solid fa-bars"></i>
+</div>
+
+        <ul class="menu">
+            <li><a href="#">Portfolio</a></li>
+            <li>
+                <a href="#">Services ▾</a>
+                <div class="mega-menu">
+                    <div class="mega-wrap">
+                        <div class="left">
+                            <div class="col">
+                                <h4>Services</h4>
+
+                                <div class="item"><i class="fa-solid fa-graduation-cap"></i>Education</div>
+                                <div class="item"><i class="fa-solid fa-truck-fast"></i>Logistics</div>
+                                <div class="item"><i class="fa-solid fa-sack-dollar"></i>Finance</div>
+                                <div class="item"><i class="fa-solid fa-cart-shopping"></i>Ecommerce</div>
+
+                                <h4 style="margin-top:12px;">ON DEMAND APPS</h4>
+
+                                <div class="item"><i class="fa-solid fa-burger"></i>Food Delivery</div>
+                                <div class="item"><i class="fa-solid fa-taxi"></i>Taxi Booking</div>
+                            </div>
+
+                            <div class="col">
+                                <h4>FEATURED</h4>
+
+                                <div class="item"><i class="fa-solid fa-dumbbell"></i>Fitness</div>
+                                <div class="item"><i class="fa-solid fa-heart"></i>Dating App Development</div>
+                                <div class="item"><i class="fa-solid fa-gamepad"></i>Game Development</div>
+                                <div class="item"><i class="fa-solid fa-house"></i>Real Estate</div>
+
+                                <div class="item"><i class="fa-solid fa-bag-shopping"></i>Grocery Delivery</div>
+                                <div class="item"><i class="fa-solid fa-hand-sparkles"></i>Home Services</div>
+                            </div>
+
+                            <div class="col">
+                                <h4>SOLUTIONS</h4>
+
+                                <div class="item"><i class="fa-solid fa-stethoscope"></i>Healthcare</div>
+                                <div class="item"><i class="fa-solid fa-users"></i>Social Networking</div>
+                                <div class="item"><i class="fa-solid fa-trophy"></i>Sports Betting</div>
+                                <div class="item"><i class="fa-solid fa-vr-cardboard"></i>AR / VR</div>
+
+                                <div class="item"><i class="fa-solid fa-truck"></i>Pickup & Delivery</div>
+                                <div class="item"><i class="fa-solid fa-wand-magic-sparkles"></i>Beauty & Salon Booking
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="right">
+
+                            <div class="carousel">
+                                <div class="slides">
+                                    <img src="./assets/images/airplane.png">
+                                    <img src="./assets/images/airlane.jpg">
+                                    <img src="./assets/images/mobile-app-image.png">
+                                </div>
+
+                                <div class="dots">
+                                    <span class="dot active"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                </div>
+                            </div>
+                            <div class="crousel-caption">
+                                <h3>Clutch</h3>
+                                <p>Top Developers in India 2025</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a href="#">Industries ▾</a>
+                <div class="mega-menu">
+                    <div class="mega-wrap">
+                        <div class="left">
+                            <div class="col">
+                                <h4>INDUSTRIES</h4>
+
+                                <div class="item"><i class="fa-solid fa-graduation-cap"></i>Education</div>
+                                <div class="item"><i class="fa-solid fa-truck-fast"></i>Logistics</div>
+                                <div class="item"><i class="fa-solid fa-sack-dollar"></i>Finance</div>
+                                <div class="item"><i class="fa-solid fa-cart-shopping"></i>Ecommerce</div>
+
+                                <h4 style="margin-top:12px;">ON DEMAND APPS</h4>
+
+                                <div class="item"><i class="fa-solid fa-burger"></i>Food Delivery</div>
+                                <div class="item"><i class="fa-solid fa-taxi"></i>Taxi Booking</div>
+                            </div>
+
+                            <div class="col">
+                                <h4>FEATURED</h4>
+
+                                <div class="item"><i class="fa-solid fa-dumbbell"></i>Fitness</div>
+                                <div class="item"><i class="fa-solid fa-heart"></i>Dating App Development</div>
+                                <div class="item"><i class="fa-solid fa-gamepad"></i>Game Development</div>
+                                <div class="item"><i class="fa-solid fa-house"></i>Real Estate</div>
+
+                                <div class="item"><i class="fa-solid fa-bag-shopping"></i>Grocery Delivery</div>
+                                <div class="item"><i class="fa-solid fa-hand-sparkles"></i>Home Services</div>
+                            </div>
+
+                            <div class="col">
+                                <h4>SOLUTIONS</h4>
+
+                                <div class="item"><i class="fa-solid fa-stethoscope"></i>Healthcare</div>
+                                <div class="item"><i class="fa-solid fa-users"></i>Social Networking</div>
+                                <div class="item"><i class="fa-solid fa-trophy"></i>Sports Betting</div>
+                                <div class="item"><i class="fa-solid fa-vr-cardboard"></i>AR / VR</div>
+
+                                <div class="item"><i class="fa-solid fa-truck"></i>Pickup & Delivery</div>
+                                <div class="item"><i class="fa-solid fa-wand-magic-sparkles"></i>Beauty & Salon Booking
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="right">
+
+                            <div class="carousel">
+                                <div class="slides">
+                                    <img src="./assets/images/airplane.png">
+                                    <img src="./assets/images/airlane.jpg">
+                                    <img src="./assets/images/mobile-app-image.png">
+                                </div>
+
+                                <div class="dots">
+                                    <span class="dot active"></span>
+                                    <span class="dot"></span>
+                                    <span class="dot"></span>
+                                </div>
+                            </div>
+                            <div class="crousel-caption">
+                                <h3>Clutch</h3>
+                                <p>Top Developers in India 2025</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+
+            <li><a href="#">About</a></li>
+            <li><a href="#">Blog</a></li>
+            <div class="nav-right">
+                <a class="btn-primary">Get In Touch</a>
+                <a class="btn-outline">For Entrepreneurs</a>
+            </div>
+        </ul>
+        <!-- RIGHT BUTTONS -->
+    </header>
+
+    <section class="hero page-hero">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="./video/home_banner_video.mp4" type="video/mp4">
+        </video>
+        <div class="overlay"></div>
+        <div class="hero-content">
+
+            <h1>
+                Build <span>AI-Powered</span> Digital Products That Scale
+            </h1>
+
+            <ul class="stats">
+                <li>✔ Trusted by 500+ Global Brands</li>
+                <li>✔ $200M+ Client Value Delivered</li>
+                <li>✔ 12+ Years of Innovation</li>
+            </ul>
+
+            <!-- <div class="btn-wrap">
+                <a class="btn primary">Book an Enterprise Strategy Call</a>
+                <a class="btn secondary">Get My Project Estimate</a>
+            </div> -->
+            <div class="btn-wrap">
+                <a class="btn primary open-popup">Book an Enterprise Strategy Call</a>
+                <a class="btn secondary open-popup">Get My Project Estimate</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="trusted">
+
+        <div class="trusted-wrap">
+
+            <div class="trusted-badge">Trusted by</div>
+
+            <div class="logo-slider">
+                <div class="logos">
+
+                    <div class="logo-box"><img src="./assets/images/andamen.png"></div>
+                    <div class="logo-box"><img src="./assets/images/craftslane.png"></div>
+                    <div class="logo-box"><img src="./assets/images/deebaco.png"></div>
+                    <div class="logo-box"><img src="./assets/images/fly-high.png"></div>
+                    <div class="logo-box"><img src="./assets/images/kahira.png"></div>
+                    <div class="logo-box"><img src="./assets/images/dorganizer.png"></div>
+                    <div class="logo-box"><img src="./assets/images/taragram.png"></div>
+                    <div class="logo-box"><img src="./assets/images/keydroid.png"></div>
+
+                    <!-- repeat for scrolling -->
+                    <div class="logo-box"><img src="./assets/images/preeminent.png"></div>
+                    <div class="logo-box"><img src="./assets/images/puneet.png"></div>
+                    <div class="logo-box"><img src="./assets/images/maharishi-university.png"></div>
+                    <div class="logo-box"><img src="./assets/images/inferrix.png"></div>
+                    <div class="logo-box"><img src="./assets/images/oceedee.png"></div>
+                    <div class="logo-box"><img src="./assets/images/andamen.png"></div>
+                    <div class="logo-box"><img src="./assets/images/taragram.png"></div>
+                    <div class="logo-box"><img src="./assets/images/keydroid.png"></div>
+
+                </div>
+            </div>
+
+
+        </div>
+
+    </section>
+
+    <main class="main-page-wrapper">
+        <section class="inf-hero">
+            <div class="inf-hero-container">
+                <div class="inf-hero-grid">
+
+                    <!-- LEFT -->
+                    <div class="inf-hero-content">
+                        <h6 class="inf-hero-eyebrow">We Are Your Turnkey Partners In</h6>
+
+                        <h1 class="inf-hero-title">AI DISRUPTION</h1>
+
+                        <p class="inf-hero-text">
+                            Apptunix is a leading AI app development company, redefining digital possibilities with over
+                            a
+                            decade of experience. With 300+ agile thinkers, we build AI-native solutions that empower
+                            businesses to innovate, scale, and lead their industries.
+                        </p>
+
+                        <div class="inf-hero-wide-img">
+                            <img src="assets/images/about/about.webp" alt="Team">
+                        </div>
+                    </div>
+
+                    <!-- RIGHT -->
+                    <div class="inf-hero-video">
+                        <video autoplay muted loop playsinline>
+                            <source src="https://media.apptunix.com/wp-content/uploads/2025/12/03064758/website.mp4"
+                                type="video/mp4">
+                        </video>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- close about Area -->
+
+
+        <!-- trusted client section start       -->
+
+        <section class="homepage-statssection-stats mt-4">
+
+            <div class="homepage-stat-card">
+                <h2>35+</h2>
+                <p>Industry Excellence</p>
+            </div>
+
+            <div class="homepage-stat-card">
+                <h2>2500+</h2>
+                <p>Empowered Clients</p>
+            </div>
+
+            <div class="homepage-stat-card">
+                <h2>25+</h2>
+                <p>Countries Served</p>
+            </div>
+
+            <div class="homepage-stat-card">
+                <h2>300+</h2>
+                <p>Tech Engineers</p>
+            </div>
+
+            <div class="homepage-stat-card">
+                <h2>2000+</h2>
+                <p>Digital Solutions Launched</p>
+            </div>
+
+        </section>
+        <!-- trusted client section start   end    -->
+
+        <!-- Start Client Area -->
+        <section class="tab-section">
+
+            <!-- LEFT SIDE -->
+            <div class="tabs">
+
+                <div class="tab active" data-tab="microsoft">
+                    <img src="https://cdn-icons-png.flaticon.com/512/732/732221.png">
+                    <span>Microsoft</span>
+                    <span class="arrow">➜</span>
+                </div>
+
+                <div class="tab" data-tab="database">
+                    <img src="https://cdn-icons-png.flaticon.com/512/4248/4248443.png">
+                    <span>Database</span>
+                    <span class="arrow">➜</span>
+                </div>
+
+                <div class="tab" data-tab="bigdata">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2933/2933245.png">
+                    <span>Big Data</span>
+                    <span class="arrow">➜</span>
+                </div>
+
+                <div class="tab" data-tab="frontend">
+                    <img src="https://cdn-icons-png.flaticon.com/512/919/919827.png">
+                    <span>Frontend</span>
+                    <span class="arrow">➜</span>
+                </div>
+
+                <div class="tab" data-tab="backend">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2721/2721295.png">
+                    <span>Backend</span>
+                    <span class="arrow">➜</span>
+                </div>
+
+                <div class="tab" data-tab="devops">
+                    <img src="https://cdn-icons-png.flaticon.com/512/906/906324.png">
+                    <span>DevOps</span>
+                    <span class="arrow">➜</span>
+                </div>
+
+            </div>
+
+            <!-- RIGHT SIDE -->
+            <div class="tab-content">
+
+                <!-- MICROSOFT -->
+                <div class="content active" id="microsoft">
+                    <div class="card">
+                        <img src="https://1000logos.net/wp-content/uploads/2021/04/Salesforce-logo.png">
+                        <p>Salesforce</p>
+                    </div>
+
+                    <div class="card">
+                        <img src="https://cdn.worldvectorlogo.com/logos/sharepoint-2.svg">
+                        <p>SharePoint</p>
+                    </div>
+
+                    <div class="card">
+                        <img src="https://cdn.worldvectorlogo.com/logos/microsoft-dynamics-365.svg">
+                        <p>Dynamics</p>
+                    </div>
+                </div>
+
+                <!-- DATABASE -->
+                <div class="content" id="database">
+                    <div class="card">
+                        <img src="https://www.mysql.com/common/logos/logo-mysql-170x115.png">
+                        <p>MySQL</p>
+                    </div>
+
+                    <div class="card">
+                        <img src="https://www.postgresql.org/media/img/about/press/elephant.png">
+                        <p>PostgreSQL</p>
+                    </div>
+
+                    <div class="card">
+                        <img src="https://seeklogo.com/images/O/oracle-logo-2C2089A233-seeklogo.com.png">
+                        <p>Oracle</p>
+                    </div>
+                </div>
+
+                <!-- BIG DATA -->
+                <div class="content" id="bigdata">
+                    <div class="card">
+                        <img
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Apache_Hive_logo.svg/2560px-Apache_Hive_logo.svg.png">
+                        <p>Hive</p>
+                    </div>
+
+                    <div class="card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Apache_Cassandra_logo.svg">
+                        <p>Cassandra</p>
+                    </div>
+
+                    <div class="card">
+                        <img src="https://miro.medium.com/v2/resize:fit:600/1*U9wHsoUSFjkwmo7aXstq4Q.png">
+                        <p>Apache NiFi</p>
+                    </div>
+                </div>
+
+                <!-- FRONTEND -->
+                <div class="content" id="frontend">
+                    <div class="card">
+                        <p>HTML</p>
+                    </div>
+                    <div class="card">
+                        <p>CSS</p>
+                    </div>
+                    <div class="card">
+                        <p>JavaScript</p>
+                    </div>
+                </div>
+
+                <!-- BACKEND -->
+                <div class="content" id="backend">
+                    <div class="card">
+                        <p>Node JS</p>
+                    </div>
+                    <div class="card">
+                        <p>Python</p>
+                    </div>
+                    <div class="card">
+                        <p>Java</p>
+                    </div>
+                </div>
+
+                <!-- DEVOPS -->
+                <div class="content" id="devops">
+                    <div class="card">
+                        <p>AWS</p>
+                    </div>
+                    <div class="card">
+                        <p>Docker</p>
+                    </div>
+                    <div class="card">
+                        <p>Kubernetes</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+        <!-- End client section -->
+         <style>
+            .case-section {
+    background: linear-gradient(180deg, #071a2f, #0a2540);
+    padding: 90px 0;
+    color: #fff;
+}
+
+.case-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.case-top h1 {
+    font-size: 42px;
+    font-weight: 600;
+}
+
+.case-top span {
+    color: #60a5fa;
+}
+
+.case-actions button {
+    margin-left: 12px;
+}
+
+/* Buttons */
+.btn-outline {
+    border: 1px solid #60a5fa;
+    background: transparent;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 30px;
+}
+
+.btn-primary {
+    background: #3b82f6;
+    border: none;
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 30px;
+}
+
+/* Tabs */
+.case-tabs {
+    display: flex;
+    gap: 28px;
+    border-bottom: 1px solid #1e3a8a;
+    margin-bottom: 40px;
+}
+
+.case-tabs .tab-features {
+    background: none;
+    border: none;
+    color: #9ca3af;
+    padding-bottom: 12px;
+    font-size: 15px;
+    position: relative;
+    cursor: pointer;
+}
+
+.case-tabs .tab-features.active {
+    color: #fff;
+}
+
+.case-tabs .tab-features.active::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: #3b82f6;
+    bottom: -1px;
+    left: 0;
+    border-radius: 4px;
+}
+
+/* Content */
+.case-content {
+    position: relative;
+}
+
+.case-item {
+    display: none;
+    align-items: center;
+    gap: 50px;
+    animation: fadeUp 0.6s ease;
+}
+
+.case-item.active {
+    display: flex;
+}
+
+.case-item img {
+    width: 55%;
+    border-radius: 20px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+}
+
+.case-item .text {
+    width: 45%;
+}
+
+.case-item h3 {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.case-item p {
+    color: #cbd5e1;
+    line-height: 1.6;
+}
+
+@keyframes fadeUp {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+.case-content {
+    position: relative;
+}
+
+.case-item {
+    display: none;
+    height: 420px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    position: relative;
+    animation: fadeUp 0.6s ease;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.45);
+}
+
+.case-item.active {
+    display: block;
+}
+
+/* Dark overlay */
+.case-item::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(7,26,47,0.95) 0%,
+        rgba(7,26,47,0.75) 40%,
+        rgba(7,26,47,0.2) 100%
+    );
+    border-radius: 20px;
+}
+
+/* Text */
+.case-overlay {
+    position: relative;
+    z-index: 2;
+    width: 45%;
+    padding: 60px;
+}
+
+.case-overlay h3 {
+    font-size: 30px;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.case-overlay p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #cbd5e1;
+}
+
+@keyframes fadeUp {
+    from {opacity:0; transform:translateY(20px);}
+    to {opacity:1; transform:translateY(0);}
+}
+.case-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    margin-bottom: 40px;
+    white-space: nowrap;
+}
+
+/* Title */
+.case-title h1 {
+    max-width: 1200px;
+    font-size: 42px;
+    font-weight: 600;
+    line-height: 1.2;
+    white-space: nowrap; 
+}
+
+.case-title span {
+    color: #60a5fa;
+}
+
+/* Actions */
+.case-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+#tech-tab {
+    scroll-margin-top: 100px; /* navbar height + gap */
+}
+
+         </style>
+<section class="case-section">
+    <div class="container" style="margin-top: -36px;">
+
+        <div class="case-top">
+            <div class="case-title">
+                <h1>
+                    Inspiring the Next, Powered By <br>
+                    <span>Our People and Precision</span>
+                </h1>
+            </div>
+
+            <div class="case-actions">
+                <!-- <button class="btn-outline" data-tab="tech-tab">Skip</button> -->
+                 <a href="#tech-tab" class="btn-outline">Skip</a>
+                <button class="btn-primary">View all case studies →</button>
+            </div>
+        </div>
+        <!-- Tabs -->
+        <div class="case-tabs">
+            <button class="tab-features active" data-tab="drone">Drone Delivery</button>
+            <button class="tab-features" data-tab="ai">AI Solutions</button>
+            <button class="tab-features" data-tab="ondemand">On Demand</button>
+            <button class="tab-features" data-tab="erp">ERP</button>
+            <button class="tab-features" data-tab="realestate">Real Estate</button>
+            <button class="tab-features" data-tab="ecommerce">E-commerce</button>
+            <button class="tab-features" data-tab="gaming">Gaming</button>
+            <button class="tab-features" data-tab="fintech">Fintech</button>
+            <button class="tab-features" data-tab="blockchain">Blockchain</button>
+        </div>
+
+        <!-- Content -->
+        <div class="case-content">
+
+            <!-- ITEM -->
+            <div class="case-item active" id="drone"
+                style="background-image:url('assets/images/case_bg6.webp')">
+                <div class="case-overlay">
+                    <h3>Drone Delivery Platform</h3>
+                    <p>Autonomous drone-based logistics system ensuring faster, smarter deliveries.</p>
+                </div>
+            </div>
+
+            <div class="case-item" id="ai"
+                style="background-image:url('assets/images/case_bg6.webp')">
+                <div class="case-overlay">
+                    <h3>AI Solutions</h3>
+                    <p>AI-powered automation and predictive analytics for enterprises.</p>
+                </div>
+            </div>
+
+            <div class="case-item" id="ondemand"
+                style="background-image:url('assets/images/case_bg6.webp')">
+                <div class="case-overlay">
+                    <h3>On Demand Platforms</h3>
+                    <p>Scalable on-demand systems for modern digital businesses.</p>
+                </div>
+            </div>
+
+            <div class="case-item" id="erp"
+                style="background-image:url('assets/images/case_bg6.webp')">
+                <div class="case-overlay">
+                    <h3>ERP Systems</h3>
+                    <p>Integrated ERP solutions improving operations and efficiency.</p>
+                </div>
+            </div>
+
+            <div class="case-item" id="realestate"
+                style="background-image:url('assets/images/case_bg6.webp')">
+                <div class="case-overlay">
+                    <h3>Real Estate Tech</h3>
+                    <p>Digital platforms transforming property management & sales.</p>
+                </div>
+            </div>
+
+            <div class="case-item" id="ecommerce"
+                style="background-image:url('assets/images/case_bg6.webp')">
+                <div class="case-overlay">
+                    <h3>E-commerce Solutions</h3>
+                    <p>High-performance commerce platforms built to scale.</p>
+                </div>
+            </div>
+
+            <div class="case-item" id="gaming"
+                style="background-image:url('assets/images/case_bg6.webp')">
+                <div class="case-overlay">
+                    <h3>Gaming Platforms</h3>
+                    <p>Immersive gaming experiences with modern tech stacks.</p>
+                </div>
+            </div>
+
+            <div class="case-item" id="fintech"
+                style="background-image:url('assets/images/case_bg6.webp')">
+                <div class="case-overlay">
+                    <h3>Fintech Applications</h3>
+                    <p>Secure, compliant financial solutions powered by innovation.</p>
+                </div>
+            </div>
+
+            <div class="case-item" id="blockchain"
+                style="background-image:url('assets/images/case_bg6.webp')">
+                <div class="case-overlay">
+                    <h3>Blockchain Platform</h3>
+                    <p>Decentralized, transparent blockchain-powered ecosystems.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+    <section class="mt-4" id="tech-tab">
+        <!-- tech wrapper  -->
+        <div class="tech-wrapper" >
+            <h2>Crafting Solutions with Technology<br /> that Works For You</h2>
+            <div class="tech-slider">
+
+                <div class="tech-card">
+                    <img src="./assets/images/airlane.jpg">
+                    <h3>Artificial Intelligence</h3>
+                    <p>Our AR/VR technologies deliver immersive...</p>
+                </div>
+
+                <div class="tech-card">
+                    <img src="./assets/images/airlane.jpg">
+                    <h3>Generative AI</h3>
+                    <p>Our AR/VR technologies deliver immersive...</p>
+                </div>
+
+                <div class="tech-card">
+                    <img src="./assets/images/airlane.jpg">
+                    <h3>AR / VR</h3>
+                    <p>Our AR/VR technologies deliver immersive...</p>
+                </div>
+
+                <div class="tech-card">
+                    <img src="./assets/images/airlane.jpg">
+                    <h3>Blockchain</h3>
+                    <p>Our AR/VR technologies deliver immersive...</p>
+                </div>
+
+                <div class="tech-card">
+                    <img src="./assets/images/blockchain-1.png">
+                    <h3>Metaverse</h3>
+                    <p>Our AR/VR technologies deliver immersive...</p>
+                </div>
+
+                <div class="tech-card">
+                    <img src="./assets/images/blockchain-1.png">
+                    <h3>Data Analytics</h3>
+                    <p>Our AR/VR technologies deliver immersive...</p>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- tech wrapper end  -->
+    </section>
+        <!-- home below banner start two -->
+        <div class="home-below-banner-carousel-two">
+            <section class="hero-banner-two">
+                <div class="hero-content-two">
+                    <h1>
+                        We’ve Built Some of the Most-Loved<br>
+                        Software and Mobile Apps in the World
+                    </h1>
+
+                    <a href="#" class="hero-btn">
+                        Let’s Work Together
+                        <span>➜</span>
+                    </a>
+
+                </div>
+            </section>
+
+        </div>
+        <!-- home below banner two end  -->
+        <!-- Start Service Area -->
+        <!-- <div class="rn-service-area rn-section-pga section-separator" id="features"> -->
+
+        <!-- End Service Area  -->
+
+        <style>
+            /* SECTION */
+            .navy-services {
+                background: linear-gradient(180deg, #05132b, #071c3e);
+                padding: 80px 0 60px;
+            }
+
+            /* HEADING */
+            .navy-services__heading h2 {
+                color: #fff;
+                font-size: 32px;
+                line-height: 1.25;
+                margin-bottom: 45px;
+            }
+
+            /* GRID */
+            .navy-services__grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 22px;
+            }
+
+            /* CARD */
+            .navy-service-card {
+                background: rgba(255, 255, 255, 0.06);
+                border-radius: 16px;
+                padding: 26px 22px;
+                border: 1px solid rgba(255, 255, 255, 0.08);
+
+                transition: 0.35s ease;
+                position: relative;
+                overflow: hidden;
+            }
+
+            /* ICON */
+            .navy-service-card i {
+                width: 22px;
+                height: 22px;
+                color: #ffffff;
+                margin-bottom: 16px;
+            }
+
+            /* TITLE */
+            .navy-service-card h5 {
+                font-size: 18px;
+                color: #ffffff;
+                margin-bottom: 10px;
+            }
+
+            /* TEXT */
+            .navy-service-card p {
+                font-size: 14px;
+                color: rgba(255, 255, 255, 0.75);
+                line-height: 1.5;
+            }
+
+            /* ARROW */
+            .navy-arrow {
+                display: inline-block;
+                margin-top: 16px;
+                font-size: 18px;
+                color: #ffffff;
+                transition: 0.3s;
+            }
+
+            /* HOVER */
+            .navy-service-card:hover {
+                transform: translateY(-6px);
+                background: rgba(255, 255, 255, 0.1);
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+            }
+
+            .navy-service-card:hover .navy-arrow {
+                transform: translateX(6px);
+            }
+
+            /* RESPONSIVE */
+            @media(max-width: 991px) {
+                .navy-services__grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
+            @media(max-width: 576px) {
+                .navy-services__grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+        </style>
+        <section class="navy-services" id="features">
+            <div class="container">
+
+                <div class="navy-services__heading">
+                    <h2>
+                        Empower Your Journey In the Digital World<br>
+                        with Services You Can Trust
+                    </h2>
+                </div>
+
+                <div class="navy-services__grid">
+
+                    <!-- Card -->
+                    <div class="navy-service-card">
+                        <i data-feather="menu"></i>
+                        <h5>Business Strategy</h5>
+                        <p>I throw myself down among the tall grass by the stream.</p>
+                        <span class="navy-arrow">→</span>
+                    </div>
+
+                    <div class="navy-service-card">
+                        <i data-feather="book-open"></i>
+                        <h5>App Development</h5>
+                        <p>It uses a dictionary of over 200 Latin words.</p>
+                        <span class="navy-arrow">→</span>
+                    </div>
+
+                    <div class="navy-service-card">
+                        <i data-feather="tv"></i>
+                        <h5>App Development</h5>
+                        <p>I throw myself down among the tall grass.</p>
+                        <span class="navy-arrow">→</span>
+                    </div>
+
+                    <div class="navy-service-card">
+                        <i data-feather="twitch"></i>
+                        <h5>Mobile App</h5>
+                        <p>There are many variations of passages available.</p>
+                        <span class="navy-arrow">→</span>
+                    </div>
+
+                    <div class="navy-service-card">
+                        <i data-feather="wifi"></i>
+                        <h5>CEO Marketing</h5>
+                        <p>Always free from repetition and injected humour.</p>
+                        <span class="navy-arrow">→</span>
+                    </div>
+
+                    <div class="navy-service-card">
+                        <i data-feather="slack"></i>
+                        <h5>Personal Portfolio</h5>
+                        <p>Combined with a handful of model sentences.</p>
+                        <span class="navy-arrow">→</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= SLIDER START ================= -->
+
+        <!-- ================= SLIDER END ================= -->
+
+        <!-- ================= POPUP ================= -->
+
+        <div class="homepage-testimonial-popup">
+            <div class="homepage-testimonial-popup-content">
+                <span class="homepage-testimonial-close">✖</span>
+                <video id="homepage-testimonial-video" controls></video>
+            </div>
+        </div>
+
+
+
+        <!-- wall-of-fame -->
+        <section class="wall-of-fame ">
+            <div class="container">
+
+                <h2>Our Wall of Fame as a Mobile App<br>Development Company</h2>
+
+                <div class="awards-wrapper">
+                    <div class="awards-row" id="awardTrack">
+
+                        <!-- CARD -->
+                        <div class="award-card">
+                            <img src="assets/images/portfolio/portfolio-01.jpg">
+                            <h5>Appfutura</h5>
+                            <p>Top App<br>Development Company</p>
+                        </div>
+
+                        <div class="award-card">
+                            <img src="assets/images/portfolio/portfolio-01.jpg">
+                            <h5>GoodFirms</h5>
+                            <p>Top Mobile App<br>Developers UK</p>
+                        </div>
+
+                        <div class="award-card">
+                            <img src="assets/images/portfolio/portfolio-01.jpg">
+                            <h5>Clutch</h5>
+                            <p>Top 100<br>Companies 2022</p>
+                        </div>
+
+                        <div class="award-card">
+                            <img src="assets/images/portfolio/portfolio-01.jpg">
+                            <h5>ITFirms</h5>
+                            <p>World’s Top Mobile App<br>Development Companies 2022</p>
+                        </div>
+
+                        <div class="award-card">
+                            <img src="assets/images/portfolio/portfolio-01.jpg">
+                            <h5>Clutch</h5>
+                            <p>Top Developers in<br>India 2022</p>
+                        </div>
+
+                        <div class="award-card">
+                            <img src="assets/images/portfolio/portfolio-01.jpg">
+                            <h5>Feedspot</h5>
+                            <p>Mobile App Development<br>Blogs by Feedspot</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="dots" id="dots"></div>
+
+            </div>
+        </section>
+        <!-- wall-of-fame end  -->
+
+
+        <!-- home-below-banner-carousel-one -->
+        <div class="home-below-banner-carousel-one">
+
+            <section class="hero-banner-one">
+                <div class="hero-content-one">
+
+                    <h1>
+                        We’ve Built Some of the Most-Loved<br>
+                        Software and Mobile Apps in the World
+                    </h1>
+
+                    <a href="#" class="hero-btn">
+                        Let’s Work Together
+                        <span>➜</span>
+                    </a>
+
+                </div>
+            </section>
+
+        </div>
+        <!-- home-below-banner-carousel-one -->
+
+
+
+
+        <!-- Start Resume Area -->
+        <div class="rn-resume-area rn-section-gap section-separator" id="resume">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-title text-center">
+                            <!-- <span class="subtitle">7+ Years of Experience</span> -->
+                            <h5 class="title">A Seamless Vision that Adapts to Every <br />Industry’s Demands</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="industry-grid  ">
+                    <div class="industry-card">
+                        <div class="thumbnail">
+                            <img src="assets/images/portfolio/portfolio-01.jpg" alt="Healthcare">
+                        </div>
+                        <div class="content1">
+                            <h4 class="title">Healthcare</h4>
+                            <ul class="feature-list">
+                                <li>AI in Healthcare</li>
+                                <li>Augmented Reality</li>
+                                <li>IoMT in Healthcare</li>
+                            </ul>
+                            <div class="card-overlay">
+                                <a href="#" class="explore-btn">Explore →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industry-card">
+                        <div class="thumbnail">
+                            <img src="assets/images/portfolio/portfolio-01.jpg" alt="Logistics">
+                        </div>
+                        <div class="content1">
+                            <h4 class="title">Logistics</h4>
+                            <ul class="feature-list">
+                                <li>AI in Logistics</li>
+                                <li>Challenges in Logistics</li>
+                                <li>AI in Demand Forecasting</li>
+                            </ul>
+                            <div class="card-overlay">
+                                <a href="#" class="explore-btn">Explore →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industry-card">
+                        <div class="thumbnail">
+                            <img src="assets/images/portfolio/portfolio-01.jpg" alt="Gaming">
+                        </div>
+                        <div class="content1">
+                            <h4 class="title">Gaming</h4>
+                            <ul class="feature-list">
+                                <li>AI in Gaming</li>
+                                <li>Game Streaming</li>
+                                <li>Generative AI in Gaming</li>
+                            </ul>
+                            <div class="card-overlay">
+                                <a href="#" class="explore-btn">Explore →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industry-card">
+                        <div class="thumbnail">
+                            <img src="assets/images/portfolio/portfolio-01.jpg" alt="Fintech">
+                        </div>
+                        <div class="content1">
+                            <h4 class="title">Fintech</h4>
+                            <ul class="feature-list">
+                                <li>AI in Fintech</li>
+                                <li>Cybersecurity in Fintech</li>
+                                <li>Blockchain in Fintech</li>
+                            </ul>
+                            <div class="card-overlay">
+                                <a href="#" class="explore-btn">Explore →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industry-card">
+                        <div class="thumbnail">
+                            <img src="assets/images/portfolio/portfolio-01.jpg" alt="Retail">
+                        </div>
+                        <div class="content1">
+                            <h4 class="title">Retail</h4>
+                            <ul class="feature-list">
+                                <li>IoT in Retail</li>
+                                <li>Data Analytics</li>
+                                <li>Inventory Management</li>
+                            </ul>
+                            <div class="card-overlay">
+                                <a href="#" class="explore-btn">Explore →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industry-card">
+                        <div class="thumbnail">
+                            <img src="assets/images/portfolio/portfolio-01.jpg" alt="Retail">
+                        </div>
+                        <div class="content1">
+                            <h4 class="title">Retail</h4>
+                            <ul class="feature-list">
+                                <li>IoT in Retail</li>
+                                <li>Data Analytics</li>
+                                <li>Inventory Management</li>
+                            </ul>
+                            <div class="card-overlay">
+                                <a href="#" class="explore-btn">Explore →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industry-card">
+                        <div class="thumbnail">
+                            <img src="assets/images/portfolio/portfolio-01.jpg" alt="Retail">
+                        </div>
+                        <div class="content1">
+                            <h4 class="title">Retail</h4>
+                            <ul class="feature-list">
+                                <li>IoT in Retail</li>
+                                <li>Data Analytics</li>
+                                <li>Inventory Management</li>
+                            </ul>
+                            <div class="card-overlay">
+                                <a href="#" class="explore-btn">Explore →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="industry-card">
+                        <div class="thumbnail">
+                            <img src="assets/images/portfolio/portfolio-01.jpg" alt="Retail">
+                        </div>
+                        <div class="content1">
+                            <h4 class="title">Retail</h4>
+                            <ul class="feature-list">
+                                <li>IoT in Retail</li>
+                                <li>Data Analytics</li>
+                                <li>Inventory Management</li>
+                            </ul>
+                            <div class="card-overlay">
+                                <a href="#" class="explore-btn">Explore →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Resume Area -->
+
+
+
+        <!-- why area section start  -->
+
+        <section class="why-area  rn-section-gap ">
+            <h2>Why Businesses Choose Apptunix for AI Transformation?</h2>
+            <div class="why-grid">
+
+                <div class="why-card">
+                    <div class="why-icon"><i class="fa-solid fa-users"></i></div>
+                    <h3>Expert Team of AI Engineers</h3>
+                    <p>Our in-house AI specialists craft custom software solutions and intelligent systems tailored to
+                        your business requirements and objectives.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon"><i class="fa-solid fa-lightbulb"></i></div>
+                    <h3>Scalable Solutions</h3>
+                    <p>From startups to global enterprises, our AI-powered solutions grow with your business, ensuring
+                        smooth performance at each stage.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon"><i class="fa-solid fa-shield-heart"></i></div>
+                    <h3>Reliable Data & Insights</h3>
+                    <p>From startups to global enterprises, our AI-powered solutions grow with your business, ensuring
+                        smooth performance at each stage.</p>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-icon"><i class="fa-solid fa-microchip"></i></div>
+                    <h3>AI Security & Compliance</h3>
+                    <p>Your trust is our top priority. Our AI smart solutions are built on enterprise-grade security and
+                        global compliance standards.</p>
+                </div>
+
+            </div>
+        </section>
+        <!-- why section end  -->
+
+
+
+        <style>
+           .navy-testimonial-slider{
+                padding: 100px 20px;
+                background: linear-gradient(180deg,#05142e,#071c3e);
+                }
+
+                /* Header */
+                .navy-testimonial-header{
+                display:flex;
+                justify-content:space-between;
+                align-items:center;
+                margin-bottom:40px;
+                }
+
+                .navy-testimonial-header h2{
+                color:#fff;
+                font-size:32px;
+                }
+
+                /* Controls */
+                .navy-slider-controls button{
+                width:42px;
+                height:42px;
+                border-radius:50%;
+                border:1px solid rgba(255,255,255,.2);
+                background:rgba(255,255,255,.08);
+                color:#fff;
+                font-size:22px;
+                cursor:pointer;
+                transition:.3s;
+                }
+
+                .navy-slider-controls button:hover{
+                background:#fff;
+                color:#05142e;
+                }
+
+                /* Slider */
+                .navy-slider-viewport{
+                overflow:visible;
+                }
+
+                .navy-slider-track{
+                display:flex;
+                gap:24px;
+                transition:transform .5s ease;
+                }
+
+                /* Card */
+                .navy-testimonial-card{
+                min-width: calc(33.333% - 16px);
+                background:rgba(255,255,255,.06);
+                border:1px solid rgba(255,255,255,.08);
+                border-radius:18px;
+                padding:16px;
+                text-align:center;
+                position:relative;
+                transition:.3s;
+                cursor: pointer;
+                }
+
+                .navy-testimonial-card:hover{
+                transform:translateY(-6px);
+                background:rgba(255,255,255,.1);
+                }
+
+                .navy-testimonial-card img{
+                width:100%;
+                height:200px;
+                object-fit:cover;
+                border-radius:14px;
+                }
+
+                .navy-testimonial-card .play{
+                position:absolute;
+                top:50%;
+                left:50%;
+                transform:translate(-50%,-50%);
+                width:54px;
+                height:54px;
+                background:rgba(0,0,0,.55);
+                color:#fff;
+                border-radius:50%;
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                pointer-events: none;
+                }
+
+                .navy-testimonial-card h3{
+                margin-top:14px;
+                color:#fff;
+                font-size:17px;
+                }
+
+                .navy-testimonial-card p{
+                font-size:13px;
+                color:rgba(255,255,255,.7);
+                }
+
+                /* Responsive */
+                @media(max-width:900px){
+                .navy-testimonial-card{
+                    min-width: calc(50% - 12px);
+                    cursor: pointer;
+                }
+                }
+
+                @media(max-width:600px){
+                .navy-testimonial-card{
+                    min-width:100%;
+                    cursor: pointer;
+                }
+                }
+.navy-video-modal{
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.navy-video-modal__overlay{
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(12px);
+}
+
+.navy-video-modal__content{
+  position: relative;
+  width: 80%;
+  max-width: 900px;
+  background: #000;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 40px 90px rgba(0,0,0,0.45);
+  z-index: 2;
+}
+
+.navy-video-modal video{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.navy-video-modal__close{
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.25s;
+}
+
+.navy-video-modal__close:hover{
+  background: #ffffff;
+  color: #000;
+}
+
+        </style>
+        <section class="navy-testimonial-slider">
+
+        <div class="navy-testimonial-header">
+            <h2>Client Testimonials</h2>
+
+            <div class="navy-slider-controls">
+            <button id="navyPrev">‹</button>
+            <button id="navyNext">›</button>
+            </div>
+        </div>
+
+        <div class="navy-slider-viewport">
+            <div class="navy-slider-track">
+
+            <!-- CARD -->
+            <div class="navy-testimonial-card" data-video="./video/home_banner_video.mp4">
+                <img src="./assets/images/airlane.jpg">
+                <span class="play">▶</span>
+                <h3>David Ams</h3>
+                <p>Co Founder – Luxbubble</p>
+            </div>
+
+            <div class="navy-testimonial-card" data-video="./video/home_banner_video.mp4">
+                <img src="./assets/images/airlane.jpg">
+                <span class="play">▶</span>
+                <h3>Marco Perez</h3>
+                <p>Co Founder – Bancreach</p>
+            </div>
+
+            <div class="navy-testimonial-card" data-video="./video/home_banner_video.mp4">
+                <img src="./assets/images/airlane.jpg">
+                <span class="play">▶</span>
+                <h3>Mishari</h3>
+                <p>CEO – Logibids</p>
+            </div>
+
+            <div class="navy-testimonial-card" data-video="./video/home_banner_video.mp4">
+                <img src="./assets/images/airlane.jpg">
+                <span class="play">▶</span>
+                <h3>Sarah Kim</h3>
+                <p>Founder – BrandPro</p>
+            </div>
+
+            <div class="navy-testimonial-card" data-video="./video/home_banner_video.mp4">
+                <img src="./assets/images/airlane.jpg">
+                <span class="play">▶</span>
+                <h3>John Carter</h3>
+                <p>CTO – FinTech Hub</p>
+            </div>
+
+            <div class="navy-testimonial-card" data-video="./video/home_banner_video.mp4">
+                <img src="./assets/images/airlane.jpg">
+                <span class="play">▶</span>
+                <h3>Maria Lopez</h3>
+                <p>Director – Bright Labs</p>
+            </div>
+            <div class="navy-testimonial-card" data-video="./video/home_banner_video.mp4">
+                <img src="./assets/images/airlane.jpg">
+                <span class="play">▶</span>
+                <h3>Maria Lopez</h3>
+                <p>Director – Bright Labs</p>
+            </div>
+            <div class="navy-testimonial-card" data-video="./video/home_banner_video.mp4">
+                <img src="./assets/images/airlane.jpg">
+                <span class="play">▶</span>
+                <h3>Maria Lopez</h3>
+                <p>Director – Bright Labs</p>
+            </div>
+            <div class="navy-testimonial-card" data-video="./video/home_banner_video.mp4">
+                <img src="./assets/images/airlane.jpg">
+                <span class="play">▶</span>
+                <h3>Maria Lopez</h3>
+                <p>Director – Bright Labs</p>
+            </div>
+            <div class="navy-testimonial-card" data-video="./video/home_banner_video.mp4">
+                <img src="./assets/images/airlane.jpg">
+                <span class="play">▶</span>
+                <h3>Maria Lopez</h3>
+                <p>Director – Bright Labs</p>
+            </div>
+            <div class="navy-testimonial-card" data-video="./video/home_banner_video.mp4">
+                <img src="./assets/images/airlane.jpg">
+                <span class="play">▶</span>
+                <h3>Maria Lopez</h3>
+                <p>Director – Bright Labs</p>
+            </div>
+
+            </div>
+        </div>
+
+        </section>
+
+        <!-- home cert section start  -->
+        <section class="home-cert-section  rn-section-gap">
+
+            <div class="container">
+                <h2> Industry Standard Certified Software <br />and Mobile App Development Company </h2>
+                <div class="row justify-content-center aws">
+
+                    <div class="col-md-2 col-6 home-cert-box">
+                        <div class="home-cert-card">
+                            <img src="./assets/images/aws1_icon.png">
+                            <h4>AWS</h4>
+                            <p>Solution Architect,<br>Associate</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 col-6 home-cert-box">
+                        <div class="home-cert-card">
+                            <img src="./assets/images/aws1_icon.png">
+                            <h4>AWS</h4>
+                            <p>Security,<br>Speciality</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 col-6 home-cert-box">
+                        <div class="home-cert-card">
+                            <img src="./assets/images/aws1_icon.png">
+                            <h4>Microsoft</h4>
+                            <p>Dynamic 365<br>Fundamentals</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 col-6 home-cert-box">
+                        <div class="home-cert-card">
+                            <img src="./assets/images/aws1_icon.png">
+                            <h4>Microsoft</h4>
+                            <p>Associate</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 col-6 home-cert-box">
+                        <div class="home-cert-card">
+                            <img src="./assets/images/aws1_icon.png">
+                            <h4>AWS</h4>
+                            <p>Developer<br>Associate</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- home cert section end  -->
+
+<style>
+    /* Blog Theme */
+.navy-blog {
+    background: #0a2540;
+}
+
+.section-title .subtitle {
+    color: #ffffff !important;
+    letter-spacing: 1px;
+    font-weight: 500;
+    font-size: 35px !important;
+}
+
+.section-title .title {
+    color: #ffffff;
+}
+
+/* Blog Card */
+.smart-blog-card {
+    background: #081c33;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.smart-blog-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(59, 130, 246, 0.3);
+}
+
+/* Thumbnail */
+.smart-blog-card .thumbnail {
+    position: relative;
+    overflow: hidden;
+}
+
+.smart-blog-card img {
+    width: 100%;
+    transition: transform 0.5s ease;
+}
+
+.smart-blog-card:hover img {
+    transform: scale(1.08);
+}
+
+/* Tag */
+.smart-blog-card .tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: #1e3a8a;
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 12px;
+}
+
+/* Content */
+.smart-blog-card .content {
+    padding: 25px;
+}
+
+.smart-blog-card .meta {
+    color: #9ca3af;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.smart-blog-card .title {
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* Read More */
+.smart-blog-card .read-more {
+    color: #3b82f6;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.3s ease;
+}
+
+.smart-blog-card .read-more:hover {
+    color: #60a5fa;
+    gap: 10px;
+}
+
+    </style>
+        <!-- Start News Area -->
+        <div class="rn-blog-area rn-section-gap section-separator navy-blog" id="blog">
+            <div class="container" style=" margin-top: -35px;">
+                <div class="row " style=" margin-bottom: 30px;">
+                    <div class="col-lg-12">
+                        <div data-aos="fade-up" data-aos-duration="700"
+                            class="section-title text-center">
+                            <span class="subtitle">Insights & Articles</span>
+                            <!-- <h2 class="title">My Blog</h2> -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row row--25 mt--30">
+
+                    <!-- Blog Card -->
+                    <div class="col-lg-4 col-md-6 mt--30" data-aos="fade-up" data-aos-delay="100">
+                        <div class="rn-blog smart-blog-card">
+                            <div class="thumbnail">
+                                <img src="assets/images/blog/blog-01.jpg" alt="Blog Image">
+                                <span class="tag">Canada</span>
+                            </div>
+                            <div class="content">
+                                <div class="meta">
+                                    <i class="feather-clock"></i> 2 min read
+                                </div>
+                                <h4 class="title">
+                                    T-shirt design is the part of modern branding
+                                </h4>
+                                <a href="#" class="read-more">
+                                    Read More <i class="feather-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Blog Card -->
+                    <div class="col-lg-4 col-md-6 mt--30" data-aos="fade-up" data-aos-delay="200">
+                        <div class="rn-blog smart-blog-card">
+                            <div class="thumbnail">
+                                <img src="assets/images/blog/blog-02.jpg" alt="Blog Image">
+                                <span class="tag">Development</span>
+                            </div>
+                            <div class="content">
+                                <div class="meta">
+                                    <i class="feather-clock"></i> 2 hour read
+                                </div>
+                                <h4 class="title">
+                                    Services that elevate your digital product
+                                </h4>
+                                <a href="#" class="read-more">
+                                    Read More <i class="feather-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Blog Card -->
+                    <div class="col-lg-4 col-md-6 mt--30" data-aos="fade-up" data-aos-delay="300">
+                        <div class="rn-blog smart-blog-card">
+                            <div class="thumbnail">
+                                <img src="assets/images/blog/blog-03.jpg" alt="Blog Image">
+                                <span class="tag">Application</span>
+                            </div>
+                            <div class="content">
+                                <div class="meta">
+                                    <i class="feather-clock"></i> 5 min read
+                                </div>
+                                <h4 class="title">
+                                    Mobile app landing & long-term maintenance
+                                </h4>
+                                <a href="#" class="read-more">
+                                    Read More <i class="feather-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ENd Mews Area -->
+
+
+        <!-- faq section start  -->
+        <div class="faq-top-section" style=" margin-top: 35px;" >
+            <h2 class="mt-2">Turning Your Questions into Confidence</h2>
+            <div class="faq">
+
+                <label class="faq-item">
+                    <input type="radio" name="faq" checked>
+                    <div class="question">How do you ensure the security of the app?</div>
+                    <div class="answer">We follow secure coding standards & audits.</div>
+                </label>
+
+                <label class="faq-item">
+                    <input type="radio" name="faq">
+                    <div class="question">How do you handle project management?</div>
+                    <div class="answer">We use agile methodology & tools.</div>
+                </label>
+
+                <label class="faq-item">
+                    <input type="radio" name="faq">
+                    <div class="question">How do you ensure a seamless user experience?</div>
+                    <div class="answer">We follow UI/UX design principles.</div>
+                </label>
+
+                <label class="faq-item">
+                    <input type="radio" name="faq">
+                    <div class="question">What mobile app services do you offer?</div>
+                    <div class="answer">We develop Android, iOS & hybrid apps.</div>
+                </label>
+
+                <label class="faq-item">
+                    <input type="radio" name="faq">
+                    <div class="question">What makes your company different?</div>
+                    <div class="answer">Strong experience & reliable support.</div>
+                </label>
+
+                <label class="faq-item">
+                    <input type="radio" name="faq">
+                    <div class="question">What is the average cost?</div>
+                    <div class="answer">Cost depends on features & complexity.</div>
+                </label>
+
+                <label class="faq-item">
+                    <input type="radio" name="faq">
+                    <div class="question">Do you provide maintenance?</div>
+                    <div class="answer">Yes, we provide long-term support.</div>
+                </label>
+
+                <label class="faq-item">
+                    <input type="radio" name="faq">
+                    <div class="question">How long does it take to build an app?</div>
+                    <div class="answer">Typically 2-6 months depending on scope.</div>
+                </label>
+
+                <label class="faq-item">
+                    <input type="radio" name="faq">
+                    <div class="question">Do you sign NDA?</div>
+                    <div class="answer">Yes, we ensure full confidentiality.</div>
+                </label>
+
+                <label class="faq-item">
+                    <input type="radio" name="faq">
+                    <div class="question">Do you help with publishing apps?</div>
+                    <div class="answer">Yes, we assist with App Store & Play Store.</div>
+                </label>
+
+            </div>
+        </div>
+        <!-- faq section end  -->
+
+
+        <!-- consult-section-start  -->
+        <section class="consult-section">
+            <div class="consult-wrapper">
+
+                <!-- LEFT SIDE -->
+                <div class="left-consult">
+                    <p class="tag">
+                        Partner with tech catalysts who transform ideas into impact.
+                    </p>
+
+                    <p class="sub-tag">Book your free consultation with us.</p>
+
+                    <h1>Let’s Talk!</h1>
+
+                    <div class="country-slider">
+                        <div class="country-track">
+
+                            <div class="country active">
+                                <h3>UNITED ARAB EMIRATES</h3>
+                                <p>One Central, The Offices 3, Level 3,</p>
+                                <p>DWTC, Sheikh Zayed Road, Dubai</p>
+                                <p>+971 50 782 1690</p>
+                            </div>
+
+                            <div class="country">
+                                <h3>UNITED STATES</h3>
+                                <p>42 Broadway, New York, NY 10004</p>
+                                <p>+1 (512) 872 3364</p>
+                            </div>
+
+                            <div class="country">
+                                <h3>UNITED KINGDOM</h3>
+                                <p>Covent Garden, London WC2H 9JQ</p>
+                                <p>+44 20 7183 9424</p>
+                            </div>
+
+                        </div>
+
+                        <div class="nav">
+                            <button class="prev">←</button>
+                            <button class="next">→</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT SIDE -->
+                <div class="right-consult">
+                    <div class="form-box">
+                        <h2>Speak With Our Experts</h2>
+
+                        <form>
+                            <input type="text" placeholder="Full Name">
+                            <input type="text" placeholder="+91  Mobile Number">
+                            <input type="email" placeholder="Business Email">
+
+                            <select>
+                                <option>When do you want to launch a solution?</option>
+                                <option>Immediately</option>
+                                <option>1–3 Months</option>
+                                <option>3–6 Months</option>
+                            </select>
+
+                            <textarea placeholder="About Project"></textarea>
+
+                            <button type="submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Modal Portfolio Body area Start -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true"><i data-feather="x"></i></span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row align-items-center">
+
+                            <div class="col-lg-6">
+                                <div class="portfolio-popup-thumbnail">
+                                    <div class="image">
+                                        <img class="w-100" src="assets/images/portfolio/portfolio-04.jpg" alt="slide">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="text-content">
+                                    <h3>
+                                        <span>Featured - Design</span> App Design Development.
+                                    </h3>
+                                    <p class="mb--30">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                        Cupiditate distinctio assumenda explicabo veniam temporibus eligendi.
+                                    </p>
+                                    <p>Consectetur adipisicing elit. Cupiditate distinctio assumenda. dolorum
+                                        alias suscipit rerum maiores aliquam earum odit, nihil culpa quas iusto
+                                        hic minus!</p>
+                                    <div class="button-group mt--20">
+                                        <a href="#" class="rn-btn thumbs-icon">
+                                            <span>LIKE THIS</span>
+                                            <i data-feather="thumbs-up"></i>
+                                        </a>
+                                        <a href="#" class="rn-btn">
+                                            <span>VIEW PROJECT</span>
+                                            <i data-feather="chevron-right"></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+                                <!-- End of .text-content -->
+                            </div>
+                        </div>
+                        <!-- End of .row Body-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Modal Portfolio area -->
+
+
+        <!-- Modal Blog Body area Start -->
+        <div class="modal fade" id="exampleModalCenters" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-news" role="document">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true"><i data-feather="x"></i></span>
+                        </button>
+                    </div>
+
+                    <!-- End of .modal-header -->
+
+                    <div class="modal-body">
+                        <img src="assets/images/blog/blog-big-01.jpg" alt="news modal" class="img-fluid modal-feat-img">
+                        <div class="news-details">
+                            <span class="date">2 May, 2021</span>
+                            <h2 class="title">Digital Marketo to Their New Office.</h2>
+                            <p>Nobis eleifend option congue nihil imperdiet doming id quod mazim placerat
+                                facer
+                                possim assum.
+                                Typi non
+                                habent claritatem insitam; est usus legentis in iis qui facit eorum
+                                claritatem.
+                                Investigationes
+                                demonstraverunt
+                                lectores legere me lius quod ii legunt saepius. Claritas est etiam processus
+                                dynamicus, qui
+                                sequitur
+                                mutationem consuetudium lectorum.</p>
+                            <h4>Nobis eleifend option conguenes.</h4>
+                            <p>Mauris tempor, orci id pellentesque convallis, massa mi congue eros, sed
+                                posuere
+                                massa nunc quis
+                                dui.
+                                Integer ornare varius mi, in vehicula orci scelerisque sed. Fusce a massa
+                                nisi.
+                                Curabitur sit
+                                amet
+                                suscipit nisl. Sed eget nisl laoreet, suscipit enim nec, viverra eros. Nunc
+                                imperdiet risus
+                                leo,
+                                in rutrum erat dignissim id.</p>
+                            <p>Ut rhoncus vestibulum facilisis. Duis et lorem vitae ligula cursus venenatis.
+                                Class aptent
+                                taciti sociosqu
+                                ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc vitae
+                                nisi
+                                tortor. Morbi
+                                leo
+                                nulla, posuere vel lectus a, egestas posuere lacus. Fusce eleifend hendrerit
+                                bibendum. Morbi
+                                nec
+                                efficitur ex.</p>
+                            <h4>Mauris tempor, orci id pellentesque.</h4>
+                            <p>Nulla non ligula vel nisi blandit egestas vel eget leo. Praesent fringilla
+                                dapibus dignissim.
+                                Pellentesque
+                                quis quam enim. Vestibulum ultrices, leo id suscipit efficitur, odio lorem
+                                rhoncus dolor, a
+                                facilisis
+                                neque mi ut ex. Quisque tempor urna a nisi pretium, a pretium massa
+                                tristique.
+                                Nullam in
+                                aliquam
+                                diam. Maecenas at nibh gravida, ornare eros non, commodo ligula. Sed
+                                efficitur
+                                sollicitudin
+                                auctor.
+                                Quisque nec imperdiet purus, in ornare odio. Quisque odio felis, vestibulum
+                                et.</p>
+                        </div>
+
+                        <!-- Comment Section Area Start -->
+                        <div class="comment-inner">
+                            <h3 class="title mb--40 mt--50">Leave a Reply</h3>
+                            <form action="#">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-12 col-12">
+                                        <div class="rnform-group"><input type="text" placeholder="Name">
+                                        </div>
+                                        <div class="rnform-group"><input type="email" placeholder="Email">
+                                        </div>
+                                        <div class="rnform-group"><input type="text" placeholder="Website">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 col-12">
+                                        <div class="rnform-group">
+                                            <textarea placeholder="Comment"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <a class="rn-btn" href="#"><span>SUBMIT NOW</span></a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- Comment Section End -->
+                    </div>
+                    <!-- End of .modal-body -->
+                </div>
+            </div>
+        </div>
+        <!-- End Modal Blog area -->
+
+
+        <!-- Back to  top Start -->
+        <div class="backto-top">
+            <div>
+                <i data-feather="arrow-up"></i>
+            </div>
+        </div>
+        <!-- Back to top end -->
+
+
+
+        <!-- Start Modal Area  -->
+        <div class="demo-modal-area">
+            <div class="wrapper">
+                <div class="close-icon">
+                    <button class="demo-close-btn"><span class="feather-x"></span></button>
+                </div>
+                <div class="rn-modal-inner">
+                    <div class="demo-top text-center">
+                        <h4 class="title">InBio</h4>
+                        <p class="subtitle">Its a personal portfolio template. You can built any personal
+                            website easily.</p>
+                    </div>
+                    <ul class="popuptab-area nav nav-tabs" id="popuptab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active demo-dark" id="demodark-tab" data-bs-toggle="tab" href="#demodark"
+                                role="tab" aria-controls="demodark" aria-selected="true">Dark
+                                Demo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link demo-light" id="demolight-tab" data-bs-toggle="tab" href="#demolight"
+                                role="tab" aria-controls="demolight" aria-selected="false">Light Demo</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="popuptabContent">
+                        <div class="tab-pane show active" id="demodark" role="tabpanel" aria-labelledby="demodark-tab">
+                            <div class="content">
+                                <div class="row">
+
+                                    <!-- Start Single Content  -->
+                                    <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="single-demo">
+                                            <div class="inner">
+                                                <div class="thumbnail">
+                                                    <a href="index.html">
+                                                        <img class="w-100" src="assets/images/demo/main-demo.png"
+                                                            alt="Personal Portfolio">
+                                                        <span class="overlay-content">
+                                                            <span class="overlay-text">View Demo <i
+                                                                    class="feather-external-link"></i></span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <div class="inner">
+                                                    <h3 class="title"><a href="index.html">Main Demo</a></h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Content  -->
+
+                                    <!-- Start Single Content  -->
+                                    <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="single-demo">
+                                            <div class="inner badge-2">
+                                                <div class="thumbnail">
+                                                    <a href="index-technician.html">
+                                                        <img class="w-100" src="assets/images/demo/index-technician.png"
+                                                            alt="Personal Portfolio">
+                                                        <span class="overlay-content">
+                                                            <span class="overlay-text">View Demo <i
+                                                                    class="feather-external-link"></i></span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <div class="inner">
+                                                    <h3 class="title"><a href="index-technician.html">Technician</a>
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Content  -->
+
+                                    <!-- Start Single Content  -->
+                                    <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="single-demo">
+                                            <div class="inner badge-2">
+                                                <div class="thumbnail">
+                                                    <a href="index-model.html">
+                                                        <img class="w-100" src="assets/images/demo/home-model-v2.png"
+                                                            alt="Personal Portfolio">
+                                                        <span class="overlay-content">
+                                                            <span class="overlay-text">View Demo <i
+                                                                    class="feather-external-link"></i></span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <div class="inner">
+                                                    <h3 class="title"><a href="index-model.html">Model</a></h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Content  -->
+
+                                    <!-- Start Single Content  -->
+                                    <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="single-demo">
+                                            <div class="inner badge-1">
+                                                <div class="thumbnail">
+                                                    <a href="home-consulting.html">
+                                                        <img class="w-100" src="assets/images/demo/home-consulting.png"
+                                                            alt="Personal Portfolio">
+                                                        <span class="overlay-content">
+                                                            <span class="overlay-text">View Demo <i
+                                                                    class="feather-external-link"></i></span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <div class="inner">
+                                                    <h3 class="title"><a href="home-consulting.html">Consulting</a></h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Content  -->
+
+                                    <!-- Start Single Content  -->
+                                    <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="single-demo">
+                                            <div class="inner badge-1">
+                                                <div class="thumbnail">
+                                                    <a href="fashion-designer.html">
+                                                        <img class="w-100" src="assets/images/demo/fashion-designer.png"
+                                                            alt="Personal Portfolio">
+                                                        <span class="overlay-content">
+                                                            <span class="overlay-text">View Demo <i
+                                                                    class="feather-external-link"></i></span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <div class="inner">
+                                                    <h3 class="title"><a href="fashion-designer.html">Fashion
+                                                            Designer</a></h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Content  -->
+
+                                    <!-- Start Single Content  -->
+                                    <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="single-demo">
+                                            <div class="inner">
+                                                <div class="thumbnail">
+                                                    <a href="index-developer.html">
+                                                        <img class="w-100" src="assets/images/demo/developer.png"
+                                                            alt="Personal Portfolio">
+                                                        <span class="overlay-content">
+                                                            <span class="overlay-text">View Demo <i
+                                                                    class="feather-external-link"></i></span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <div class="inner">
+                                                    <h3 class="title"><a href="index-developer.html">Developer</a></h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Content  -->
+
+                                    <!-- Start Single Content  -->
+                                    <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="single-demo">
+                                            <div class="inner">
+                                                <div class="thumbnail">
+                                                    <a href="instructor-fitness.html">
+                                                        <img class="w-100"
+                                                            src="assets/images/demo/instructor-fitness.png"
+                                                            alt="Personal Portfolio">
+                                                        <span class="overlay-content">
+                                                            <span class="overlay-text">View Demo <i
+                                                                    class="feather-external-link"></i></span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <div class="inner">
+                                                    <h3 class="title"><a href="instructor-fitness.html">Fitness
+                                                            Instructor</a></h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Content  -->
+                                    <!-- Start Single Content  -->
+                                    <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="single-demo">
+                                            <div class="inner badge-1">
+                                                <div class="thumbnail">
+                                                    <a href="home-web-Developer.html">
+                                                        <img class="w-100" src="assets/images/demo/home-model.png"
+                                                            alt="Personal Portfolio">
+                                                        <span class="overlay-content">
+                                                            <span class="overlay-text">View Demo <i
+                                                                    class="feather-external-link"></i></span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <div class="inner">
+                                                    <h3 class="title"><a href="home-web-Developer.html">Web
+                                                            Developer</a></h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Content  -->
+
+                                    <!-- Start Single Content  -->
+                                    <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="single-demo">
+                                            <div class="inner">
+                                                <div class="thumbnail">
+                                                    <a href="home-designer.html">
+                                                        <img class="w-100" src="assets/images/demo/home-video.png"
+                                                            alt="Personal Portfolio">
+                                                        <span class="overlay-content">
+                                                            <span class="overlay-text">View Demo <i
+                                                                    class="feather-external-link"></i></span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <div class="inner">
+                                                    <h3 class="title"><a href="home-designer.html">Designer</a>
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Content  -->
+
+                                    <!-- Start Single Content  -->
+                                    <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="single-demo">
+                                            <div class="inner">
+                                                <div class="thumbnail">
+                                                    <a href="home-content-writer.html">
+                                                        <img class="w-100" src="assets/images/demo/text-rotet.png"
+                                                            alt="Personal Portfolio">
+                                                        <span class="overlay-content">
+                                                            <span class="overlay-text">View Demo <i
+                                                                    class="feather-external-link"></i></span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <div class="inner">
+                                                    <h3 class="title"><a href="home-content-writer.html">Content
+                                                            Writter</a></h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Content  -->
+
+                                    <!-- Start Single Content  -->
+                                    <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="single-demo">
+                                            <div class="inner">
+                                                <div class="thumbnail">
+                                                    <a href="home-instructor.html">
+                                                        <img class="w-100" src="assets/images/demo/index-boxed.png"
+                                                            alt="Personal Portfolio">
+                                                        <span class="overlay-content">
+                                                            <span class="overlay-text">View Demo <i
+                                                                    class="feather-external-link"></i></span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <div class="inner">
+                                                    <h3 class="title"><a href="home-instructor.html">Instructor</a></h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Content  -->
+
+                                    <!-- Start Single Content  -->
+                                    <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="single-demo">
+                                            <div class="inner">
+                                                <div class="thumbnail">
+                                                    <a href="home-freelancer.html">
+                                                        <img class="w-100" src="assets/images/demo/home-sticky.png"
+                                                            alt="Personal Portfolio">
+                                                        <span class="overlay-content">
+                                                            <span class="overlay-text">View Demo <i
+                                                                    class="feather-external-link"></i></span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <div class="inner">
+                                                    <h3 class="title"><a href="home-freelancer.html">Freelancer</a></h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Content  -->
+
+                                    <!-- Start Single Content  -->
+                                    <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="single-demo">
+                                            <div class="inner">
+                                                <div class="thumbnail">
+                                                    <a href="home-photographer.html">
+                                                        <img class="w-100" src="assets/images/demo/index-bg-image.png"
+                                                            alt="Personal Portfolio">
+                                                        <span class="overlay-content">
+                                                            <span class="overlay-text">View Demo <i
+                                                                    class="feather-external-link"></i></span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <div class="inner">
+                                                    <h3 class="title"><a href="home-photographer.html">Photographer</a>
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Content  -->
+
+                                    <!-- Start Single Content  -->
+                                    <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="single-demo">
+                                            <div class="inner">
+                                                <div class="thumbnail">
+                                                    <a href="index-politician.html">
+                                                        <img class="w-100" src="assets/images/demo/front-end.png"
+                                                            alt="Personal Portfolio">
+                                                        <span class="overlay-content">
+                                                            <span class="overlay-text">View Demo <i
+                                                                    class="feather-external-link"></i></span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <div class="inner">
+                                                    <h3 class="title"><a href="index-politician.html">Politician</a>
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Content  -->
+
+                                    <!-- Start Single Content  -->
+                                    <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="single-demo coming-soon">
+                                            <div class="inner">
+                                                <div class="thumbnail">
+                                                    <a href="#">
+                                                        <img class="w-100" src="assets/images/demo/coming-soon.png"
+                                                            alt="Personal Portfolio">
+                                                    </a>
+                                                </div>
+                                                <div class="inner">
+                                                    <h3 class="title"><a href="#">Accountant</a></h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Content  -->
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="tab-pane" id="demolight" role="tabpanel" aria-labelledby="demolight-tab">
+                            <div class="content">
+                                <div class="row">
+
+                                    <!-- Start Single Content  -->
+                                    <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="single-demo">
+                                            <div class="inner">
+                                                <div class="thumbnail">
+                                                    <a href="index-white-version.html">
+                                                        <img class="w-100"
+                                                            src="assets/images/demo/main-demo-white-version.png"
+                                                            alt="Personal Portfolio">
+                                                        <span class="overlay-content">
+                                                            <span class="overlay-text">View Demo <i
+                                                                    class="feather-external-link"></i></span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <div class="inner">
+                                                    <h3 class="title"><a href="index-white-version.html">Main
+                                                            Demo</a></h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Content  -->
+
+                                    <!-- Start Single Content  -->
+                                    <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="single-demo">
+                                            <div class="inner badge-2">
+                                                <div class="thumbnail">
+                                                    <a href="index-technician-white-version.html">
+                                                        <img class="w-100"
+                                                            src="assets/images/demo/index-technician-white-version.png"
+                                                            alt="Personal Portfolio">
+                                                        <span class="overlay-content">
+                                                            <span class="overlay-text">View Demo <i
+                                                                    class="feather-external-link"></i></span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <div class="inner">
+                                                    <h3 class="title"><a
+                                                            href="index-technician-white-version.html">Technician</a>
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Content  -->
+
+                                    <!-- Start Single Content  -->
+                                    <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="single-demo">
+                                            <div class="inner badge-2">
+                                                <div class="thumbnail">
+                                                    <a href="index-model-white-version.html">
+                                                        <img class="w-100"
+                                                            src="assets/images/demo/home-model-v2-white.png"
+                                                            alt="Personal Portfolio">
+                                                        <span class="overlay-content">
+                                                            <span class="overlay-text">View Demo <i
+                                                                    class="feather-external-link"></i></span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <div class="inner">
+                                                    <h3 class="title"><a href="index-model-white-version.html">Model</a>
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Content  -->
+
+                                    <!-- Start Single Content  -->
+                                    <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="single-demo">
+                                            <div class="inner badge-1">
+                                                <div class="thumbnail">
+                                                    <a href="home-consulting-white-version.html">
+                                                        <img class="w-100"
+                                                            src="assets/images/demo/home-consulting-white-version.png"
+                                                            alt="Personal Portfolio">
+                                                        <span class="overlay-content">
+                                                            <span class="overlay-text">View Demo <i
+                                                                    class="feather-external-link"></i></span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <div class="inner">
+                                                    <h3 class="title"><a
+                                                            href="home-consulting-white-version.html">Consulting</a>
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Content  -->
+
+                                    <!-- Start Single Content  -->
+                                    <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="single-demo">
+                                            <div class="inner badge-1">
+                                                <div class="thumbnail">
+                                                    <a href="fashion-designer-white-version.html">
+                                                        <img class="w-100"
+                                                            src="assets/images/demo/fashion-designer-white-version.png"
+                                                            alt="Personal Portfolio">
+                                                        <span class="overlay-content">
+                                                            <span class="overlay-text">View Demo <i
+                                                                    class="feather-external-link"></i></span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <div class="inner">
+                                                    <h3 class="title"><a
+                                                            href="fashion-designer-white-version.html">Fashion
+                                                            Designer</a>
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Content  -->
+
+                                    <!-- Start Single Content  -->
+                                    <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="single-demo">
+                                            <div class="inner">
+                                                <div class="thumbnail">
+                                                    <a href="index-developer-white-version.html">
+                                                        <img class="w-100"
+                                                            src="assets/images/demo/developer-white-version.png"
+                                                            alt="Personal Portfolio">
+                                                        <span class="overlay-content">
+                                                            <span class="overlay-text">View Demo <i
+                                                                    class="feather-external-link"></i></span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <div class="inner">
+                                                    <h3 class="title"><a
+                                                            href="index-developer-white-version.html">Developer</a>
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Content  -->
+                                    <!-- Start Single Content  -->
+                                    <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="single-demo">
+                                            <div class="inner">
+                                                <div class="thumbnail">
+                                                    <a href="instructor-fitness-white-version.html">
+                                                        <img class="w-100"
+                                                            src="assets/images/demo/instructor-fitness-white-version.png"
+                                                            alt="Personal Portfolio">
+                                                        <span class="overlay-content">
+                                                            <span class="overlay-text">View Demo <i
+                                                                    class="feather-external-link"></i></span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <div class="inner">
+                                                    <h3 class="title"><a
+                                                            href="instructor-fitness-white-version.html">Fitness
+                                                            Instructor</a>
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Content  -->
+                                    <!-- Start Single Content  -->
+                                    <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="single-demo">
+                                            <div class="inner badge-1">
+                                                <div class="thumbnail">
+                                                    <a href="home-web-developer-white-version.html">
+                                                        <img class="w-100"
+                                                            src="assets/images/demo/home-model-white-version.png"
+                                                            alt="Personal Portfolio">
+                                                        <span class="overlay-content">
+                                                            <span class="overlay-text">View Demo <i
+                                                                    class="feather-external-link"></i></span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <div class="inner">
+                                                    <h3 class="title"><a
+                                                            href="home-web-developer-white-version.html">Web
+                                                            Developer</a>
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Content  -->
+
+                                    <!-- Start Single Content  -->
+                                    <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="single-demo">
+                                            <div class="inner">
+                                                <div class="thumbnail">
+                                                    <a href="home-designer-white-version.html">
+                                                        <img class="w-100"
+                                                            src="assets/images/demo/home-video-white-version.png"
+                                                            alt="Personal Portfolio">
+                                                        <span class="overlay-content">
+                                                            <span class="overlay-text">View Demo <i
+                                                                    class="feather-external-link"></i></span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <div class="inner">
+                                                    <h3 class="title"><a
+                                                            href="home-designer-white-version.html">Designer</a>
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Content  -->
+
+                                    <!-- Start Single Content  -->
+                                    <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="single-demo">
+                                            <div class="inner">
+                                                <div class="thumbnail">
+                                                    <a href="home-content-writer-white-version.html">
+                                                        <img class="w-100"
+                                                            src="assets/images/demo/text-rotet-white-version.png"
+                                                            alt="Personal Portfolio">
+                                                        <span class="overlay-content">
+                                                            <span class="overlay-text">View Demo <i
+                                                                    class="feather-external-link"></i></span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <div class="inner">
+                                                    <h3 class="title"><a
+                                                            href="home-content-writer-white-version.html">Content
+                                                            Writter</a></h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Content  -->
+
+                                    <!-- Start Single Content  -->
+                                    <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="single-demo">
+                                            <div class="inner">
+                                                <div class="thumbnail">
+                                                    <a href="home-instructor-white-version.html">
+                                                        <img class="w-100"
+                                                            src="assets/images/demo/index-boxed-white-version.png"
+                                                            alt="Personal Portfolio">
+                                                        <span class="overlay-content">
+                                                            <span class="overlay-text">View Demo <i
+                                                                    class="feather-external-link"></i></span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <div class="inner">
+                                                    <h3 class="title"><a
+                                                            href="home-instructor-white-version.html">Instructor</a>
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Content  -->
+
+                                    <!-- Start Single Content  -->
+                                    <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="single-demo">
+                                            <div class="inner">
+                                                <div class="thumbnail">
+                                                    <a href="home-freelancer-white-version.html">
+                                                        <img class="w-100"
+                                                            src="assets/images/demo/home-sticky-white-version.png"
+                                                            alt="Personal Portfolio">
+                                                        <span class="overlay-content">
+                                                            <span class="overlay-text">View Demo <i
+                                                                    class="feather-external-link"></i></span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <div class="inner">
+                                                    <h3 class="title"><a
+                                                            href="home-freelancer-white-version.html">Freelancer</a>
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Content  -->
+
+                                    <!-- Start Single Content  -->
+                                    <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="single-demo">
+                                            <div class="inner">
+                                                <div class="thumbnail">
+                                                    <a href="home-photographer-white-version.html">
+                                                        <img class="w-100"
+                                                            src="assets/images/demo/index-bg-image-white-version.png"
+                                                            alt="Personal Portfolio">
+                                                        <span class="overlay-content">
+                                                            <span class="overlay-text">View Demo <i
+                                                                    class="feather-external-link"></i></span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <div class="inner">
+                                                    <h3 class="title"><a
+                                                            href="home-photographer-white-version.html">Photographer</a>
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Content  -->
+
+                                    <!-- Start Single Content  -->
+                                    <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="single-demo">
+                                            <div class="inner">
+                                                <div class="thumbnail">
+                                                    <a href="index-politician-white-version.html">
+                                                        <img class="w-100"
+                                                            src="assets/images/demo/front-end-white-version.png"
+                                                            alt="Personal Portfolio">
+                                                        <span class="overlay-content">
+                                                            <span class="overlay-text">View Demo <i
+                                                                    class="feather-external-link"></i></span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <div class="inner">
+                                                    <h3 class="title"><a
+                                                            href="index-politician-white-version.html">Politician</a>
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Content  -->
+
+                                    <!-- Start Single Content  -->
+                                    <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="single-demo coming-soon">
+                                            <div class="inner">
+                                                <div class="thumbnail">
+                                                    <a href="#">
+                                                        <img class="w-100" src="assets/images/demo/coming-soon.png"
+                                                            alt="Personal Portfolio">
+                                                    </a>
+                                                </div>
+                                                <div class="inner">
+                                                    <h3 class="title"><a href="#">Accountant</a></h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Content  -->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Modal Area  -->
+
+
+
+
+
+        <div class="navy-video-modal" id="navyVideoModal">
+            <div class="navy-video-modal__overlay"></div>
+
+            <div class="navy-video-modal__content">
+                <button class="navy-video-modal__close" aria-label="Close">✕</button>
+                <video id="navyModalVideo" controls autoplay></video>
+            </div>
+        </div>
+
+    </main>
+
+    <style>
+        .apptunix-footer{
+  background: radial-gradient(circle at top left,#0b1d3a,#020814);
+  padding:80px 20px;
+  color:#fff;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+.footer-container{
+  max-width:1400px;
+  margin:auto;
+  display:grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr 1fr;
+  gap:50px;
+}
+
+.footer-col h4{
+  margin-bottom:20px;
+  font-size:18px;
+}
+
+.footer-col ul{
+  list-style:none;
+  padding:0;
+}
+
+.footer-col ul li{
+  margin-bottom:14px;
+}
+
+.footer-col ul li a{
+  color:#cfd8e3;
+  text-decoration:none;
+  font-size:15px;
+  line-height:1.6;
+}
+
+.footer-col ul li a:hover{
+  color:#0a7cff;
+}
+
+.footer-col .highlight{
+  color:#0a7cff;
+}
+
+.brand .logo{
+  font-size:34px;
+  font-weight:700;
+  margin-bottom:15px;
+}
+
+.brand p{
+  color:#cfd8e3;
+  margin-bottom:25px;
+}
+
+.footer-btn{
+  display:inline-block;
+  background:#0a7cff;
+  padding:12px 28px;
+  border-radius:30px;
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  margin-bottom:25px;
+}
+
+.sales{
+  margin:20px 0;
+}
+
+.sales a{
+  display:block;
+  margin-top:5px;
+  color:#fff;
+}
+
+.dmca{
+  margin-top:20px;
+  width:120px;
+}
+
+.subscribe p{
+  margin-bottom:15px;
+  color:#cfd8e3;
+}
+
+.subscribe-form{
+  display:flex;
+  margin-bottom:10px;
+}
+
+.subscribe-form input{
+  flex:1;
+  padding:12px;
+  border:none;
+  outline:none;
+  border-radius:6px 0 0 6px;
+}
+
+.subscribe-form button{
+  background:#0a7cff;
+  color:#fff;
+  border:none;
+  padding:12px 20px;
+  border-radius:0 6px 6px 0;
+  cursor:pointer;
+}
+
+.subscribe small{
+  display:block;
+  margin-bottom:20px;
+  color:#8aa0b6;
+}
+
+.social{
+  display:flex;
+  gap:12px;
+}
+
+.social a{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  background:#0a7cff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  text-decoration:none;
+}
+    </style>
+<footer class="apptunix-footer">
+  <div class="footer-container">
+
+    <!-- BRAND -->
+    <div class="footer-col brand">
+      <h2 class="logo">Apptunix</h2>
+      <p>Ready to transform your business digitally?</p>
+
+      <a href="#" class="footer-btn">Contact Now!</a>
+
+      <div class="sales">
+        <strong>For sales enquiries:</strong>
+        <a href="mailto:sales@apptunix.com">sales@apptunix.com</a>
+      </div>
+
+      <img src="assets/images/dmca.png" class="dmca" alt="DMCA">
+    </div>
+
+    <!-- RECENT GUIDES -->
+    <div class="footer-col">
+      <h4>Recent e-guides</h4>
+      <ul>
+        <li><a href="#">App Monetization Strategies: How to Make Money From an App?</a></li>
+        <li><a href="#">A Comprehensive Guide To Mobile App Development in 2025 – 2026</a></li>
+        <li><a href="#">Telemedicine 2.0 – A Comprehensive Guide</a></li>
+        <li><a href="#">Electric Vehicle Software Development – A Comprehensive Guide</a></li>
+      </ul>
+    </div>
+
+    <!-- SERVICES -->
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#">App Development Services</a></li>
+        <li><a href="#">AI Development Services</a></li>
+        <li><a href="#">Software Development Services</a></li>
+        <li><a href="#">Web App Development</a></li>
+        <li><a href="#" class="highlight">Hire Software Developers</a></li>
+        <li><a href="#">Hire App Developers</a></li>
+        <li><a href="#">Digital Marketing Services</a></li>
+      </ul>
+    </div>
+
+    <!-- EXPERTISE -->
+    <div class="footer-col">
+      <h4>Expertise</h4>
+      <ul>
+        <li><a href="#">White Label App Development</a></li>
+        <li><a href="#">Ecommerce App Development</a></li>
+        <li><a href="#">Blockchain App Development</a></li>
+        <li><a href="#">Fintech App Development</a></li>
+        <li><a href="#">AR / VR App Development</a></li>
+        <li><a href="#">Food Delivery App Development</a></li>
+        <li><a href="#">Grocery Delivery App Development</a></li>
+      </ul>
+    </div>
+
+    <!-- SUBSCRIBE -->
+    <div class="footer-col subscribe">
+      <h4>Subscribe US</h4>
+      <p>Make the right business move.</p>
+
+      <form class="subscribe-form">
+        <input type="email" placeholder="Email address">
+        <button type="submit">Send</button>
+      </form>
+
+      <small>Your email ID is confidential.</small>
+
+      <div class="social">
+        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+    </div>
+
+  </div>
+</footer>
+    <!-- End Footer Area -->
+    <!-- JS ============================================ -->
+    <script src="assets/js/vendor/custome.js"></script>
+    <script src="assets/js/vendor/jquery.js"></script>
+    <script src="assets/js/vendor/modernizer.min.js"></script>
+    <script src="assets/js/vendor/feather.min.js"></script>
+    <script src="assets/js/vendor/slick.min.js"></script>
+    <script src="assets/js/vendor/bootstrap.js"></script>
+    <script src="assets/js/vendor/text-type.js"></script>
+    <script src="assets/js/vendor/wow.js"></script>
+    <script src="assets/js/vendor/aos.js"></script>
+    <script src="assets/js/vendor/particles.js"></script>
+    <script src="assets/js/vendor/jquery-one-page-nav.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+    AOS.init({
+        once: true,
+        duration: 800,
+        easing: 'ease-in-out'
+    });
+    </script>
+    <script>
+    const tabsFeatures = document.querySelectorAll(".tab-features");
+    const items = document.querySelectorAll(".case-item");
+
+    function activateTab(tab) {
+        // remove all actives
+        tabsFeatures.forEach(t => t.classList.remove("active"));
+        items.forEach(i => i.classList.remove("active"));
+
+        // activate current
+        tab.classList.add("active");
+        const targetId = tab.getAttribute("data-tab");
+        const targetItem = document.getElementById(targetId);
+
+        if (targetItem) {
+            targetItem.classList.add("active");
+        }
+    }
+
+    // CLICK
+    tabsFeatures.forEach(tab => {
+        tab.addEventListener("click", () => activateTab(tab));
+    });
+
+    // HOVER (optional but smart)
+    tabsFeatures.forEach(tab => {
+        tab.addEventListener("mouseenter", () => activateTab(tab));
+    });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+        const track = document.querySelector(".navy-slider-track");
+        const cards = document.querySelectorAll(".navy-testimonial-card");
+        const nextBtn = document.getElementById("navyNext");
+        const prevBtn = document.getElementById("navyPrev");
+
+        if (!track || !cards.length || !nextBtn || !prevBtn) {
+            console.warn("Slider elements missing");
+            return;
+        }
+
+        let index = 0;
+        let visible = 3;
+        const gap = 24;
+
+        function updateVisible() {
+            if (window.innerWidth < 600) visible = 1;
+            else if (window.innerWidth < 900) visible = 2;
+            else visible = 3;
+        }
+
+        function slide() {
+            const cardWidth = cards[0].offsetWidth + gap;
+            track.style.transform = `translateX(-${index * cardWidth}px)`;
+        }
+
+        nextBtn.addEventListener("click", () => {
+            updateVisible();
+            if (index < cards.length - visible) {
+            index++;
+            slide();
+            }
+        });
+
+        prevBtn.addEventListener("click", () => {
+            if (index > 0) {
+            index--;
+            slide();
+            }
+        });
+
+        window.addEventListener("resize", () => {
+            index = 0;
+            updateVisible();
+            slide();
+        });
+
+        });
+        </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const modal = document.getElementById("navyVideoModal");
+  const modalVideo = document.getElementById("navyModalVideo");
+  const overlay = document.querySelector(".navy-video-modal__overlay");
+  const cards = document.querySelectorAll(".navy-testimonial-card");
+
+  cards.forEach(card => {
+    card.addEventListener("click", () => {
+      const videoSrc = card.getAttribute("data-video");
+      if (!videoSrc) return;
+
+      modalVideo.src = videoSrc;
+      modal.style.display = "flex";
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  overlay.addEventListener("click", closeModal);
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") closeModal();
+  });
+
+  function closeModal(){
+    modal.style.display = "none";
+    modalVideo.pause();
+    modalVideo.src = "";
+    document.body.style.overflow = "auto";
+  }
+  
+const closeBtn = document.querySelector(".navy-video-modal__close");
+
+closeBtn.addEventListener("click", closeModal);
+
+});
+</script>
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        const popup = document.getElementById("hpPopup");
+        const openButtons = document.querySelectorAll(".open-popup");
+
+        // Open popup on both buttons
+        openButtons.forEach(btn => {
+            btn.addEventListener("click", () => {
+                popup.style.display = "flex";
+                document.body.style.overflow = "hidden";
+            });
+        });
+
+        // Close popup on outside click
+        popup.addEventListener("click", (e) => {
+            if (e.target === popup) {
+                popup.style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+        });});
+    </script>
+
+    <script>
+        function openPopup() {
+            document.getElementById("popupOverlay").style.display = "flex";
+        }
+
+        function closePopup() {
+            document.getElementById("popupOverlay").style.display = "none";
+        }
+    </script>
+    <script>
+        /* =========================
+              POPUP SLIDER SCRIPT
+           ========================= */
+
+        const popupSlides = document.querySelectorAll(".homepage-slide");
+        const popupDotBox = document.querySelector(".homepage-slider-dots");
+        let popupIndex = 0;
+
+        popupSlides.forEach((s, idx) => {
+            let dot = document.createElement("span");
+            if (idx === 0) dot.classList.add("active");
+            dot.onclick = () => popupShowSlide(idx);
+            popupDotBox.appendChild(dot);
+        });
+
+        const popupDots = document.querySelectorAll(".homepage-slider-dots span");
+
+        function popupShowSlide(n) {
+            popupSlides.forEach(s => s.classList.remove("active"));
+            popupDots.forEach(d => d.classList.remove("active"));
+
+            popupSlides[n].classList.add("active");
+            popupDots[n].classList.add("active");
+
+            popupIndex = n;
+        }
+
+        setInterval(() => {
+            popupIndex = (popupIndex + 1) % popupSlides.length;
+            popupShowSlide(popupIndex);
+        }, 4000);
+
+
+        function closePopup() {
+            document.getElementById("hpPopup").style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+    </script>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            /* ========== SWIPER SLIDER ========== */
+            var swiper = new Swiper(".myVideoSlider", {
+                slidesPerView: 3,
+                spaceBetween: 25,
+                slidesPerGroup: 3,
+                loop: false,
+
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev"
+                },
+
+                breakpoints: {
+                    0: { slidesPerView: 1, slidesPerGroup: 1 },
+                    768: { slidesPerView: 2, slidesPerGroup: 2 },
+                    1200: { slidesPerView: 3, slidesPerGroup: 3 }
+                }
+            });
+
+
+
+            /* ========== TESTIMONIAL POPUP ========== */
+
+            const testimonialCards = document.querySelectorAll(".homepage-testimonial-card");
+            const testimonialPopup = document.querySelector(".homepage-testimonial-popup");
+            const testimonialVideo = document.getElementById("homepage-testimonial-video");
+            const testimonialClose = document.querySelector(".homepage-testimonial-close");
+
+
+            /* OPEN */
+            testimonialCards.forEach(card => {
+                card.addEventListener("click", () => {
+                    testimonialVideo.src = card.getAttribute("data-video");
+                    testimonialPopup.style.display = "flex";
+                    testimonialVideo.play();
+                });
+            });
+
+
+            /* CLOSE FUNCTION */
+            function closeTestimonialPopup() {
+                testimonialPopup.style.display = "none";
+                testimonialVideo.pause();
+                testimonialVideo.currentTime = 0;
+            }
+
+
+            /* CLOSE BUTTON CLICK */
+            testimonialClose.addEventListener("click", closeTestimonialPopup);
+
+
+            /* CLICK OUTSIDE TO CLOSE */
+            testimonialPopup.addEventListener("click", e => {
+                if (e.target === testimonialPopup) {
+                    closeTestimonialPopup();
+                }
+            });
+
+        });
+    </script>
+
+
+
+    <script>
+        const tabs = document.querySelectorAll(".tab");
+        const contents = document.querySelectorAll(".content");
+
+        function activate(tab) {
+            tabs.forEach(t => t.classList.remove("active"));
+            tab.classList.add("active");
+
+            contents.forEach(c => c.classList.remove("active"));
+            document.getElementById(tab.dataset.tab).classList.add("active");
+        }
+
+        tabs.forEach(tab => {
+            tab.addEventListener("click", () => activate(tab));
+            tab.addEventListener("mouseover", () => activate(tab));
+        });
+    </script>
+
+
+
+
+
+<script>
+  const toggle = document.querySelector('.mobile-toggle');
+  const menu = document.querySelector('.menu');
+
+  toggle.addEventListener('click', () => {
+    menu.classList.toggle('active');
+  });
+</script>
+
+
+
+</body>
+
+</html>

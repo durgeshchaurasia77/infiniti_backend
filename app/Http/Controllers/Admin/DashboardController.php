@@ -12,15 +12,15 @@ use Hash;
 #Models
 use App\Models\Admin;
 use Illuminate\Support\Facades\Auth;
-use App\Models\BlogNews;
-use App\Models\OurServices;
-use App\Models\Testimonials;
-use App\Models\ContactUs;
-use App\Models\GetEnquiry;
-use App\Models\ExpactEnquery;
-use App\Models\Comment;
-use App\Models\VideoLibrary;
-use App\Models\ReportConsultation;
+// use App\Models\BlogNews;
+// use App\Models\OurServices;
+// use App\Models\Testimonials;
+// use App\Models\ContactUs;
+// use App\Models\GetEnquiry;
+// use App\Models\ExpactEnquery;
+// use App\Models\Comment;
+// use App\Models\VideoLibrary;
+// use App\Models\ReportConsultation;
 
 class DashboardController extends Controller
 {
@@ -46,27 +46,27 @@ class DashboardController extends Controller
      * @return
      */
     function __construct(   Admin         $admin,
-                            BlogNews      $blogsNews,
-                            OurServices   $ourServices,
-                            Testimonials  $testimonials,
-                            ContactUs     $contactUs,
-                            GetEnquiry    $getEnquiry,
-                            ExpactEnquery $expactEnquery,
-                            Comment     $comment,
-                            VideoLibrary    $videoLibrary,
-                            ReportConsultation $reportConsultation
+                            // BlogNews      $blogsNews,
+                            // OurServices   $ourServices,
+                            // Testimonials  $testimonials,
+                            // ContactUs     $contactUs,
+                            // GetEnquiry    $getEnquiry,
+                            // ExpactEnquery $expactEnquery,
+                            // Comment     $comment,
+                            // VideoLibrary    $videoLibrary,
+                            // ReportConsultation $reportConsultation
                         )
                         {
                             $this->admin              = $admin;
-                            $this->blogsNews          = $blogsNews;
-                            $this->ourServices        = $ourServices;
-                            $this->testimonials       = $testimonials;
-                            $this->contactUs          = $contactUs;
-                            $this->getEnquiry         = $getEnquiry;
-                            $this->expactEnquery      = $expactEnquery;
-                            $this->comment            = $comment;
-                            $this->videoLibrary       = $videoLibrary;
-                            $this->reportConsultation = $reportConsultation;
+                            // $this->blogsNews          = $blogsNews;
+                            // $this->ourServices        = $ourServices;
+                            // $this->testimonials       = $testimonials;
+                            // $this->contactUs          = $contactUs;
+                            // $this->getEnquiry         = $getEnquiry;
+                            // $this->expactEnquery      = $expactEnquery;
+                            // $this->comment            = $comment;
+                            // $this->videoLibrary       = $videoLibrary;
+                            // $this->reportConsultation = $reportConsultation;
                         }
     /**
       * get dashboard index

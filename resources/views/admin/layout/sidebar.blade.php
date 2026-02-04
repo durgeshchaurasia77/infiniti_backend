@@ -278,66 +278,39 @@
                         </li>
                     </ul>
                 </li>
-                {{-- <li>
+                <li>
                     <ul>
-                        <li>
-                            <a class="{{ Route::is('aboutus-edit') ? 'active' : '' }}" href="{{ route('aboutus-edit') }}">
-                                    <i class="ti ti-brand-airtable"></i>
-                                <span>About Us</span>
+                        <li class="submenu">
+                            <a href="javascript:void(0);"
+                                class="{{ Route::is('about-us-edit','our-journey-list','our-success-list') ? 'subdrop active' : '' }}">
+                                <i class="ti ti-brand-airtable"></i><span>About Us Management</span><span
+                                    class="menu-arrow"></span>
                             </a>
+                            <ul>
+                                <li>
+                                    <a class="{{ Route::is('about-us-edit') ? 'active' : '' }}"
+                                        href="{{ route('about-us-edit') }}">
+                                        <span>About Us</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="{{ Route::is('our-journey-list') ? 'active' : '' }}"
+                                        href="{{ route('our-journey-list') }}">
+                                        <span>Our Journey</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="{{ Route::is('our-success-list') ? 'active' : '' }}"
+                                        href="{{ route('our-success-list') }}">
+                                        <span>Our Success</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
-                </li> --}}
-                {{-- <li>
-                    <ul>
-                        <li>
-                            <a class="{{ Route::is('frro-location-list') ? 'active' : '' }}" href="{{ route('frro-location-list') }}">
-                                    <i class="ti ti-brand-airtable"></i>
-                                <span>FRRO Location</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li> --}}
-                {{-- <li>
-                    <ul>
-                        <li>
-                            <a class="{{ Route::is('destination-services-list') ? 'active' : '' }}" href="{{ route('destination-services-list') }}">
-                                    <i class="ti ti-brand-airtable"></i>
-                                <span>Destination Services</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li> --}}
-                {{-- <li>
-                    <ul>
-                        <li>
-                            <a class="{{ Route::is('expact-services-list') ? 'active' : '' }}" href="{{ route('expact-services-list') }}">
-                                    <i class="ti ti-brand-airtable"></i>
-                                <span>Expact Services</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li> --}}
-                {{-- <li>
-                    <ul>
-                        <li>
-                            <a class="{{ Route::is('abbreviation-list') ? 'active' : '' }}" href="{{ route('abbreviation-list') }}">
-                                    <i class="ti ti-brand-airtable"></i>
-                                <span>Abbreviation</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li> --}}
-                {{-- <li>
-                    <ul>
-                        <li>
-                            <a class="{{ Route::is('videolibrary-list') ? 'active' : '' }}" href="{{ route('videolibrary-list') }}">
-                                    <i class="ti ti-brand-airtable"></i>
-                                <span>Video Library</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li> --}}
+                </li>
+
                 <li>
                     <ul>
                         <li>

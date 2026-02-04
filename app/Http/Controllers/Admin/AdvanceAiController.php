@@ -53,7 +53,7 @@ class AdvanceAiController extends Controller
     {
         try
         {
-            
+
             return view($this->view.'create');
         } catch (Exception $e) {
             return back()->with('error', $ex->getMessage());
@@ -70,7 +70,7 @@ class AdvanceAiController extends Controller
             'name'   => 'required|string|max:255',
             'image'  => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
             // 'title'             => 'required|string|max:255',
-            // 'short_description' => 'required|string|max:500',
+            'short_description' => 'required|string|max:500',
             'details'=> 'required|array',
 
         ];
@@ -99,7 +99,7 @@ class AdvanceAiController extends Controller
             $AdvanceAi->name     = $request->name;
             // $AdvanceAi->title     = $request->title;
             $AdvanceAi->features         = $request->details;
-            // $AdvanceAi->short_description = $request->short_description;
+            $AdvanceAi->short_description = $request->short_description;
             $AdvanceAi->image           = $imagePath ?? null;
             $AdvanceAi->created_at      = now();
             $AdvanceAi->save();
@@ -150,7 +150,7 @@ class AdvanceAiController extends Controller
             'name'    => 'required|string|max:255',
             'image'  => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
             // 'title'             => 'required|string|max:255',
-            // 'short_description'=> 'required|string|max:500',
+            'short_description'=> 'required|string|max:500',
             'details' => 'required|array',
         ];
 
@@ -164,12 +164,10 @@ class AdvanceAiController extends Controller
         }
 
         try {
-            
+
             DB::beginTransaction();
 
             $AdvanceAi = AdvanceAi::findOrFail($request->id);
-            
-
 
              if ($request->hasFile('image')) {
 
@@ -186,7 +184,7 @@ class AdvanceAiController extends Controller
             $AdvanceAi->name              = $request->name;
             // $AdvanceAi->title             = $request->title;
             $AdvanceAi->features           = $request->details;
-            // $AdvanceAi->short_description = $request->short_description;
+            $AdvanceAi->short_description = $request->short_description;
             $AdvanceAi->save();
 
             DB::commit();
@@ -243,11 +241,11 @@ class AdvanceAiController extends Controller
     */
     public function delete(Request $request,$id)
     {
-       
+
         $result = $this->advanceAi->where('id', $id)->delete();
 
         if($result){
-            
+
             return  [
                         $this->successKey   =>  $this->successStatus,
                          $this->messageKey  => $this->deleteMessage($this->type)

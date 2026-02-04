@@ -148,7 +148,7 @@ class SettingController extends Controller
 
             return response()->json([
                 'responseCode'    => (string)$this->errorStatus,
-                'responseMessage' => 'Something went wrong.'.$e->getMessage(),
+                'responseMessage' => 'Something went wrong.',
             ]);
         }
     }

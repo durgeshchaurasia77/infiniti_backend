@@ -39,19 +39,19 @@ cards.forEach(card => {
 
 
 
-// one end 
-
- const customerAwardTrack = document.getElementById("awardTrack");
+// one end
+document.addEventListener("DOMContentLoaded", () => {
+    const customerAwardTrack = document.getElementById("awardTrack");
     const customerAwardCards = document.querySelectorAll(".award-card");
+
+    if (!customerAwardCards.length) return; // safety check
 
     let customerScrollPosition = 0;
     const customerGap = 20;
 
-    // calculate single card width
     const customerCardWidth =
         customerAwardCards[0].offsetWidth + customerGap;
 
-    // duplicate cards for infinite effect
     customerAwardCards.forEach(card => {
         customerAwardTrack.appendChild(card.cloneNode(true));
     });
@@ -59,48 +59,53 @@ cards.forEach(card => {
     function customerAutoScroll() {
         customerScrollPosition += 1;
 
-        // move slider
         customerAwardTrack.style.transform =
-        `translateX(-${customerScrollPosition}px`;
+            `translateX(-${customerScrollPosition}px)`;
 
-        // reset smoothly when half scrolled
         if (
-        customerScrollPosition >=
-        customerCardWidth * customerAwardCards.length
+            customerScrollPosition >=
+            customerCardWidth * customerAwardCards.length
         ) {
-        customerScrollPosition = 0;
-        customerAwardTrack.style.transform = `translateX(0px)`;
+            customerScrollPosition = 0;
+            customerAwardTrack.style.transform = `translateX(0px)`;
         }
     }
 
-    // START AUTO SCROLL
     setInterval(customerAutoScroll, 20);
-   
-  
-    // two end 
+});
 
 
-   
-        const hamburger = document.getElementById("hamburger");
-        const menu = document.querySelector(".menu");
+    // two end
 
-        hamburger.addEventListener("click", () => {
-            menu.classList.toggle("active");
-            document.body.classList.toggle("menu-open");
-        });
 
-        // Mobile accordion
-        document.querySelectorAll(".menu > li > a").forEach(link => {
-            link.addEventListener("click", e => {
-            const mega = link.nextElementSibling;
-            if (window.innerWidth <= 768 && mega?.classList.contains("mega-menu")) {
-                e.preventDefault();
-                link.parentElement.classList.toggle("active");
-            }
-            });
-        });
-  
-// three end 
+
+const toggle = document.querySelector('.mobile-toggle');
+const menu = document.querySelector('.menu');
+const closeBtn = document.querySelector('.menu-close');
+
+// open
+toggle.onclick = () => {
+  menu.classList.add('active');
+  document.body.style.overflow = 'hidden';
+};
+
+// close
+closeBtn.onclick = () => {
+  menu.classList.remove('active');
+  document.body.style.overflow = '';
+};
+
+// mega click mobile
+document.querySelectorAll('.has-mega > a').forEach(link => {
+  link.addEventListener('click', e => {
+    if (window.innerWidth < 992) {
+      e.preventDefault();
+      link.parentElement.classList.toggle('open');
+    }
+  });
+});
+
+// three end
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -125,5 +130,63 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-// four 
+// four
 
+document.addEventListener("DOMContentLoaded", () => {
+
+  const slides = document.querySelectorAll(".country");
+  const prevBtn = document.querySelector(".consult-prev-btn");
+  const nextBtn = document.querySelector(".consult-next-btn");
+
+  let index = 0;
+  let autoTimer;
+
+//   function showSlide(i){
+//     slides.forEach((slide, idx) => {
+//       slide.classList.toggle("active", idx === i);
+//     });
+//   }
+function showSlide(i){
+  slides.forEach((slide, idx) => {
+    slide.classList.remove("active");
+  });
+
+  // tiny delay for smooth transition
+  setTimeout(() => {
+    slides[i].classList.add("active");
+  }, 30);
+}
+
+  function nextSlide(){
+    index = (index + 1) % slides.length;
+    showSlide(index);
+  }
+
+  function prevSlide(){
+    index = (index - 1 + slides.length) % slides.length;
+    showSlide(index);
+  }
+
+  function startAuto(){
+    autoTimer = setInterval(nextSlide, 4500); // auto slide
+  }
+
+  function resetAuto(){
+    clearInterval(autoTimer);
+    startAuto();
+  }
+
+  nextBtn.addEventListener("click", () => {
+    nextSlide();
+    resetAuto();
+  });
+
+  prevBtn.addEventListener("click", () => {
+    prevSlide();
+    resetAuto();
+  });
+
+  // init
+  showSlide(index);
+  startAuto();
+});

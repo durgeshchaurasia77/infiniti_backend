@@ -20,14 +20,23 @@ class AboutUs extends Model
      *
      * @var array
      */
-    protected $fillable 	= 	[
-                                    'title',
-                                    'description',
-                                    'image',
-                                    'achievement',
-                                    'experties',
-                                    'contact_no',
-                                ];
+    protected $fillable = [
+        'title',
+        'sub_title',
+        'short_description',
+        'experience',
+        'countries',
+        'delivered',
+        'enthusiasts',
+        'image',
+        'human_centric_title',
+        'human_centric_description',
+        'exceptional_expertis_title',
+        'exceptional_expertise_description',
+        'end_to_end_support_title',
+        'end_to_end_support_description',
+        'status',
+    ];
 
     /**
      * The attributes that should be mutated to dates.

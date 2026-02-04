@@ -19,6 +19,7 @@ use App\Http\Controllers\Admin\TechnologyUsedController;
 use App\Http\Controllers\Admin\OurPeopleController;
 use App\Http\Controllers\Admin\CertificateSoftwareController;
 use App\Http\Controllers\Admin\OurJourneyController;
+use App\Http\Controllers\Admin\OurJourneysController;
 use App\Http\Controllers\Admin\FameMobileAppController;
 use App\Http\Controllers\Admin\WhyBusinessChooseController;
 use App\Http\Controllers\Admin\CraftingTechnologyController;
@@ -36,9 +37,11 @@ use App\Http\Controllers\Admin\ClientSatisfationController;
 use App\Http\Controllers\Admin\OurProvenController;
 use App\Http\Controllers\Admin\AdvanceAiController;
 use App\Http\Controllers\Admin\WeDeliverController;
+use App\Http\Controllers\Admin\AboutUsController;
+use App\Http\Controllers\Admin\OurSuccessController;
 use App\Http\Controllers\Admin\Master\GetEnquiryTypeController;
 
-// Website Test
+// Website
 use App\Http\Controllers\Website\HomeController;
 use App\Http\Controllers\Website\AboutController as WebAboutController;
 use App\Http\Controllers\Website\FrroLocationController as WebFrroLocationController;
@@ -61,6 +64,9 @@ use App\Http\Controllers\Website\OurServicesController as WebOurServicesControll
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/phpinfo', function () {
+    phpinfo();
+});
 
 // Route::get('mobile_privacy_policy', [CMSController::class,'mobile_privacy_policy'])->name('mobile_privacy_policy');
 // Route::get('mobile_term_condition', [CMSController::class,'mobile_term_condition'])->name('mobile_term_condition');
@@ -128,6 +134,11 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
 
         Route::get('why-business-choose/edit', [WhyBusinessChooseController::class, 'edit'])->name('why-business-choose-edit');
         Route::post('why-business-choose-update', [WhyBusinessChooseController::class, 'update'])->name('why-business-choose-update');
+
+
+        Route::get('about-us/edit', [AboutUsController::class, 'edit'])->name('about-us-edit');
+        Route::post('about-us-update', [AboutUsController::class, 'update'])->name('about-us-update');
+
 
         Route::get('technologies-used', [TechnologyUsedController::class, 'index'])->name('technologies-used-list');
         Route::get('technologies-used/edit/{id?}', [TechnologyUsedController::class, 'edit'])->name('technologies-used-edit');
@@ -287,6 +298,20 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
         Route::post('your-journey-status-update/{id}', [OurJourneyController::class, 'status'])->name('your-journey-status-update');
         Route::get('your-journey/delete/{id}', [OurJourneyController::class, 'delete'])->name('your-journey.delete');
 
+        Route::get('our-journey/index', [OurJourneysController::class, 'index'])->name('our-journey-list');
+        Route::post('our-journey-store', [OurJourneysController::class, 'store'])->name('our-journey-store');
+        Route::get('our-journey-edit/{id}', [OurJourneysController::class, 'edit'])->name('our-journey-edit');
+        Route::post('our-journey-update', [OurJourneysController::class, 'update'])->name('our-journey-update');
+        Route::post('our-journey-status-update/{id}', [OurJourneysController::class, 'status'])->name('our-journey-status-update');
+        Route::get('our-journey/delete/{id}', [OurJourneysController::class, 'delete'])->name('our-journey.delete');
+
+        Route::get('our-success/index', [OurSuccessController::class, 'index'])->name('our-success-list');
+        Route::post('our-success-store', [OurSuccessController::class, 'store'])->name('our-success-store');
+        Route::get('our-success-edit/{id}', [OurSuccessController::class, 'edit'])->name('our-success-edit');
+        Route::post('our-success-update', [OurSuccessController::class, 'update'])->name('our-success-update');
+        Route::post('our-success-status-update/{id}', [OurSuccessController::class, 'status'])->name('our-success-status-update');
+        Route::get('our-success/delete/{id}', [OurSuccessController::class, 'delete'])->name('our-success.delete');
+
 
         Route::get('fame-mobile-app/index', [FameMobileAppController::class, 'index'])->name('fame-mobile-app-list');
         Route::post('fame-mobile-app-store', [FameMobileAppController::class, 'store'])->name('fame-mobile-app-store');
@@ -329,10 +354,15 @@ Route::get('/', [HomeController::class, 'home'])->name('web_home');
 // Route::get('our-services-details/{id}', [WebOurServicesController::class, 'details'])->name('our-services-details');
 // Route::get('frro-optin', [WebOurServicesController::class, 'frroOptin'])->name('frro-optin');
 // Route::post('get-report-form', [WebOurServicesController::class, 'reportsubmit'])->name('get-report-form');
-// Route::post('contact', [HomeController::class, 'contactsubmit'])->name('contact-us-form');
-// Route::get('about', [WebAboutController::class, 'index'])->name('about');
+Route::post('contact', [HomeController::class, 'contactsubmit'])->name('contact-us-form');
+Route::get('about-us', [HomeController::class, 'aboutUs'])->name('about-us');
+Route::get('blog', [HomeController::class, 'blog'])->name('blog');
+Route::get('blog-details', [HomeController::class, 'blogDetails'])->name('blog-details');
+Route::get('services/{slug?}', [HomeController::class, 'services'])->name('services');
+Route::get('industry/{slug?}', [HomeController::class, 'industry'])->name('industry');
+Route::get('contact', [HomeController::class, 'contact'])->name('contact');
 // Route::get('frro-location', [WebFrroLocationController::class, 'index'])->name('frrolocation');
-// Route::post('get-enquery-form', [WebFrroLocationController::class, 'getenquerysubmit'])->name('get-enquery-form');
+Route::post('get-enquery-form', [WebFrroLocationController::class, 'getenquerysubmit'])->name('get-enquery-form');
 // Route::get('destination-services', [WebDestinationServicesController::class, 'index'])->name('destination-services');
 // Route::get('services', [WebOurServicesController::class, 'index'])->name('services');
 // Route::get('blog-news', [WebBlogsNewsController::class, 'index'])->name('blog-news');
@@ -343,7 +373,11 @@ Route::get('/', [HomeController::class, 'home'])->name('web_home');
 // Route::get('faq', [WebFaqController::class, 'index'])->name('faq');
 // Route::get('abbreviation', [WebAbreviationController::class, 'index'])->name('abbreviation');
 // Route::get('video-library', [WebVideoLibraryController::class, 'index'])->name('video-library');
-// Route::post('comment-form', [WebVideoLibraryController::class, 'commentsubmit'])->name('comment-form');
+Route::post('comment-form', [WebVideoLibraryController::class, 'commentsubmit'])->name('comment-form');
 // Route::get('expact-service/{slug}', [WebExpactServicesController::class, 'index'])->name('expact-service');
 // Route::post('get-expact-form', [WebExpactServicesController::class, 'expactsubmit'])->name('get-expact-form');
 
+
+Route::get('digital-marketing-dubai', [HomeController::class, 'digitalMarketing'])->name('digital-marketing-dubai');
+Route::get('mobile-app-development-dubai', [HomeController::class, 'mobileDevelopment'])->name('mobile-app-development-dubai');
+Route::get('performance-marketing-dubai', [HomeController::class, 'performMarketing'])->name('performance-marketing-dubai');
