@@ -1076,5 +1076,118 @@ function commonSectionEverypageClosePopup() {
   commonSectionEverypageIframe.src = "";
 }
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const isMobileView = window.matchMedia("(max-width: 991px)").matches;
+
+  const caseSlideSection = document.querySelector(".case-section-section-slide");
+  const caseSlideItems   = [...document.querySelectorAll(".case-item-section-slide")];
+  const caseSlideTabs    = [...document.querySelectorAll(".tab-features-section-slide")];
+
+  if (!caseSlideSection || !caseSlideItems.length || !caseSlideTabs.length) return;
+
+  let caseSlideIndex = 0;
+  let caseSlideLocked = false;
+  let caseSlideAnimating = false;
+  let caseSlideScrollBuffer = 0;
+
+  const CASE_SLIDE_SCROLL_THRESHOLD = 80;
+  const CASE_SLIDE_ANIM_DURATION = 900;
+
+  function caseSlideActivate(i){
+    caseSlideItems.forEach(el => el.classList.remove("active"));
+    caseSlideTabs.forEach(el => el.classList.remove("active"));
+
+    caseSlideItems[i]?.classList.add("active");
+    caseSlideTabs[i]?.classList.add("active");
+  }
+
+  caseSlideActivate(0);
+
+  function caseSlideLock(){
+    if (caseSlideLocked || isMobileView) return;
+    document.body.style.overflow = "hidden";
+    caseSlideLocked = true;
+  }
+
+  function caseSlideUnlock(){
+    document.body.style.overflow = "";
+    caseSlideLocked = false;
+    caseSlideScrollBuffer = 0;
+  }
+
+  /* 🔒 LOCK WHEN SECTION IS CENTERED (DESKTOP ONLY) */
+  const caseSlideObserver = new IntersectionObserver(
+    ([entry]) => {
+      if (isMobileView) return;
+      entry.isIntersecting ? caseSlideLock() : caseSlideUnlock();
+    },
+    { threshold: 0.65 }
+  );
+
+  caseSlideObserver.observe(caseSlideSection);
+
+  /* 🖱️ DESKTOP SCROLL CONTROL */
+  window.addEventListener("wheel", (e) => {
+
+    if (isMobileView || !caseSlideLocked) return;
+
+    e.preventDefault();
+
+    caseSlideScrollBuffer += e.deltaY;
+
+    if (caseSlideAnimating) return;
+    if (Math.abs(caseSlideScrollBuffer) < CASE_SLIDE_SCROLL_THRESHOLD) return;
+
+    caseSlideAnimating = true;
+
+    if (caseSlideScrollBuffer > 0) {
+      if (caseSlideIndex < caseSlideItems.length - 1) {
+        caseSlideIndex++;
+        caseSlideActivate(caseSlideIndex);
+      } else {
+        caseSlideUnlock();
+        caseSlideAnimating = false;
+        return;
+      }
+    } else {
+      if (caseSlideIndex > 0) {
+        caseSlideIndex--;
+        caseSlideActivate(caseSlideIndex);
+      } else {
+        caseSlideUnlock();
+        caseSlideAnimating = false;
+        return;
+      }
+    }
+
+    caseSlideScrollBuffer = 0;
+
+    setTimeout(() => {
+      caseSlideAnimating = false;
+    }, CASE_SLIDE_ANIM_DURATION);
+
+  }, { passive:false });
+
+  /* 🖱️ TAB CLICK (DESKTOP + MOBILE) */
+  caseSlideTabs.forEach((tab, i) => {
+    tab.addEventListener("click", () => {
+      if (i === caseSlideIndex) return;
+
+      caseSlideIndex = i;
+      caseSlideActivate(i);
+
+      if (isMobileView) {
+        caseSlideItems[i].scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }
+    });
+  });
+
+});
+</script>
 </body>
 </html>

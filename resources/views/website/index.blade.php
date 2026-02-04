@@ -105,7 +105,7 @@
 
                         <p class="inf-hero-text">
                             {{-- {{ $trunkeyPartner->short_description ?? '' }} --}}
-                            Infiniti is a leading AI app development company, redefining digital possibilities with over a decade of experience. With 300+ agile thinkers, we build AI-native solutions that empower businesses to innovate, scale, and lead their industries.
+                            {{ $trunkeyPartner->short_description ?? '' }}
                         </p>
 
                         <div class="inf-hero-wide-img">
@@ -258,229 +258,6 @@
 
     </section> --}}
 
-    <style>
-
-html{
-  scroll-behavior:smooth;
-}
-
-.case-section-section-slide{
-  position:relative;
-  height:calc(var(--slides) * 100vh);
-  background:linear-gradient(180deg,#071a2f,#0a2540);
-  color:#fff;
-}
-
-.case-inner-section-slide{
-  padding:80px 0 30px;
-}
-.container-section-slide{
-  max-width:1200px;
-  margin:auto;
-  padding:0 20px;
-}
-.case-top-section-slide{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:40px;
-}
-.case-title-section-slide h1{
-  font-size:44px;
-  line-height:1.2;
-}
-/* .case-title-section-slide span{
-  color:#60a5fa;
-} */
-.case-actions-section-slide{
-  display:flex;
-  gap:14px;
-}
-
-.btn-primary-case-actions-section{
-  background:#fff;
-  border:none;
-  padding:12px 28px;
-  border-radius:999px;
-  color:#2563eb;
-  font-size:18px;
-  box-shadow:0 10px 25px rgba(37,99,235,.35);
-  text-decoration: none;
-  font-weight: 400;
-}
-.btn-outline-case-actions-section{
-  padding:12px 28px;
-  border-radius:999px;
-  font-size:18px;
-  color:#fff;
-  border:1px solid rgba(255,255,255,.35);
-  background:transparent;
-  text-decoration: none;
-  font-weight: 400;
-}
-
-.case-tabs-section-slide{
-  display:flex;
-  gap:26px;
-  border-bottom:1px solid rgba(255,255,255,.2);
-}
-.tab-features-section-slide{
-  background:none;
-  border:none;
-  color:#fff;
-  font-size:14px;
-  padding-bottom:12px;
-  cursor:pointer;
-  position:relative;
-}
-.tab-features-section-slide.active{
-  color:#fff;
-}
-.tab-features-section-slide.active::after{
-  content:"";
-  position:absolute;
-  left:50%;
-  bottom:-10px;
-  width:100%;
-  height:2px;
-  transform:translateX(-50%);
-  background:#fff;
-}
-
-.case-content-section-slide{
-  position:sticky;
-  top:260px;
-  height:calc(100vh - 260px);
-  overflow:hidden;
-}
-
-.case-item-section-slide{
-  position:absolute;
-  inset:0;
-  display:flex;
-  align-items:center;
-  opacity:0;
-  pointer-events:none;
-  transition:opacity .6s ease;
-}
-.case-item-section-slide.active{
-  opacity:1;
-  pointer-events:auto;
-}
-
-.case-overlay-section-slide{
-  max-width:1200px;
-  margin:auto;
-  padding:0 20px;
-  display:grid;
-  grid-template-columns:0.4fr 0.6fr;
-  gap:60px;
-}
-
-.case-text-section-slide h3{
-  font-size:34px;
-  font-weight:700;
-  margin-bottom:16px;
-}
-.case-text-section-slide p{
-  max-width:420px;
-  font-size:15px;
-  line-height:1.7;
-  color:#cbd5e1;
-  margin-bottom:24px;
-}
-.case-buttons-section-slide{
-  display:flex;
-  gap:16px;
-  flex-wrap:wrap;
-}
-.case-media-section-slide img{
-  width:100%;
-  border-radius:5px;
-  box-shadow:0 30px 80px rgba(0,0,0,.45);
-  max-height: 350px;
-}
-.case-text-section-slide > *{
-  opacity:1;
-  transform:translateY(20px);
-  transition:.6s ease;
-}
-.case-item-section-slide.active .case-text-section-slide > *{
-  opacity:1;
-  transform:translateY(0);
-}
-.case-item-section-slide.active h3{ transition-delay:.2s }
-.case-item-section-slide.active p{ transition-delay:.35s }
-.case-item-section-slide.active .case-buttons-section-slide{ transition-delay:.5s }
-@media (max-width:991px){
-
-  .case-title-section-slide h1{
-    font-size:26px;
-  }
-
-  .case-inner-section-slide{
-    padding:50px 0 20px;
-  }
-
-
-  .case-section-section-slide{
-    height:auto;
-  }
-
-  .case-content-section-slide{
-    position:relative;
-    top:0;
-    height:auto;
-  }
-
-  .case-item-section-slide{
-    position:relative;
-    opacity:1;
-    pointer-events:auto;
-    margin-bottom:60px;
-  }
-
-  .case-item-section-slide.active{
-    opacity:1;
-  }
-
-
-
-  .case-tabs-section-slide{
-    gap:14px;
-    overflow-x:auto;
-    white-space:nowrap;
-  }
-
-  .case-overlay-section-slide{
-    grid-template-columns:1fr;
-    gap:24px;
-  }
-
-  .btn-primary,
-  .btn-outline{
-    padding:10px 20px;
-    font-size:13px;
-  }
-}
-
-@media (max-width:480px){
-
-  .case-content-section-slide{
-    top:45px;
-  }
-
-  .case-title-section-slide h1{
-    font-size:22px;
-  }
-
-  .case-top-section-slide{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:20px;
-  }
-}
-    </style>
 <section class="case-section-section-slide">
    <div class="case-inner-section-slide">
       <div class="container-section-slide">
@@ -497,45 +274,54 @@ html{
                <a href="#" class="btn-primary-case-actions-section">View all case studies →</a>
             </div>
          </div>
+         {{-- @dd($ourPeopleList); --}}
          <!-- TABS -->
          <div class="case-tabs-section-slide">
-            <button class="tab-features-section-slide active">Drone Delivery</button>
-            <button class="tab-features-section-slide">AI Solutions</button>
-            <button class="tab-features-section-slide">On Demand</button>
-            <button class="tab-features-section-slide">ERP</button>
-            <button class="tab-features-section-slide">Real Estate</button>
-            <button class="tab-features-section-slide">E-commerce</button>
-            <button class="tab-features-section-slide">Gaming</button>
-            <button class="tab-features-section-slide">Fintech</button>
-            <button class="tab-features-section-slide">Blockchain</button>
+            @foreach ($ourPeopleList as $index => $ourPeople)
+            <button class="tab-features-section-slide {{ $index === 0 ? 'active' : '' }}">{{ $ourPeople->name ?? '' }}</button>
+                {{-- <button class="tab-features-section-slide {{ $index === 0 ? 'active' : '' }}">{{ $ourPeople->title ?? '' }}</button>
+                <button class="tab-features-section-slide">AI Solutions</button>
+                <button class="tab-features-section-slide">On Demand</button>
+                <button class="tab-features-section-slide">ERP</button>
+                <button class="tab-features-section-slide">Real Estate</button>
+                <button class="tab-features-section-slide">E-commerce</button>
+                <button class="tab-features-section-slide">Gaming</button>
+                <button class="tab-features-section-slide">Fintech</button>
+                <button class="tab-features-section-slide">Blockchain</button> --}}
+            @endforeach
          </div>
       </div>
    </div>
    <!-- STICKY CONTENT -->
    <div class="case-content-section-slide">
       <!-- SLIDE 1 -->
-      <div class="case-item-section-slide active">
+      @foreach ($ourPeopleList as $index1 => $ourPeople1)
+        <div class="case-item-section-slide {{ $index1 === 0 ? 'active' : '' }}">
          <div class="case-overlay-section-slide">
             <!-- LEFT -->
             <div class="case-text-section-slide">
                <h3>AI-powered mobile app that analyse stock market trends</h3>
                <p>
-                  A renowned Japanese automobile manufacturer and a global leader
-                  in commercial vehicles and diesel engines.
+                 {{ $ourPeople1->sub_title ?? '' }}
                </p>
                <div class="case-buttons-section-slide">
-                  <a href="#" class="btn-primary-case-actions-section">Let’s Build Yours →</a>
-                  <a href="#" class="btn-outline-case-actions-section">View Case Study</a>
+                  <a href="{{ route('contact') }}" class="btn-primary-case-actions-section">Let’s Build Yours →</a>
+                  <a href="{{ route('contact') }}" class="btn-outline-case-actions-section">View Case Study</a>
                </div>
             </div>
             <!-- RIGHT -->
             <div class="case-media-section-slide">
-               <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984" alt="">
+               <img src="{{ asset($ourPeople1->image ?? 'notImage.jpg') }}" alt="{{ $ourPeople1->title ?? '' }}">
+               {{-- <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984" alt="{{ $ourPeople1->title ?? '' }}"> --}}
+
             </div>
          </div>
       </div>
+
+    @endforeach
+
       <!-- SLIDE 2 -->
-      <div class="case-item-section-slide">
+      {{-- <div class="case-item-section-slide">
          <div class="case-overlay-section-slide">
             <!-- LEFT -->
             <div class="case-text-section-slide">
@@ -701,122 +487,10 @@ html{
                <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984" alt="">
             </div>
          </div>
-      </div>
+      </div> --}}
    </div>
 </section>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
 
-  const isMobileView = window.matchMedia("(max-width: 991px)").matches;
-
-  const caseSlideSection = document.querySelector(".case-section-section-slide");
-  const caseSlideItems   = [...document.querySelectorAll(".case-item-section-slide")];
-  const caseSlideTabs    = [...document.querySelectorAll(".tab-features-section-slide")];
-
-  if (!caseSlideSection || !caseSlideItems.length || !caseSlideTabs.length) return;
-
-  let caseSlideIndex = 0;
-  let caseSlideLocked = false;
-  let caseSlideAnimating = false;
-  let caseSlideScrollBuffer = 0;
-
-  const CASE_SLIDE_SCROLL_THRESHOLD = 80;
-  const CASE_SLIDE_ANIM_DURATION = 900;
-
-  function caseSlideActivate(i){
-    caseSlideItems.forEach(el => el.classList.remove("active"));
-    caseSlideTabs.forEach(el => el.classList.remove("active"));
-
-    caseSlideItems[i]?.classList.add("active");
-    caseSlideTabs[i]?.classList.add("active");
-  }
-
-  caseSlideActivate(0);
-
-  function caseSlideLock(){
-    if (caseSlideLocked || isMobileView) return;
-    document.body.style.overflow = "hidden";
-    caseSlideLocked = true;
-  }
-
-  function caseSlideUnlock(){
-    document.body.style.overflow = "";
-    caseSlideLocked = false;
-    caseSlideScrollBuffer = 0;
-  }
-
-  /* 🔒 LOCK WHEN SECTION IS CENTERED (DESKTOP ONLY) */
-  const caseSlideObserver = new IntersectionObserver(
-    ([entry]) => {
-      if (isMobileView) return;
-      entry.isIntersecting ? caseSlideLock() : caseSlideUnlock();
-    },
-    { threshold: 0.65 }
-  );
-
-  caseSlideObserver.observe(caseSlideSection);
-
-  /* 🖱️ DESKTOP SCROLL CONTROL */
-  window.addEventListener("wheel", (e) => {
-
-    if (isMobileView || !caseSlideLocked) return;
-
-    e.preventDefault();
-
-    caseSlideScrollBuffer += e.deltaY;
-
-    if (caseSlideAnimating) return;
-    if (Math.abs(caseSlideScrollBuffer) < CASE_SLIDE_SCROLL_THRESHOLD) return;
-
-    caseSlideAnimating = true;
-
-    if (caseSlideScrollBuffer > 0) {
-      if (caseSlideIndex < caseSlideItems.length - 1) {
-        caseSlideIndex++;
-        caseSlideActivate(caseSlideIndex);
-      } else {
-        caseSlideUnlock();
-        caseSlideAnimating = false;
-        return;
-      }
-    } else {
-      if (caseSlideIndex > 0) {
-        caseSlideIndex--;
-        caseSlideActivate(caseSlideIndex);
-      } else {
-        caseSlideUnlock();
-        caseSlideAnimating = false;
-        return;
-      }
-    }
-
-    caseSlideScrollBuffer = 0;
-
-    setTimeout(() => {
-      caseSlideAnimating = false;
-    }, CASE_SLIDE_ANIM_DURATION);
-
-  }, { passive:false });
-
-  /* 🖱️ TAB CLICK (DESKTOP + MOBILE) */
-  caseSlideTabs.forEach((tab, i) => {
-    tab.addEventListener("click", () => {
-      if (i === caseSlideIndex) return;
-
-      caseSlideIndex = i;
-      caseSlideActivate(i);
-
-      if (isMobileView) {
-        caseSlideItems[i].scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
-      }
-    });
-  });
-
-});
-</script>
 
      <div class="case-spacer"></div>
     @if(count($craftingTechnologyList) > 0)
@@ -871,10 +545,10 @@ document.addEventListener("DOMContentLoaded", () => {
     with Services You Can Trust
   </h2>
 
-  <a href="#" class="navy-services-btn">
+  {{-- <a href="#" class="navy-services-btn">
     View all services
     <span class="btn-icon">↗</span>
-  </a>
+  </a> --}}
 </div>
 
 
@@ -955,121 +629,114 @@ document.addEventListener("DOMContentLoaded", () => {
 
     <!-- RIGHT IMAGE -->
     <div class="home-below-banner-carousel-one-hero-image">
-      <img src="./assets/images/Group 24.png" alt="Team Working">
+      <img src="{{ asset('website1/assets/images/side-image.png') }}" alt="Team Working">
     </div>
 
   </div>
          </section>
 
-
-
            @if(count($industryList) > 0)
-        <!-- Start Resume Area -->
-        <div class="rn-resume-area rn-section-gap section-separator" id="resume">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="section-title text-center">
-                            <!-- <span class="subtitle">7+ Years of Experience</span> -->
-                            <h5 class="title">A Seamless Vision that Adapts to Every <br /><span>Industry’s Demands</span></h5>
+            <!-- Start Resume Area -->
+            <div class="rn-resume-area rn-section-gap section-separator" id="resume">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="section-title text-center">
+                                <!-- <span class="subtitle">7+ Years of Experience</span> -->
+                                <h5 class="title">A Seamless Vision that Adapts to Every <br /><span>Industry’s Demands</span></h5>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="industry-grid  ">
+                    <div class="industry-grid ">
                     @foreach ($industryList as $industryData)
-
-                    <div class="industry-card">
-                        <div class="thumbnail">
-                            <img src="{{ asset($industryData->image ?? 'notImage.jpg') }}" alt="{{$industryData->title ?? ''}}">
-                        </div>
-                        <div class="content1">
-                            <h4 class="title">{{$industryData->title ?? ''}}</h4>
-                            {{-- <ul class="feature-list">
-                                <li>AI in Healthcare</li>
-                                <li>Augmented Reality</li>
-                                <li>IoMT in Healthcare</li>
-                            </ul> --}}
-                            <div class="feature-list sub-description">
-                                {!! nl2br(e($industryData->short_description ?? '')) !!}
+                        <div class="industry-card">
+                            <div class="thumbnail">
+                                <img src="{{ asset($industryData->image ?? 'notImage.jpg') }}" alt="{{$industryData->title ?? ''}}">
                             </div>
-                            <div class="card-overlay">
-                                <a href="#" class="explore-btn">Explore →</a>
+                            <div class="content1">
+                                <h4 class="title">{{$industryData->title ?? ''}}</h4>
+                                <div class="feature-list sub-description">
+                                    {!! nl2br(e($industryData->short_description ?? '')) !!}
+                                </div>
+                                <div class="card-overlay">
+                                    <a href="{{ route('contact') }}" class="explore-btn">Explore →</a>
+                                </div>
                             </div>
                         </div>
+                        @endforeach
                     </div>
-                    @endforeach
-
                 </div>
             </div>
-        </div>
-        <!-- End Resume Area -->
+            <!-- End Resume Area -->
            @endif
         <!-- home-below-banner-carousel-one -->
 
 
                 <!-- Start News Area -->
         @if(count($blogsList) > 0)
-       <section class="latest-insight-section">
-  <div class="latest-insight-container">
+            <section class="latest-insight-section">
+                    <div class="latest-insight-container">
 
-    <!-- TOP BAR -->
-    <div class="latest-insight-top">
-      <h2>Latest Insight</h2>
-      <a href="#" class="view-btn">View all blogs ↗</a>
-    </div>
+                        <!-- TOP BAR -->
+                        <div class="latest-insight-top">
+                        <h2>Latest Insight</h2>
+                        {{-- <a href="#" class="view-btn">View all blogs ↗</a> --}}
+                        </div>
 
-    <!-- CARDS -->
-    <div class="latest-insight-cards">
+                        <!-- CARDS -->
+                        <div class="latest-insight-cards">
+                    @foreach ($blogsList as $blogsdata)
+                        <div class="insight-card">
+                            <div class="card-img">
+                            <span class="date">
+                                {{ \Carbon\Carbon::parse($blogsdata->publish_date)->format('d') }}<br>
+                                {{ strtoupper(\Carbon\Carbon::parse($blogsdata->publish_date)->format('F')) }}
+                            </span>
+                            <img src="{{ asset($blogsdata->image ?? 'notImage.jpg') }}" alt="{{ $blogsdata->title ?? '' }}">
+                            </div>
+                            <div class="card-content">
+                            <h3>{{ $blogsdata->title ?? '' }}</h3>
+                            <p>{{ $blogsdata->short_detail ?? '' }}</p>
+                            </div>
+                        </div>
+                    @endforeach
 
-      <div class="insight-card">
-        <div class="card-img">
-          <span class="date">22<br>APRIL</span>
-          <img src="images/blog1.jpg" alt="">
-        </div>
-        <div class="card-content">
-          <h3>AI + Apps - The Future Of Everyday Business</h3>
-          <p>Artificial Intelligence is moving at the speed of light...</p>
-        </div>
-      </div>
+                        {{-- <div class="insight-card">
+                            <div class="card-img">
+                            <span class="date">22<br>APRIL</span>
+                            <img src="images/blog2.jpg" alt="">
+                            </div>
+                            <div class="card-content">
+                            <h3>AI + Apps - The Future Of Everyday Business</h3>
+                            <p>Artificial Intelligence is moving at the speed of light...</p>
+                            </div>
+                        </div>
 
-      <div class="insight-card">
-        <div class="card-img">
-          <span class="date">22<br>APRIL</span>
-          <img src="images/blog2.jpg" alt="">
-        </div>
-        <div class="card-content">
-          <h3>AI + Apps - The Future Of Everyday Business</h3>
-          <p>Artificial Intelligence is moving at the speed of light...</p>
-        </div>
-      </div>
+                        <div class="insight-card">
+                            <div class="card-img">
+                            <span class="date">22<br>APRIL</span>
+                            <img src="images/blog3.jpg" alt="">
+                            </div>
+                            <div class="card-content">
+                            <h3>AI + Apps - The Future Of Everyday Business</h3>
+                            <p>Artificial Intelligence is moving at the speed of light...</p>
+                            </div>
+                        </div>
 
-      <div class="insight-card">
-        <div class="card-img">
-          <span class="date">22<br>APRIL</span>
-          <img src="images/blog3.jpg" alt="">
-        </div>
-        <div class="card-content">
-          <h3>AI + Apps - The Future Of Everyday Business</h3>
-          <p>Artificial Intelligence is moving at the speed of light...</p>
-        </div>
-      </div>
+                        <div class="insight-card">
+                            <div class="card-img">
+                            <span class="date">22<br>APRIL</span>
+                            <img src="images/blog4.jpg" alt="">
+                            </div>
+                            <div class="card-content">
+                            <h3>AI + Apps - The Future Of Everyday Business</h3>
+                            <p>Artificial Intelligence is moving at the speed of light...</p>
+                            </div>
+                        </div> --}}
 
-      <div class="insight-card">
-        <div class="card-img">
-          <span class="date">22<br>APRIL</span>
-          <img src="images/blog4.jpg" alt="">
-        </div>
-        <div class="card-content">
-          <h3>AI + Apps - The Future Of Everyday Business</h3>
-          <p>Artificial Intelligence is moving at the speed of light...</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
+                        </div>
+                    </div>
+            </section>
         @endif
         <!-- ENd Mews Area -->
         <!-- wall-of-fame -->
@@ -1158,7 +825,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="navy-slider-viewport">
             <div class="navy-slider-track">
 
-            
+
             @foreach ($testimonials as $testimonial)
                 <div class="navy-testimonial-card" data-video="{{ asset($testimonial->video_path ?? 'notImage.jpg') }}">
                     <video class="video-thumb"

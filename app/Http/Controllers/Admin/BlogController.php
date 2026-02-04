@@ -114,6 +114,7 @@ class BlogController extends Controller
             $blog->category_id     = $request->category_id;
             $blog->title           = $request->title;
             $blog->author          = $request->author;
+            $blog->short_detail    = $request->short_detail;
             $blog->publish_date    = $request->publish_date;
             $blog->details         = $request->detail;
             $blog->seo_slug        = $request->seo_slug ?? \Str::slug($request->title);
@@ -138,7 +139,7 @@ class BlogController extends Controller
 
             return response()->json([
                 'responseCode'    => (string)$this->errorStatus,
-                'responseMessage' => 'Something went wrong.',
+                'responseMessage' => 'Something went wrong.'.$e->getMessage(),
             ]);
         }
     }
@@ -157,7 +158,7 @@ class BlogController extends Controller
         {
             $ids = base64_decode($id);
             $blogData['data'] = $this->blog->findOrFail($ids);
-            
+
             $blogData['categories'] = BlogCategory::where('status',1)->get();
             return view($this->view.'edit',$blogData);
         } catch (Exception $e) {
@@ -199,7 +200,7 @@ class BlogController extends Controller
         }
 
         try {
-            
+
         DB::beginTransaction();
             $blog = Blog::findOrFail($request->id);
 
@@ -296,11 +297,11 @@ class BlogController extends Controller
     */
     public function delete(Request $request,$id)
     {
-       
+
         $result = $this->blog->where('id', $id)->delete();
 
         if($result){
-            
+
             return  [
                         $this->successKey   =>  $this->successStatus,
                          $this->messageKey  => $this->deleteMessage($this->type)
