@@ -874,7 +874,7 @@ background:linear-gradient(
 }
 
 .home-cert-box{
-  margin-bottom:40px;
+  margin-bottom:0px;
   padding-left:22px;
   padding-right:22px;
 }
@@ -945,13 +945,13 @@ background:linear-gradient(
   transform:rotate(180deg);
 }
 .home-cert-section h2 {
-    font-size: 40px;
+    font-size: 32px;
     font-weight: 600;
     padding: 0px 0px 0px 30px;;
 }
 
 .faq-top-section h2 {
-    font-size: 40px;
+    font-size: 32px;
     font-weight: 600;
     padding: 0px 89px;
 }
@@ -1031,7 +1031,7 @@ background:linear-gradient(
   gap:8px;
 }
 .tech-wrapper h2 {
-    font-size: 40px;
+    font-size: 32px;
     font-weight: 500;
 }
 
@@ -1116,7 +1116,7 @@ background:linear-gradient(
     }
 
     .wall-of-fame h2 {
-    font-size: 36px;
+    font-size: 32px;
     font-weight: 700;
     color: #000;
     margin-bottom: 50px;
@@ -2552,7 +2552,7 @@ background: linear-gradient(
     text-align: center;
 }
 .service-page-below-the-counter-service-tabs-top h2 {
-    font-size: 35px;
+    font-size: 32px;
     text-align: center;
 }
 
@@ -2635,9 +2635,9 @@ background: linear-gradient(
     text-align: center;
 }
 .service-with-right-enginnering-service-page-hover-card-section h2 {
-    font-size: 40px;
+    font-size: 32px;
 }.service-with-right-enginnering-service-page-hover-card-section h2 {
-    font-size: 40px;
+    font-size: 32px;
       text-align: center;
 }
 .service-with-right-enginnering-service-page-hover-card-section p {
@@ -2764,7 +2764,7 @@ background: linear-gradient(
   background:#000;
 }
 .buid-service-videosection-service-page-cta-content h2 {
-    font-size: 36px;
+    font-size: 32px;
 }
 .buid-service-videosection-service-page-cta-content p {
     font-size: 20px;
@@ -2908,7 +2908,7 @@ a.buid-service-videosection-service-page-btn.video-trigger {
   font-weight:bold;
 }
 .process-accordion-servicepage h2 {
-    font-size: 40px;
+    font-size: 32px;
     text-align: center;
 }
 .process-accordion-servicepage p {
@@ -3020,7 +3020,7 @@ a.buid-service-videosection-service-page-btn.video-trigger {
 }
 .advance-technoloy-in-service-page h2 {
     color: #000;
-    font-size: 40px;
+    font-size: 32px;
     text-align: center;
 }
 .advance-technoloy-in-service-page p {
@@ -3128,7 +3128,7 @@ a.buid-service-videosection-service-page-btn.video-trigger {
     font-weight: 500;
 }
 .enterprise-custome-softawere-devlopment-software-service-page-pagination-section h2 {
-    font-size: 40px;
+    font-size: 32px;
     color: #000;
     text-align: center;
 }
@@ -4095,7 +4095,7 @@ a.buid-service-videosection-service-page-btn.video-trigger {
 }
 .our-succes-story-of-fitness-industry-page h2 {
     color: #000;
-    font-size: 40px;
+    font-size: 32px;
 }
 .our-succes-story-of-fitness-industry-page p {
     color: #000;
@@ -4250,7 +4250,7 @@ a.buid-service-videosection-service-page-btn.video-trigger {
 }
 
 .ai-powered-fitness-app-industry-ai-container h2 {
-    font-size: 40px;
+    font-size: 32px;
     font-weight: 700;
     color: #000;
 }
@@ -4442,7 +4442,7 @@ a.buid-service-videosection-service-page-btn.video-trigger {
 
 /* RIGHT */
 .reson-to-trust-industry-page-right h2 {
-    font-size: 40px;
+    font-size: 32px;
     margin-bottom: 20px;
     color: #000;
 }
@@ -4511,7 +4511,7 @@ a.buid-service-videosection-service-page-btn.video-trigger {
 
 .launch-your-dream-fitness-industry-page-gym-left h2 {
     color: #000;
-    font-size: 40px;
+    font-size: 32px;
 }
 
 /* end  */
@@ -4721,7 +4721,7 @@ a.buid-service-videosection-service-page-btn.video-trigger {
 
 
 .power-packed-feature-industry-page h2 {
-    font-size: 40px;
+    font-size: 32px;
     text-align: center;
 }
 
