@@ -270,6 +270,12 @@ display: none;
 .mobile-toggle,
   .menu-close{
     display:block;
+    position: absolute;
+    top: 22px;
+    right: 25px;
+    font-size: 34px;
+    color: #fff;
+    cursor: pointer;
   }
   .navbar{
     padding: 12px 18px;
@@ -314,8 +320,8 @@ display: none;
 
   .menu.active{
     right:0;
+        top: -16px;
   }
-
   .menu li{
     width:100%;
   }
@@ -526,6 +532,8 @@ display: none;
     flex-direction: column !important;
     gap: 10px !important;
     font-size: 14px !important;
+    padding: 0px;
+    text-align: justify;
   }
 
   .btn-wrap{
@@ -781,6 +789,7 @@ display: none;
 
   .inf-hero-video{
     justify-content: center;
+    align-self: center;
   }
 
   .inf-hero-video video{
@@ -959,6 +968,14 @@ display: none;
    MOBILE
 ================================ */
 @media(max-width:767px){
+
+    .industry-grid{
+        display: grid;
+        gap: 20px;
+        justify-content: center;
+    }
+
+
   .industry-card{
     height: 300px;
   }
@@ -6270,13 +6287,22 @@ a.buid-service-videosection-service-page-btn.video-trigger {
   padding:120px 20px;
   position:relative;
   color:#fff;
-   height: 420px;
+  height: 420px;
+}
+.blog-details-details{
+    color: #000;
+}
+.blog-details-banner .content{
+    display: block !important;
+}
+.blog-details-banner .content h1,p{
+    color: #ffffff;
 }
 .blog-details-banner::after{
   content:"";
   position:absolute;
   inset:0;
-  background:rgba(0,0,0,.7);
+  background:rgba(0,0,0,.2);
 }
 .blog-details-banner .content{
   position:relative;
@@ -6477,6 +6503,33 @@ a.buid-service-videosection-service-page-btn.video-trigger {
   border:1px solid #e3e8f0;
   color:#222;
   border-radius:8px;
+}
+
+.category-item {
+    padding: 8px 0;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.category-item:hover {
+    color: #0d6efd;
+    padding-left: 6px;
+}
+
+.category-icon {
+    transition: transform 0.3s ease;
+}
+
+.category-item:hover .category-icon {
+    transform: translateX(5px);
+}
+.category-item h6{
+    color: #000;
+    font-size: 18px;
+}
+.category-item.active {
+    color: #0d6efd;
+    font-weight: 600;
 }
 
 /* Categories */
@@ -6686,8 +6739,16 @@ a.buid-service-videosection-service-page-btn.video-trigger {
 
 
 @media(max-width:768px){
+    .faq-top-section h2{
+    font-size: 25px;
+    font-weight: 700;
+    padding: 4px ;
+    color: #0C2347;
+    text-align: center;
+    }
   .faq{
     grid-template-columns:1fr;
+    padding: 15px;
   }
    .consult-wrapper {
     grid-template-columns: 1fr;

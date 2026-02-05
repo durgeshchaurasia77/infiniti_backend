@@ -67,6 +67,10 @@ class SettingController extends Controller
             'instagram_url'  => 'required|url',
             'linkedin_url'   => 'required|url',
             'footer_about'   => 'required|max:500',
+            'details'                  => 'nullable|array',
+            'details.*.name'            => 'required|string|max:255',
+            'details.*.address'         => 'required|string|max:1000',
+            'details.*.address_logo'    => 'nullable|image|mimes:jpeg,png,jpg,svg,webp|max:2048',
         ];
 
         $validator = Validator::make($request->all(), $rules, [
@@ -122,6 +126,60 @@ class SettingController extends Controller
                 $value->favicon = 'images/admin/aboutus/'.$filename;
             }
 
+            if ($request->hasFile('office_map_image_one')) {
+                if (!empty($value->office_map_image_one) && file_exists(public_path($value->office_map_image_one))) {
+                    unlink(public_path($value->office_map_image_one));
+                }
+
+                $file = $request->file('office_map_image_one');
+                $filename = time().'_office_map_image_one_'.uniqid().'.'.$file->getClientOriginalExtension();
+                $file->move(public_path('images/admin/aboutus/'), $filename);
+                $value->office_map_image_one = 'images/admin/aboutus/'.$filename;
+            }
+
+            if ($request->hasFile('office_map_image_two')) {
+                if (!empty($value->office_map_image_two) && file_exists(public_path($value->office_map_image_two))) {
+                    unlink(public_path($value->office_map_image_two));
+                }
+
+                $file = $request->file('office_map_image_two');
+                $filename = time().'_office_map_image_two_'.uniqid().'.'.$file->getClientOriginalExtension();
+                $file->move(public_path('images/admin/aboutus/'), $filename);
+                $value->office_map_image_two = 'images/admin/aboutus/'.$filename;
+            }
+            $addresses = [];
+            if ($request->has('details')) {
+                foreach ($request->details as $key => $detail) {
+                    // keep old logo if exists
+                    $oldLogo = $value->multiple_address[$key]['address_logo'] ?? null;
+
+                    if ($request->hasFile("details.$key.address_logo")) {
+
+                        // delete old logo
+                        if ($oldLogo && file_exists(public_path($oldLogo))) {
+                            unlink(public_path($oldLogo));
+                        }
+
+                        $file = $request->file("details.$key.address_logo");
+                        $filename = time().'_address_'.uniqid().'.'.$file->getClientOriginalExtension();
+                        $file->move(public_path('images/admin/addresses'), $filename);
+
+                        $logoPath = 'images/admin/addresses/'.$filename;
+                    } else {
+                        $logoPath = $oldLogo;
+                    }
+
+                    $addresses[] = [
+                        'name'         => $detail['name'],
+                        'address'      => $detail['address'],
+                        'address_logo' => $logoPath,
+                    ];
+                }
+            }
+
+            $value->multiple_address = $addresses;
+
+
             /* ================= SAVE FIELDS ================= */
             $value->address       = $request->address;
             $value->phone         = $request->phone;
@@ -132,6 +190,7 @@ class SettingController extends Controller
             $value->instagram_url = $request->instagram_url;
             $value->linkedin_url  = $request->linkedin_url;
             $value->footer_about  = $request->footer_about;
+            $value->office_about  = $request->office_about;
             $value->updated_at    = now();
 
             $value->save();
