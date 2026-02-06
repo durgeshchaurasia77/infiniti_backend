@@ -59,7 +59,31 @@ Setting
                                             @endif
                                         </div>
                                     </div>
-                                    
+
+                                </div>
+                                <div class="first d-flex " style="gap:30px;">
+                                    <div class="mb-2 w-100">
+                                        <label class="col-form-label">Offices Map Image One<span class="text-danger">*</span></label>
+                                        <input type="file" class="form-control" name="office_map_image_one" id="office_map_image_one"  >
+                                        <div class="p-3 w-50" >
+                                            @if (isset($settingData->office_map_image_one))
+                                                <img src="{{asset($settingData->office_map_image_one)}}"  width="50%" height="5%" style="padding:9px">
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="mb-2 w-100">
+                                        <label class="col-form-label">Offices Map Image Two<span class="text-danger">*</span></label>
+                                        <input type="file" class="form-control" name="office_map_image_two" id="office_map_image_two"  >
+                                        <div class="p-3 w-50" >
+                                            @if (isset($settingData->office_map_image_two))
+                                                <img src="{{asset($settingData->office_map_image_two)}}"  width="50%" height="5%" style="padding:9px">
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="mb-2 w-100">
+                                        <label class="col-form-label">About Offices<span class="text-danger">*</span></label>
+                                          <textarea class="form-control" name="office_about" rows="4" id="office_about" placeholder="Please Footer About..."  required>{{$settingData->office_about ?? ''}}</textarea>
+                                    </div>
                                 </div>
                                 <div class="first d-flex " style="gap:30px;">
                                     <div class="mb-2 w-100">
@@ -96,6 +120,95 @@ Setting
                                         <input type="url" class="form-control" name="linkedin_url" id="linkedin_url" placeholder="Please LinkedIn Url..." value="{{$settingData->linkedin_url ?? ''}}" required>
                                     </div>
                                 </div>
+                                <div class="first d-flex " style="gap:30px;">
+                                    <div class="mb-2 w-100">
+                                        <h5 class="mb-3">Multiple Address</h5>
+                                        <div id="dynamic-fields">
+                                            @if(!empty($settingData->multiple_address) && count($settingData->multiple_address) > 0)
+                                                @foreach($settingData->multiple_address as $key => $detail)
+                                                    <div class="dynamic-field border p-3 mb-3 rounded">
+                                                        <div class="mb-2">
+                                                            <label class="col-form-label">Logo<span class="text-danger">*</span></label>
+                                                            <input type="file" class="form-control" name="details[{{ $key }}][address_logo]" id="details[{{ $key }}][address_logo]"  >
+                                                            <div class="p-3 w-50" >
+                                                                @if (!empty($detail['address_logo']))
+                                                                    <img src="{{ asset($detail['address_logo']) }}"
+                                                                        class="img-fluid rounded"
+                                                                        style="max-width:120px;">
+                                                                @endif
+                                                            </div>
+                                                        </div>
+                                                        {{-- Heading --}}
+                                                        <div class="mb-2">
+                                                            <label class="col-form-label">
+                                                                Name <span class="text-danger">*</span>
+                                                            </label>
+                                                            <input type="text"
+                                                                class="form-control"
+                                                                name="details[{{ $key }}][name]"
+                                                                value="{{ $detail['name'] ?? '' }}"
+                                                                required>
+                                                        </div>
+
+                                                        {{-- Description --}}
+                                                        <div class="mb-2">
+                                                            <label class="col-form-label">
+                                                                Address <span class="text-danger">*</span>
+                                                            </label>
+                                                            <textarea class="form-control"
+                                                                    name="details[{{ $key }}][address]"
+                                                                    rows="2"
+                                                                    required>{{ $detail['address'] ?? '' }}</textarea>
+                                                        </div>
+
+                                                        @if($key != 0)
+                                                            <button type="button"
+                                                                    class="btn btn-danger remove-field">
+                                                                Remove
+                                                            </button>
+                                                        @endif
+
+                                                    </div>
+                                                @endforeach
+                                            @else
+                                                <div class="dynamic-field border p-3 mb-3 rounded">
+                                                    <div class="mb-2">
+                                                        <label class="col-form-label">Logo<span class="text-danger">*</span></label>
+                                                        <input type="file" class="form-control" name="details[0][address_logo]" id="details[0][address_logo]"  >
+                                                    </div>
+                                                    {{-- Heading --}}
+                                                    <div class="mb-2">
+                                                        <label class="col-form-label">
+                                                            Name <span class="text-danger">*</span>
+                                                        </label>
+                                                        <input type="text"
+                                                            class="form-control"
+                                                            name="details[0][name]"
+                                                            required>
+                                                    </div>
+
+                                                    {{-- Description --}}
+                                                    <div class="mb-2">
+                                                        <label class="col-form-label">
+                                                            Address <span class="text-danger">*</span>
+                                                        </label>
+                                                        <textarea class="form-control"
+                                                                name="details[0][address]"
+                                                                rows="2"
+                                                                required></textarea>
+                                                    </div>
+
+                                                </div>
+                                            @endif
+                                        </div>
+
+                                        <button type="button"
+                                                id="add-field"
+                                                class="btn btn-success mb-3">
+                                            Add More
+                                        </button>
+                                    </div>
+                                </div>
                               </div>
                           </div>
 
@@ -116,5 +229,59 @@ Setting
 
     </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    let dynamicFields = document.getElementById('dynamic-fields');
+    let addBtn = document.getElementById('add-field');
+    let index = dynamicFields.querySelectorAll('.dynamic-field').length;
+
+    addBtn.addEventListener('click', function () {
+        let html = `
+            <div class="dynamic-field border p-3 mb-3 rounded">
+                <div class="mb-2">
+                    <label class="col-form-label">Logo<span class="text-danger">*</span></label>
+                    <input type="file" class="form-control" name="details[${index}][address_logo]" id="details[${index}][address_logo]"  >
+                </div>
+                <div class="mb-2">
+                    <label class="col-form-label">
+                        Name <span class="text-danger">*</span>
+                    </label>
+                    <input type="text"
+                           class="form-control"
+                           name="details[${index}][name]"
+                           required>
+                </div>
+
+                <div class="mb-2">
+                    <label class="col-form-label">
+                        Address <span class="text-danger">*</span>
+                    </label>
+                    <textarea class="form-control"
+                              name="details[${index}][address]"
+                              rows="2"
+                              required></textarea>
+                </div>
+
+                <button type="button"
+                        class="btn btn-danger remove-field">
+                    Remove
+                </button>
+
+            </div>
+        `;
+        dynamicFields.insertAdjacentHTML('beforeend', html);
+        index++;
+    });
+
+    dynamicFields.addEventListener('click', function (e) {
+        if (e.target.classList.contains('remove-field')) {
+            e.target.closest('.dynamic-field').remove();
+        }
+    });
+
+});
+</script>
 @endsection
 

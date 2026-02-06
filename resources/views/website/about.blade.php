@@ -8,7 +8,7 @@
     <!-- Floating Tags -->
     <span class="aboutpage-we-transform-ai-tag aboutpage-tag-clients">Clients</span>
     <span class="aboutpage-we-transform-ai-tag aboutpage-tag-users">Users</span>
-    <span class="aboutpage-we-transform-ai-tag aboutpage-tag-brand">Apptunix</span>
+    <span class="aboutpage-we-transform-ai-tag aboutpage-tag-brand">Infiniti</span>
 
     <h1>
       We Transform Your <span class="aboutpage-glass">ideas</span> Into <br>
@@ -73,7 +73,7 @@
     <div class="who-we-are-about-page-left who-left">
       <h2>Who Are We</h2>
       <p>
-        Apptunix, the #1 Tech Partner, empowers success for<br>
+        Infiniti, the #1 Tech Partner, empowers success for<br>
         500+ businesses globally, helping them innovate,<br>
         scale, and lead industries.
       </p>
@@ -119,7 +119,7 @@
     <div class="who-we-are-about-page-card who-card">
       <div class="icon cyan"></div>
       <h4>End-to-End Support</h4>
-      <p>From concept to launch and beyond, Apptunix provides continuous maintenance support.</p>
+      <p>From concept to launch and beyond, Infiniti provides continuous maintenance support.</p>
     </div>
 
   </div>
@@ -337,16 +337,16 @@
 
         <h2>
           Nikhil Bansal – <br />
-          <strong>The Mind Behind Apptunix</strong>
+          <strong>The Mind Behind Infiniti</strong>
         </h2>
 
         <p class="our-team-leadership-about-page-designation">
-          (Founder and CEO, Apptunix)
+          (Founder and CEO, Infiniti)
         </p>
 
         <p class="our-team-leadership-about-page-description">
           Bringing over 15 years of hands-on experience in mobile app development
-          and product engineering. He leads Apptunix’s strategic vision — merging
+          and product engineering. He leads Infiniti’s strategic vision — merging
           UX, scalable engineering, and emerging technologies like AI and blockchain —
           to turn bold ideas into market-ready products.
         </p>
@@ -361,7 +361,7 @@
 
         <div class="our-team-leadership-about-page-leader-name">
           <h4>Nikhil Bansal</h4>
-          <span>Founder and CEO, Apptunix</span>
+          <span>Founder and CEO, Infiniti</span>
         </div>
       </div>
 
@@ -494,9 +494,9 @@
   </section>
 
 
-  
 
-      
+
+
 
       <!--  faq section start  -->
         <div class="faq-top-section">
@@ -568,7 +568,7 @@
       <!-- faq section end  -->
 
 
-      
+
       <script>
 const counters = document.querySelectorAll(".who-we-are-about-page-stat h3");
 
@@ -617,7 +617,7 @@ const data = {
 };
 
 const years = Object.keys(data);
-let currentIndex = years.length - 1; 
+let currentIndex = years.length - 1;
 let autoTimer;
 
 function changeYear(year, el){

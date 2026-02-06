@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
 use App\Models\AdvanceAi;
+use App\Models\BlogCategory;
 use Illuminate\Http\Request;
 use App\Http\Traits\MessageStatusTrait;
 use Illuminate\Support\Facades\Validator;
@@ -38,7 +39,7 @@ use App\Models\HomeBanner;
 use App\Models\RoadMap;
 use App\Models\OurProven;
 use App\Models\FAQ;
-// use App\Models\PageBanner;
+use App\Models\Setting;
 
 class HomeController extends Controller
 {
@@ -58,7 +59,7 @@ class HomeController extends Controller
     // protected $blogsheader;
     protected $blogs;
     protected $testimonials;
-    // protected $settingDetails;
+    protected $settingDetails;
     // protected $aboutus;
     protected $homeBanner;
     // protected $homeBannerDetails;
@@ -86,7 +87,7 @@ class HomeController extends Controller
         CertificateSoftware              $certificateSoftware,
         Blog                 $blogs,
         Testimonials             $testimonials,
-        // Setting                  $settingDetails,
+        Setting                  $settingDetails,
         // AboutUs                  $aboutus,
         HomeBanner               $homeBanner,
         // HomeBannerDetails        $homeBannerDetails,
@@ -110,7 +111,7 @@ class HomeController extends Controller
         $this->certificateSoftware                = $certificateSoftware;
         $this->blogs                  = $blogs;
         $this->testimonials               = $testimonials;
-        // $this->settingDetails             = $settingDetails;
+        $this->settingDetails             = $settingDetails;
         // $this->aboutus                    = $aboutus;
         $this->homeBanner                 = $homeBanner;
         $this->fAQ          = $fAQ;
@@ -270,27 +271,44 @@ class HomeController extends Controller
 
         return view('website.about', $details);
     }
-    public function blog(Request $request)
+    public function blog(Request $request, $cat=null)
     {
         $details = [];
         // $details['aboutus']            = $this->aboutus::first();
         // $details['ourmissions']        = $this->ourmissions::first();
         // $details['ourservicesheader']  = $this->ourservicesheader::first();
         // $details['ourservices']        = $this->ourservices::where(['status' => 1])->get();
+    if ($cat) {
+        $catId = base64_decode($cat);
+        $details['blogsList']                  = $this->blogs::where('status', 1)
+                                                      ->where('category_id', $catId)
+                                                      ->select('id','category_id','title','image','author', 'short_detail','publish_date','seo_slug')
+                                                      ->get();
+    } else {
+        $cat = null;
+        $details['blogsList']                  = $this->blogs::where('status', 1)
+                                                      ->select('id','category_id','title','image','author', 'short_detail','publish_date','seo_slug')
+                                                      ->get();
+    }
 
+        $details['blogCategoryList'] = BlogCategory::where('status', 1)->get();
+        $details['blogCateId'] = $cat;
         return view('website.blog', $details);
     }
-    public function blogDetails(Request $request)
+    public function blogDetails(Request $request, $slug = null)
     {
         $details = [];
-        // $details['aboutus']            = $this->aboutus::first();
-        // $details['ourmissions']        = $this->ourmissions::first();
-        // $details['ourservicesheader']  = $this->ourservicesheader::first();
-        // $details['ourservices']        = $this->ourservices::where(['status' => 1])->get();
+            $data   = $this->blogs::where('seo_slug', $slug)->first();
+        if(!$data){
+            $data   = $this->blogs::where('status', 1)->first();
+        }
 
+        $details['blogCategoryList'] = BlogCategory::where('status', 1)->whereNot('id', $data->category->id)->get();
+
+        $details['blogsData'] = $data;
         return view('website.blog-details', $details);
     }
-    public function services(Request $request, $slug)
+    public function services(Request $request, $slug = null)
     {
         $details = [];
             $data   = Service::where('seo_slug', $slug)->first();
@@ -352,7 +370,7 @@ class HomeController extends Controller
         // $details['ourmissions']        = $this->ourmissions::first();
         // $details['ourservicesheader']  = $this->ourservicesheader::first();
         // $details['ourservices']        = $this->ourservices::where(['status' => 1])->get();
-
+           $details['contactdata']  =  $this->settingDetails::first();
         return view( 'website.contact', $details);
     }
     public function digitalMarketing(Request $request)

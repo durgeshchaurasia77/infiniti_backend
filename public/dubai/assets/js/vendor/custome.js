@@ -95,33 +95,69 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+// document.addEventListener("DOMContentLoaded", () => {
+// const toggle = document.querySelector('.mobile-toggle');
+// const menu = document.querySelector('.menu');
+// const closeBtn = document.querySelector('.menu-close');
+// alert(toggle)
+// // open
+// toggle.onclick = () => {
+//   menu.classList.add('active');
+//   document.body.style.overflow = 'hidden';
+// };
 
-const toggle = document.querySelector('.mobile-toggle');
-const menu = document.querySelector('.menu');
-const closeBtn = document.querySelector('.menu-close');
+// // close
+// closeBtn.onclick = () => {
+//   menu.classList.remove('active');
+//   document.body.style.overflow = '';
+// };
 
-// open
-toggle.onclick = () => {
-  menu.classList.add('active');
-  document.body.style.overflow = 'hidden';
-};
+// // mega click mobile
+// document.querySelectorAll('.has-mega > a').forEach(link => {
+//   link.addEventListener('click', e => {
+//     if (window.innerWidth < 992) {
+//       e.preventDefault();
+//       link.parentElement.classList.toggle('open');
+//     }
+//   });
+// });
+// });
 
-// close
-closeBtn.onclick = () => {
-  menu.classList.remove('active');
-  document.body.style.overflow = '';
-};
+document.addEventListener("DOMContentLoaded", () => {
 
-// mega click mobile
-document.querySelectorAll('.has-mega > a').forEach(link => {
-  link.addEventListener('click', e => {
-    if (window.innerWidth < 992) {
-      e.preventDefault();
-      link.parentElement.classList.toggle('open');
-    }
+  const toggle   = document.querySelector(".mobile-toggle");
+  const menu     = document.querySelector(".menu");
+  const closeBtn = document.querySelector(".menu-close");
+console.log('dfghjkl')
+  /* 🔒 Guard check */
+  if (!toggle || !menu || !closeBtn) {
+    console.warn("Mobile menu elements missing");
+    return;
+  }
+
+  // OPEN MENU
+  toggle.addEventListener("click", () => {
+    menu.classList.add("active");
+    document.body.style.overflow = "hidden";
   });
-});
 
+  // CLOSE MENU
+  closeBtn.addEventListener("click", () => {
+    menu.classList.remove("active");
+    document.body.style.overflow = "";
+  });
+
+  // MEGA MENU (mobile only)
+  document.querySelectorAll(".has-mega > a").forEach(link => {
+    link.addEventListener("click", e => {
+      if (window.innerWidth < 992) {
+        e.preventDefault();
+        link.parentElement.classList.toggle("open");
+      }
+    });
+  });
+
+});
 
 document.addEventListener("DOMContentLoaded", () => {
 

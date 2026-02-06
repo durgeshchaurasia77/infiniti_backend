@@ -11,7 +11,13 @@ class BlogCategory extends Model
     protected $table = 'blogs_category';
 
     protected $fillable = [
+                            'id',
                             'name',
                             'status'
                         ];
+
+    public function blogItems()
+    {
+        return $this->hasMany(Blog::class, 'category_id', 'id');
+    }
 }

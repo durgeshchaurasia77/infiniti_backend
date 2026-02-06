@@ -31,13 +31,19 @@ class Setting extends Model
                                     'twitter_url',
                                     'instagram_url',
                                     'linkedin_url',
+                                    'multiple_address',
+                                    'office_map_image_one',
+                                    'office_map_image_two',
+                                    'office_about'
                                 ];
-
     /**
      * The attributes that should be mutated to dates.
      *
      * @var array
      */
+    protected $casts = [
+        'multiple_address' => 'array',
+    ];
     protected $dates = [
         'created_at',
     ];

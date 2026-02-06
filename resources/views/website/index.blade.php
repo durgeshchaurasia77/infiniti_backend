@@ -846,142 +846,176 @@
           @endif --}}
 
 
-          <section class="our-wall-of-fame-home-page-award-section">
-            <h1>Our Wall of Fame as a Mobile App Development Comapany</h1>
+{{-- @if(count($fameMobileAppList) > 0)
+            <section class="wall-of-fame ">
+                <div class="container">
 
-  <div class="our-wall-of-fame-home-page-award-track">
-    <div class="our-wall-of-fame-home-page-award-card">
-      <img src="badge1.png">
-      <h3>Appfutura</h3>
-      <p>Top App<br>Development Company</p>
-    </div>
+                    <h2>Our Wall of Fame as a Mobile App<br>Development Company</h2>
 
-    <div class="our-wall-of-fame-home-page-award-card">
-      <img src="badge2.png">
-      <h3>GoodFirms</h3>
-      <p>Top Mobile App<br>Developers UK</p>
-    </div>
+                    <div class="awards-wrapper">
+                        <div class="awards-row" id="awardTrack">
+                            @foreach ($fameMobileAppList as $fameMobileApp)
 
-    <div class="our-wall-of-fame-home-page-award-card">
-      <img src="badge3.png">
-      <h3>Clutch</h3>
-      <p>Top 100<br>Companies 2022</p>
-    </div>
+                                <div class="award-card">
+                                    <img src="{{ asset($fameMobileApp->image ?? 'notImage.jpg') }}">
+                                    <h5>{{ $fameMobileApp->name ?? '' }}</h5>
+                                    <p>{{ $fameMobileApp->title ?? '' }}</p>
+                                </div>
 
-    <div class="our-wall-of-fame-home-page-award-card">
-      <img src="badge4.png">
-      <h3>ITFirms</h3>
-      <p>World’s Top Mobile App<br>Companies</p>
-    </div>
+                            @endforeach
+                        </div>
+                    </div>
 
-    <div class="our-wall-of-fame-home-page-award-card">
-      <img src="badge5.png">
-      <h3>Clutch</h3>
-      <p>Top Developers<br>India 2022</p>
-    </div>
+                    <div class="dots" id="dots"></div>
 
-    <div class="our-wall-of-fame-home-page-award-card">
-      <img src="badge6.png">
-      <h3>Global 100 - 2026</h3>
-      <p>Best IT Services Firm<br>United States</p>
-    </div>
-  </div>
-
-<div class="our-wall-of-fame-home-page-award-dots">
-  <span data-indexourwall="0" class="active"></span>
-  <span data-indexourwall="1"></span>
-
-</div>
-         </section>
+                </div>
+            </section>
+        @endif  --}}
+@if(count($fameMobileAppList) > 0)
+    <section class="our-wall-of-fame-home-page-award-section">
+        <h1>Our Wall of Fame as a Mobile App Development Comapany</h1>
+        <div class="our-wall-of-fame-home-page-award-track">
+            @foreach ($fameMobileAppList as $fameMobileApp)
+                <div class="our-wall-of-fame-home-page-award-card">
+                    <img src="{{ asset($fameMobileApp->image ?? 'notImage.jpg') }}">
+                    <h3>{{ $fameMobileApp->name ?? '' }}</h3>
+                    <p>{{ $fameMobileApp->title ?? '' }}</p>
+                </div>
+            @endforeach
+        </div>
+        <div class="our-wall-of-fame-home-page-award-dots">
+        <span data-indexourwall="0" class="active"></span>
+        <span data-indexourwall="1"></span>
+        </div>
+    </section>
+@endif
 
 
+{{-- @if(count($testimonials) > 0)
+        <section class="navy-testimonial-slider">
+
+        <div class="navy-testimonial-header">
+            <h2>Client Testimonials</h2>
+
+            <div class="navy-slider-controls">
+            <button id="navyPrev">‹</button>
+            <button id="navyNext">›</button>
+            </div>
+        </div>
+
+        <div class="navy-slider-viewport">
+            <div class="navy-slider-track">
 
 
+            @foreach ($testimonials as $testimonial)
+                <div class="navy-testimonial-card" data-video="{{ asset($testimonial->video_path ?? 'notImage.jpg') }}">
+                    <video class="video-thumb"
+                        src="{{ asset($testimonial->video_path ?? '') }}"
+                        preload="metadata"
+                        muted
+                        playsinline>
+                    </video>
+                    <span class="play">▶</span>
+                    <h3>{{ $testimonial->name ?? '' }}</h3>
+                    <p>{{ $testimonial->designation ?? '' }}</p>
+                </div>
+            @endforeach
+            </div>
+        </div>
 
+        </section>
+          @endif --}}
+@if(count($testimonials) > 0)
 <section class="common-section-everypage-blog-listing-section">
-<h2>Our Clients Love Us</h2>
+    <h2>Our Clients Love Us</h2>
 
-<div class="common-section-everypage-blog-listing-wrapper">
-<button class="common-section-everypage-blog-listing-nav-btn prev">‹</button>
+    <div class="common-section-everypage-blog-listing-wrapper">
+    <button class="common-section-everypage-blog-listing-nav-btn prev">‹</button>
 
-<div class="common-section-everypage-blog-listing-track">
+    <div class="common-section-everypage-blog-listing-track">
+    @foreach ($testimonials as $testimonial)
+        <div class="common-section-everypage-blog-listing-card">
+            <div class="common-section-everypage-blog-listing-video-thumb">
+                <img src="assets/images/home_cta.png">
+                <span class="common-section-everypage-blog-listing-play-btn" data-video="{{ asset($testimonial->video_path ?? '') }}"></span>
+            </div>
+            <p>"Amazing experience working with this team."</p>
+            <div class="common-section-everypage-blog-listing-user">
+                <img src="assets/images/home_cta.png">
+                <div><strong>{{ $testimonial->name ?? '' }}</strong><span>({{ $testimonial->rating ?? '' }})</span></div>
+            </div>
+        </div>
+    @endforeach
 
-<div class="common-section-everypage-blog-listing-card">
-  <div class="common-section-everypage-blog-listing-video-thumb">
-    <img src="assets/images/home_cta.png">
-    <span class="common-section-everypage-blog-listing-play-btn"></span>
-  </div>
-  <p>"Amazing experience working with this team."</p>
-  <div class="common-section-everypage-blog-listing-user">
-    <img src="assets/images/home_cta.png">
-    <div><strong>Harrison Furman</strong><span>1–10 Units</span></div>
-  </div>
-</div>
+    {{-- <div class="common-section-everypage-blog-listing-card">
+    <div class="common-section-everypage-blog-listing-video-thumb">
+        <img src="assets/images/home_cta.png">
+        <span class="common-section-everypage-blog-listing-play-btn"></span>
+    </div>
+    <p>"Support team is excellent."</p>
+    <div class="common-section-everypage-blog-listing-user">
+        <img src="assets/images/home_cta.png">
+        <div><strong>Alan Oviett</strong><span>50–200 Units</span></div>
+    </div>
+    </div>
 
-<div class="common-section-everypage-blog-listing-card">
-  <div class="common-section-everypage-blog-listing-video-thumb">
-    <img src="assets/images/home_cta.png">
-    <span class="common-section-everypage-blog-listing-play-btn"></span>
-  </div>
-  <p>"Support team is excellent."</p>
-  <div class="common-section-everypage-blog-listing-user">
-    <img src="assets/images/home_cta.png">
-    <div><strong>Alan Oviett</strong><span>50–200 Units</span></div>
-  </div>
-</div>
+    <div class="common-section-everypage-blog-listing-card">
+    <div class="common-section-everypage-blog-listing-video-thumb">
+        <img src="assets/images/home_cta.png">
+        <span class="common-section-everypage-blog-listing-play-btn"></span>
+    </div>
+    <p>"Very professional service."</p>
+    <div class="common-section-everypage-blog-listing-user">
+        <img src="assets/images/home_cta.png">
+        <div><strong>Ken Durst</strong><span>500–1000 Units</span></div>
+    </div>
+    </div>
 
-<div class="common-section-everypage-blog-listing-card">
-  <div class="common-section-everypage-blog-listing-video-thumb">
-    <img src="assets/images/home_cta.png">
-    <span class="common-section-everypage-blog-listing-play-btn"></span>
-  </div>
-  <p>"Very professional service."</p>
-  <div class="common-section-everypage-blog-listing-user">
-    <img src="assets/images/home_cta.png">
-    <div><strong>Ken Durst</strong><span>500–1000 Units</span></div>
-  </div>
-</div>
+    <div class="common-section-everypage-blog-listing-card">
+    <div class="common-section-everypage-blog-listing-video-thumb">
+        <img src="assets/images/home_cta.png">
+        <span class="common-section-everypage-blog-listing-play-btn"></span>
+    </div>
+    <p>"Highly recommended."</p>
+    <div class="common-section-everypage-blog-listing-user">
+        <img src="assets/images/home_cta.png">
+        <div><strong>Sarah Lee</strong><span>100+ Units</span></div>
+    </div>
+    </div>
 
-<div class="common-section-everypage-blog-listing-card">
-  <div class="common-section-everypage-blog-listing-video-thumb">
-    <img src="assets/images/home_cta.png">
-    <span class="common-section-everypage-blog-listing-play-btn"></span>
-  </div>
-  <p>"Highly recommended."</p>
-  <div class="common-section-everypage-blog-listing-user">
-    <img src="assets/images/home_cta.png">
-    <div><strong>Sarah Lee</strong><span>100+ Units</span></div>
-  </div>
-</div>
+    <div class="common-section-everypage-blog-listing-card">
+        <div class="common-section-everypage-blog-listing-video-thumb">
+            <img src="assets/images/home_cta.png">
+            <span class="common-section-everypage-blog-listing-play-btn"></span>
+        </div>
+        <p>"Fantastic communication."</p>
+        <div class="common-section-everypage-blog-listing-user">
+            <img src="assets/images/home_cta.png">
+            <div><strong>John Carter</strong><span>200+ Units</span></div>
+        </div>
+    </div> --}}
 
-<div class="common-section-everypage-blog-listing-card">
-  <div class="common-section-everypage-blog-listing-video-thumb">
-    <img src="assets/images/home_cta.png">
-    <span class="common-section-everypage-blog-listing-play-btn"></span>
-  </div>
-  <p>"Fantastic communication."</p>
-  <div class="common-section-everypage-blog-listing-user">
-    <img src="assets/images/home_cta.png">
-    <div><strong>John Carter</strong><span>200+ Units</span></div>
-  </div>
-</div>
+    </div>
 
-</div>
-
-<button class="common-section-everypage-blog-listing-nav-btn next">›</button>
-</div>
+    <button class="common-section-everypage-blog-listing-nav-btn next">›</button>
+    </div>
 </section>
+ @endif
+
 
 <div class="common-section-everypage-blog-listing-video-popup" id="videoPopup">
-<div class="common-section-everypage-blog-listing-popup-overlay"></div>
-<div class="common-section-everypage-blog-listing-popup-content">
+    <div class="common-section-everypage-blog-listing-popup-overlay"></div>
 
-  <span class="common-section-everypage-blog-listing-popup-video-icon">▶</span>
+    <div class="common-section-everypage-blog-listing-popup-content">
+        <span class="common-section-everypage-blog-listing-popup-video-icon">▶</span>
+        <span class="common-section-everypage-blog-listing-popup-close">&times;</span>
 
-  <span class="common-section-everypage-blog-listing-popup-close">&times;</span>
-  <iframe id="popupVideo" allow="autoplay" allowfullscreen></iframe>
-</div>
-
+        <iframe
+            id="popupVideo"
+            allow="autoplay; fullscreen"
+            allowfullscreen>
+        </iframe>
+    </div>
 </div>
 
 

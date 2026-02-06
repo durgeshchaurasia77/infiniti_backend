@@ -79,30 +79,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-const toggle = document.querySelector('.mobile-toggle');
-const menu = document.querySelector('.menu');
-const closeBtn = document.querySelector('.menu-close');
+document.addEventListener("DOMContentLoaded", () => {
 
-// open
-toggle.onclick = () => {
-  menu.classList.add('active');
-  document.body.style.overflow = 'hidden';
-};
+  const toggle   = document.querySelector(".mobile-toggle");
+  const menu     = document.querySelector(".menu");
+  const closeBtn = document.querySelector(".menu-close");
+console.log('dfghjkl')
+  /* 🔒 Guard check */
+  if (!toggle || !menu || !closeBtn) {
+    console.warn("Mobile menu elements missing");
+    return;
+  }
 
-// close
-closeBtn.onclick = () => {
-  menu.classList.remove('active');
-  document.body.style.overflow = '';
-};
-
-// mega click mobile
-document.querySelectorAll('.has-mega > a').forEach(link => {
-  link.addEventListener('click', e => {
-    if (window.innerWidth < 992) {
-      e.preventDefault();
-      link.parentElement.classList.toggle('open');
-    }
+  // OPEN MENU
+  toggle.addEventListener("click", () => {
+    menu.classList.add("active");
+    document.body.style.overflow = "hidden";
   });
+
+  // CLOSE MENU
+  closeBtn.addEventListener("click", () => {
+    menu.classList.remove("active");
+    document.body.style.overflow = "";
+  });
+
+  // MEGA MENU (mobile only)
+  document.querySelectorAll(".has-mega > a").forEach(link => {
+    link.addEventListener("click", e => {
+      if (window.innerWidth < 992) {
+        e.preventDefault();
+        link.parentElement.classList.toggle("open");
+      }
+    });
+  });
+
 });
 
 // three end

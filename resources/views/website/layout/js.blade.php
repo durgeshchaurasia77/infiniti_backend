@@ -115,7 +115,7 @@
         easing: 'ease-in-out'
     });
     </script>
-<script>
+{{-- <script>
 document.addEventListener("DOMContentLoaded", () => {
 
     const section = document.querySelector(".case-section");
@@ -163,10 +163,74 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+</script> --}}
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const caseSection = document.querySelector(".case-section");
+
+    /* 🔒 Guard: section nahi hai to exit */
+    if (!caseSection) return;
+
+    const caseItems = [
+      ...caseSection.querySelectorAll(".case-item")
+    ];
+
+    const caseTabs = [
+      ...document.querySelectorAll(".tab-features")
+    ];
+
+    const totalSlides = caseItems.length;
+
+    /* Extra safety */
+    if (!totalSlides) return;
+
+    // 🔑 slides count se height set
+    caseSection.style.setProperty("--slides", totalSlides);
+
+    function activateSlide(index){
+        caseItems.forEach(el => el.classList.remove("active"));
+        caseTabs.forEach(el => el.classList.remove("active"));
+
+        caseItems[index]?.classList.add("active");
+        caseTabs[index]?.classList.add("active");
+    }
+
+    activateSlide(0);
+
+    window.addEventListener("scroll", () => {
+        const rect = caseSection.getBoundingClientRect();
+        const vh = window.innerHeight;
+
+        // section viewport ke andar ho
+        if (rect.top <= 0 && rect.bottom >= vh) {
+            const progress =
+              Math.abs(rect.top) / ((totalSlides - 1) * vh);
+
+            const activeIndex = Math.min(
+                totalSlides - 1,
+                Math.floor(progress * totalSlides)
+            );
+
+            activateSlide(activeIndex);
+        }
+    });
+
+    // tabs click support
+    caseTabs.forEach((tab, i) => {
+        tab.addEventListener("click", () => {
+            window.scrollTo({
+                top: caseSection.offsetTop + i * window.innerHeight,
+                behavior: "smooth"
+            });
+        });
+    });
+
+});
 </script>
-
-
-
 
 
 
@@ -503,7 +567,7 @@ counters.forEach(counter => observer.observe(counter));
 </script>
 
 
-<script>
+{{-- <script>
 let steps11 = 0;
 const roadmap = document.querySelector(".roadmap-exceptional-indusrty-page-fitness-process");
 const steps11 = roadmap.querySelectorAll(".roadmap-exceptional-indusrty-page-fitness-step");
@@ -520,10 +584,55 @@ function activate(step11){
 steps11.forEach(step11 => {
   step11.addEventListener("mouseenter", () => activate(step11));
 });
+</script> --}}
+<script>
+/* Parent wrapper */
+const fitnessRoadmap = document.querySelector(
+  ".roadmap-exceptional-indusrty-page-fitness-process"
+);
+
+if (fitnessRoadmap) {
+
+  const fitnessSteps = fitnessRoadmap.querySelectorAll(
+    ".roadmap-exceptional-indusrty-page-fitness-step"
+  );
+
+  const fitnessBoxes = fitnessRoadmap.querySelectorAll(
+    ".roadmap-exceptional-indusrty-page-fitness-box"
+  );
+
+  function activateFitnessStep(activeStep) {
+
+    fitnessSteps.forEach(step =>
+      step.classList.remove("active")
+    );
+
+    fitnessBoxes.forEach(box =>
+      box.classList.remove("active")
+    );
+
+    activeStep.classList.add("active");
+
+    const targetBox = fitnessRoadmap.querySelector(
+      "#fitness-step-" + activeStep.dataset.step
+    );
+
+    if (targetBox) {
+      targetBox.classList.add("active");
+    }
+  }
+
+  fitnessSteps.forEach(step => {
+    step.addEventListener("mouseenter", () => {
+      activateFitnessStep(step);
+    });
+  });
+
+}
 </script>
 
 
- <script>
+ {{-- <script>
 const track = document.querySelector(".power-packed-feature-industry-page-track");
 const bar = document.querySelector(".power-packed-feature-industry-page .progress-bar span");
 const nextBtn = document.querySelector(".power-packed-feature-industry-page .next");
@@ -569,7 +678,70 @@ function move(){
     index = totalCards - 1;
   }
 }
+</script> --}}
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const track = document.querySelector(
+    ".power-packed-feature-industry-page-track"
+  );
+  const bar = document.querySelector(
+    ".power-packed-feature-industry-page .progress-bar span"
+  );
+  const nextBtn = document.querySelector(
+    ".power-packed-feature-industry-page .next"
+  );
+  const prevBtn = document.querySelector(
+    ".power-packed-feature-industry-page .prev"
+  );
+
+  /* 🔒 SAFETY CHECK */
+  if (!track || !bar || !nextBtn || !prevBtn) return;
+
+  const cardWidth = 350;
+  const totalCards = track.children.length / 2;
+  let sliderIndex = 0;
+
+  nextBtn.onclick = () => {
+    sliderIndex++;
+    moveSlider();
+  };
+
+  prevBtn.onclick = () => {
+    sliderIndex--;
+    moveSlider();
+  };
+
+  function moveSlider() {
+    track.scrollTo({
+      left: sliderIndex * cardWidth,
+      behavior: "smooth"
+    });
+
+    let visible = sliderIndex % totalCards;
+    if (visible < 0) visible = totalCards - 1;
+
+    const percent = ((visible + 1) / totalCards) * 100;
+    bar.style.width = percent + "%";
+
+    /* Infinite loop fix */
+    if (sliderIndex >= totalCards) {
+      setTimeout(() => {
+        track.scrollLeft = 0;
+        sliderIndex = 0;
+      }, 400);
+    }
+
+    if (sliderIndex < 0) {
+      track.scrollLeft = totalCards * cardWidth;
+      sliderIndex = totalCards - 1;
+    }
+  }
+
+});
 </script>
+
 
 
 <script>
@@ -669,7 +841,7 @@ document.querySelectorAll(".ai-powered-fitness-app-industry-ai-tab").forEach(tab
 });
 </script>
 
-<script>
+{{-- <script>
 const container = document.querySelector(".launch-your-dream-fitness-industry-page");
 const tabList = container.querySelectorAll(".launch-your-dream-fitness-industry-page-gym-app-tab");
 const contentList = container.querySelectorAll(".launch-your-dream-fitness-industry-page-gym-app-content");
@@ -688,8 +860,49 @@ tabList.forEach(tab => {
   tab.addEventListener("mouseenter", () => switchTab(tab));
   tab.addEventListener("click", () => switchTab(tab));
 });
-</script>
+</script> --}}
 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const gymContainer = document.querySelector(
+    ".launch-your-dream-fitness-industry-page"
+  );
+
+  /* 🔒 Guard */
+  if (!gymContainer) return;
+
+  const gymTabs = gymContainer.querySelectorAll(
+    ".launch-your-dream-fitness-industry-page-gym-app-tab"
+  );
+
+  const gymContents = gymContainer.querySelectorAll(
+    ".launch-your-dream-fitness-industry-page-gym-app-content"
+  );
+
+  function switchGymTab(activeTab) {
+
+    gymTabs.forEach(tab => tab.classList.remove("active"));
+    gymContents.forEach(content => content.classList.remove("active"));
+
+    activeTab.classList.add("active");
+
+    const targetContent = gymContainer.querySelector(
+      "#" + activeTab.dataset.tab
+    );
+
+    if (targetContent) {
+      targetContent.classList.add("active");
+    }
+  }
+
+  gymTabs.forEach(tab => {
+    tab.addEventListener("mouseenter", () => switchGymTab(tab));
+    tab.addEventListener("click", () => switchGymTab(tab));
+  });
+
+});
+</script>
 
 <script>
 document.addEventListener("DOMContentLoaded", function(){
@@ -795,7 +1008,7 @@ document.addEventListener("DOMContentLoaded", function(){
  </script>
 <!-- both are same use  -->
 
-<script>
+{{-- <script>
 const section = document.querySelector(
 ".enterprise-custome-softawere-devlopment-software-service-page-pagination-section"
 );
@@ -858,7 +1071,67 @@ prev.addEventListener("click", ()=>{
     });
   }
 </script>
+ --}}
 
+ <script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const softwareSection = document.querySelector(
+    ".enterprise-custome-softawere-devlopment-software-service-page-pagination-section"
+  );
+
+  /* 🔒 Guard */
+  if (!softwareSection) return;
+
+  const softwareTrack = softwareSection.querySelector(
+    ".software-pagination-track"
+  );
+
+  const softwareCards = softwareSection.querySelectorAll(
+    ".software-page-card"
+  );
+
+  const nextBtn = softwareSection.querySelector(
+    ".software-page-btn.next"
+  );
+
+  const prevBtn = softwareSection.querySelector(
+    ".software-page-btn.prev"
+  );
+
+  /* Extra safety */
+  if (!softwareTrack || !softwareCards.length || !nextBtn || !prevBtn) return;
+
+  const perPage = 4;
+  let currentPage = 0;
+
+  function moveSoftwareSlider(){
+    const cardWidth =
+      softwareCards[0].offsetWidth + 30;
+
+    softwareTrack.style.transform =
+      `translateX(-${currentPage * perPage * cardWidth}px)`;
+  }
+
+  nextBtn.addEventListener("click", () => {
+    const maxPage =
+      Math.ceil(softwareCards.length / perPage) - 1;
+
+    if (currentPage < maxPage) {
+      currentPage++;
+      moveSoftwareSlider();
+    }
+  });
+
+  prevBtn.addEventListener("click", () => {
+    if (currentPage > 0) {
+      currentPage--;
+      moveSoftwareSlider();
+    }
+  });
+
+});
+</script>
 
  <script>
 document.querySelectorAll(".process-title-servicepage").forEach(title=>{
@@ -1044,20 +1317,27 @@ window.addEventListener("resize", () => {
 const commonSectionEverypagePopup = document.querySelector(
   ".common-section-everypage-blog-listing-video-popup"
 );
+// const popup = document.querySelector(
+//   ".common-section-everypage-blog-listing-video-popup"
+// );
+const iframe = commonSectionEverypagePopup.querySelector("iframe");
 
-const commonSectionEverypageIframe =
-  commonSectionEverypagePopup.querySelector("iframe");
+document.addEventListener("click", function (e) {
+  const btn = e.target.closest(
+    ".common-section-everypage-blog-listing-play-btn"
+  );
+  if (!btn) return;
 
-document.querySelectorAll(
-  ".common-section-everypage-blog-listing-play-btn"
-).forEach(btn => {
-  btn.addEventListener("click", () => {
-    commonSectionEverypagePopup.classList.add("active");
-    commonSectionEverypageIframe.src =
-      "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1";
-  });
+  const videoUrl = btn.dataset.video;
+  if (!videoUrl) return;
+
+  commonSectionEverypagePopup.classList.add("active");
+
+  // Agar youtube link hai
+  iframe.src = videoUrl.includes("youtube")
+    ? videoUrl + "?autoplay=1"
+    : videoUrl;
 });
-
 /* CLOSE POPUP */
 commonSectionEverypagePopup
   .querySelector(
