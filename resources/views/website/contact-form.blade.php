@@ -8,20 +8,23 @@
                     </p>
 
                     <p class="sub-tag">Book your free consultation with us.</p>
-
+                    @php
+                        $settingDataContact    = App\Models\Setting::select('id', 'multiple_address')->first();
+                    @endphp
+                    @if(!empty($settingDataContact->multiple_address))
                     <h1>Let’s Talk!</h1>
 
                     <div class="country-slider">
                         <div class="country-track">
-
-                            <div class="country active">
-                                <h3>UNITED ARAB EMIRATES</h3>
-                                <p>One Central, The Offices 3, Level 3,</p>
-                                <p>DWTC, Sheikh Zayed Road, Dubai</p>
-                                <p>+971 50 782 1690</p>
+                        @foreach ($contactdata->multiple_address as $key11=> $office1)
+                            <div class="country @if($key11 == 0) active @endif">
+                                <h3>{{ strtoupper($office1['name']) }}</h3>
+                                <p>{!! nl2br(e($office1['address'])) !!}</p>
+                                {{-- <p>DWTC, Sheikh Zayed Road, Dubai</p>
+                                <p>+971 50 782 1690</p> --}}
                             </div>
 
-                            <div class="country">
+                            {{-- <div class="country">
                                 <h3>UNITED STATES</h3>
                                 <p>42 Broadway, New York, NY 10004</p>
                                 <p>+1 (512) 872 3364</p>
@@ -31,7 +34,8 @@
                                 <h3>UNITED KINGDOM</h3>
                                 <p>Covent Garden, London WC2H 9JQ</p>
                                 <p>+44 20 7183 9424</p>
-                            </div>
+                            </div> --}}
+                        @endforeach
 
                         </div>
 
@@ -40,6 +44,7 @@
                             <button class="next consult-next-btn">→</button>
                         </div>
                     </div>
+                    @endif
                 </div>
 
                 <!-- RIGHT SIDE -->
