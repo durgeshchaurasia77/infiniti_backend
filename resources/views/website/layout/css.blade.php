@@ -731,9 +731,18 @@
     grid-template-columns:1fr;
   }
 
-  .navy-services__heading h2{
-    font-size:30px;
-  }
+  
+    .navy-services__heading h2 {
+        font-size: 25px;
+        line-height: 30px;
+    }
+    .navy-service-card {
+    width: 335px;
+}
+.our-wall-of-fame-home-page-award-section h1 {
+    font-size: 25px !important;
+}
+
 }
 
         </style>
@@ -1879,11 +1888,9 @@
   text-align:center;
   margin-bottom:40px;
   font-size:40px;
+     color: #102442;
 }
 
-/* ===============================
-   SLIDER WRAPPER
-================================ */
 .common-section-everypage-blog-listing-wrapper{
   position:relative;
   max-width:1200px;
@@ -1896,10 +1903,6 @@
   gap:24px;
   transition:transform .6s cubic-bezier(.22,.61,.36,1);
 }
-
-/* ===============================
-   CARD
-================================ */
 .common-section-everypage-blog-listing-card{
   flex:0 0 calc(100% / 3 - 16px);
   background:#fff;
@@ -2075,32 +2078,38 @@
   justify-content:center;
   pointer-events:none;
 }
+@media (max-width: 768px){
 
-/* ===============================
-   RESPONSIVE
-================================ */
-@media (max-width:1024px){
+  .common-section-everypage-blog-listing-wrapper{
+    padding: 0 48px; /* space for arrows */
+  }
+
+  .common-section-everypage-blog-listing-track{
+    gap:16px; /* smaller gap = correct math */
+  }
+
   .common-section-everypage-blog-listing-card{
-    flex:0 0 calc(100% / 2 - 16px);
+    flex: 0 0 100%;
+  }
+
+  /* FIX ARROW POSITION */
+  .common-section-everypage-blog-listing-nav-btn{
+    top:50%;
+    transform: translateY(-50%);
+    width:38px;
+    height:38px;
+    font-size:26px;
+  }
+
+  .common-section-everypage-blog-listing-nav-btn.prev{
+    left:8px;
+  }
+
+  .common-section-everypage-blog-listing-nav-btn.next{
+    right:8px;
   }
 }
 
-@media (max-width:768px){
-  .common-section-everypage-blog-listing-card{
-    flex:0 0 100%;
-  }
-
-  .common-section-everypage-blog-listing-popup-close{
-    top:-36px;
-  }
-
-  .common-section-everypage-blog-listing-popup-video-icon{
-    top:-50px;
-    width:60px;
-    height:60px;
-    font-size:34px;
-  }
-}
 
 </style>
 
