@@ -212,7 +212,7 @@
             @endif
             </div>
         </section>
-        <!-- End client section -->
+        <!-- End client section -->    
 
     {{-- <section class="case-section">
 
@@ -514,7 +514,7 @@
     @endif
 
         <!-- home below banner start two -->
-       <div class="home-below-banner-carousel-two">
+       <section class="home-below-banner-carousel-two">
             <section class="hero-banner-two">
                 <div class="hero-content-two">
                     <h1>
@@ -528,7 +528,7 @@
                     </a>
                 </div>
             </section>
-        </div>
+        </section>
         <!-- home below banner two end  -->
         <!-- Start Service Area -->
         <div class="rn-service-area rn-section-pga section-separator" id="features">
@@ -579,12 +579,12 @@
 
         <!-- ================= POPUP ================= -->
 
-        <div class="homepage-testimonial-popup">
+        <section class="homepage-testimonial-popup">
             <div class="homepage-testimonial-popup-content">
                 <span class="homepage-testimonial-close">✖</span>
                 <video id="homepage-testimonial-video" controls></video>
             </div>
-        </div>
+        </section>
 
 
 
@@ -637,7 +637,7 @@
 
            @if(count($industryList) > 0)
             <!-- Start Resume Area -->
-            <div class="rn-resume-area rn-section-gap section-separator" id="resume">
+            <section class="rn-resume-area rn-section-gap section-separator" id="resume">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
@@ -666,7 +666,7 @@
                         @endforeach
                     </div>
                 </div>
-            </div>
+            </section>
             <!-- End Resume Area -->
            @endif
         <!-- home-below-banner-carousel-one -->
@@ -925,6 +925,8 @@
 
         </section>
           @endif --}}
+
+
 @if(count($testimonials) > 0)
 <section class="common-section-everypage-blog-listing-section">
     <h2>Our Clients Love Us</h2>
@@ -1003,7 +1005,7 @@
  @endif
 
 
-<div class="common-section-everypage-blog-listing-video-popup" id="videoPopup">
+<section class="common-section-everypage-blog-listing-video-popup" id="videoPopup">
     <div class="common-section-everypage-blog-listing-popup-overlay"></div>
 
     <div class="common-section-everypage-blog-listing-popup-content">
@@ -1016,7 +1018,7 @@
             allowfullscreen>
         </iframe>
     </div>
-</div>
+</section>
 
 
 
@@ -1025,7 +1027,7 @@
 
         <!-- faq section start  -->
         @if(count($fAQList) > 0)
-        <div class="faq-top-section" style=" margin-top: 35px;" >
+        <section class="faq-top-section" style=" margin-top: 35px;" >
             <h2 class="mt-2">Turning Your Questions into Confidence</h2>
             <div class="faq">
                 @foreach ($fAQList as $key => $fAQData)
@@ -1037,7 +1039,7 @@
                 @endforeach
 
             </div>
-        </div>
+        </section>
         @endif
         <!-- faq section end  -->
 
@@ -1046,7 +1048,7 @@
         @include('website.contact-form')
 
         <!-- Modal Portfolio Body area Start -->
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
+        <section class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -1095,12 +1097,12 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
         <!-- End Modal Portfolio area -->
 
 
         <!-- Modal Blog Body area Start -->
-        <div class="modal fade" id="exampleModalCenters" tabindex="-1" role="dialog" aria-hidden="true">
+        <section class="modal fade" id="exampleModalCenters" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-news" role="document">
                 <div class="modal-content">
 
@@ -1201,7 +1203,7 @@
                     <!-- End of .modal-body -->
                 </div>
             </div>
-        </div>
+        </section>
         <!-- End Modal Blog area -->
 
 
@@ -1216,7 +1218,7 @@
 
 
         <!-- Start Modal Area  -->
-        <div class="demo-modal-area">
+        <section class="demo-modal-area">
             <div class="wrapper">
                 <div class="close-icon">
                     <button class="demo-close-btn"><span class="feather-x"></span></button>
@@ -1959,21 +1961,21 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
         <!-- End Modal Area  -->
 
 
 
 
 
-        <div class="navy-video-modal" id="navyVideoModal">
+        <section class="navy-video-modal" id="navyVideoModal">
             <div class="navy-video-modal__overlay"></div>
 
             <div class="navy-video-modal__content">
                 <button class="navy-video-modal__close" aria-label="Close">✕</button>
                 <video id="navyModalVideo" controls autoplay></video>
             </div>
-        </div>
+        </section>
 
     </main>
 @endsection
