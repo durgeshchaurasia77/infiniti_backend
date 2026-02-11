@@ -281,7 +281,7 @@
     <style>
         .apptunix-footer{
   background: radial-gradient(circle at top left,#0b1d3a,#020814);
-  padding:80px 20px;
+  padding:24px 50px;
   color:#fff;
   font-family:Arial, Helvetica, sans-serif;
 }
@@ -731,7 +731,7 @@
     grid-template-columns:1fr;
   }
 
-  
+
     .navy-services__heading h2 {
         font-size: 25px;
         line-height: 30px;
@@ -1980,6 +1980,7 @@
   width:40px;
   height:40px;
   border-radius:50%;
+  display: none;
 }
 
 .common-section-everypage-blog-listing-user span{
@@ -2005,8 +2006,8 @@
   z-index:5;
 }
 
-.common-section-everypage-blog-listing-nav-btn.prev{left:-20px}
-.common-section-everypage-blog-listing-nav-btn.next{right:-20px}
+.common-section-everypage-blog-listing-nav-btn.prev{left:-20px; color: #022859;}
+.common-section-everypage-blog-listing-nav-btn.next{right:-20px; color: #022859;}
 
 /* ===============================
    POPUP (VIDEO MODAL)
@@ -2306,6 +2307,7 @@ html{
     gap:14px;
     overflow-x:auto;
     white-space:nowrap;
+    overflow-y: hidden;
   }
 
   .case-overlay-section-slide{
@@ -2335,6 +2337,9 @@ html{
     align-items:flex-start;
     gap:20px;
   }
+  .navy-services {
+    padding: 10px 32px !important;
+}
 }
 
 

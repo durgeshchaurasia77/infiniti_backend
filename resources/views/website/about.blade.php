@@ -8,16 +8,34 @@
     <!-- Floating Tags -->
     <span class="aboutpage-we-transform-ai-tag aboutpage-tag-clients">Clients</span>
     <span class="aboutpage-we-transform-ai-tag aboutpage-tag-users">Users</span>
-    <span class="aboutpage-we-transform-ai-tag aboutpage-tag-brand">Infiniti</span>
+    {{-- <span class="aboutpage-we-transform-ai-tag aboutpage-tag-brand">Infiniti</span> --}}
 
-    <h1>
+    {{-- <h1>
       We Transform Your <span class="aboutpage-glass">ideas</span> Into <br>
       <span class="aboutpage-ai-gradient">AI-Powered</span>
       <span class="aboutpage-glass">Software</span>
       That People <span class="aboutpage-glass">Love</span>
-    </h1>
+    </h1> --}}
+    @if($aboutusData->title)
+    <h1>
+        @php
 
-    <p>Helping Businesses Leverage Tomorrow’s Tech, Today</p>
+        $titleWords = explode(' ', $aboutusData->title);
+        @endphp
+            @foreach ($titleWords as $index => $word)
+
+                @if ($index % 6 == 0)
+                    <span class="aboutpage-ai-gradient">{{ $word }}</span>
+                @elseif ($index % 3 == 0)
+                    <span class="aboutpage-glass">{{ $word }}</span><br>
+                @else
+                    {{ $word }}
+                @endif
+
+            @endforeach
+    </h1>
+    @endif
+    <p>{{ $aboutusData->sub_title ?? '' }}</p>
 
     <a href="#" class="aboutpage-ai-btn">Consult Our Experts →</a>
 
@@ -33,7 +51,7 @@
 
     <div class="trusted-wrap">
 
-      <div class="trusted-badge">Trusted by</div>
+      <div class="trusted-badge" style="z-index: 999;">Trusted by</div>
 
       <div class="logo-slider">
         <div class="logos">
@@ -72,11 +90,7 @@
     <!-- LEFT CONTENT -->
     <div class="who-we-are-about-page-left who-left">
       <h2>Who Are We</h2>
-      <p>
-        Infiniti, the #1 Tech Partner, empowers success for<br>
-        500+ businesses globally, helping them innovate,<br>
-        scale, and lead industries.
-      </p>
+      <p style="white-space: pre-wrap;">{{ $aboutusData->short_description ?? '' }}</p>
     </div>
 
     <!-- RIGHT STATS -->

@@ -40,6 +40,7 @@ use App\Models\RoadMap;
 use App\Models\OurProven;
 use App\Models\FAQ;
 use App\Models\Setting;
+use App\Models\AboutUs;
 
 class HomeController extends Controller
 {
@@ -60,7 +61,7 @@ class HomeController extends Controller
     protected $blogs;
     protected $testimonials;
     protected $settingDetails;
-    // protected $aboutus;
+    protected $aboutus;
     protected $homeBanner;
     // protected $homeBannerDetails;
     protected $fAQ;
@@ -88,7 +89,7 @@ class HomeController extends Controller
         Blog                 $blogs,
         Testimonials             $testimonials,
         Setting                  $settingDetails,
-        // AboutUs                  $aboutus,
+        AboutUs                  $aboutus,
         HomeBanner               $homeBanner,
         // HomeBannerDetails        $homeBannerDetails,
         FAQ           $fAQ,
@@ -97,7 +98,7 @@ class HomeController extends Controller
 
     ) {
         // $this->ourservicesheader          = $ourservicesheader;
-        // $this->ourservices                = $ourservices;
+        $this->aboutus                = $aboutus;
         $this->trustedBy                = $trustedBy;
         $this->trunkeyPartner               = $trunkeyPartner;
         $this->excellanceCounting        = $excellanceCounting;
@@ -112,7 +113,7 @@ class HomeController extends Controller
         $this->blogs                  = $blogs;
         $this->testimonials               = $testimonials;
         $this->settingDetails             = $settingDetails;
-        // $this->aboutus                    = $aboutus;
+        $this->aboutuss                    = $aboutus;
         $this->homeBanner                 = $homeBanner;
         $this->fAQ          = $fAQ;
         // $this->getenquerytypes            = $getenquerytypes;
@@ -140,7 +141,7 @@ class HomeController extends Controller
                                                                         ->get();
 
         $details['industryList']             = $this->industry::where('status', 1)
-                                                                        ->select('title','short_description','image')
+                                                                        ->select('title','short_description','image','seo_slug')
                                                                         ->take(8)
                                                                         ->get();
         $details['whyBusinessChoose']                 = $this->whyBusinessChoose::select('ai_title','ai_description','scalable_title','scalable_description','reliable_title',
@@ -163,6 +164,7 @@ class HomeController extends Controller
         // $details['getenquerytypes']            = $this->getenquerytypes::where(['status' => 1])->get();
         // $details['pageBanner']                 = $this->pageBanner::select('image')->where('page_name','Home')->first();
 
+        $details['contactdata']  =  $this->settingDetails::first();
         return view('website.index', $details);
     }
     public function contact1(Request $request)
@@ -264,10 +266,11 @@ class HomeController extends Controller
     public function aboutUs(Request $request)
     {
         $details = [];
-        // $details['aboutus']            = $this->aboutus::first();
+        $details['aboutusData']            = $this->aboutus::first();
         // $details['ourmissions']        = $this->ourmissions::first();
         // $details['ourservicesheader']  = $this->ourservicesheader::first();
         // $details['ourservices']        = $this->ourservices::where(['status' => 1])->get();
+           $details['contactdata']  =  $this->settingDetails::first();
 
         return view('website.about', $details);
     }
@@ -293,6 +296,7 @@ class HomeController extends Controller
 
         $details['blogCategoryList'] = BlogCategory::where('status', 1)->get();
         $details['blogCateId'] = $cat;
+        $details['contactdata']  =  $this->settingDetails::first();
         return view('website.blog', $details);
     }
     public function blogDetails(Request $request, $slug = null)
@@ -306,6 +310,7 @@ class HomeController extends Controller
         $details['blogCategoryList'] = BlogCategory::where('status', 1)->whereNot('id', $data->category->id)->get();
 
         $details['blogsData'] = $data;
+        $details['contactdata']  =  $this->settingDetails::first();
         return view('website.blog-details', $details);
     }
     public function services(Request $request, $slug = null)
@@ -332,6 +337,7 @@ class HomeController extends Controller
         // $details['ourservicesheader']  = $this->ourservicesheader::first();
         // $details['ourservices']        = $this->ourservices::where(['status' => 1])->get();
 
+        $details['contactdata']  =  $this->settingDetails::first();
         return view( 'website.services', $details);
     }
     public function industry(Request $request, $slug)
@@ -360,6 +366,7 @@ class HomeController extends Controller
         $details['powerPackedList'] = PowerPacked::where('status',1)->get();
         $details['roadMapList'] = RoadMap::where('status',1)->get();
         $details['industryData'] = $data;
+        $details['contactdata']  =  $this->settingDetails::first();
         $details['fAQList']                        = $this->fAQ::where('status', 1)->select('question','answer')->get();
         return view( 'website.industry', $details);
     }
@@ -372,6 +379,12 @@ class HomeController extends Controller
         // $details['ourservices']        = $this->ourservices::where(['status' => 1])->get();
            $details['contactdata']  =  $this->settingDetails::first();
         return view( 'website.contact', $details);
+    }
+    public function portfolio(Request $request)
+    {
+        $details = [];
+        $details['contactdata']  =  $this->settingDetails::first();
+        return view( 'website.portfolio', $details);
     }
     public function digitalMarketing(Request $request)
     {

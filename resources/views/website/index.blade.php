@@ -212,7 +212,7 @@
             @endif
             </div>
         </section>
-        <!-- End client section -->    
+        <!-- End client section -->
 
     {{-- <section class="case-section">
 
@@ -271,7 +271,7 @@
             </div>
             <div class="case-actions-section-slide">
                <a href="#" class="btn-outline-case-actions-section">Skip</a>
-               <a href="#" class="btn-primary-case-actions-section">View all case studies →</a>
+               {{-- <a href="#" class="btn-primary-case-actions-section">View all case studies →</a> --}}
             </div>
          </div>
          {{-- @dd($ourPeopleList); --}}
@@ -300,13 +300,13 @@
          <div class="case-overlay-section-slide">
             <!-- LEFT -->
             <div class="case-text-section-slide">
-               <h3>AI-powered mobile app that analyse stock market trends</h3>
+               <h3>{{ $ourPeople1->title ?? '' }}</h3>
                <p>
                  {{ $ourPeople1->sub_title ?? '' }}
                </p>
                <div class="case-buttons-section-slide">
                   <a href="{{ route('contact') }}" class="btn-primary-case-actions-section">Let’s Build Yours →</a>
-                  <a href="{{ route('contact') }}" class="btn-outline-case-actions-section">View Case Study</a>
+                  {{-- <a href="{{ route('contact') }}" class="btn-outline-case-actions-section">View Case Study</a> --}}
                </div>
             </div>
             <!-- RIGHT -->
@@ -517,13 +517,12 @@
        <section class="home-below-banner-carousel-two">
             <section class="hero-banner-two">
                 <div class="hero-content-two">
-                    <h1>
-                        We’ve Built Some of the Most-Loved<br>
-                        Software and Mobile Apps in the World
+
+                    <h1>500+ Projects Delivered. 10M+ Users Worldwide.<br> Zero Regrets.
                     </h1>
 
                     <a href="#" class="hero-btn">
-                        Let’s Work Together
+                        Talk to Our Experts
                         <span>➜</span>
                     </a>
                 </div>
@@ -541,8 +540,7 @@
 
    <div class="navy-services__heading">
   <h2>
-    Empower Your Journey In the Digital World<br>
-    with Services You Can Trust
+    Empower Your Digital Transformation with <br> Solutions You Can Trust
   </h2>
 
   {{-- <a href="#" class="navy-services-btn">
@@ -617,8 +615,10 @@
     <!-- LEFT CONTENT -->
     <div class="home-below-banner-carousel-one-content">
       <h1>
-        We’ve Built Some of the Most-Loved<br>
-        Software and Mobile Apps in the World
+        {{-- We’ve Built Some of the Most-Loved<br>
+        Software and Mobile Apps in the World --}}
+        Building Apps That Get 5-Star <br>
+        Reviews, Not Support Tickets
       </h1>
 
       <a href="#" class="home-below-banner-carousel-one-hero-btn">
@@ -659,7 +659,7 @@
                                     {!! nl2br(e($industryData->short_description ?? '')) !!}
                                 </div>
                                 <div class="card-overlay">
-                                    <a href="{{ route('contact') }}" class="explore-btn">Explore →</a>
+                                    <a href="{{ route('industry',$industryData->seo_slug) }}" class="explore-btn">Explore →</a>
                                 </div>
                             </div>
                         </div>
@@ -686,6 +686,7 @@
                         <!-- CARDS -->
                         <div class="latest-insight-cards">
                     @foreach ($blogsList as $blogsdata)
+                    <a href="{{ route('blog-details',$blogsdata->seo_slug) }}">
                         <div class="insight-card">
                             <div class="card-img">
                             <span class="date">
@@ -699,6 +700,7 @@
                             <p>{{ $blogsdata->short_detail ?? '' }}</p>
                             </div>
                         </div>
+                        </a>
                     @endforeach
 
                         {{-- <div class="insight-card">
@@ -938,7 +940,7 @@
     @foreach ($testimonials as $testimonial)
         <div class="common-section-everypage-blog-listing-card">
             <div class="common-section-everypage-blog-listing-video-thumb">
-                <img src="assets/images/home_cta.png">
+                <img src="{{ asset('website1/assets/images/thumbnail.png') }}">
                 <span class="common-section-everypage-blog-listing-play-btn" data-video="{{ asset($testimonial->video_path ?? '') }}"></span>
             </div>
             <p>"Amazing experience working with this team."</p>
@@ -948,57 +950,7 @@
             </div>
         </div>
     @endforeach
-
-    {{-- <div class="common-section-everypage-blog-listing-card">
-    <div class="common-section-everypage-blog-listing-video-thumb">
-        <img src="assets/images/home_cta.png">
-        <span class="common-section-everypage-blog-listing-play-btn"></span>
     </div>
-    <p>"Support team is excellent."</p>
-    <div class="common-section-everypage-blog-listing-user">
-        <img src="assets/images/home_cta.png">
-        <div><strong>Alan Oviett</strong><span>50–200 Units</span></div>
-    </div>
-    </div>
-
-    <div class="common-section-everypage-blog-listing-card">
-    <div class="common-section-everypage-blog-listing-video-thumb">
-        <img src="assets/images/home_cta.png">
-        <span class="common-section-everypage-blog-listing-play-btn"></span>
-    </div>
-    <p>"Very professional service."</p>
-    <div class="common-section-everypage-blog-listing-user">
-        <img src="assets/images/home_cta.png">
-        <div><strong>Ken Durst</strong><span>500–1000 Units</span></div>
-    </div>
-    </div>
-
-    <div class="common-section-everypage-blog-listing-card">
-    <div class="common-section-everypage-blog-listing-video-thumb">
-        <img src="assets/images/home_cta.png">
-        <span class="common-section-everypage-blog-listing-play-btn"></span>
-    </div>
-    <p>"Highly recommended."</p>
-    <div class="common-section-everypage-blog-listing-user">
-        <img src="assets/images/home_cta.png">
-        <div><strong>Sarah Lee</strong><span>100+ Units</span></div>
-    </div>
-    </div>
-
-    <div class="common-section-everypage-blog-listing-card">
-        <div class="common-section-everypage-blog-listing-video-thumb">
-            <img src="assets/images/home_cta.png">
-            <span class="common-section-everypage-blog-listing-play-btn"></span>
-        </div>
-        <p>"Fantastic communication."</p>
-        <div class="common-section-everypage-blog-listing-user">
-            <img src="assets/images/home_cta.png">
-            <div><strong>John Carter</strong><span>200+ Units</span></div>
-        </div>
-    </div> --}}
-
-    </div>
-
     <button class="common-section-everypage-blog-listing-nav-btn next">›</button>
     </div>
 </section>

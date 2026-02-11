@@ -522,14 +522,34 @@ closeBtn.addEventListener("click", closeModal);
 </script>
 
 <script>
-document.querySelectorAll('.menu .nav-link').forEach(link=>{
-    link.addEventListener('click',()=>{
-        document.querySelectorAll('.menu .nav-link')
-        .forEach(l=>l.classList.remove('active'));
-        link.classList.add('active');
+    document.querySelectorAll('.menu .nav-link').forEach(link=>{
+        link.addEventListener('click',()=>{
+            document.querySelectorAll('.menu .nav-link')
+            .forEach(l=>l.classList.remove('active'));
+            link.classList.add('active');
+        });
     });
+</script>
+<script>
+document.addEventListener('click', function (e) {
+
+    const clickedLink = e.target.closest('.nav-link');
+    const clickedInsideMega = e.target.closest('.mega-menu');
+    if (clickedLink) {
+        const li = clickedLink.closest('li.has-mega');
+        document.querySelectorAll('.menu li.has-mega.open')
+            .forEach(item => item.classList.remove('open'));
+
+        if (li && window.innerWidth <= 991) {
+            li.classList.add('open');
+        }
+        return;
+    }
+    document.querySelectorAll('.menu li.has-mega.open')
+        .forEach(li => li.classList.remove('open'));
 });
 </script>
+
 <script>
 const counters = document.querySelectorAll('.counter');
 
@@ -566,25 +586,6 @@ const observer = new IntersectionObserver(entries => {
 counters.forEach(counter => observer.observe(counter));
 </script>
 
-
-{{-- <script>
-let steps11 = 0;
-const roadmap = document.querySelector(".roadmap-exceptional-indusrty-page-fitness-process");
-const steps11 = roadmap.querySelectorAll(".roadmap-exceptional-indusrty-page-fitness-step");
-const boxes = roadmap.querySelectorAll(".roadmap-exceptional-indusrty-page-fitness-box");
-
-function activate(step11){
-  steps11.forEach(s => s.classList.remove("active"));
-  boxes.forEach(b => b.classList.remove("active"));
-
-  step11.classList.add("active");
-  roadmap.querySelector("#step" + step11.dataset.step11).classList.add("active");
-}
-
-steps11.forEach(step11 => {
-  step11.addEventListener("mouseenter", () => activate(step11));
-});
-</script> --}}
 <script>
 /* Parent wrapper */
 const fitnessRoadmap = document.querySelector(
@@ -631,54 +632,6 @@ if (fitnessRoadmap) {
 }
 </script>
 
-
- {{-- <script>
-const track = document.querySelector(".power-packed-feature-industry-page-track");
-const bar = document.querySelector(".power-packed-feature-industry-page .progress-bar span");
-const nextBtn = document.querySelector(".power-packed-feature-industry-page .next");
-const prevBtn = document.querySelector(".power-packed-feature-industry-page .prev");
-
-const cardWidth = 350;
-const totalCards = track.children.length / 2;   // original 6
-let index = 0;
-
-nextBtn.onclick = () => {
-  index++;
-  move();
-};
-
-prevBtn.onclick = () => {
-  index--;
-  move();
-};
-
-function move(){
-  track.scrollTo({
-    left: index * cardWidth,
-    behavior: "smooth"
-  });
-
-  // 🔥 correct full width progress
-  let visible = index % totalCards;
-  if(visible < 0) visible = totalCards - 1;
-
-  let percent = ((visible + 1) / totalCards) * 100;
-  bar.style.width = percent + "%";
-
-  // 🔁 infinite loop
-  if(index >= totalCards){
-    setTimeout(()=>{
-      track.scrollLeft = 0;
-      index = 0;
-    },400);
-  }
-
-  if(index < 0){
-    track.scrollLeft = totalCards * cardWidth;
-    index = totalCards - 1;
-  }
-}
-</script> --}}
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
@@ -841,27 +794,6 @@ document.querySelectorAll(".ai-powered-fitness-app-industry-ai-tab").forEach(tab
 });
 </script>
 
-{{-- <script>
-const container = document.querySelector(".launch-your-dream-fitness-industry-page");
-const tabList = container.querySelectorAll(".launch-your-dream-fitness-industry-page-gym-app-tab");
-const contentList = container.querySelectorAll(".launch-your-dream-fitness-industry-page-gym-app-content");
-
-function switchTab(currentTab) {
-  tabList.forEach(item => item.classList.remove("active"));
-  contentList.forEach(item => item.classList.remove("active"));
-
-  currentTab.classList.add("active");
-  container
-    .querySelector("#" + currentTab.dataset.tab)
-    .classList.add("active");
-}
-
-tabList.forEach(tab => {
-  tab.addEventListener("mouseenter", () => switchTab(tab));
-  tab.addEventListener("click", () => switchTab(tab));
-});
-</script> --}}
-
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -1006,73 +938,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
 });
  </script>
-<!-- both are same use  -->
-
-{{-- <script>
-const section = document.querySelector(
-".enterprise-custome-softawere-devlopment-software-service-page-pagination-section"
-);
-
-const tracksoftware = section.querySelector(".software-pagination-track");
-const cards123 = section.querySelectorAll(".software-page-card");
-const next = section.querySelector(".software-page-btn.next");
-const prev = section.querySelector(".software-page-btn.prev");
-
-const perPage = 4;
-let page = 0;
-
-function moveSlider(){
-  const cardWidth = cards123[0].offsetWidth + 30;
-  tracksoftware.style.transform = `translateX(-${page * perPage * cardWidth}px)`;
-}
-
-next.addEventListener("click", ()=>{
-  const maxPage = Math.ceil(cards123.length / perPage) - 1;
-  if(page < maxPage){
-    page++;
-    moveSlider();
-  }
-});
-
-prev.addEventListener("click", ()=>{
-  if(page > 0){
-    page--;
-    moveSlider();
-  }
-});
-</script>
-<script>
-  const wrapper = document.querySelector(
-    ".service-page-below-the-counter-service-tabs"
-  );
-
-  if (wrapper) {
-    const tabs = wrapper.querySelectorAll(
-      ".service-page-below-the-counter-tab-item"
-    );
-
-    const contents = wrapper.querySelectorAll(
-      ".service-page-below-the-counter-content"
-    );
-
-    function activateTab(tab) {
-      const targetId = tab.dataset.tab;
-
-      tabs.forEach(t => t.classList.remove("active"));
-      contents.forEach(c => c.classList.remove("show"));
-
-      tab.classList.add("active");
-      wrapper.querySelector("#" + targetId)?.classList.add("show");
-    }
-
-    tabs.forEach(tab => {
-      tab.addEventListener("mouseenter", () => activateTab(tab));
-      tab.addEventListener("click", () => activateTab(tab));
-    });
-  }
-</script>
- --}}
-
  <script>
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -1467,6 +1332,171 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+});
+</script>
+<script>
+document.querySelectorAll('.hidden-video').forEach((video, index) => {
+    const img = document.querySelectorAll('.video-thumbnail')[index];
+
+    video.addEventListener('loadedmetadata', () => {
+        video.currentTime = 1; // capture at 1s
+    });
+
+    video.addEventListener('seeked', () => {
+        const canvas = document.createElement('canvas');
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+        img.src = canvas.toDataURL('image/jpeg');
+    });
+});
+</script>
+
+
+
+
+
+
+<script>
+const track = document.getElementById("servicesTrack");
+let slides = document.querySelectorAll(
+  ".digital-marketing-page-service-slide"
+);
+
+/* ===== CLONE SLIDES FOR INFINITE LOOP ===== */
+slides.forEach(slide => {
+  track.appendChild(slide.cloneNode(true));
+});
+
+slides = document.querySelectorAll(
+  ".digital-marketing-page-service-slide"
+);
+
+let index = 0;
+const totalSlides = slides.length / 2;
+let autoSlideInterval;
+
+/* ===== NEXT SLIDE ===== */
+function nextSlide(){
+  index++;
+  track.style.transition = "0.6s ease";
+  track.style.transform = `translateX(-${index * 100}%)`;
+
+  if(index === totalSlides){
+    setTimeout(() => {
+      track.style.transition = "none";
+      index = 0;
+      track.style.transform = "translateX(0)";
+    }, 600);
+  }
+}
+
+/* ===== PREV SLIDE ===== */
+function prevSlide(){
+  if(index === 0){
+    track.style.transition = "none";
+    index = totalSlides;
+    track.style.transform = `translateX(-${index * 100}%)`;
+
+    setTimeout(() => {
+      track.style.transition = "0.6s ease";
+      index--;
+      track.style.transform = `translateX(-${index * 100}%)`;
+    }, 20);
+  }else{
+    index--;
+    track.style.transition = "0.6s ease";
+    track.style.transform = `translateX(-${index * 100}%)`;
+  }
+}
+
+/* ===== AUTO SLIDE ===== */
+function startAutoSlide(){
+  autoSlideInterval = setInterval(() => {
+    nextSlide();
+  }, 4000); // 4 sec
+}
+
+function stopAutoSlide(){
+  clearInterval(autoSlideInterval);
+}
+
+/* ===== START AUTO SLIDE ON LOAD ===== */
+startAutoSlide();
+
+/* ===== PAUSE ON HOVER ===== */
+const sliderWrapper = document.querySelector(
+  ".digital-marketing-page-services-slider-wrapper"
+);
+
+sliderWrapper.addEventListener("mouseenter", stopAutoSlide);
+sliderWrapper.addEventListener("mouseleave", startAutoSlide);
+</script>
+
+
+
+<script>
+const tabDatamarketingstrategie = {
+  app: {
+    img: "{{ asset('website1/assets/images/turpentine-oil.jpeg') }}",
+    stat1: "75%",
+    stat1Text: "Increase Traffic by",
+    stat2: "90 Days",
+    stat2Text: "Time Improvement",
+    desc: "AppDukaan is among the leading providers of on-demand app solutions..."
+  },
+  expo: {
+    img: "{{ asset('website1/assets/images/turpentine-oil.jpeg') }}",
+    stat1: "45%",
+    stat1Text: "Increase in Downloads",
+    stat2: "58%",
+    stat2Text: "Boost in Brand Awareness",
+    desc: "Expo City Eats is the food ordering platform for denizens of Expo City Dubai."
+  },
+  fit: {
+    img: "{{ asset('website1/assets/images/understanding-astigmatism.png') }}",
+    stat1: "60%",
+    stat1Text: "Fitness Growth",
+    stat2: "45 Days",
+    stat2Text: "Results Achieved",
+    desc: "Williamson Fit focuses on personalized fitness and digital wellness programs."
+  }
+};
+
+const tabs = document.querySelectorAll(
+  ".digital-marketing-page-marketing-strategies-case-tabs li"
+);
+
+const imgEl = document.getElementById(
+  "digital-marketing-page-marketing-strategies-caseImg"
+);
+
+tabs.forEach(tab => {
+  tab.addEventListener("mouseenter", () => {
+
+    // active tab
+    tabs.forEach(t => t.classList.remove("active"));
+    tab.classList.add("active");
+
+    const data = tabDatamarketingstrategie[tab.dataset.tab];
+
+    // LEFT IMAGE CHANGE
+    imgEl.style.opacity = "0";
+    setTimeout(() => {
+      imgEl.src = data.img;
+      imgEl.style.opacity = "1";
+    }, 150);
+
+    // RIGHT CONTENT CHANGE
+    document.getElementById("stat1").innerText = data.stat1;
+    document.getElementById("stat1Text").innerText = data.stat1Text;
+    document.getElementById("digital-marketing-page-marketing-strategies-stat2").innerText = data.stat2;
+    document.getElementById("digital-marketing-page-marketing-strategies-stat2Text").innerText = data.stat2Text;
+    document.getElementById("digital-marketing-page-marketing-strategies-caseDesc").innerText = data.desc;
+  });
 });
 </script>
 </body>

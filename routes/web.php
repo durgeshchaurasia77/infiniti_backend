@@ -350,7 +350,7 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
 
 // website Routes
 Route::get('/', [HomeController::class, 'home'])->name('web_home');
-// Route::get('/contact-us', [HomeController::class, 'contact'])->name('contactUs');
+Route::get('/portfolio', [HomeController::class, 'portfolio'])->name('portfolio');
 // Route::get('our-services-details/{id}', [WebOurServicesController::class, 'details'])->name('our-services-details');
 // Route::get('frro-optin', [WebOurServicesController::class, 'frroOptin'])->name('frro-optin');
 // Route::post('get-report-form', [WebOurServicesController::class, 'reportsubmit'])->name('get-report-form');

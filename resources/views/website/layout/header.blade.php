@@ -97,9 +97,9 @@
 
 <ul class="menu">
     <span class="menu-close">&times;</span>
-    <li><a href="#" class="nav-link action">Portfolio</a></li>
-    <li>
-        <a href="#" class="nav-link {{ request()->routeIs('services') ? 'active' : '' }}">Services ▾</a>
+    <li><a href="{{ route('portfolio') }}" class="nav-link action">Portfolio</a></li>
+    <li class="has-mega {{ request()->routeIs('services') ? 'open' : '' }}">
+        <a href="javascript:void(0)" class="nav-link {{ request()->routeIs('services') ? 'active' : '' }}">Services ▾</a>
         <div class="mega-menu">
             <div class="mega-wrap">
                 <div class="left">
@@ -148,8 +148,8 @@
             </div>
         </div>
     </li>
-    <li>
-        <a href="#" class="nav-link {{ request()->routeIs('industries') ? 'active' : '' }}">Industries ▾</a>
+    <li class="has-mega {{ request()->routeIs('industries') ? 'open' : '' }}">
+        <a href="javascript:void(0)" class="nav-link {{ request()->routeIs('industries') ? 'active' : '' }}">Industries ▾</a>
         <div class="mega-menu">
             <div class="mega-wrap">
                 <div class="left">
