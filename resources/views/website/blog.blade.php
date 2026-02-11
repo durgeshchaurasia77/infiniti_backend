@@ -1,7 +1,12 @@
 @extends('website.layout.app')
 @section('content')
 
-
+<style>
+    .row > [class*=col] {
+    padding-left:5px !important; 
+    padding-right:5px !important;
+}
+</style>
 
 
 <!-- ================== BANNER ================== -->
@@ -13,17 +18,17 @@
 </section>
 
 <!-- ================== BLOG SECTION ================== -->
-<section class="py-5">
+<section class="blog-page-main-sectin py-5">
 <div class="container">
-    <div class="row">
+    <div class="row g-3">
 
     <!-- ===== LEFT : BLOG CARDS ===== -->
-    <div class="col-md-8">
-            <div class="row g-4">
+    <div class="col-md-9">
+            <div class="row g-2">
 
                 <!-- Card 1 -->
                 @foreach ($blogsList as $blogsData)
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="blog-card">
                             <img src="{{ asset($blogsData->image ?? 'notImage.jpg') }}">
                             <div class="blog-card-body">
@@ -38,7 +43,7 @@
         </div>
 
         <!-- ===== RIGHT : SIDEBAR ===== -->
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="blog-sidebar">
 
                 <!-- Search -->

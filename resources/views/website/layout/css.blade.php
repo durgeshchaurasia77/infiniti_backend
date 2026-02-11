@@ -1457,12 +1457,12 @@
   gap:40px;
 }
 
-/* LEFT TEXT */
+
 .offices-text-branch-contact-page{
   flex:1;
 }
 .offices-text-branch-contact-page h2{
-  font-size:42px;
+  font-size:40px;
   margin-bottom:15px;
 }
 .offices-text-branch-contact-page p{
@@ -1498,13 +1498,12 @@
   background:#1e90ff;
 }
 
-/* PIN POSITIONS */
+
 .our-offices-branch-contact-page .usa{top:45%;left:28%;}
 .our-offices-branch-contact-page .uk{top:30%;left:50%;}
 .our-offices-branch-contact-page .uae{top:48%;left:62%;}
 .our-offices-branch-contact-page .india{top:42%;left:70%;}
 
-/* CARDS WRAPPER */
 .office-cards-branch-contact-page{
   max-width:1200px;
   margin:60px auto 0;
@@ -1513,7 +1512,6 @@
   gap:20px;
 }
 
-/* SINGLE CARD */
 .office-card-branch-contact-page{
   background:#0a5fd7;
   padding:25px;
@@ -1544,40 +1542,44 @@
   color:#fff;
 }
 
-/* ADDRESS TEXT */
 .office-card-branch-contact-page p{
-  font-size:14px;
+  font-size:16px;
   line-height:1.6;
   color:#eaf3ff;
+
 }
 
-/* RESPONSIVE */
 @media(max-width:992px){
   .offices-container-branch-contact-page{
     flex-direction:column;
     text-align:center;
   }
-  .office-cards-branch-contact-page{
-    grid-template-columns:repeat(2,1fr);
-  }
+  .office-cards-branch-contact-page {
+    max-width: 1200px;
+    margin: 28px auto 0px;
+    display: block;
+}
+.office-card-branch-contact-page {
+    background: #0a5fd7;
+    padding: 25px;
+    border-radius: 14px;
+    margin: 15px;
+}
+.offices-text-branch-contact-page p {
+    padding: 0px 10px;
+}
+  
 }
 
-@media(max-width:576px){
-  .office-cards-branch-contact-page{
-    grid-template-columns:1fr;
-  }
-}
 
 
-
-
-
+/* ===== WRAPPER ===== */
 .let-build-somthing-hero-wrapper{
   background:#022859;
   padding:10px 30px;
 }
 
-
+/* ===== HERO CARD ===== */
 .let-build-somthing-hero-inner{
   position:relative;
   background:#022859;
@@ -1588,33 +1590,54 @@
   align-items:center;
 }
 
-/* IMAGE — RIGHT SIDE, CARD KE ANDAR */
+/* ===== IMAGE (NOT FULL SECTION) ===== */
 .let-build-somthing-hero-image{
   position:absolute;
   top:0;
   right:0;
+  width:55%;              /* ❗ NOT FULL */
   height:100%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
   z-index:1;
+  position:relative;
 }
 
 .let-build-somthing-hero-image img{
-  max-width:100%;
-  height:auto;
+  width:100%;
+  height:100%;
+  object-fit:cover;
   display:block;
+  position:relative;
+  z-index:1;
 }
 
-/* CONTENT — IMAGE KE UPAR */
+/* ===== SOFT GRADIENT (LIMITED) ===== */
+.let-build-somthing-hero-image::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    90deg,
+    rgba(2,40,89,0.95) 0%,
+    rgba(2,40,89,0.85) 25%,
+    rgba(2,40,89,0.55) 45%,
+    rgba(13,110,253,0.25) 65%,
+    rgba(13,110,253,0.10) 85%,
+    rgba(13,110,253,0.05) 100%
+  );
+  z-index:2;
+}
+
+/* ===== CONTENT (LEFT + OVER IMAGE) ===== */
 .let-build-somthing-hero-content{
   position:relative;
-  z-index:2;
+  z-index:3;
   max-width:520px;
   padding:60px;
   color:#fff;
+  text-align:left;
 }
 
+/* ===== TEXT ===== */
 .let-build-somthing-hero-content h1{
   font-size:48px;
   margin:0;
@@ -1627,6 +1650,7 @@
   font-weight:300;
 }
 
+/* ===== BUTTON ===== */
 .let-build-somthing-hero-btn{
   display:inline-flex;
   align-items:center;
@@ -1638,30 +1662,33 @@
   font-size:16px;
 }
 
-/* MOBILE */
+/* ===== MOBILE ===== */
 @media(max-width:768px){
   .let-build-somthing-hero-inner{
     flex-direction:column;
+    min-height:auto;
   }
 
   .let-build-somthing-hero-image{
-    position:relative;
     width:100%;
-    height:auto;
+    height:240px;
   }
 
   .let-build-somthing-hero-content{
-    padding:40px 25px;
+    padding:30px 20px;
+    text-align:center;
   }
 
   .let-build-somthing-hero-content h1{
-    font-size:34px;
+    font-size:32px;
   }
 
   .let-build-somthing-hero-content p{
-    font-size:22px;
+    font-size:20px;
   }
 }
+
+
 
 
 </style>
@@ -1676,7 +1703,6 @@
   background-position:center;
 }
 
-/* overlay */
 .latest-insight-section::before{
   content:"";
   position:absolute;
@@ -1692,7 +1718,6 @@
   padding:0 20px;
 }
 
-/* TOP BAR */
 .latest-insight-top{
   display:flex;
   justify-content:space-between;
@@ -1717,7 +1742,7 @@
   font-weight:500;
 }
 
-/* CARDS */
+
 .latest-insight-cards{
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -1731,7 +1756,6 @@
   box-shadow:0 15px 40px rgba(0,0,0,0.2);
 }
 
-/* IMAGE */
 .card-img{
   position:relative;
 }
@@ -1754,7 +1778,7 @@
   line-height:1.2;
 }
 
-/* CONTENT */
+
 .card-content{
   padding:18px;
 }
@@ -1769,7 +1793,7 @@
   margin:0;
 }
 
-/* RESPONSIVE */
+
 @media(max-width:992px){
   .latest-insight-cards{
     grid-template-columns:repeat(2,1fr);
@@ -1876,9 +1900,6 @@
 
 
 <style>
-/* ===============================
-   SECTION
-================================ */
 .common-section-everypage-blog-listing-section{
   padding:70px 0;
   background:#f8f9fc;
@@ -1917,9 +1938,6 @@
   box-shadow:0 18px 40px rgba(0,0,0,.12);
 }
 
-/* ===============================
-   VIDEO THUMB
-================================ */
 .common-section-everypage-blog-listing-video-thumb{
   position:relative;
   border-radius:8px;
@@ -1931,7 +1949,6 @@
   display:block;
 }
 
-/* Play button on thumbnail */
 .common-section-everypage-blog-listing-play-btn{
   position:absolute;
   inset:0;
@@ -1960,9 +1977,6 @@
   transform:scale(1.12);
 }
 
-/* ===============================
-   TEXT + USER
-================================ */
 .common-section-everypage-blog-listing-card p{
   font-size:18px;
   line-height:1.6;
@@ -1989,9 +2003,6 @@
   color:#666;
 }
 
-/* ===============================
-   NAV BUTTONS
-================================ */
 .common-section-everypage-blog-listing-nav-btn{
   position:absolute;
   top:45%;
@@ -2009,9 +2020,6 @@
 .common-section-everypage-blog-listing-nav-btn.prev{left:-20px; color: #022859;}
 .common-section-everypage-blog-listing-nav-btn.next{right:-20px; color: #022859;}
 
-/* ===============================
-   POPUP (VIDEO MODAL)
-================================ */
 .common-section-everypage-blog-listing-video-popup{
   position:fixed;
   inset:0;
@@ -2025,14 +2033,14 @@
   display:flex;
 }
 
-/* Overlay */
+
 .common-section-everypage-blog-listing-popup-overlay{
   position:absolute;
   inset:0;
   background:rgba(0,0,0,.75);
 }
 
-/* Popup box */
+
 .common-section-everypage-blog-listing-popup-content{
   position:relative;
   width:90%;
@@ -2044,7 +2052,6 @@
   box-shadow:0 20px 60px rgba(0,0,0,.6);
 }
 
-/* iframe → perfect contain */
 .common-section-everypage-blog-listing-popup-content iframe{
   width:100%;
   height:100%;
@@ -2052,7 +2059,7 @@
   background:#000;
 }
 
-/* Close button */
+
 .common-section-everypage-blog-listing-popup-close{
   position:absolute;
   top: 0px;
@@ -2062,7 +2069,7 @@
   cursor:pointer;
 }
 
-/* Floating play icon (top center) */
+
 .common-section-everypage-blog-listing-popup-video-icon{
   position:absolute;
   top:-58px;
@@ -2082,18 +2089,18 @@
 @media (max-width: 768px){
 
   .common-section-everypage-blog-listing-wrapper{
-    padding: 0 48px; /* space for arrows */
+    padding: 0 48px; 
   }
 
   .common-section-everypage-blog-listing-track{
-    gap:16px; /* smaller gap = correct math */
+    gap:16px; 
   }
 
   .common-section-everypage-blog-listing-card{
     flex: 0 0 100%;
   }
 
-  /* FIX ARROW POSITION */
+
   .common-section-everypage-blog-listing-nav-btn{
     top:50%;
     transform: translateY(-50%);
@@ -2146,9 +2153,7 @@ html{
   font-size:44px;
   line-height:1.2;
 }
-/* .case-title-section-slide span{
-  color:#60a5fa;
-} */
+
 .case-actions-section-slide{
   display:flex;
   gap:14px;
