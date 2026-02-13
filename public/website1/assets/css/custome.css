@@ -6060,7 +6060,7 @@ a.buid-service-videosection-service-page-btn.video-trigger {
   position:relative;
   flex-shrink:0;
   transform:scale(.9);
-  opacity:.6;
+  opacity:1.6;
   transition:.5s;
 }
 

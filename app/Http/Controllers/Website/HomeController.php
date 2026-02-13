@@ -41,6 +41,8 @@ use App\Models\OurProven;
 use App\Models\FAQ;
 use App\Models\Setting;
 use App\Models\AboutUs;
+use App\Models\OurJourneys;
+use App\Models\OurSuccess;
 
 class HomeController extends Controller
 {
@@ -270,8 +272,19 @@ class HomeController extends Controller
         // $details['ourmissions']        = $this->ourmissions::first();
         // $details['ourservicesheader']  = $this->ourservicesheader::first();
         // $details['ourservices']        = $this->ourservices::where(['status' => 1])->get();
-           $details['contactdata']  =  $this->settingDetails::first();
+        $details['contactdata']  =  $this->settingDetails::first();
+        $details['trustedByList']                = $this->trustedBy::select('image','name')->where('status',1)->get();
+        $details['ourJourneysList'] = OurJourneys::where('status',1)->orderBy('year','asc')->get();
+        $details['ourSuccessList'] = OurSuccess::where('status',1)->get();
+        $details['fameMobileAppList']             = $this->fameMobileApp::where('status', 1)
+                                                                        ->select('title','name','image')
+                                                                        ->get();
 
+        $details['testimonials']               = $this->testimonials::where('status', 1)
+                                                                     ->select('name','video_path','designation','description','rating')
+                                                                        ->get();
+
+        $details['fAQList']                        = $this->fAQ::where('status', 1)->select('question','answer')->get();
         return view('website.about', $details);
     }
     public function blog(Request $request, $cat=null)

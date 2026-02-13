@@ -24,6 +24,7 @@
                             <a href="javascript:void(0);"
                                 class="{{ Route::is('testimonials-list','home-banner-edit','trustedby-list','trunkey-partner-edit','excelanace-counting-edit',
                                         'technologies-used-list','our-people-list','crafting-technology-list','fame-mobile-app-list'
+                                        ,'your-journey-list'
                                                     ) ? 'subdrop active' : '' }}">
                                 <i class="ti ti-brand-airtable"></i><span>Home Management</span><span
                                     class="menu-arrow"></span>
@@ -93,37 +94,37 @@
                         </li>
                     </ul>
                 </li>
-                {{-- <li>
+                <li>
                     <ul>
                         <li class="submenu">
                             <a href="javascript:void(0);"
-                                class="{{ Route::is('ourServices-list','our-services-header-edit','frro-optin-edit') ? 'subdrop active' : '' }}">
-                                <i class="ti ti-brand-airtable"></i><span>Our Services</span><span
+                                class="{{ Route::is('portfolio-banner-list','why-partner-edit','consult-service-list','consult-service-edit','consult-service-create') ? 'subdrop active' : '' }}">
+                                <i class="ti ti-brand-airtable"></i><span>Our Portfolio</span><span
                                     class="menu-arrow"></span>
                             </a>
                             <ul>
                                 <li>
-                                    <a class="{{ Route::is('our-services-header-edit') ? 'active' : '' }}"
-                                               href="{{ route('our-services-header-edit') }}">
-                                                <span>Our Services Header</span>
+                                    <a class="{{ Route::is('portfolio-banner-list') ? 'active' : '' }}"
+                                               href="{{ route('portfolio-banner-list') }}">
+                                                <span>Portfolio Banner</span>
                                             </a>
                                 </li>
                                 <li>
-                                    <a class="{{ Route::is('ourServices-list') ? 'active' : '' }}"
-                                               href="{{ route('ourServices-list') }}">
-                                                <span>Our Services List</span>
-                                    </a>
+                                    <a class="{{ Route::is('why-partner-edit') ? 'active' : '' }}"
+                                               href="{{ route('why-partner-edit') }}">
+                                                <span>Why Partner Section</span>
+                                            </a>
                                 </li>
                                 <li>
-                                    <a class="{{ Route::is('frro-optin-edit') ? 'active' : '' }}"
-                                               href="{{ route('frro-optin-edit') }}">
-                                                <span>Frro Optin</span>
+                                    <a class="{{ Route::is('consult-service-list') ? 'active' : '' }}"
+                                               href="{{ route('consult-service-list') }}">
+                                                <span>Consult Service</span>
                                             </a>
                                 </li>
                             </ul>
                         </li>
                     </ul>
-                </li> --}}
+                </li>
                 <li>
                     <ul>
                         <li class="submenu">
@@ -211,7 +212,7 @@
                     <ul>
                         <li class="submenu">
                             <a href="javascript:void(0);"
-                                class="{{ Route::is('service-list','service-we-offer-list','client-satisfaction-list','our-proven-list','advance-ai-list','advance-ai-create','advance-ai-edit'
+                                class="{{ Route::is('service-list','service-we-offer-list','client-satisfaction-list','our-proven-list','our-proven-edit','advance-ai-list','advance-ai-create','advance-ai-edit'
                                 ,'we-deliver-list'
                                 ) ? 'subdrop active' : '' }}">
                                 <i class="ti ti-brand-airtable"></i><span>Service Management</span><span
@@ -237,7 +238,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="{{ Route::is('our-proven-list') ? 'active' : '' }}"
+                                    <a class="{{ Route::is('our-proven-list','our-proven-edit') ? 'active' : '' }}"
                                         href="{{ route('our-proven-list') }}">
                                         <span>Our Proven</span>
                                     </a>

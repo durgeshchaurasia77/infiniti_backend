@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\HomeBannerController;
 use App\Http\Controllers\Admin\FeaturesController;
 use App\Http\Controllers\Admin\TrunkeyPartnerController;
 use App\Http\Controllers\Admin\ExcellanceCountingController;
+use App\Http\Controllers\Admin\WhyPartnerController;
 use App\Http\Controllers\Admin\TechnologyUsedController;
 use App\Http\Controllers\Admin\OurPeopleController;
 use App\Http\Controllers\Admin\CertificateSoftwareController;
@@ -35,8 +36,10 @@ use App\Http\Controllers\Admin\RoadMapController;
 use App\Http\Controllers\Admin\ServiceWeOfferController;
 use App\Http\Controllers\Admin\ClientSatisfationController;
 use App\Http\Controllers\Admin\OurProvenController;
+use App\Http\Controllers\Admin\ConsultServiceController;
 use App\Http\Controllers\Admin\AdvanceAiController;
 use App\Http\Controllers\Admin\WeDeliverController;
+use App\Http\Controllers\Admin\PortfolioBannerController;
 use App\Http\Controllers\Admin\AboutUsController;
 use App\Http\Controllers\Admin\OurSuccessController;
 use App\Http\Controllers\Admin\Master\GetEnquiryTypeController;
@@ -131,6 +134,9 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
 
         Route::get('excelanace-counting/edit', [ExcellanceCountingController::class, 'edit'])->name('excelanace-counting-edit');
         Route::post('excelanace-counting-update', [ExcellanceCountingController::class, 'update'])->name('excelanace-counting-update');
+
+        Route::get('why-partner/edit', [WhyPartnerController::class, 'edit'])->name('why-partner-edit');
+        Route::post('why-partner-update', [WhyPartnerController::class, 'update'])->name('why-partner-update');
 
         Route::get('why-business-choose/edit', [WhyBusinessChooseController::class, 'edit'])->name('why-business-choose-edit');
         Route::post('why-business-choose-update', [WhyBusinessChooseController::class, 'update'])->name('why-business-choose-update');
@@ -251,6 +257,14 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
         Route::post('our-proven-status-update/{id}', [OurProvenController::class, 'status'])->name('our-proven-status-update');
         Route::get('our-proven/delete/{id}', [OurProvenController::class, 'delete'])->name('our-proven.delete');
 
+        Route::get('consult-service/index', [ConsultServiceController::class, 'index'])->name('consult-service-list');
+        Route::get('consult-service/create', [ConsultServiceController::class, 'create'])->name('consult-service-create');
+        Route::post('consult-service-store', [ConsultServiceController::class, 'store'])->name('consult-service-store');
+        Route::get('consult-service-edit/{id}', [ConsultServiceController::class, 'edit'])->name('consult-service-edit');
+        Route::post('consult-service-update', [ConsultServiceController::class, 'update'])->name('consult-service-update');
+        Route::post('consult-service-status-update/{id}', [ConsultServiceController::class, 'status'])->name('consult-service-status-update');
+        Route::get('consult-service/delete/{id}', [ConsultServiceController::class, 'delete'])->name('consult-service.delete');
+
         Route::get('advance-ai/index', [AdvanceAiController::class, 'index'])->name('advance-ai-list');
         Route::get('advance-ai/create', [AdvanceAiController::class, 'create'])->name('advance-ai-create');
         Route::post('advance-ai-store', [AdvanceAiController::class, 'store'])->name('advance-ai-store');
@@ -283,6 +297,15 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
         Route::post('we-deliver-update', [WeDeliverController::class, 'update'])->name('we-deliver-update');
         Route::post('we-deliver-status-update/{id}', [WeDeliverController::class, 'status'])->name('we-deliver-status-update');
         Route::get('we-deliver/delete/{id}', [WeDeliverController::class, 'delete'])->name('we-deliver.delete');
+
+
+        Route::get('portfolio-banner/index', [PortfolioBannerController::class, 'index'])->name('portfolio-banner-list');
+        Route::post('portfolio-banner-store', [PortfolioBannerController::class, 'store'])->name('portfolio-banner-store');
+        Route::get('portfolio-banner-edit/{id}', [PortfolioBannerController::class, 'edit'])->name('portfolio-banner-edit');
+        Route::post('portfolio-banner-update', [PortfolioBannerController::class, 'update'])->name('portfolio-banner-update');
+        Route::post('portfolio-banner-status-update/{id}', [PortfolioBannerController::class, 'status'])->name('portfolio-banner-status-update');
+        Route::get('portfolio-banner/delete/{id}', [PortfolioBannerController::class, 'delete'])->name('portfolio-banner.delete');
+
 
         Route::get('crafting-technology/index', [CraftingTechnologyController::class, 'index'])->name('crafting-technology-list');
         Route::post('crafting-technology-store', [CraftingTechnologyController::class, 'store'])->name('crafting-technology-store');

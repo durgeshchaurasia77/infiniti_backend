@@ -1356,40 +1356,36 @@ document.querySelectorAll('.hidden-video').forEach((video, index) => {
 </script>
 
 
-
-
-
-
 <script>
-const track = document.getElementById("servicesTrack");
-let slides = document.querySelectorAll(
+const trackdigitalMarketing = document.getElementById("servicesTrack");
+let slidesdigitalMarketing = document.querySelectorAll(
   ".digital-marketing-page-service-slide"
 );
 
 /* ===== CLONE SLIDES FOR INFINITE LOOP ===== */
-slides.forEach(slide => {
-  track.appendChild(slide.cloneNode(true));
+slidesdigitalMarketing.forEach(slide => {
+  trackdigitalMarketing.appendChild(slide.cloneNode(true));
 });
 
-slides = document.querySelectorAll(
+slidesdigitalMarketing = document.querySelectorAll(
   ".digital-marketing-page-service-slide"
 );
 
 let index = 0;
-const totalSlides = slides.length / 2;
+const totalSlides1 = slidesdigitalMarketing.length / 2;
 let autoSlideInterval;
 
 /* ===== NEXT SLIDE ===== */
 function nextSlide(){
   index++;
-  track.style.transition = "0.6s ease";
-  track.style.transform = `translateX(-${index * 100}%)`;
+  trackdigitalMarketing.style.transition = "0.6s ease";
+  trackdigitalMarketing.style.transform = `translateX(-${index * 100}%)`;
 
-  if(index === totalSlides){
+  if(index === totalSlides1){
     setTimeout(() => {
-      track.style.transition = "none";
+      trackdigitalMarketing.style.transition = "none";
       index = 0;
-      track.style.transform = "translateX(0)";
+      trackdigitalMarketing.style.transform = "translateX(0)";
     }, 600);
   }
 }
@@ -1397,19 +1393,19 @@ function nextSlide(){
 /* ===== PREV SLIDE ===== */
 function prevSlide(){
   if(index === 0){
-    track.style.transition = "none";
-    index = totalSlides;
-    track.style.transform = `translateX(-${index * 100}%)`;
+    trackdigitalMarketing.style.transition = "none";
+    index = totalSlides1;
+    trackdigitalMarketing.style.transform = `translateX(-${index * 100}%)`;
 
     setTimeout(() => {
-      track.style.transition = "0.6s ease";
+      trackdigitalMarketing.style.transition = "0.6s ease";
       index--;
-      track.style.transform = `translateX(-${index * 100}%)`;
+      trackdigitalMarketing.style.transform = `translateX(-${index * 100}%)`;
     }, 20);
   }else{
     index--;
-    track.style.transition = "0.6s ease";
-    track.style.transform = `translateX(-${index * 100}%)`;
+    trackdigitalMarketing.style.transition = "0.6s ease";
+    trackdigitalMarketing.style.transform = `translateX(-${index * 100}%)`;
   }
 }
 
@@ -1466,7 +1462,7 @@ const tabDatamarketingstrategie = {
   }
 };
 
-const tabs = document.querySelectorAll(
+const tabsDatamarketingstrategie  = document.querySelectorAll(
   ".digital-marketing-page-marketing-strategies-case-tabs li"
 );
 
@@ -1474,11 +1470,11 @@ const imgEl = document.getElementById(
   "digital-marketing-page-marketing-strategies-caseImg"
 );
 
-tabs.forEach(tab => {
+tabsDatamarketingstrategie.forEach(tab => {
   tab.addEventListener("mouseenter", () => {
 
     // active tab
-    tabs.forEach(t => t.classList.remove("active"));
+    tabsDatamarketingstrategie.forEach(t => t.classList.remove("active"));
     tab.classList.add("active");
 
     const data = tabDatamarketingstrategie[tab.dataset.tab];
