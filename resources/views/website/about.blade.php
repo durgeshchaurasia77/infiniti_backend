@@ -45,7 +45,7 @@
 
 
 
-
+@if(count($trustedByList) > 0)
  <!-- trusted statrt  -->
   <section class="trusted">
 
@@ -55,35 +55,15 @@
 
       <div class="logo-slider">
         <div class="logos">
-
-            <div class="logo-box"><img src="{{ asset('dubai/assets/images/andamen.png')}}"></div>
-            <div class="logo-box"><img src="{{ asset('dubai/assets/images/craftslane.png')}}"></div>
-            <div class="logo-box"><img src="{{ asset('dubai/assets/images/deebaco.png')}}"></div>
-            <div class="logo-box"><img src="{{ asset('dubai/assets/images/fly-high.png')}}"></div>
-            <div class="logo-box"><img src="{{ asset('dubai/assets/images/kahira.png')}}"></div>
-            <div class="logo-box"><img src="{{ asset('dubai/assets/images/dorganizer.png')}}"></div>
-            <div class="logo-box"><img src="{{ asset('dubai/assets/images/taragram.png')}}"></div>
-            <div class="logo-box"><img src="{{ asset('dubai/assets/images/keydroid.png')}}"></div>
-
-            <!-- repeat for scrolling -->
-            <div class="logo-box"><img src="{{ asset('dubai/assets/images/preeminent.png')}}"></div>
-            <div class="logo-box"><img src="{{ asset('dubai/assets/images/puneet.png')}}"></div>
-            <div class="logo-box"><img src="{{ asset('dubai/assets/images/maharishi-university.png')}}"></div>
-            <div class="logo-box"><img src="{{ asset('dubai/assets/images/inferrix.png')}}"></div>
-            <div class="logo-box"><img src="{{ asset('dubai/assets/images/oceedee.png')}}"></div>
-            <div class="logo-box"><img src="{{ asset('dubai/assets/images/andamen.png')}}"></div>
-            <div class="logo-box"><img src="{{ asset('dubai/assets/images/taragram.png')}}"></div>
-            <div class="logo-box"><img src="{{ asset('dubai/assets/images/keydroid.png')}}"></div>
-
+            @foreach ($trustedByList as $trustedBy)
+                <div class="logo-box"><img src="{{ asset($trustedBy->image ?? 'notImage.jpg') }}" alt="{{ $trustedBy->name ?? '' }}"></div>
+            @endforeach
         </div>
       </div>
-
-
     </div>
-
   </section>
   <!-- truted end  -->
-
+@endif
 <section class="who-we-are-about-page who-we-are">
   <div class="who-we-are-about-page-container who-container">
 
@@ -96,19 +76,19 @@
     <!-- RIGHT STATS -->
     <div class="who-we-are-about-page-stats who-stats">
       <div class="who-we-are-about-page-stat stat">
-        <h3 data-count="12">0</h3>
+        <h3 data-count="{{ $aboutusData->experience ?? '' }}">{{ $aboutusData->experience ?? '' }}</h3>
         <span>Years of Experience</span>
       </div>
       <div class="who-we-are-about-page-stat stat">
-        <h3 data-count="2000">0</h3>
+        <h3 data-count="{{ $aboutusData->delivered ?? '' }}">{{ $aboutusData->delivered ?? '' }}</h3>
         <span>Products Delivered</span>
       </div>
       <div class="who-we-are-about-page-stat stat">
-        <h3 data-count="25">0</h3>
+        <h3 data-count="{{ $aboutusData->countries ?? '' }}">{{ $aboutusData->countries ?? '' }}</h3>
         <span>Countries Served</span>
       </div>
       <div class="who-we-are-about-page-stat stat">
-        <h3 data-count="300">0</h3>
+        <h3 data-count="{{ $aboutusData->enthusiasts ?? '' }}">{{ $aboutusData->enthusiasts ?? '' }}</h3>
         <span>Tech Enthusiasts</span>
       </div>
     </div>
@@ -116,65 +96,64 @@
   </div>
 
   <!-- CARDS -->
-  <div class="who-we-are-about-page-cards who-cards">
+  @if($aboutusData->status == 1)
+    <div class="who-we-are-about-page-cards who-cards">
 
-    <div class="who-we-are-about-page-card who-card">
-      <div class="icon blue"></div>
-      <h4>Human Centric</h4>
-      <p>We work hand-in-hand with you to ensure clear communication and collaboration.</p>
+        <div class="who-we-are-about-page-card who-card">
+        <div class="icon blue"></div>
+        <h4>{{ $aboutusData->human_centric_title ?? '' }}</h4>
+        <p>{{ $aboutusData->human_centric_description ?? '' }}</p>
+        </div>
+
+        <div class="who-we-are-about-page-card who-card">
+        <div class="icon purple"></div>
+        <h4>{{ $aboutusData->exceptional_expertis_title ?? '' }}</h4>
+        <p>{{ $aboutusData->exceptional_expertise_description ?? '' }}</p>
+        </div>
+
+        <div class="who-we-are-about-page-card who-card">
+        <div class="icon cyan"></div>
+        <h4>{{ $aboutusData->end_to_end_support_title ?? '' }}</h4>
+        <p>{{ $aboutusData->end_to_end_support_description ?? '' }}</p>
+        </div>
+
     </div>
-
-    <div class="who-we-are-about-page-card who-card">
-      <div class="icon purple"></div>
-      <h4>Exceptional Expertise</h4>
-      <p>Our seasoned team brings top-tier innovation and best-in-class development methodologies.</p>
-    </div>
-
-    <div class="who-we-are-about-page-card who-card">
-      <div class="icon cyan"></div>
-      <h4>End-to-End Support</h4>
-      <p>From concept to launch and beyond, Infiniti provides continuous maintenance support.</p>
-    </div>
-
-  </div>
+  @endif
 </section>
 
-
-
-
-
 <div class="our-journey-about-page">
-
   <div class="our-journey-about-page-timeline-section">
 
+    {{-- Background --}}
     <div class="our-journey-about-page-timeline-bg">
-      <img id="yearImage" src="{{ asset('website1/assets/images/custom-industries2.png') }}">
+      <img id="yearImage"
+           src="{{ asset($ourJourneysList->last()->image) }}">
       <div class="our-journey-about-page-overlay"></div>
     </div>
 
+    {{-- Content --}}
     <div class="our-journey-about-page-timeline-content">
-      <h1 id="yearTitle">2025</h1>
-      <p id="yearText">2025 got multiple global recognitions.</p>
+      <h1 id="yearTitle">
+        {{ $ourJourneysList->last()->year }}
+      </h1>
+      <p id="yearText">
+        {{ $ourJourneysList->last()->short_description }}
+      </p>
     </div>
 
+    {{-- Years Dynamic --}}
     <div class="our-journey-about-page-timeline-years simple-timeline">
-      <span onclick="changeYear(2015,this)">2015</span>
-      <span onclick="changeYear(2016,this)">2016</span>
-      <span onclick="changeYear(2017,this)">2017</span>
-      <span onclick="changeYear(2018,this)">2018</span>
-      <span onclick="changeYear(2019,this)">2019</span>
-      <span onclick="changeYear(2020,this)">2020</span>
-      <span onclick="changeYear(2021,this)">2021</span>
-      <span onclick="changeYear(2022,this)">2022</span>
-      <span onclick="changeYear(2023,this)">2023</span>
-      <span onclick="changeYear(2024,this)">2024</span>
-      <span class="active" onclick="changeYear(2025,this)">2025</span>
+      @foreach($ourJourneysList as $index => $journey)
+        <span
+          class="{{ $loop->last ? 'active' : '' }}"
+          onclick="changeYear('{{ $journey->year }}',this)">
+          {{ $journey->year }}
+        </span>
+      @endforeach
     </div>
 
   </div>
-
 </div>
-
 
 <section class="grow-with-you-service-page">
   <div class="grow-with-you-service-page-overlay">
@@ -187,7 +166,7 @@
         efficiency, cut costs, and scale your business seamlessly.
       </p>
 
-      <a href="#" class="grow-with-you-service-page-btn">
+      <a href="{{ route('contact') }}" class="grow-with-you-service-page-btn">
         Talk to Our Experts Today →
       </a>
     </div>
@@ -203,55 +182,18 @@
   <div class="our-success-celebration-about-page-carousel-track carousel-track">
 
     <!-- Slides -->
-    <div class="our-success-celebration-about-page-carousel-card carousel-card">
-      <img src="./assets/images/background-about.jpeg">
-    </div>
-
-    <div class="our-success-celebration-about-page-carousel-card carousel-card">
-      <img src="./assets/images/bnr-img.png">
-    </div>
-
-    <div class="our-success-celebration-about-page-carousel-card carousel-card">
-      <img src="./assets/images/case_bg6.webp">
-    </div>
-
-    <div class="our-success-celebration-about-page-carousel-card carousel-card">
-      <img src="./assets/images/custom-cta1-img.png">
-    </div>
-
-    <!-- Duplicate for infinite loop -->
-    <div class="our-success-celebration-about-page-carousel-card carousel-card">
-      <img src="./assets/images/case_bg6.webp">
-    </div>
-
-    <div class="our-success-celebration-about-page-carousel-card carousel-card">
-      <img src="./assets/images/bnr-img.png">
-    </div>
-
-    <div class="our-success-celebration-about-page-carousel-card carousel-card">
-      <img src="./assets/images/custom-cta1-img.png">
-    </div>
-
-    <div class="our-success-celebration-about-page-carousel-card carousel-card">
-      <img src="./assets/images/background-about.jpeg">
-    </div>
-
+    @foreach ($ourSuccessList as $ourSuccess)
+        <div class="our-success-celebration-about-page-carousel-card carousel-card">
+            <img src="{{ asset($ourSuccess->image ?? 'notImage.jpg') }}" alt="{{ $ourSuccess->name ?? '' }}">
+        </div>
+    @endforeach
   </div>
 </section>
 
 
 
-
-
-
-
-
-
-
-
-
-
   <!-- wall-of-fame -->
+@if(count($fameMobileAppList) > 0)
     <section class="wall-of-fame ">
         <div class="container">
 
@@ -261,41 +203,13 @@
                 <div class="awards-row" id="awardTrack">
 
                     <!-- CARD -->
-                    <div class="award-card">
-                        <img src="assets/images/portfolio/portfolio-01.jpg">
-                        <h5>Appfutura</h5>
-                        <p>Top App<br>Development Company</p>
-                    </div>
-
-                    <div class="award-card">
-                        <img src="assets/images/portfolio/portfolio-01.jpg">
-                        <h5>GoodFirms</h5>
-                        <p>Top Mobile App<br>Developers UK</p>
-                    </div>
-
-                    <div class="award-card">
-                        <img src="assets/images/portfolio/portfolio-01.jpg">
-                        <h5>Clutch</h5>
-                        <p>Top 100<br>Companies 2022</p>
-                    </div>
-
-                    <div class="award-card">
-                        <img src="assets/images/portfolio/portfolio-01.jpg">
-                        <h5>ITFirms</h5>
-                        <p>World’s Top Mobile App<br>Development Companies 2022</p>
-                    </div>
-
-                    <div class="award-card">
-                        <img src="assets/images/portfolio/portfolio-01.jpg">
-                        <h5>Clutch</h5>
-                        <p>Top Developers in<br>India 2022</p>
-                    </div>
-
-                    <div class="award-card">
-                        <img src="assets/images/portfolio/portfolio-01.jpg">
-                        <h5>Feedspot</h5>
-                        <p>Mobile App Development<br>Blogs by Feedspot</p>
-                    </div>
+                    @foreach ($fameMobileAppList as $fameMobileApp)
+                            <div class="award-card">
+                                <img src="{{ asset($fameMobileApp->image ?? 'notImage.jpg') }}">
+                                <h5>{{ $fameMobileApp->name ?? '' }}</h5>
+                                <p>{{ $fameMobileApp->title ?? '' }}</p>
+                            </div>
+                    @endforeach
 
                 </div>
             </div>
@@ -304,10 +218,11 @@
 
         </div>
     </section>
+@endif
   <!-- wall-of-fame end  -->
 
         <!-- mobile-app-devlopment-dubai-partner-section start here  -->
-        <section class="mobile-app-devlopment-dubai-partner-section">
+        {{-- <section class="mobile-app-devlopment-dubai-partner-section">
         <div class="mobile-app-devlopment-dubai-partner-container">
 
     <!-- LEFT CONTENT -->
@@ -337,10 +252,10 @@
     </div>
 
   </div>
-        </section>
+        </section> --}}
         <!-- mobile-app-devlopment-dubai-partner-section end here  -->
 
-<section class="our-team-leadership-about-page">
+{{-- <section class="our-team-leadership-about-page">
 
   <div class="our-team-leadership-about-page-leadership-section">
 
@@ -411,11 +326,11 @@
 
   </div>
 
-</section>
+</section> --}}
 
 
 
-  <section class="navy-testimonial-slider">
+  {{-- <section class="navy-testimonial-slider">
 
       <div class="navy-testimonial-header">
           <h2>Client Testimonials</h2>
@@ -505,84 +420,86 @@
           </div>
       </div>
 
-  </section>
+  </section> --}}
 
 
 
+@if(count($testimonials) > 0)
+<section class="common-section-everypage-blog-listing-section">
+    <h2>Our Clients Love Us</h2>
+
+    <div class="common-section-everypage-blog-listing-wrapper">
+    <button class="common-section-everypage-blog-listing-nav-btn prev">‹</button>
+
+    <div class="common-section-everypage-blog-listing-track">
+    @foreach ($testimonials as $testimonial)
+        <div class="common-section-everypage-blog-listing-card">
+            <div class="common-section-everypage-blog-listing-video-thumb">
+                <img src="{{ asset('website1/assets/images/thumbnail.png') }}">
+                <span class="common-section-everypage-blog-listing-play-btn" data-video="{{ asset($testimonial->video_path ?? '') }}"></span>
+            </div>
+            <p>"Amazing experience working with this team."</p>
+            <div class="common-section-everypage-blog-listing-user">
+                <img src="assets/images/home_cta.png">
+                <div><strong>{{ $testimonial->name ?? '' }}</strong><span>({{ $testimonial->rating ?? '' }})</span></div>
+            </div>
+        </div>
+    @endforeach
+    </div>
+    <button class="common-section-everypage-blog-listing-nav-btn next">›</button>
+    </div>
+</section>
+ @endif
 
 
 
       <!--  faq section start  -->
-        <div class="faq-top-section">
-            <h2>Turning Your Questions into Confidence</h2>
+      @if(count($fAQList) > 0)
+        <section class="faq-top-section" >
+            <h2 class="mt-2">Turning Your Questions into Confidence</h2>
             <div class="faq">
-
-                <label class="faq-item">
-                    <input type="radio" name="faq" checked>
-                    <div class="question">How do you ensure the security of the app?</div>
-                    <div class="answer">We follow secure coding standards & audits.</div>
-                </label>
-
-                <label class="faq-item">
-                    <input type="radio" name="faq">
-                    <div class="question">How do you handle project management?</div>
-                    <div class="answer">We use agile methodology & tools.</div>
-                </label>
-
-                <label class="faq-item">
-                    <input type="radio" name="faq">
-                    <div class="question">How do you ensure a seamless user experience?</div>
-                    <div class="answer">We follow UI/UX design principles.</div>
-                </label>
-
-                <label class="faq-item">
-                    <input type="radio" name="faq">
-                    <div class="question">What mobile app services do you offer?</div>
-                    <div class="answer">We develop Android, iOS & hybrid apps.</div>
-                </label>
-
-                <label class="faq-item">
-                    <input type="radio" name="faq">
-                    <div class="question">What makes your company different?</div>
-                    <div class="answer">Strong experience & reliable support.</div>
-                </label>
-
-                <label class="faq-item">
-                    <input type="radio" name="faq">
-                    <div class="question">What is the average cost?</div>
-                    <div class="answer">Cost depends on features & complexity.</div>
-                </label>
-
-                <label class="faq-item">
-                    <input type="radio" name="faq">
-                    <div class="question">Do you provide maintenance?</div>
-                    <div class="answer">Yes, we provide long-term support.</div>
-                </label>
-
-                <label class="faq-item">
-                    <input type="radio" name="faq">
-                    <div class="question">How long does it take to build an app?</div>
-                    <div class="answer">Typically 2-6 months depending on scope.</div>
-                </label>
-
-                <label class="faq-item">
-                    <input type="radio" name="faq">
-                    <div class="question">Do you sign NDA?</div>
-                    <div class="answer">Yes, we ensure full confidentiality.</div>
-                </label>
-
-                <label class="faq-item">
-                    <input type="radio" name="faq">
-                    <div class="question">Do you help with publishing apps?</div>
-                    <div class="answer">Yes, we assist with App Store & Play Store.</div>
-                </label>
+                @foreach ($fAQList as $key => $fAQData)
+                    <label class="faq-item">
+                        <input type="radio" name="faq" @if($key == 0) checked @endif>
+                        <div class="question">{{ $fAQData->question ?? '' }}</div>
+                        <div class="answer">{{ $fAQData->answer ?? '' }}</div>
+                    </label>
+                @endforeach
 
             </div>
-        </div>
+        </section>
+        @endif
       <!-- faq section end  -->
 
 
 
+@include('website.contact-form')
+
+
+
+
+<section class="common-section-everypage-blog-listing-video-popup" id="videoPopup">
+    <div class="common-section-everypage-blog-listing-popup-overlay"></div>
+
+    <div class="common-section-everypage-blog-listing-popup-content">
+        <span class="common-section-everypage-blog-listing-popup-video-icon">▶</span>
+        <span class="common-section-everypage-blog-listing-popup-close">&times;</span>
+
+        <iframe
+            id="popupVideo"
+            allow="autoplay; fullscreen"
+            allowfullscreen>
+        </iframe>
+    </div>
+</section>
+        <section class="navy-video-modal" id="navyVideoModal">
+            <div class="navy-video-modal__overlay"></div>
+
+            <div class="navy-video-modal__content">
+                <button class="navy-video-modal__close" aria-label="Close">✕</button>
+                <video id="navyModalVideo" controls autoplay></video>
+            </div>
+        </section>
       <script>
 const counters = document.querySelectorAll(".who-we-are-about-page-stat h3");
 
@@ -614,20 +531,15 @@ const observer = new IntersectionObserver(entries => {
 
 observer.observe(document.querySelector(".who-we-are-about-page-stats"));
 </script>
-
 <script>
 const data = {
-  2015:{ img:"{{ asset('website1/assets/images/background-about.jpeg')}}", text:"Company founded with small team" },
-  2016:{ img:"{{ asset('website1/assets/images/blockchain-1.png')}}", text:"First international clients" },
-  2017:{ img:"{{ asset('website1/assets/images/bnr-img.png')}}", text:"Mobile & Web development focus" },
-  2018:{ img:"{{ asset('website1/assets/images/custom-industries2.png')}}", text:"Product launches & partnerships" },
-  2019:{ img:"{{ asset('website1/assets/images/background-about.jpeg')}}", text:"Strong global growth" },
-  2020:{ img:"{{ asset('website1/assets/images/background-about.jpeg')}}", text:"Digital transformation year" },
-  2021:{ img:"{{ asset('website1/assets/images/blockchain-1.png')}}", text:"Cloud, AI, Blockchain expansion" },
-  2022:{ img:"{{ asset('website1/assets/images/custom-industries2.png')}}", text:"Leading SaaS provider" },
-  2023:{ img:"{{ asset('website1/assets/images/blockchain-1.png')}}", text:"50+ global products delivered" },
-  2024:{ img:"{{ asset('website1/assets/images/bnr-img.png')}}", text:"Fortune enterprise clients" },
-  2025:{ img:"{{ asset('website1/assets/images/background-about.jpeg')}}", text:"Top Clutch awards & recognitions" }
+@foreach($ourJourneysList as $journey)
+  "{{ $journey->year }}" : {
+      img: "{{ asset($journey->image) }}",
+      text: "{{ addslashes($journey->short_description) }}",
+      title: "{{ addslashes($journey->title) }}"
+  },
+@endforeach
 };
 
 const years = Object.keys(data);
@@ -637,7 +549,6 @@ let autoTimer;
 function changeYear(year, el){
 
   const img = document.getElementById("yearImage");
-
   img.style.opacity = "0";
 
   setTimeout(()=>{
@@ -650,8 +561,8 @@ function changeYear(year, el){
   const spans = document.querySelectorAll(".our-journey-about-page-timeline-years span");
   spans.forEach(s=>s.classList.remove("active"));
   el.classList.add("active");
-  currentIndex = years.indexOf(String(year));
 
+  currentIndex = years.indexOf(String(year));
   restartAutoSlide();
 }
 
@@ -665,14 +576,13 @@ function autoSlide(){
 
 function restartAutoSlide(){
   clearInterval(autoTimer);
-  autoTimer = setInterval(autoSlide, 4000); // 4 sec
+  autoTimer = setInterval(autoSlide, 4000);
 }
 
 window.onload = ()=>{
   const spans = document.querySelectorAll(".our-journey-about-page-timeline-years span");
-  changeYear(2025, spans[years.length - 1]);
+  changeYear(years[years.length - 1], spans[years.length - 1]);
   autoTimer = setInterval(autoSlide, 4000);
 };
 </script>
-@include('website.contact-form')
 @endsection

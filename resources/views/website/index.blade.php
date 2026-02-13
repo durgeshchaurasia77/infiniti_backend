@@ -72,11 +72,9 @@
 
 
     <section class="trusted">
-
         <div class="trusted-wrap">
             @if(count($trustedByList) > 0)
             <div class="trusted-badge">Trusted by</div>
-
             <div class="logo-slider">
                 <div class="logos">
                     @foreach ($trustedByList as $trustedBy)
@@ -86,10 +84,7 @@
                 </div>
             </div>
             @endif
-
-
         </div>
-
     </section>
 
     <main class="main-page-wrapper">
@@ -125,7 +120,6 @@
             </div>
         </section>
         <!-- close about Area -->
-
 
         <!-- trusted client section start       -->
 
