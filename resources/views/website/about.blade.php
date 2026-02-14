@@ -127,17 +127,17 @@
     {{-- Background --}}
     <div class="our-journey-about-page-timeline-bg">
       <img id="yearImage"
-           src="{{ asset($ourJourneysList->last()->image) }}">
+           src="{{ asset(optional($ourJourneysList->last())->image) }}">
       <div class="our-journey-about-page-overlay"></div>
     </div>
 
     {{-- Content --}}
     <div class="our-journey-about-page-timeline-content">
       <h1 id="yearTitle">
-        {{ $ourJourneysList->last()->year }}
+        {{ optional($ourJourneysList->last())->year }}
       </h1>
       <p id="yearText">
-        {{ $ourJourneysList->last()->short_description }}
+        {{ optional($ourJourneysList->last())->short_description }}
       </p>
     </div>
 

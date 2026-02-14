@@ -412,7 +412,7 @@
 @media (max-width: 768px) {
 
   .apptunix-footer {
-    padding: 60px 15px;
+    padding: 60px 30px;
     text-align: left;
   }
 
@@ -1090,13 +1090,15 @@
     padding:26px 20px;
   }
 
-  .enterprise-custome-softawere-devlopment-software-service-page-pagination-section h2{
-    font-size:26px;
-    line-height:1.3;
-  }
+ .enterprise-custome-softawere-devlopment-software-service-page-pagination-section h2 {
+        font-size: 25px;
+        line-height: 30px;
+        padding: 0px 10px;
+    }
 
   .enterprise-custome-softawere-devlopment-software-service-page-pagination-section p.itlc{
-    font-size:14px;
+    font-size:15px;
+     padding: 0px 10px;
   }
 
   .software-page-card h3{
@@ -1121,6 +1123,7 @@
   .software-page-btn.next{
     transform:translateX(10px);
   }
+
 }
 
 @media (max-width: 768px){
@@ -1137,6 +1140,7 @@
   .advance-technoloy-in-service-page-card{
     height:auto;
     min-height:260px;
+    margin: 0px 20px;
   }
 
   .advance-technoloy-in-service-page-front{
@@ -2211,7 +2215,7 @@ html{
 
 .case-content-section-slide{
   position: relative;
-  top: -50px;
+  top: -10px;
   height:calc(100vh - 260px);
   overflow:hidden;
 }
@@ -2276,9 +2280,9 @@ html{
 .case-item-section-slide.active .case-buttons-section-slide{ transition-delay:.5s }
 @media (max-width:991px){
 
-  .case-title-section-slide h1{
-    font-size:26px;
-  }
+.case-text-section-slide h3 {
+    font-size: 25px;
+}
 
   .case-inner-section-slide{
     padding:50px 0 20px;
@@ -2334,7 +2338,7 @@ html{
   }
 
   .case-title-section-slide h1{
-    font-size:22px;
+    font-size:25px;
   }
 
   .case-top-section-slide{

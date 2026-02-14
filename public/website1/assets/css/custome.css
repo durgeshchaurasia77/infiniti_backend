@@ -597,13 +597,21 @@ display: none;
   color:white !important;
 }
 
-.trusted-badge {
-    min-width: 150px;
-    display: inline-flex;
-    background: linear-gradient(90deg, #1778FF 0, #D9D9D900 90%);
-    border-radius: 5px;
-    padding: 5px;
+.trusted-badge{
+  min-width:150px;
+  height:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:linear-gradient(90deg,#1778FF 0%, #0C2347 100%);
+  color:#fff;
+
+  font-size:15px;
+  font-weight:600;
+  border-radius:6px;
 }
+
 
 .logo-slider{
   overflow:hidden !important;
@@ -762,69 +770,36 @@ display: none;
     border: 1px solid rgba(255,255,255,.06);
 
 }
-
 @media (max-width: 767px){
 
-  .inf-hero{
-    padding: 40px 0;
-  }
-
-  .inf-hero-container{
-    padding: 0 18px;
-  }
-
-  .inf-hero-grid{
-    flex-direction: column;
-    gap: 28px;
-  }
-
-  .inf-hero-content{
-    max-width: 100%;
-    text-align: center;
-  }
-
-  .inf-hero-eyebrow{
-    font-size: 14px;
-  }
-
   .inf-hero-title{
-    font-size: 30px;       /* ✅ mobile heading */
-    line-height: 1.25;
-    /* margin-bottom: 12px;
-      background: linear-gradient(
-        90deg,
-        #18499D,
-        #1C75E2
-    ); */
+    font-size: 28px;   /* slightly safer for all mobiles */
   }
 
-  .inf-hero-text{
-    font-size: 14px;
-    line-height: 1.6;
-    max-width: 100%;
-  }
-
-  .inf-hero-wide-img{
+  .inf-hero-content ul{
+    text-align: left;
     margin-top: 14px;
-      background: #F5F8FC;
-  padding: 16px;
-  border-radius: 12px;
-  box-shadow: 0 12px 30px rgba(0,0,0,.08);
   }
 
-  .inf-hero-video{
-    justify-content: center;
-    align-self: center;
+  .inf-hero-content ul li{
+    font-size: 14px;
+    margin-bottom: 6px;
   }
 
-  .inf-hero-video video{
-    max-width: 100%;
-    max-height: 360px;
-    aspect-ratio: 9 / 14;
-    border-radius: 14px;
+  /* CTA button (if exists) */
+  .inf-hero-content a{
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 18px;
   }
+  .inf-hero-grid {
+    display: block;;
+}
+
 
 }
+
 
 /* info hero end  */
 
@@ -2220,6 +2195,15 @@ border-radius: 24px;
   .home-below-banner-carousel-one-hero-image::before{
     clip-path:none;
   }
+  .wall-of-fame h2 {
+    font-size: 25px;
+    margin-bottom: 33px;
+    line-height: 30px;
+}
+.power-packed-feature-industry-page h2 {
+    font-size: 26px;
+    text-align: center;
+}
 }
 
 
@@ -3136,49 +3120,84 @@ border-radius: 24px;
 }
 @media (max-width: 768px){
 
+  /* ===== HERO SECTION ===== */
   .service-page-software-hero{
-    padding:80px 20px 50px;
+    padding:70px 16px 40px;
     min-height:auto;
+    position: inherit;
   }
 
   .service-page-hero-container{
     flex-direction:column;
-    gap:40px;
+    gap:32px;
+    padding: 70px 20px;
+  }
+
+  /* ===== LEFT CONTENT ===== */
+  .service-page-hero-left{
+    text-align:left;
   }
 
   .service-page-hero-left h1,
   .service-page-hero-left h1 span{
-    font-size:28px;
-    line-height:1.2;
+    font-size:26px;
+    line-height:1.25;
   }
 
   .service-page-hero-left h2{
-    font-size:18px;
+    font-size:17px;
+    margin-top:8px;
   }
 
   .service-page-hero-left p{
-    font-size:15px;
+    font-size:14.5px;
+    line-height:1.6;
     max-width:100%;
+    margin-top:10px;
   }
 
+  .service-page-hero-left ul{
+    margin-top:16px;
+    padding-left:18px;
+  }
+
+  .service-page-hero-left ul li{
+    font-size:14px;
+    margin-bottom:8px;
+  }
+
+  /* ===== CTA BUTTON ===== */
+  .service-page-cta-btn{
+    display:block;
+    width:100%;
+    text-align:center;
+    margin-top:20px;
+    padding:14px 0;
+    font-size:15px;
+  }
+
+  /* ===== RIGHT IMAGE ===== */
   .service-page-hero-right{
-    grid-template-columns:1fr;
+    display:block;
   }
 
   .service-page-big-card{
-    grid-column:1 / 2;
+    width:100%;
+    border-radius:16px;
+    overflow:hidden;
   }
 
   .service-page-big-card img{
     width:100%;
     height:auto;
+    display:block;
+    object-fit:cover;
   }
 }
 
+
 /* ================= TABS Start ================= */
-/* ================================
-   SERVICE PAGE TABS – FINAL STYLE
-   ================================ */
+
 
 .service-page-below-the-counter-service-tabs{
   max-width:1200px;
@@ -3345,9 +3364,114 @@ border-radius: 24px;
     color: #000;
 }
 .service-page-below-the-counter-service-tabs-top h2 {
-    font-size: 35px;
+    font-size: 40px;
     text-align: center;
     color: #000;
+}
+
+/* =========================
+   MOBILE & TABLET VIEW
+========================= */
+@media (max-width: 991px){
+
+  /* ===== Tabs Wrapper ===== */
+  .service-page-below-the-counter-service-tabs{
+    flex-direction:column;
+    margin:40px 15px;
+    padding:15px;
+  }
+
+  /* ===== Tab Menu ===== */
+  .service-page-below-the-counter-tab-menu{
+    width:100%;
+    border-radius:20px;
+    padding:25px 20px;
+  }
+
+  .service-page-below-the-counter-tab-item{
+    font-size:18px;
+    padding:16px 5px;
+  }
+
+  /* ===== Tab Content ===== */
+  .service-page-below-the-counter-tab-content{
+    width:100%;
+    padding:35px 25px;
+    border-radius:20px;
+    margin-top:15px;
+  }
+
+  .service-page-below-the-counter-content h2{
+    font-size:22px;
+  }
+
+  .service-page-below-the-counter-content p{
+    font-size:14px;
+  }
+
+  /* ===== Section Heading ===== */
+  .service-page-below-the-counter-service-tabs-top h2{
+    font-size:25px;
+    padding: 10px 10px;
+
+  }
+
+  .service-page-below-the-counter-service-tabs-top p{
+    font-size:17px;
+  }
+
+  /* ===== Hero Section ===== */
+  .software-devlopment-soluction-servicepage-software-hero{
+    padding:40px 25px;
+    border-radius:22px;
+  }
+
+  .software-devlopment-soluction-servicepage-software-hero-content{
+    max-width:100%;
+  }
+
+  .software-devlopment-soluction-servicepage-software-hero-content h1{
+    font-size:30px;
+  }
+
+  .software-devlopment-soluction-servicepage-software-hero-content h2{
+    font-size:26px;
+  }
+
+  .software-devlopment-soluction-servicepage-software-hero-content p{
+    font-size:16px;
+  }
+
+  .software-devlopment-soluction-servicepage .hero-btn{
+    padding:12px 24px;
+    font-size:15px;
+  }
+}
+
+
+@media (max-width: 575px){
+
+  .service-page-below-the-counter-tab-item{
+    font-size:16px;
+    padding: 10px 10px;
+
+  }
+
+  .service-page-below-the-counter-content img{
+    width:48px;
+    height:48px;
+  }
+
+  .software-devlopment-soluction-servicepage-software-hero-content h1{
+    font-size:26px;
+     padding: 10px 10px;
+
+  }
+
+  .software-devlopment-soluction-servicepage-software-hero-content p{
+    font-size:15px;       
+     padding: 10px 10px;
+  }
 }
 
 
@@ -4023,7 +4147,6 @@ a.buid-service-videosection-service-page-btn.video-trigger {
   z-index:10;
   pointer-events:none;
 }
-
 
 
 
@@ -4714,7 +4837,7 @@ a.buid-service-videosection-service-page-btn.video-trigger {
 .turn-your-fitness-idea-industry-page-hero-inner{
   max-width:1300px;
   margin:auto;
-  padding:100px 30px;
+  padding:30px 30px;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -4937,8 +5060,14 @@ a.buid-service-videosection-service-page-btn.video-trigger {
 }
 
 .our-succes-story-of-fitness-industry-page .case-nav button{
-  width:55px;height:55px;border-radius:50%;
-  border:1px solid #000;background:none;font-size:20px;cursor:pointer;
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  border:1px solid #000;
+  background:none;
+  font-size:20px;
+  cursor:pointer;
+  color: #000;
 }
 
 /* MOBILE */
@@ -4950,6 +5079,9 @@ a.buid-service-videosection-service-page-btn.video-trigger {
   .our-succes-story-of-fitness-industry-page .case-image{
     width:100%;
   }
+  section.ai-powered-fitness-app-industry-ai-section {
+    margin: 10px 20px;
+}
 }
 
 
@@ -5890,6 +6022,15 @@ a.buid-service-videosection-service-page-btn.video-trigger {
   }
   .who-we-are-about-page-container {
     display: block;
+  }
+  
+  .aboutpage-we-transform-ai-hero-banner {
+    min-height: 65vh;
+  }
+  .aboutpage-we-transform-ai-hero-inner h1 {
+      font-size: 25px;
+    padding: 4px 10px;
+   line-height: 40px;
   }
 
 }
@@ -6888,7 +7029,9 @@ a.buid-service-videosection-service-page-btn.video-trigger {
     font-size: 25px !important;
     line-height: 30px;
 }
-
+.process-accordion-servicepage h2 {
+    font-size: 25px;
+}
 
 }
 
