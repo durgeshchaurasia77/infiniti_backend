@@ -1,6 +1,6 @@
 @extends('admin.layout.app')
 @section('title')
-Our Proven
+Consult Service
 @endsection
 @section('content')
 <div class="page-wrapper">
@@ -11,14 +11,14 @@ Our Proven
                 <div class="page-header">
                     <div class="row align-items-center">
                         <div class="col-sm-8">
-                            <h4 class="page-title">Edit Our Proven</h4>
+                            <h4 class="page-title">Edit Consult Service</h4>
                         </div>
                     </div>
                 </div>
                 <!-- /Page Header -->
                 <div class="card">
                     <div class="card-body">
-                       <form action="{{ route('our-proven-update') }}"
+                       <form action="{{ route('consult-service-update') }}"
                             method="POST"
                             class="formSubmit"
                             enctype="multipart/form-data">
@@ -28,7 +28,7 @@ Our Proven
                             <div class="row">
 
                                 {{-- Category --}}
-                                
+
                                 {{-- Title --}}
                                 <div class="col-md-6 mb-3">
                                     <label class="col-form-label">
@@ -39,8 +39,8 @@ Our Proven
                                         name="name"
                                         value="{{ old('name', $data->name ?? '') }}"
                                         required>
-                                </div> 
-                                {{-- <div class="col-md-6 mb-3">
+                                </div>
+                                <div class="col-md-6 mb-3">
                                     <label class="col-form-label">
                                         Title <span class="text-danger">*</span>
                                     </label>
@@ -50,9 +50,9 @@ Our Proven
                                         placeholder="Enter title"
                                         value="{{ old('title', $data->title ?? '') }}"
                                         required>
-                                </div> --}}
+                                </div>
 
-                                {{-- <div class="col-md-6 mb-3">
+                                <div class="col-md-6 mb-3">
                                     <label class="col-form-label">
                                         Image
                                     </label>
@@ -65,9 +65,9 @@ Our Proven
                                              class="mt-2"
                                              width="120">
                                     @endif
-                                </div> --}}
+                                </div>
                                 {{-- Short Detail --}}
-                                <div class="col-md-6 mb-3">
+                                {{-- <div class="col-md-6 mb-3">
                                     <label class="col-form-label">
                                         Short Description <span class="text-danger">*</span>
                                     </label>
@@ -75,7 +75,7 @@ Our Proven
                                             name="short_description"
                                             rows="3"
                                             required>{{ old('short_description', $data->short_description ?? '') }}</textarea>
-                                </div>
+                                </div> --}}
                                 <div class="col-md-12 mb-3">
                                     <div id="dynamic-fields">
                                         @if(isset($data->features) && count($data->features) > 0)

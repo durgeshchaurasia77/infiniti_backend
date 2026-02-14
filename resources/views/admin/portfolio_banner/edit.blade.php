@@ -7,7 +7,7 @@
 				<i class="ti ti-x"></i>
 			</button>
 		</div>
-        <form action="{{ route('portfolio-banner-update') }}"
+        <form action="{{ route('marketing-banner-update') }}"
             method="POST"
             class="formSubmit"
             enctype="multipart/form-data">

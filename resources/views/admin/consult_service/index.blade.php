@@ -1,9 +1,8 @@
 @extends('admin.layout.app')
 @section('title')
-Our Proven
+Consult Service
 @endsection
 @section('content')
-
 <!-- Page Wrapper -->
 		<div class="page-wrapper">
 			<div class="content">
@@ -13,11 +12,11 @@ Our Proven
 						<div class="page-header">
 							<div class="row align-items-center">
 								<div class="col-sm-8">
-									<h4 class="page-title">Our Proven List</h4>
+									<h4 class="page-title">Consult Service List</h4>
 								</div>
 								<div class="col-sm-4 text-sm-end">
 									<div class="head-icons">
-										<a href="{{ route('our-proven-list')}}" data-bs-toggle="tooltip" data-bs-placement="top"
+										<a href="{{ route('consult-service-list')}}" data-bs-toggle="tooltip" data-bs-placement="top"
 											data-bs-original-title="Refresh"><i class="ti ti-refresh-dot"></i></a>
 										<a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top"
 											data-bs-original-title="Collapse" id="collapse-header"><i
@@ -27,7 +26,6 @@ Our Proven
 							</div>
 						</div>
 						<!-- /Page Header -->
-
 						<div class="card">
 							<div class="card-header">
 								<!-- Search -->
@@ -37,9 +35,9 @@ Our Proven
 									</div>
 									<div class="col-sm-8">
 										<div class="text-sm-end">
-											<a href="{{ route('our-proven-create') }}" class="btn btn-primary"
-												 title="Add Our Proven"><i
-													class="ti ti-square-rounded-plus me-2"></i>Add Our Proven</a>
+											<a href="{{ route('consult-service-create') }}" class="btn btn-primary"
+												 title="Add Consult Service"><i
+													class="ti ti-square-rounded-plus me-2"></i>Add Consult Service</a>
 										</div>
 									</div>
 								</div>
@@ -61,11 +59,9 @@ Our Proven
                                             @foreach($lists as $key => $data)
                                                 <tr>
                                                     <td>{{ $key + 1 }}</td>
-                                                    
                                                     <td style="max-width: 250px; white-space: normal;">
                                                         {{ $data->name ?? '' }}
                                                     </td>
-
                                                     <td>
                                                         @if($data->status == 1)
                                                             <span class="badge bg-success active_btn">Active</span>
@@ -75,14 +71,14 @@ Our Proven
                                                     </td>
                                                     <td>
                                                         <div class="form-button-action">
-                                                            <a href="{{ route('our-proven-edit', [base64_encode($data->id)]) }}" class="btn btn-secondary" title="Edit">
+                                                            <a href="{{ route('consult-service-edit', [base64_encode($data->id)]) }}" class="btn btn-secondary" title="Edit">
                                                                 <i class="feather-edit"></i>
                                                             </a>
                                                             <button @if($data->status == 1)
-                                                             class="btn btn-danger btn-xs mw-75 ml-2 mr-2" id="activateBtn" @else class="btn btn-success btn-xs mw-75 ml-2 mr-2" id="deactivateBtn" @endif href="{{ route('our-proven-status-update', [$data->id]) }}" title="Status">
+                                                             class="btn btn-danger btn-xs mw-75 ml-2 mr-2" id="activateBtn" @else class="btn btn-success btn-xs mw-75 ml-2 mr-2" id="deactivateBtn" @endif href="{{ route('consult-service-status-update', [$data->id]) }}" title="Status">
                                                                 @if($data->status == 1) <i class="feather-lock"></i> @else <i class="feather-unlock"></i> @endif
                                                             </button>
-                                                            <button id="delete" href="{{ route('our-proven.delete',[$data->id]) }}" class="btn btn-danger btn-xs mr-2 jsgrid-delete-button" type="button" title="Delete"><i class="fa fa-trash"></i>
+                                                            <button id="delete" href="{{ route('consult-service.delete',[$data->id]) }}" class="btn btn-danger btn-xs mr-2 jsgrid-delete-button" type="button" title="Delete"><i class="fa fa-trash"></i>
                                                             </button>
                                                         </div>
                                                     </td>
@@ -108,7 +104,6 @@ Our Proven
 						</div>
 					</div>
 				</div>
-
 			</div>
 		</div>
 		<!-- /Page Wrapper -->

@@ -1,460 +1,751 @@
 @extends('website.layout.app')
-
-{{-- @section('title', $serviceData->seo_title ?? $serviceData->title . ' | Infinit Tech Solution')
-@section('meta_description',$serviceData->seo_description?? Str::limit(strip_tags($serviceData->short_description), 160))
-@section('meta_keywords',$serviceData->seo_keywords ?? 'web development, mobile apps, seo services, infinit tech')
-@section('canonical',url()->current())
-@section('og_image',$serviceData->seo_image? asset($serviceData->seo_image): asset('images/default-og.jpg')) --}}
-
 @section('content')
-
-<section class="digital-marketing-page-marketing-strategies-main">
-
-  <div class="digital-marketing-page-marketing-strategies-case-wrapper">
-
-    <!-- LEFT -->
-      <div class="digital-marketing-page-marketing-strategies-case-left">
-     <h2>
-    Marketing Strategies<br>
-    That Produce Quantifiable<br>
-    Results
-  </h2>
-
-  <div class="digital-marketing-page-marketing-strategies-case-image">
-    <img id="digital-marketing-page-marketing-strategies-caseImg" src="{{ asset('website1/assets/images/turpentine-oil.jpeg') }}" alt="">
-  </div>
-</div>
-
-    <!-- RIGHT -->
-    <div class="digital-marketing-page-marketing-strategies-case-right">
-
-      <!-- TABS -->
-      <ul class="digital-marketing-page-marketing-strategies-case-tabs">
-        <li data-tab="fit">Williamson Fit</li>
-        <li data-tab="app" class="active">AppDukaan</li>
-        <li data-tab="expo">Expo City Eats</li>
-      </ul>
-
-      <!-- STATS -->
-      <div class="digital-marketing-page-marketing-strategies-stats">
-        <div class="digital-marketing-page-marketing-strategies-stat-box">
-          <h3 id="stat1">75%</h3>
-          <p id="stat1Text">Increase Traffic by</p>
-        </div>
-        <div class="digital-marketing-page-marketing-strategies-stat-box">
-          <h3 id="digital-marketing-page-marketing-strategies-stat2">90 Days</h3>
-          <p id="digital-marketing-page-marketing-strategies-stat2Text">Time Improvement</p>
-        </div>
-      </div>
-
-      <!-- TEXT -->
-      <p id="digital-marketing-page-marketing-strategies-caseDesc">
-        AppDukaan is among the leading providers of on-demand app solutions...
-      </p>
-
-      <a href="#" class="btn">Start Building →</a>
-
-    </div>
-
-  </div>
-</section>
-
-
-<section class="digital-marketing-page-satisfide-clients-stats-section">
-  <div class="digital-marketing-page-satisfide-clients-stats-container">
-
-    <!-- LEFT STATS -->
-    <div class="digital-marketing-page-satisfide-clients-stats-left">
-      <div class="digital-marketing-page-satisfide-clients-stat-box">
-        <h2>250+</h2>
-        <p>Satisfied Clients</p>
-      </div>
-      <div class="digital-marketing-page-satisfide-clients-stat-box">
-        <h2>500+</h2>
-        <p>Projects Delivered</p>
-      </div>
-    </div>
-
-    <!-- RIGHT CIRCLES -->
-    <div class="digital-marketing-page-satisfide-clients-stats-right">
-      <div class="digital-marketing-page-satisfide-clients-circle circle-one">
-        <h3>98%</h3>
-        <span>Customer Success</span>
-      </div>
-
-      <div class="digital-marketing-page-satisfide-clients-circle circle-two">
-        <h3>12+</h3>
-        <span>Years of Experience</span>
-      </div>
-
-      <div class="digital-marketing-page-satisfide-clients-circle circle-three">
-        <h3>1K+</h3>
-        <span>Campaigns</span>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-
-<section class="digital-marketing-page-why-partner-section">
-  <h2>Why Partner With Us?</h2>
-  <p class="digital-marketing-page-why-partner-subtitle">
-    We are Experts in Making Your Brand Visible Across Platforms
-  </p>
-
-  <div class="digital-marketing-page-why-partner-partner-cards">
-    <div class="digital-marketing-page-why-partner-partner-card card-orange">
-     <div class="digital-marketing-page-why-partner-partner-icon-box orange-card">
-  <img src="{{ asset('website1/assets/images/campaign.png') }}" alt="Dedicated Management icon">
-</div>
-
-      <h3>Dedicated Management</h3>
-      <p>
-        Keep connected with a dedicated account manager to stay up-to-date
-        with updates in strategy and implementation.
-      </p>
-    </div>
-
-    <div class="digital-marketing-page-why-partner-partner-card card-pink">
-      <div class="digital-marketing-page-why-partner-partner-icon-box pink">
-        <img src="{{ asset('website1/assets/images/models.png') }}" alt="Dedicated Management icon">
-      </div>
-      <h3>Optimized Campaign Creation</h3>
-      <p>
-        Get weekly audits and monthly or bimonthly reports to improve the
-        efficiency of your ad campaigns and increase customer retention rate
-        and profitability.
-      </p>
-    </div>
-
-    <div class="digital-marketing-page-why-partner-partner-card card-blue">
-      <div class="digital-marketing-page-why-partner-partner-icon-box blue">
-        <img src="{{ asset('website1/assets/images/dedicated.png') }}" alt="Dedicated Management icon">
-      </div>
-      <h3>Simple Pricing Models</h3>
-      <p>
-        We offer different pricing models to suit different business,
-        strategy, market, and implementation requirements.
-      </p>
-    </div>
-
-  </div>
-</section>
-
-
-<section class="bespok-digital-marketing-page-ppc-section">
-  <h1>Bespoke Digital Marketing Consulting Services to Cater to All Your Business Needs</h1>
-  <div class="bespok-digital-marketing-page-ppc-container">
-
-    <!-- LEFT CONTENT -->
-    <div class="bespok-digital-marketing-page-ppc-content">
-      <span class="bespok-digital-marketing-page-ppc-tag">PPC</span>
-
-      <h2>Pay Per Click</h2>
-
-      <ul class="bespok-digital-marketing-page-ppc-list">
-        <li>Get more qualified leads with well-planned and research-backed campaigns</li>
-        <li>Empower your organic SEO efforts with relevant and cost-efficient pay-per-click campaigns.</li>
-        <li>Our digital marketing consultants help optimize PPC campaigns, reduce CPL, and increase qualified leads.</li>
-      </ul>
-
-      <a href="#" class="bespok-digital-marketing-page-ppc-btn">Build a PPC Campaign →</a>
-    </div>
-
-    <!-- RIGHT IMAGE -->
-    <div class="bespok-digital-marketing-page-ppc-image">
-      <img src="{{ asset('website1/assets/images/ppc.png') }}" alt="PPC Marketing">
-    </div>
-
-  </div>
-</section>
-
-
-<section class="bespok-digital-marketing-page-ppc-section">
-  <div class="bespok-digital-marketing-page-ppc-container reverse">
-
-    <!-- LEFT CONTENT -->
-    <div class="bespok-digital-marketing-page-ppc-content">
-      <span class="bespok-digital-marketing-page-ppc-tag">SEO</span>
-
-      <h2>Serch Engine Optimeze</h2>
-
-      <ul class="bespok-digital-marketing-page-ppc-list">
-        <li>Get more qualified leads with well-planned and research-backed campaigns</li>
-        <li>Empower your organic SEO efforts with relevant and cost-efficient pay-per-click campaigns.</li>
-        <li>Our digital marketing consultants help optimize PPC campaigns, reduce CPL, and increase qualified leads.</li>
-      </ul>
-
-      <a href="#" class="bespok-digital-marketing-page-ppc-btn">Build a PPC Campaign →</a>
-    </div>
-
-    <!-- RIGHT IMAGE -->
-    <div class="bespok-digital-marketing-page-ppc-image">
-      <img src="{{ asset('website1/assets/images/seo.png') }}" alt="PPC Marketing">
-    </div>
-
-  </div>
-</section>
-
-
-
-<section class="bespok-digital-marketing-page-ppc-section">
-  <div class="bespok-digital-marketing-page-ppc-container ">
-
-    <!-- LEFT CONTENT -->
-    <div class="bespok-digital-marketing-page-ppc-content">
-      <span class="bespok-digital-marketing-page-ppc-tag">SEO</span>
-
-      <h2>Serch Engine Optimeze</h2>
-
-      <ul class="bespok-digital-marketing-page-ppc-list">
-        <li>Get more qualified leads with well-planned and research-backed campaigns</li>
-        <li>Empower your organic SEO efforts with relevant and cost-efficient pay-per-click campaigns.</li>
-        <li>Our digital marketing consultants help optimize PPC campaigns, reduce CPL, and increase qualified leads.</li>
-      </ul>
-
-      <a href="#" class="bespok-digital-marketing-page-ppc-btn">Build a PPC Campaign →</a>
-    </div>
-
-    <!-- RIGHT IMAGE -->
-    <div class="bespok-digital-marketing-page-ppc-image">
-      <img src="{{ asset('website1/assets/images/ppc.png') }}" alt="PPC Marketing">
-    </div>
-
-  </div>
-</section>
-
-
-<section class="bespok-digital-marketing-page-ppc-section">
-  <div class="bespok-digital-marketing-page-ppc-container reverse">
-
-    <!-- LEFT CONTENT -->
-    <div class="bespok-digital-marketing-page-ppc-content">
-      <span class="bespok-digital-marketing-page-ppc-tag">SEO</span>
-
-      <h2>Serch Engine Optimeze</h2>
-
-      <ul class="bespok-digital-marketing-page-ppc-list">
-        <li>Get more qualified leads with well-planned and research-backed campaigns</li>
-        <li>Empower your organic SEO efforts with relevant and cost-efficient pay-per-click campaigns.</li>
-        <li>Our digital marketing consultants help optimize PPC campaigns, reduce CPL, and increase qualified leads.</li>
-      </ul>
-
-      <a href="#" class="bespok-digital-marketing-page-ppc-btn">Build a PPC Campaign →</a>
-    </div>
-
-    <!-- RIGHT IMAGE -->
-    <div class="bespok-digital-marketing-page-ppc-image">
-      <img src="{{ asset('website1/assets/images/seo.png') }}" alt="PPC Marketing">
-    </div>
-
-  </div>
-</section>
-
-
-
-
-
-
-
-
-<section class="digital-marketing-page-services-slider-section">
-
-  <div class="digital-marketing-page-services-slider-wrapper">
-
-    <!-- TRACK -->
-    <div class="digital-marketing-page-services-slider-track" id="servicesTrack">
-
-      <!-- SLIDE 1 -->
-      <div class="digital-marketing-page-service-slide">
-        <div class="digital-marketing-page-service-left">
-          <span class="digital-marketing-page-service-tag">MAM</span>
-          <h2>Mobile App Marketing</h2>
-          <ul>
-            <li>Increase app installs & visibility</li>
-            <li>Improve ratings & reviews</li>
-          </ul>
-          <a href="#" class="digital-marketing-page-service-btn">Explore Service</a>
-        </div>
-        <div class="digital-marketing-page-service-right">
-          <img src="{{ asset('website1/assets/images/ppc.png') }}">
-        </div>
-      </div>
-
-      <!-- SLIDE 2 -->
-       <div class="digital-marketing-page-service-slide">
-        <div class="digital-marketing-page-service-left">
-          <span class="digital-marketing-page-service-tag">MAM</span>
-          <h2>Mobile App Marketing</h2>
-          <ul>
-            <li>Increase app installs & visibility</li>
-            <li>Improve ratings & reviews</li>
-          </ul>
-          <a href="#" class="digital-marketing-page-service-btn">Explore Service</a>
-        </div>
-        <div class="digital-marketing-page-service-right">
-          <img src="{{ asset('website1/assets/images/content_marketing.png') }}">
-        </div>
-      </div>
-      <!-- SLIDE 3 -->
-       <div class="digital-marketing-page-service-slide">
-        <div class="digital-marketing-page-service-left">
-          <span class="digital-marketing-page-service-tag">MAM</span>
-          <h2>Mobile App Marketing</h2>
-          <ul>
-            <li>Increase app installs & visibility</li>
-            <li>Improve ratings & reviews</li>
-          </ul>
-          <a href="#" class="digital-marketing-page-service-btn">Explore Service</a>
-        </div>
-        <div class="digital-marketing-page-service-right">
-           <img src="{{ asset('website1/assets/images/content_marketing.png') }}">
-        </div>
-      </div>
-
-      <!-- SLIDE 4 -->
-    <div class="digital-marketing-page-service-slide">
-        <div class="digital-marketing-page-service-left">
-          <span class="digital-marketing-page-service-tag">MAM</span>
-          <h2>Mobile App Marketing</h2>
-          <ul>
-            <li>Increase app installs & visibility</li>
-            <li>Improve ratings & reviews</li>
-          </ul>
-          <a href="#" class="digital-marketing-page-service-btn">Explore Service</a>
-        </div>
-        <div class="digital-marketing-page-service-right">
-          <img src="{{ asset('website1/assets/images/content_marketing.png') }}">
-        </div>
-      </div>
-
-      <!-- SLIDE 5 -->
-      <div class="digital-marketing-page-service-slide">
-        <div class="digital-marketing-page-service-left">
-          <span class="digital-marketing-page-service-tag">MAM</span>
-          <h2>Mobile App Marketing</h2>
-          <ul>
-            <li>Increase app installs & visibility</li>
-            <li>Improve ratings & reviews</li>
-          </ul>
-          <a href="#" class="digital-marketing-page-service-btn">Explore Service</a>
-        </div>
-        <div class="digital-marketing-page-service-right">
-          <img src="{{ asset('website1/assets/images/content_marketing.png') }}">
-        </div>
-      </div>
-
-      <!-- SLIDE 6 --> <div class="digital-marketing-page-service-slide">
-        <div class="digital-marketing-page-service-left">
-          <span class="digital-marketing-page-service-tag">MAM</span>
-          <h2>Mobile App Marketing</h2>
-          <ul>
-            <li>Increase app installs & visibility</li>
-            <li>Improve ratings & reviews</li>
-          </ul>
-          <a href="#" class="digital-marketing-page-service-btn">Explore Service</a>
-        </div>
-        <div class="digital-marketing-page-service-right">
-           <img src="{{ asset('website1/assets/images/content_marketing.png') }}">
-        </div>
-      </div>
-
-    </div>
-
-    <!-- NAV BUTTONS -->
-    <div class="digital-marketing-page-slider-nav">
-      <button onclick="prevSlide()">←</button>
-      <button onclick="nextSlide()">→</button>
-    </div>
-
-  </div>
-
-</section>
-
-
-<section class="digital-marketing-page-our-process">
-  <div class="digital-marketing-page-process-wrap">
-
-    <h2>Our Process</h2>
-    <p class="digital-marketing-page-process-desc">
-      Our professionals are adept in increasing your online presence, visibility,
-      and brand awareness along with helping you boost your ROI. We make outsourcing
-      digital marketing services a breeze. All of this happens in just four simple steps.
+<style>
+/* ===== SECTION ===== */
+.portfolio-section-tab-top{
+  padding:70px 0;
+}
+h2{
+    color: #173b82e4;
+}
+h3{
+    color: #173b82e4;
+}
+/* ===== WRAPPER ===== */
+.portfolio-wrapper-tab-top{
+  max-width:1300px;
+  margin:auto;
+  display:flex;
+  gap:40px;
+  align-items:flex-start;
+}
+
+/* ===== LEFT TABS ===== */
+.portfolio-tabs-tab-top{
+  width:28%;
+  background:#eef6ff;
+  border-radius:20px;
+  padding:24px;
+  position:sticky;
+  top:120px;
+  align-self:flex-start;
+}
+
+/* Search */
+.tab-search{
+  margin-bottom:18px;
+}
+
+.tab-search input{
+  width:100%;
+  padding:11px 14px;
+  border-radius:10px;
+  /* border:1px solid #4073dae4; */
+  outline:none;
+  font-size:14px;
+  color: #173b82e4;
+}
+
+/* .tab-search input:focus{
+  border-color:#173b82e4;
+} */
+.tab-search input:focus {
+  outline: none;
+  border-color: #0a2a66;
+  box-shadow: 0 0 0 3px rgba(10, 42, 102, 0.1);
+}
+.tab-search input {
+  background: #ffffff;
+  border: 1px solid #cddcff;
+  border-radius: 10px;
+}
+/* Tabs list */
+.portfolio-tabs-tab-top ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.portfolio-tabs-tab-top li{
+  padding:12px 14px;
+  margin-bottom:6px;
+  cursor:pointer;
+  border-radius:10px;
+  font-size:14px;
+  color:#333;
+  transition:0.3s;
+}
+
+.portfolio-tabs-tab-top li:hover{
+  background:#ffffff;
+}
+
+.portfolio-tabs-tab-top li.active{
+  background:#ffffff;
+  color:#173b82e4;
+  font-weight:600;
+  box-shadow:0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* ===== RIGHT CONTENT ===== */
+.portfolio-content-tab-top{
+  width:72%;
+  margin-top: --18px;
+}
+
+.portfolio-heading{
+  font-size:34px;
+  font-weight:700;
+  margin:0 0 35px;
+  color: #173b82e4;
+}
+
+/* ===== CARD ===== */
+.portfolio-card-tab-top{
+  display:none;
+  align-items:center;
+  justify-content:space-between;
+  gap:40px;
+  padding:44px 48px;
+  border-radius:28px;
+  background: linear-gradient(135deg, #f4f8ff 0%, #e3ecff 100%);
+  margin-bottom:22px;
+}
+
+.portfolio-card-tab-top.active{
+  display:flex;
+}
+
+/* ===== CARD TEXT ===== */
+.portfolio-text-tab-top{
+  width:58%;
+}
+
+.portfolio-text-tab-top h2{
+  font-size:24px;
+  margin:0 0 10px;
+  color: #0a2a66;   /* Deep logo blue */
+  font-weight: 700;
+}
+
+.portfolio-text-tab-top p{
+  font-size:15px;
+  color: #475569;
+  line-height:1.6;
+}
+.portfolio-text h2{
+  font-size:24px;
+  margin:0 0 10px;
+  color: #0a2a66;   /* Deep logo blue */
+  font-weight: 700;
+}
+.portfolio-text p{
+  font-size:15px;
+  color: #475569;
+  line-height:1.6;
+}
+/* ===== META ===== */
+.meta-tab-top{
+  display:flex;
+  gap:30px;
+  margin-top:18px;
+}
+
+.meta-tab-top span{
+  display:block;
+  font-size:12px;
+  color:#666;
+}
+
+.meta-tab-top strong{
+  font-size:14px;
+  font-weight:600;
+}
+
+/* ===== IMAGE ===== */
+.portfolio-image-tab-top{
+  width:42%;
+  text-align:right;
+}
+
+.portfolio-image-tab-top img{
+  max-width:260px;
+  width:100%;
+  object-fit:contain;
+}
+
+
+.portfolio-section-second-crousel{
+  padding:70px 0;
+  background:#f9fafc;
+}
+
+.portfolio-container-second-crousel{
+  max-width:1200px;
+  margin:auto;
+  padding:0 20px;
+}
+
+.main-title-second-crousel{
+  text-align:center;
+  font-size:36px;
+  font-weight:700;
+}
+
+.main-title-second-crousel span{
+  color:#0066ff ;
+}
+.main-title-second-crousel h2{
+  color:#0a4398ce !important;
+}
+.sub-title-second-crousel{
+  text-align:center;
+  margin:10px 0 40px;
+  color:#555;
+}
+
+.featured-title-second-crousel{
+  font-size:24px;
+  margin-bottom:20px;
+}
+
+/* ===== SLIDER ===== */
+.slider-wrapper-second-crousel{
+  overflow:hidden;
+  width:100%;
+}
+
+.slider-track-second-crousel{
+  display:flex;
+  gap:20px;
+  will-change:transform;
+}
+
+/* ===== CARD ===== */
+.project-card-second-crousel{
+  min-width:320px;
+  flex-shrink:0;
+  border-radius:18px;
+  padding:25px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:space-between;
+  transition: all 0.3s ease;
+}
+.project-card-second-crousel:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+}
+.project-card-second-crousel img{
+  width:100%;
+  max-height:180px;
+  object-fit:contain;
+}
+
+.project-card-second-crousel h4{
+  margin:12px 0 0;
+  font-size:18px;
+}
+
+.project-card-second-crousel button{
+  margin-top:18px;
+  padding:10px 22px;
+  border-radius:30px;
+  /* border:1px solid #111; */
+  background:#0C2347;
+  cursor:pointer;
+  font-size:14px;
+  transition: all 0.3s ease;
+}
+
+.project-card-second-crousel button:hover{
+  /* background:#111; */
+  /* color:#0b5ed7; */
+  background: #0b5ed7;
+}
+.project-card-second-crousel h4{
+  margin:15px 0 0;
+  font-size:18px;
+  font-weight:600;
+  color:#111;
+}
+/* ===== COLORS ===== */
+.pink{
+  background: linear-gradient(135deg,#f7dedd,#fceaea);
+}
+
+.mint{
+  background: linear-gradient(135deg,#e5faf7,#f3fffd);
+}
+
+.white{
+  background:#ffffff;
+  border:1px solid #e5e7eb;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+/*.dots{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  margin-top:25px;
+}
+
+.dot{
+  width:8px;
+  height:8px;
+  background:#ccc;
+  border-radius:50%;
+}
+.dot.active{background:#0066ff;}*/
+
+
+/* ================= RESPONSIVE ================= */
+
+/* ===== Tablets (<= 1024px) ===== */
+@media (max-width: 1024px) {
+
+  .portfolio-wrapper-tab-top{
+    flex-direction:column;
+  }
+
+  .portfolio-tabs-tab-top{
+    width:100%;
+    position:relative;
+    top:0;
+  }
+
+  .portfolio-content-tab-top{
+    width:100%;
+  }
+
+  .portfolio-card-tab-top{
+    padding:30px;
+  }
+
+  .portfolio-text-tab-top,
+  .portfolio-image-tab-top{
+    width:50%;
+  }
+}
+
+/* ===== Mobile (<= 768px) ===== */
+@media (max-width: 768px) {
+
+  /* Headings */
+  .portfolio-heading{
+    font-size:26px;
+    margin-bottom:20px;
+  }
+
+  .main-title-second-crousel{
+    font-size:28px;
+  }
+
+  .featured-title-second-crousel{
+    font-size:20px;
+  }
+
+  /* Tabs */
+  .portfolio-tabs-tab-top ul{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+
+  .portfolio-tabs-tab-top li{
+    flex:1 1 auto;
+    text-align:center;
+    background:#fff;
+    border:1px solid #dbe6ff;
+  }
+
+  /* Cards stack */
+  .portfolio-card-tab-top{
+    flex-direction:column;
+    text-align:center;
+    gap:20px;
+  }
+
+  .portfolio-text-tab-top,
+  .portfolio-image-tab-top{
+    width:100%;
+  }
+
+  .portfolio-image-tab-top{
+    text-align:center;
+  }
+
+  .portfolio-image-tab-top img{
+    max-width:180px;
+  }
+
+  /* Slider */
+  .project-card-second-crousel{
+    min-width:260px;
+  }
+}
+
+/* ===== Small Mobile (<= 480px) ===== */
+@media (max-width: 480px) {
+
+  .portfolio-section-tab-top,
+  .portfolio-section-second-crousel{
+    padding:40px 0;
+  }
+
+  .tab-search input{
+    font-size:13px;
+    padding:8px 10px;
+  }
+
+  .portfolio-card-tab-top{
+    padding:22px;
+    border-radius:18px;
+  }
+
+  .project-card-second-crousel{
+    min-width:220px;
+    padding:15px;
+  }
+
+  .project-card-second-crousel h4{
+    font-size:16px;
+  }
+  /* COMMON SIDE PADDING */
+.portfolio-container-second-crousel,
+.portfolio-wrapper-tab-top{
+  padding-left:20px;
+  padding-right:20px;
+}
+
+/* Mobile me thoda aur tight */
+@media (max-width: 768px){
+  .portfolio-container-second-crousel,
+  .portfolio-wrapper-tab-top{
+    padding-left:15px;
+    padding-right:15px;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px){
+  .portfolio-container-second-crousel,
+  .portfolio-wrapper-tab-top{
+    padding-left:12px;
+    padding-right:12px;
+  }
+}
+
+}
+
+</style>
+
+<section class="portfolio-section-second-crousel">
+  <div class="portfolio-container-second-crousel">
+
+    <h2 class="main-title-second-crousel">
+      <span>Transform</span> The World With Your Idea.
+    </h2>
+    <p class="sub-title-second-crousel">
+      From dream to reality, here are some apps we are proud to be part of.
     </p>
 
-    <!-- CARDS -->
-    <div class="digital-marketing-page-process-cards">
-      <div class="digital-marketing-page-card pink">
-        <img src="{{ asset('website1/assets/images/cta.png')}}">
-        <h4>Preparation<br>and Brainstorming</h4>
-        <p>We start with a detailed business analysis and define objectives.</p>
-        <span class="arrow"></span>
-      </div>
-
-      <div class="digital-marketing-page-card orange">
-        <img src="{{ asset('website1/assets/images/cta.png')}}">
-        <h4>Planning<br>and Researching</h4>
-        <p>Competitor and audience research with channel planning.</p>
-        <span class="arrow"></span>
-      </div>
-
-      <div class="digital-marketing-page-card blue">
-       <img src="{{ asset('website1/assets/images/cta.png')}}">
-        <h4>Testing<br>Everything</h4>
-        <p>We test, analyze and optimize campaigns continuously.</p>
-        <span class="arrow"></span>
-      </div>
-
-      <div class="digital-marketing-page-card green">
-       <img src="{{ asset('website1/assets/images/cta.png')}}">
-        <h4>Implementing<br>and Execution</h4>
-        <p>Execution with scaling and performance tracking.</p>
-        <span class="arrow"></span>
-      </div>
-    </div>
-
-    <!-- CURVE -->
-    <div class="digital-marketing-page-curve-area">
-      <svg viewBox="0 0 1200 220" preserveAspectRatio="none">
-        <path d="M0,140 C250,60 500,200 750,130 950,80 1100,100 1200,60"
-          stroke="url(#g)" stroke-width="4" fill="none"/>
-        <defs>
-          <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#ff4d8d"/>
-            <stop offset="30%" stop-color="#ff9f1c"/>
-            <stop offset="60%" stop-color="#4dabf7"/>
-            <stop offset="100%" stop-color="#2ecc71"/>
-          </linearGradient>
-        </defs>
-      </svg>
-
-      <div class="digital-marketing-page-step s1">Step 01</div>
-      <div class="digital-marketing-page-step s2">Step 02</div>
-      <div class="digital-marketing-page-step s3">Step 03</div>
-      <div class="digital-marketing-page-step s4">Step 04</div>
-       <img src="{{ asset('website1/assets/images/cta.png')}}" class="rocket">
-
-      <!-- <img src="rocket.png') }}" class="rocket"> -->
-    </div>
-
-    <!-- CTA -->
-    <div class="digital-marketing-page-process-cta">
-      <div>
-        <h4>Add SEO, SEM, and SMM in a</h4>
-        <p>Comprehensive Marketing Package to Generate Quality Results, Quickly.</p>
-        <a href="#">Know How We Do It</a>
-      </div>
-      <img src="{{ asset('website1/assets/images/cta.png')}}">
-    </div>
-
+    <h3 class="featured-title-second-crousel">Featured Projects</h3>
+        @if(count($featureProductList) > 0)
+            <div class="slider-wrapper-second-crousel">
+                <div class="slider-track-second-crousel" id="sliderTrack">
+                    @foreach ($featureProductList as $featureProduct)
+                        <div class="project-card-second-crousel">
+                        <img src="https://via.placeholder.com/260x160" alt="">
+                        <h4>{{ $featureProduct->name ?? '' }}p</h4>
+                        <button>View Case Study →</button>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        @endif
   </div>
 </section>
 
 
 
+
+
+
+
+<section class="portfolio-section-tab-top">
+
+  <div class="portfolio-wrapper-tab-top">
+
+    <!-- LEFT 30% -->
+ <aside class="portfolio-tabs-tab-top">
+
+  <div class="tab-search">
+    <input type="text" id="tabSearch-tab-top" placeholder="Search..." />
+  </div>
+
+  <ul>
+    <li class="active" data-key="all">ALL</li>
+    @foreach ($featureProductList as $featureProduct1)
+    <li data-key="itemportfolio{{ $featureProduct1->id }}">{{ $featureProduct1->name ?? '' }}</li>
+    @endforeach
+    {{-- <li data-key="astrology">Astrology App</li>
+    <li data-key="beauty">Beauty App</li>
+    <li data-key="dating">Dating App</li> --}}
+  </ul>
+</aside>
+
+
+<div class="portfolio-content-tab-top">
+    <h1 class="portfolio-heading">ALL</h1>
+
+    @foreach ($productList as $product)
+        <div class="portfolio-card-tab-top active"
+             data-key="itemportfolio{{ $product->category_id ?? ''}}">
+
+            <div class="portfolio-text-tab-top">
+                <h2>{{ $product->title ?? ''}}</h2>
+                <p>{{ $product->short_description ?? ''}}</p>
+
+                <div class="meta-tab-top">
+                    <div>
+                        <span>Country</span>
+                        <strong>{{ $product->contry ?? ''}}</strong>
+                    </div>
+                    <div>
+                        <span>Platforms</span>
+                        <strong>{{ $product->platform ?? ''}}</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-image-tab-top">
+                <img src="{{ asset($product->image ?? 'notImage.jpg') }}">
+            </div>
+        </div>
+    @endforeach
+
+</div>
+
+  </div>
+
+</section>
 
 
 @include('website.contact-form')
+
+
+{{-- <script>
+const tabs = document.querySelectorAll(
+  ".portfolio-tabs-tab-top li"
+);
+const cards = document.querySelectorAll(
+  ".portfolio-card-tab-top"
+);
+const heading = document.querySelector(
+  ".portfolio-heading"
+);
+const searchInput = document.getElementById(
+  "tabSearch-tab-top"
+);
+
+/* ===== SEARCH ===== */
+searchInput.addEventListener("input", e => {
+  const value = e.target.value.toLowerCase();
+
+  tabs.forEach(tab => {
+    tab.style.display = tab.textContent
+      .toLowerCase()
+      .includes(value) ? "block" : "none";
+  });
+
+  cards.forEach(card => {
+    card.style.display = card.textContent
+      .toLowerCase()
+      .includes(value) ? "flex" : "none";
+  });
+});
+
+/* ===== TAB CLICK ===== */
+tabs.forEach(tab => {
+  tab.addEventListener("click", () => {
+
+    searchInput.value = "";
+
+    tabs.forEach(t => t.classList.remove("active"));
+    tab.classList.add("active");
+
+    const key = tab.dataset.key;
+    heading.textContent = tab.textContent;
+
+    cards.forEach(card => {
+      card.classList.remove("active");
+
+      if (key === "all" || card.dataset.key === key) {
+        card.classList.add("active");
+      }
+    });
+
+    document
+      .querySelector(".portfolio-content-tab-top")
+      .scrollIntoView({ behavior: "smooth" });
+  });
+});
+</script> --}}
+
+<script>
+const portfolioTabsTabTop = document.querySelectorAll(
+  ".portfolio-tabs-tab-top li"
+);
+
+const portfolioCardsTabTop = document.querySelectorAll(
+  ".portfolio-card-tab-top"
+);
+
+const portfolioHeadingTabTop = document.querySelector(
+  ".portfolio-heading"
+);
+
+const tabSearchTabTop = document.getElementById(
+  "tabSearch-tab-top"
+);
+
+/* ===== SEARCH ===== */
+tabSearchTabTop.addEventListener("input", e => {
+  const searchValueTabTop = e.target.value.toLowerCase();
+
+  portfolioTabsTabTop.forEach(tabItemTabTop => {
+    tabItemTabTop.style.display = tabItemTabTop.textContent
+      .toLowerCase()
+      .includes(searchValueTabTop) ? "block" : "none";
+  });
+
+  portfolioCardsTabTop.forEach(cardItemTabTop => {
+    cardItemTabTop.style.display = cardItemTabTop.textContent
+      .toLowerCase()
+      .includes(searchValueTabTop) ? "flex" : "none";
+  });
+});
+
+/* ===== TAB CLICK ===== */
+// portfolioTabsTabTop.forEach(tabItemTabTop => {
+//   tabItemTabTop.addEventListener("click", () => {
+
+//     tabSearchTabTop.value = "";
+
+//     portfolioTabsTabTop.forEach(tabLoopTabTop =>
+//       tabLoopTabTop.classList.remove("active")
+//     );
+
+//     tabItemTabTop.classList.add("active");
+
+//     const tabKeyTabTop = tabItemTabTop.dataset.key;
+
+//     portfolioHeadingTabTop.textContent = tabItemTabTop.textContent;
+
+//     portfolioCardsTabTop.forEach(cardLoopTabTop => {
+//       cardLoopTabTop.classList.remove("active");
+
+//       if (tabKeyTabTop === "all" || cardLoopTabTop.dataset.key === tabKeyTabTop) {
+//         cardLoopTabTop.classList.add("active");
+//       }
+//     });
+
+//     document
+//       .querySelector(".portfolio-content-tab-top")
+//       .scrollIntoView({ behavior: "smooth" });
+//   });
+// });
+portfolioTabsTabTop.forEach(tabItemTabTop => {
+
+  tabItemTabTop.addEventListener("click", () => {
+
+    tabSearchTabTop.value = "";
+
+    portfolioTabsTabTop.forEach(t => t.classList.remove("active"));
+    tabItemTabTop.classList.add("active");
+
+    const tabKeyTabTop = tabItemTabTop.dataset.key;
+
+    portfolioHeadingTabTop.textContent = tabItemTabTop.textContent;
+
+    portfolioCardsTabTop.forEach(card => {
+
+      card.classList.remove("active");
+
+      if (tabKeyTabTop === "all") {
+        card.classList.add("active");
+      } else if (card.dataset.key === tabKeyTabTop) {
+        card.classList.add("active");
+      }
+
+    });
+
+  });
+
+});
+</script>
+
+
+{{-- <script>
+const sliderTrack = document.getElementById("sliderTrack");
+
+// duplicate cards for infinite loop
+sliderTrack.innerHTML += sliderTrack.innerHTML;
+
+let position = 0;
+const speed = 0.5; // adjust speed here
+
+function infiniteScroll(){
+  position -= speed;
+
+  const trackWidth = sliderTrack.scrollWidth / 2;
+
+  if (Math.abs(position) >= trackWidth){
+    position = 0;
+  }
+
+  sliderTrack.style.transform = `translateX(${position}px)`;
+  requestAnimationFrame(infiniteScroll);
+}
+
+infiniteScroll();
+</script> --}}
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+
+  const sliderTrackSecondCrousel = document.getElementById("sliderTrack");
+
+  if(!sliderTrackSecondCrousel) return; // safety check
+
+  // duplicate cards
+  sliderTrackSecondCrousel.innerHTML += sliderTrackSecondCrousel.innerHTML;
+
+  let sliderPositionSecondCrousel = 0;
+  const sliderSpeedSecondCrousel = 0.5;
+
+  function infiniteScrollSecondCrousel(){
+
+    sliderPositionSecondCrousel -= sliderSpeedSecondCrousel;
+
+    const sliderTrackWidthSecondCrousel =
+      sliderTrackSecondCrousel.scrollWidth / 2;
+
+    if (Math.abs(sliderPositionSecondCrousel) >= sliderTrackWidthSecondCrousel){
+      sliderPositionSecondCrousel = 0;
+    }
+
+    sliderTrackSecondCrousel.style.transform =
+      `translateX(${sliderPositionSecondCrousel}px)`;
+
+    requestAnimationFrame(infiniteScrollSecondCrousel);
+  }
+
+  infiniteScrollSecondCrousel();
+
+});
+</script>
+
 @endsection

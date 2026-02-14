@@ -122,7 +122,13 @@
                         @endforeach
                     </div>
                 @endforeach
-
+                <div class="col">
+                    <h4>Marketing</h4>
+                        <div class="item">
+                            <i class="fa-solid fa-circle-dot"></i>
+                            <a href="{{ route('digital-marketing') }}">Digital Marketing</a>
+                        </div>
+                </div>
             </div>
 
                 <div class="right">

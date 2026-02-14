@@ -1,8 +1,9 @@
 @extends('admin.layout.app')
 @section('title')
-Portfolio Banner
+Features Product
 @endsection
 @section('content')
+
 <!-- Page Wrapper -->
 		<div class="page-wrapper">
 			<div class="content">
@@ -12,11 +13,11 @@ Portfolio Banner
 						<div class="page-header">
 							<div class="row align-items-center">
 								<div class="col-sm-8">
-									<h4 class="page-title">Portfolio Banner List</h4>
+									<h4 class="page-title">Features Product List</h4>
 								</div>
 								<div class="col-sm-4 text-sm-end">
 									<div class="head-icons">
-										<a href="{{ route('marketing-banner-list')}}" data-bs-toggle="tooltip" data-bs-placement="top"
+										<a href="{{ route('features-product-list')}}" data-bs-toggle="tooltip" data-bs-placement="top"
 											data-bs-original-title="Refresh"><i class="ti ti-refresh-dot"></i></a>
 										<a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top"
 											data-bs-original-title="Collapse" id="collapse-header"><i
@@ -37,8 +38,8 @@ Portfolio Banner
 									<div class="col-sm-8">
 										<div class="text-sm-end">
 											<a href="javascript:void(0);" class="btn btn-primary" data-bs-toggle="modal"
-												data-bs-target="#add_category" title="Add Portfolio Banner"><i
-													class="ti ti-square-rounded-plus me-2"></i>Add Portfolio Banner</a>
+												data-bs-target="#add_category" title="Add Features Product"><i
+													class="ti ti-square-rounded-plus me-2"></i>Add Features Product</a>
 										</div>
 									</div>
 								</div>
@@ -52,8 +53,6 @@ Portfolio Banner
                                             <tr>
                                                 <th scope="col">Sr. No.</th>
                                                 <th>Name</th>
-                                                <th>Sub Description</th>
-                                                <th>Image</th>
                                                 <th scope="col">Status</th>
                                                 <th scope="col">Action</th>
                                             </tr>
@@ -65,17 +64,6 @@ Portfolio Banner
                                                     <td style="max-width: 200px; white-space: normal;">
                                                         {{ $data->name ?? '' }}
                                                     </td>
-
-                                                    <td style="max-width: 250px; white-space: normal;">
-                                                        {{ $data->short_description ?? '' }}
-                                                    </td>
-
-                                                    <td>
-                                                        @if(!empty($data->image))
-                                                            <img src="{{ asset($data->image) }}"
-                                                                style="width:60px; height:60px; object-fit:cover; border-radius:6px;">
-                                                        @endif
-                                                    </td>
                                                     <td>
                                                         @if($data->status == 1)
                                                             <span class="badge bg-success active_btn">Active</span>
@@ -85,13 +73,13 @@ Portfolio Banner
                                                     </td>
                                                     <td>
                                                         <div class="form-button-action">
-                                                            <button type="button" data-href="{{ route('marketing-banner-edit', [$data->id]) }}" class="btn btn-secondary edit_model" data-bs-toggle="modal" data-bs-target="#edit_model" title="Edit">
+                                                            <button type="button" data-href="{{ route('features-product-edit', [$data->id]) }}" class="btn btn-secondary edit_model" data-bs-toggle="modal" data-bs-target="#edit_model" title="Edit">
                                                                 <i class="feather-edit"></i>
                                                             </button>
-                                                            <button @if($data->status == 1) class="btn btn-danger btn-xs mw-75 ml-2 mr-2" id="activateBtn" @else class="btn btn-success btn-xs mw-75 ml-2 mr-2" id="deactivateBtn" @endif href="{{ route('marketing-banner-status-update', [$data->id]) }}" title="Status">
+                                                            <button @if($data->status == 1) class="btn btn-danger btn-xs mw-75 ml-2 mr-2" id="activateBtn" @else class="btn btn-success btn-xs mw-75 ml-2 mr-2" id="deactivateBtn" @endif href="{{ route('features-product-status-update', [$data->id]) }}" title="Status">
                                                                 @if($data->status == 1) <i class="feather-lock"></i> @else <i class="feather-unlock"></i> @endif
                                                             </button>
-                                                            <button id="delete" href="{{ route('marketing-banner.delete',[$data->id]) }}" class="btn btn-danger btn-xs mr-2 jsgrid-delete-button" type="button" title="Delete"><i class="fa fa-trash"></i>
+                                                            <button id="delete" href="{{ route('features-product.delete',[$data->id]) }}" class="btn btn-danger btn-xs mr-2 jsgrid-delete-button" type="button" title="Delete"><i class="fa fa-trash"></i>
                                                             </button>
                                                         </div>
                                                     </td>
@@ -128,7 +116,7 @@ Portfolio Banner
 				<div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">
-                            Add New Portfolio Banner
+                            {{ isset($people) ? 'Edit Features Product' : 'Add New Features Product' }}
                         </h5>
                         <button class="btn-close custom-btn-close border p-1 me-0 text-dark"
                                 data-bs-dismiss="modal"
@@ -137,14 +125,14 @@ Portfolio Banner
                         </button>
                     </div>
 
-                    <form action="{{ route('marketing-banner-store') }}"
+                    <form action="{{ route('features-product-store') }}"
                         method="POST"
                         class="formSubmit"
                         enctype="multipart/form-data">
                         @csrf
 
                         {{-- ID for update --}}
-                        <input type="hidden" name="id" value="{{ $data->id ?? '' }}">
+                        <input type="hidden" name="id" value="{{ $people->id ?? '' }}">
 
                         <div class="modal-body">
 
@@ -157,51 +145,8 @@ Portfolio Banner
                                     class="form-control"
                                     name="name"
                                     placeholder="Enter name"
+                                    value="{{ old('name', $people->title ?? '') }}"
                                     required>
-                            </div>
-
-                            <div class="mb-3">
-                                <label class="col-form-label">
-                                    Growth Count <span class="text-danger">*</span>
-                                </label>
-                                <input type="number"
-                                    class="form-control"
-                                    name="growth"
-                                    min="1"
-                                    placeholder="Enter growth"
-                                    required
-                                    value="{{ old('growth', $data->growth ?? '') }}">
-                            </div>
-                            <div class="mb-3">
-                                <label class="col-form-label">
-                                    Result Count <span class="text-danger">*</span>
-                                </label>
-                                <input type="number"
-                                    class="form-control"
-                                    name="result"
-                                    min="1"
-                                    placeholder="Enter result"
-                                    required
-                                    value="{{ old('result', $data->result ?? '') }}">
-                            </div>
-                            {{-- Sub Title --}}
-                            <div class="mb-3">
-                                <label class="col-form-label">Short Description</label>
-                                <textarea
-                                    class="form-control"
-                                    name="short_description"
-                                    placeholder="Enter short description"></textarea>
-                            </div>
-
-                            {{-- Image --}}
-                            <div class="mb-3">
-                                <label class="col-form-label">
-                                    Image <span class="text-danger">*</span>
-                                </label>
-                                <input type="file"
-                                    class="form-control"
-                                    name="image"
-                                    accept="image/*" required>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -216,7 +161,7 @@ Portfolio Banner
                                         role="status"
                                         aria-hidden="true"
                                         style="display:none;"></span>
-                                    {{ isset($data) ? 'Update' : 'Create' }}
+                                    {{ isset($people) ? 'Update' : 'Create' }}
                                 </button>
                             </div>
                         </div>

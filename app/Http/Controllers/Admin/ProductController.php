@@ -10,68 +10,59 @@ use Illuminate\Support\Facades\Auth;
 use DB;
 use File;
 use Exception;
-use App\Models\ConsultService;
+use App\Models\Product;
+use App\Models\FeatureProduct;
 
-class ConsultServiceController extends Controller
+class ProductController extends Controller
 {
     use MessageStatusTrait;
-    protected $view = 'admin.consult_service.';
-    protected $type = 'Consult Service  ';
+    protected $view = 'admin.product.';
+
+    protected $type = 'Product  ';
 
 
     # Bind outlet
     protected $page;
-    protected $consultService;
+    protected $product;
     /**
      * default constructor
      * @param
      * @return
      */
     function __construct(
-                            ConsultService          $consultService
+                            Product          $product
                         )
                         {
-                            $this->consultService = $consultService;
+                            $this->product = $product;
                             $this->page = config('paginate.pagination');
                         }
 
 
-    #consultService page
+    #product page
     public function index(Request $request) {
 
         # fetch setting list
-        $query = $this->consultService;
+        $query = $this->product;
 
+        $categories = FeatureProduct::where('status',1)->get();
         $lists = $query->orderBy('id','desc')->paginate($this->page ?? 10);
 
         return view($this->view.'index')->with([
                                                 'lists'  => $lists ?? [],
+                                                'categories' => $categories ?? [],
                                                 ]);
     }
-
-    public function create()
-    {
-        try
-        {
-
-            return view($this->view.'create');
-        } catch (Exception $e) {
-            return back()->with('error', $ex->getMessage());
-        }
-    }
     /**
-    * ConsultService store
+    * product store
     * @param Illuminate\Http\Request;
     * @return Illuminate\Http\Response;
     */
     public function store(Request $request)
     {
         $rules = [
-            'name'    => 'required|string|max:255',
-            'title'   => 'required|string|max:255',
-            'image'   => 'required|file:jpeg,png,webp,jpg',
-            'details' => 'required|array',
-
+            'category_id'      => 'required|exists:features_product,id',
+            'title'            => 'required|string|max:255',
+            'image'            => 'required|image|mimes:jpg,jpeg,png,webp|max:2048'
         ];
 
         $validator = Validator::make($request->all(), $rules);
@@ -88,27 +79,27 @@ class ConsultServiceController extends Controller
 
             if ($request->hasFile('image')) {
                 $file = $request->file('image');
-                $filename = time().'_ConsultService_'.uniqid().'.'.$file->getClientOriginalExtension();
-                $file->move(public_path('images/admin/consult_service/'), $filename);
-                $imagePath = 'images/admin/consult_service/'.$filename;
+                $filename = time().'_product_'.uniqid().'.'.$file->getClientOriginalExtension();
+                $file->move(public_path('images/admin/products/'), $filename);
+                $imagePath = 'images/admin/products/'.$filename;
             }
 
-
-            $ConsultService = new ConsultService();
-            $ConsultService->name     = $request->name;
-            $ConsultService->title     = $request->title;
-            $ConsultService->features         = $request->details;
-            // $ConsultService->short_description = $request->short_description;
-            $ConsultService->image           = $imagePath ?? null;
-            $ConsultService->created_at      = now();
-            $ConsultService->save();
+            $product = new Product();
+            $product->category_id     = $request->category_id;
+            $product->title           = $request->title;
+            $product->short_detail    = $request->short_detail;
+            $product->contry       = $request->contry;
+            $product->platform    = $request->platform;
+            $product->image           = $imagePath ?? null;
+            $product->created_at      = now();
+            $product->save();
 
             DB::commit();
 
             return response()->json([
                 'responseCode'    => (string)$this->successStatus,
-                'responseMessage' => 'Consult Service Added Successfully.',
-                'responseUrl'     => route('consult-service-list')
+                'responseMessage' => 'Product Added Successfully.',
+                'responseUrl'     => route('product-list')
             ]);
 
         } catch (\Exception $e) {
@@ -121,8 +112,11 @@ class ConsultServiceController extends Controller
         }
     }
 
+
+
+
     /**
-     * edit ConsultService page
+     * edit product page
     * @param Illuminate\Http\Request;
     * @return Illuminate\Http\Response;
     */
@@ -130,26 +124,28 @@ class ConsultServiceController extends Controller
     {
         try
         {
-            $ids = base64_decode($id);
-            $details['data'] = $this->consultService->findOrFail($ids);
-            return view($this->view.'edit',$details);
+            $productData['data'] = $this->product->findOrFail($id);
+
+            $productData['categories'] = FeatureProduct::where('status',1)->get();
+            return view($this->view.'edit',$productData);
         } catch (Exception $e) {
             return back()->with('error', $ex->getMessage());
         }
     }
     /**
-     * update ConsultService page
+     * update product page
     * @param Illuminate\Http\Request;
     * @return Illuminate\Http\Response;
     */
     public function update(Request $request)
     {
         $rules = [
-            'id'               => 'required|exists:consult_service,id',
-            'name'             => 'required|string|max:255',
-            'title'             => 'required|string|max:255',
-            'image' => 'nullable',
-            'details'          => 'required|array',
+            'id'               => 'required|exists:products,id',
+            'category_id'      => 'required|exists:features_product,id',
+            'title'            => 'required|string|max:255',
+            'short_detail'     => 'required|string|max:500',
+
+            'image'            => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
         ];
 
         $validator = Validator::make($request->all(), $rules);
@@ -163,34 +159,35 @@ class ConsultServiceController extends Controller
 
         try {
 
-            DB::beginTransaction();
+        DB::beginTransaction();
+            $product = Product::findOrFail($request->id);
 
-            $ConsultService = ConsultService::findOrFail($request->id);
+            /* ================= BLOG IMAGE ================= */
+            if ($request->hasFile('image')) {
+                if (!empty($product->image) && file_exists(public_path($product->image))) {
+                    unlink(public_path($product->image));
+                }
 
-             if ($request->hasFile('image')) {
-
-            if (!empty($ConsultService->image) && file_exists(public_path($ConsultService->image))) {
-                unlink(public_path($ConsultService->image));
+                $file = $request->file('image');
+                $filename = time().'_product_'.uniqid().'.'.$file->getClientOriginalExtension();
+                $file->move(public_path('images/admin/products/'), $filename);
+                $product->image = 'images/admin/products/'.$filename;
             }
-
-            $file = $request->file('image');
-                $filename = time().'_ConsultService_'.uniqid().'.'.$file->getClientOriginalExtension();
-                $file->move(public_path('images/admin/consult_service/'), $filename);
-                $ConsultService->image = 'images/admin/consult_service/'.$filename;
-            }
-
-            $ConsultService->name              = $request->name;
-            $ConsultService->title             = $request->title;
-            $ConsultService->features          = $request->details;
-            // $ConsultService->short_description = $request->short_description;
-            $ConsultService->save();
+            /* ================= UPDATE DATA ================= */
+            $product->category_id     = $request->category_id;
+            $product->title           = $request->title;
+            $product->short_detail    = $request->short_detail;
+            $product->contry          = $request->contry;
+            $product->platform        = $request->platform;
+            $product->updated_at      = now();
+            $product->save();
 
             DB::commit();
 
             return response()->json([
                 'responseCode'    => (string)$this->successStatus,
-                'responseMessage' => 'Consult Service Updated Successfully.',
-                'responseUrl'     => route('consult-service-list')
+                'responseMessage' => 'Product Updated Successfully.',
+                'responseUrl'     => route('product-list')
             ]);
 
         } catch (\Exception $e) {
@@ -205,14 +202,13 @@ class ConsultServiceController extends Controller
 
 
     /**
-    * update ConsultService status
+    * update product status
     * @param Illuminate\Http\Request;
     * @return Illuminate\Http\Response;
     */
-
     public function status($id)
     {
-        $query = $this->consultService;
+        $query = $this->product;
         $status = $query->where('id', $id)->first()->status;
 
         if ($status == '1')
@@ -233,16 +229,15 @@ class ConsultServiceController extends Controller
                     $this->messageKey => $message
                 ];
     }
-
     /**
-    * delete ConsultService
+    * delete product
     * @param Illuminate\Http\Request;
     * @return Illuminate\Http\Response;
     */
     public function delete(Request $request,$id)
     {
 
-        $result = $this->consultService->where('id', $id)->delete();
+        $result = $this->product->where('id', $id)->delete();
 
         if($result){
 

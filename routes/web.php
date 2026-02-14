@@ -37,10 +37,13 @@ use App\Http\Controllers\Admin\ServiceWeOfferController;
 use App\Http\Controllers\Admin\ClientSatisfationController;
 use App\Http\Controllers\Admin\OurProvenController;
 use App\Http\Controllers\Admin\ConsultServiceController;
+use App\Http\Controllers\Admin\OurProcessController;
 use App\Http\Controllers\Admin\AdvanceAiController;
 use App\Http\Controllers\Admin\WeDeliverController;
 use App\Http\Controllers\Admin\PortfolioBannerController;
 use App\Http\Controllers\Admin\AboutUsController;
+use App\Http\Controllers\Admin\FeatureProductController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\OurSuccessController;
 use App\Http\Controllers\Admin\Master\GetEnquiryTypeController;
 
@@ -138,6 +141,9 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
         Route::get('why-partner/edit', [WhyPartnerController::class, 'edit'])->name('why-partner-edit');
         Route::post('why-partner-update', [WhyPartnerController::class, 'update'])->name('why-partner-update');
 
+        Route::get('our-process/edit', [OurProcessController::class, 'edit'])->name('our-process-edit');
+        Route::post('our-process-update', [OurProcessController::class, 'update'])->name('our-process-update');
+
         Route::get('why-business-choose/edit', [WhyBusinessChooseController::class, 'edit'])->name('why-business-choose-edit');
         Route::post('why-business-choose-update', [WhyBusinessChooseController::class, 'update'])->name('why-business-choose-update');
 
@@ -225,6 +231,21 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
         Route::post('blog-status-update/{id}', [BlogController::class, 'status'])->name('blog-status-update');
         Route::get('blog/delete/{id}', [BlogController::class, 'delete'])->name('blog.delete');
 
+        Route::get('features-product/index', [FeatureProductController::class, 'index'])->name('features-product-list');
+        Route::post('features-product-store', [FeatureProductController::class, 'store'])->name('features-product-store');
+        Route::get('features-product-edit/{id}', [FeatureProductController::class, 'edit'])->name('features-product-edit');
+        Route::post('features-product-update', [FeatureProductController::class, 'update'])->name('features-product-update');
+        Route::post('features-product-status-update/{id}', [FeatureProductController::class, 'status'])->name('features-product-status-update');
+        Route::get('features-product/delete/{id}', [FeatureProductController::class, 'delete'])->name('features-product.delete');
+
+        Route::get('product/index', [ProductController::class, 'index'])->name('product-list');
+        Route::post('product-store', [ProductController::class, 'store'])->name('product-store');
+        Route::get('product-edit/{id}', [ProductController::class, 'edit'])->name('product-edit');
+        Route::post('product-update', [ProductController::class, 'update'])->name('product-update');
+        Route::post('product-status-update/{id}', [ProductController::class, 'status'])->name('product-status-update');
+        Route::get('product/delete/{id}', [ProductController::class, 'delete'])->name('product.delete');
+
+
         Route::get('advance-technologies/index', [AdvanceTechnologyController::class, 'index'])->name('advance-technologies-list');
         Route::get('advance-technologies/create', [AdvanceTechnologyController::class, 'create'])->name('advance-technologies-create');
         Route::post('advance-technologies-store', [AdvanceTechnologyController::class, 'store'])->name('advance-technologies-store');
@@ -299,12 +320,12 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
         Route::get('we-deliver/delete/{id}', [WeDeliverController::class, 'delete'])->name('we-deliver.delete');
 
 
-        Route::get('portfolio-banner/index', [PortfolioBannerController::class, 'index'])->name('portfolio-banner-list');
-        Route::post('portfolio-banner-store', [PortfolioBannerController::class, 'store'])->name('portfolio-banner-store');
-        Route::get('portfolio-banner-edit/{id}', [PortfolioBannerController::class, 'edit'])->name('portfolio-banner-edit');
-        Route::post('portfolio-banner-update', [PortfolioBannerController::class, 'update'])->name('portfolio-banner-update');
-        Route::post('portfolio-banner-status-update/{id}', [PortfolioBannerController::class, 'status'])->name('portfolio-banner-status-update');
-        Route::get('portfolio-banner/delete/{id}', [PortfolioBannerController::class, 'delete'])->name('portfolio-banner.delete');
+        Route::get('marketing-banner/index', [PortfolioBannerController::class, 'index'])->name('marketing-banner-list');
+        Route::post('marketing-banner-store', [PortfolioBannerController::class, 'store'])->name('marketing-banner-store');
+        Route::get('marketing-banner-edit/{id}', [PortfolioBannerController::class, 'edit'])->name('marketing-banner-edit');
+        Route::post('marketing-banner-update', [PortfolioBannerController::class, 'update'])->name('marketing-banner-update');
+        Route::post('marketing-banner-status-update/{id}', [PortfolioBannerController::class, 'status'])->name('marketing-banner-status-update');
+        Route::get('marketing-banner/delete/{id}', [PortfolioBannerController::class, 'delete'])->name('marketing-banner.delete');
 
 
         Route::get('crafting-technology/index', [CraftingTechnologyController::class, 'index'])->name('crafting-technology-list');
@@ -374,6 +395,7 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
 // website Routes
 Route::get('/', [HomeController::class, 'home'])->name('web_home');
 Route::get('/portfolio', [HomeController::class, 'portfolio'])->name('portfolio');
+Route::get('/digital-marketing', [HomeController::class, 'digitalMarketingI'])->name('digital-marketing');
 // Route::get('our-services-details/{id}', [WebOurServicesController::class, 'details'])->name('our-services-details');
 // Route::get('frro-optin', [WebOurServicesController::class, 'frroOptin'])->name('frro-optin');
 // Route::post('get-report-form', [WebOurServicesController::class, 'reportsubmit'])->name('get-report-form');
