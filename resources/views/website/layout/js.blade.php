@@ -1434,7 +1434,7 @@ sliderWrapper.addEventListener("mouseleave", startAutoSlide);
 
 
 
-<script>
+{{-- <script>
 const tabDatamarketingstrategie = {
   app: {
     img: "{{ asset('website1/assets/images/turpentine-oil.jpeg') }}",
@@ -1494,6 +1494,48 @@ tabsDatamarketingstrategie.forEach(tab => {
     document.getElementById("digital-marketing-page-marketing-strategies-caseDesc").innerText = data.desc;
   });
 });
+</script> --}}
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const tabs = document.querySelectorAll(
+        ".digital-marketing-page-marketing-strategies-case-tabs li"
+    );
+
+    const imgEl = document.getElementById("caseImg");
+    const stat1 = document.getElementById("stat1");
+    const stat2 = document.getElementById("stat2");
+    const desc  = document.getElementById("caseDesc");
+
+    tabs.forEach(tab => {
+
+        const changeContent = () => {
+
+            tabs.forEach(t => t.classList.remove("active"));
+            tab.classList.add("active");
+
+            imgEl.style.opacity = "0";
+
+            setTimeout(() => {
+                imgEl.src = tab.dataset.image;
+                imgEl.style.opacity = "1";
+            }, 150);
+
+            stat1.innerText = tab.dataset.growth;
+            stat2.innerText = tab.dataset.result;
+            desc.innerText  = tab.dataset.desc;
+        };
+
+        // Hover
+        tab.addEventListener("mouseenter", changeContent);
+
+        // Click (for mobile)
+        tab.addEventListener("click", changeContent);
+    });
+
+});
 </script>
+
+
 </body>
 </html>

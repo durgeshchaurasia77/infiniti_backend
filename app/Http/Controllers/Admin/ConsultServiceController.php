@@ -182,7 +182,7 @@ class ConsultServiceController extends Controller
             $ConsultService->name              = $request->name;
             $ConsultService->title             = $request->title;
             $ConsultService->features          = $request->details;
-            $ConsultService->short_description = $request->short_description;
+            // $ConsultService->short_description = $request->short_description;
             $ConsultService->save();
 
             DB::commit();
@@ -209,6 +209,7 @@ class ConsultServiceController extends Controller
     * @param Illuminate\Http\Request;
     * @return Illuminate\Http\Response;
     */
+
     public function status($id)
     {
         $query = $this->consultService;
@@ -232,6 +233,7 @@ class ConsultServiceController extends Controller
                     $this->messageKey => $message
                 ];
     }
+
     /**
     * delete ConsultService
     * @param Illuminate\Http\Request;

@@ -1,29 +1,25 @@
 @extends('admin.layout.app')
 @section('title')
-Our Proven
+Consult Service
 @endsection
-
 @section('content')
 <div class="page-wrapper">
     <div class="content">
-
         <div class="row">
             <div class="col-md-12">
-
                 <!-- Page Header -->
                 <div class="page-header">
                     <div class="row align-items-center">
                         <div class="col-sm-8">
-                            <h4 class="page-title">Add New Our Proven</h4>
+                            <h4 class="page-title">Add New Consult Service</h4>
                         </div>
                     </div>
                 </div>
                 <!-- /Page Header -->
-
                 <div class="card">
                     <div class="card-body">
 
-                        <form action="{{ route('our-proven-store') }}"
+                        <form action="{{ route('consult-service-store') }}"
                             method="POST"
                             class="formSubmit"
                             enctype="multipart/form-data">
@@ -43,7 +39,7 @@ Our Proven
                                         required>
                                 </div>
 
-                                {{-- <div class="col-md-6 mb-3">
+                                <div class="col-md-6 mb-3">
                                     <label class="col-form-label">
                                         Title <span class="text-danger">*</span>
                                     </label>
@@ -52,20 +48,20 @@ Our Proven
                                         name="title"
                                         placeholder="Enter title"
                                         required>
-                                </div> --}}
+                                </div>
 
-                                {{-- <div class="col-md-6 mb-3">
+                                <div class="col-md-6 mb-3">
                                     <label class="col-form-label">
-                                        Industry Image <span class="text-danger">*</span>
+                                        Image <span class="text-danger">*</span>
                                     </label>
                                     <input type="file"
                                            class="form-control"
                                            name="image"
                                            accept="image/*"
                                            required>
-                                </div> --}}
+                                </div>
                                 {{-- Short Detail --}}
-                                <div class="col-md-6 mb-3">
+                                {{-- <div class="col-md-6 mb-3">
                                     <label class="col-form-label">
                                         Short Description <span class="text-danger">*</span>
                                     </label>
@@ -74,7 +70,7 @@ Our Proven
                                             rows="3"
                                             placeholder="Enter short description"
                                             required></textarea>
-                                </div>
+                                </div> --}}
                                 <div class="col-md-12 mb-3">
                                     <div id="dynamic-fields">
                                         <div class="dynamic-field d-flex align-items-end mb-3" data-index="0">

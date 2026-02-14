@@ -161,8 +161,8 @@ class OurSuccessController extends Controller
             }
 
             $success->name             = $request->name;
-            $success->status            = $request->status ?? $success->status;
-            $success->updated_at        = now();
+            $success->status           = $request->status ?? $success->status;
+            $success->updated_at       = now();
             $success->save();
 
             DB::commit();

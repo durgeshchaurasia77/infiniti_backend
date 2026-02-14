@@ -98,7 +98,9 @@
                     <ul>
                         <li class="submenu">
                             <a href="javascript:void(0);"
-                                class="{{ Route::is('portfolio-banner-list','why-partner-edit','consult-service-list','consult-service-edit','consult-service-create') ? 'subdrop active' : '' }}">
+                                class="{{ Route::is('portfolio-banner-list','why-partner-edit','consult-service-list','consult-service-edit',
+                                'consult-service-create','our-process-edit'
+                                ) ? 'subdrop active' : '' }}">
                                 <i class="ti ti-brand-airtable"></i><span>Our Portfolio</span><span
                                     class="menu-arrow"></span>
                             </a>
@@ -120,6 +122,12 @@
                                                href="{{ route('consult-service-list') }}">
                                                 <span>Consult Service</span>
                                             </a>
+                                </li>
+                                <li>
+                                    <a class="{{ Route::is('our-process-edit') ? 'active' : '' }}"
+                                               href="{{ route('our-process-edit') }}">
+                                        <span>Our Process</span>
+                                    </a>
                                 </li>
                             </ul>
                         </li>

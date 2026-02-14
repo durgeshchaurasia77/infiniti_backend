@@ -43,6 +43,10 @@ use App\Models\Setting;
 use App\Models\AboutUs;
 use App\Models\OurJourneys;
 use App\Models\OurSuccess;
+use App\Models\PortfolioBanner;
+use App\Models\WhyPartner;
+use App\Models\ConsultService;
+use App\Models\OurProcess;
 
 class HomeController extends Controller
 {
@@ -393,11 +397,16 @@ class HomeController extends Controller
            $details['contactdata']  =  $this->settingDetails::first();
         return view( 'website.contact', $details);
     }
-    public function portfolio(Request $request)
+    public function digitalMarketingI(Request $request)
     {
         $details = [];
+        $details['portfolioBannerList'] = PortfolioBanner::where('status',1)->get();
         $details['contactdata']  =  $this->settingDetails::first();
-        return view( 'website.portfolio', $details);
+        $details['excellanceCounting']   = $this->excellanceCounting::first();
+        $details['whyPartnerData']       = WhyPartner::first();
+        $details['consultServiceList'] = ConsultService::where('status',1)->get();
+        $details['ourProcessData']       = OurProcess::first();
+        return view( 'website.digital-marketing', $details);
     }
     public function digitalMarketing(Request $request)
     {

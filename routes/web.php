@@ -37,6 +37,7 @@ use App\Http\Controllers\Admin\ServiceWeOfferController;
 use App\Http\Controllers\Admin\ClientSatisfationController;
 use App\Http\Controllers\Admin\OurProvenController;
 use App\Http\Controllers\Admin\ConsultServiceController;
+use App\Http\Controllers\Admin\OurProcessController;
 use App\Http\Controllers\Admin\AdvanceAiController;
 use App\Http\Controllers\Admin\WeDeliverController;
 use App\Http\Controllers\Admin\PortfolioBannerController;
@@ -137,6 +138,9 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
 
         Route::get('why-partner/edit', [WhyPartnerController::class, 'edit'])->name('why-partner-edit');
         Route::post('why-partner-update', [WhyPartnerController::class, 'update'])->name('why-partner-update');
+
+        Route::get('our-process/edit', [OurProcessController::class, 'edit'])->name('our-process-edit');
+        Route::post('our-process-update', [OurProcessController::class, 'update'])->name('our-process-update');
 
         Route::get('why-business-choose/edit', [WhyBusinessChooseController::class, 'edit'])->name('why-business-choose-edit');
         Route::post('why-business-choose-update', [WhyBusinessChooseController::class, 'update'])->name('why-business-choose-update');
@@ -373,7 +377,7 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
 
 // website Routes
 Route::get('/', [HomeController::class, 'home'])->name('web_home');
-Route::get('/portfolio', [HomeController::class, 'portfolio'])->name('portfolio');
+Route::get('/digital-marketing', [HomeController::class, 'digitalMarketingI'])->name('digital-marketing');
 // Route::get('our-services-details/{id}', [WebOurServicesController::class, 'details'])->name('our-services-details');
 // Route::get('frro-optin', [WebOurServicesController::class, 'frroOptin'])->name('frro-optin');
 // Route::post('get-report-form', [WebOurServicesController::class, 'reportsubmit'])->name('get-report-form');

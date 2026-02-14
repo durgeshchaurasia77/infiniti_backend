@@ -3045,6 +3045,7 @@ html{
 .digital-marketing-page-card h4{
   font-size:14px;
   margin-bottom:8px;
+  color: #0C2347
 }
 
 .digital-marketing-page-card p{
