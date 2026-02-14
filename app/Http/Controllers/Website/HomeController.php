@@ -47,6 +47,8 @@ use App\Models\PortfolioBanner;
 use App\Models\WhyPartner;
 use App\Models\ConsultService;
 use App\Models\OurProcess;
+use App\Models\FeatureProduct;
+use App\Models\Product;
 
 class HomeController extends Controller
 {
@@ -396,6 +398,14 @@ class HomeController extends Controller
         // $details['ourservices']        = $this->ourservices::where(['status' => 1])->get();
            $details['contactdata']  =  $this->settingDetails::first();
         return view( 'website.contact', $details);
+    }
+    public function portfolio(Request $request)
+    {
+        $details = [];
+        $details['contactdata']  =  $this->settingDetails::first();
+        $details['featureProductList'] = FeatureProduct::where('status',1)->get();
+        $details['productList'] = Product::where('status',1)->get();
+        return view( 'website.portfolio', $details);
     }
     public function digitalMarketingI(Request $request)
     {

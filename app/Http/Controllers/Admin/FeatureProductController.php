@@ -10,14 +10,14 @@ use Illuminate\Support\Facades\Auth;
 use DB;
 use File;
 use Exception;
-use App\Models\BlogCategory;
+use App\Models\FeatureProduct;
 
-class BlogCategoryController extends Controller
+class FeatureProductController extends Controller
 {
     use MessageStatusTrait;
-    protected $view = 'admin.blog_category.';
+    protected $view = 'admin.features_product.';
 
-    protected $type = 'Blog Category ';
+    protected $type = 'Feature Product ';
 
 
     # Bind outlet
@@ -29,7 +29,7 @@ class BlogCategoryController extends Controller
      * @return
      */
     function __construct(
-                            BlogCategory          $blogCategory
+                            FeatureProduct        $blogCategory
                         )
                         {
                             $this->blogCategory = $blogCategory;
@@ -72,14 +72,14 @@ class BlogCategoryController extends Controller
         try {
 
 
-            $people = new BlogCategory();
+            $people = new FeatureProduct();
             $people->name     = $request->name;
             $people->created_at = now();
             $people->save();
 
             return response()->json([
                 'responseCode'    => (string)$this->successStatus,
-                'responseMessage' => 'Blog Category Added Successfully.',
+                'responseMessage' => 'Feature Product Added Successfully.',
             ]);
 
         } catch (\Exception $e) {
@@ -132,7 +132,7 @@ class BlogCategoryController extends Controller
         try {
             DB::beginTransaction();
 
-            $people = BlogCategory::findOrFail($request->id);
+            $people = FeatureProduct::findOrFail($request->id);
 
             $people->name     = $request->name;
             $people->updated_at = now();
@@ -142,7 +142,7 @@ class BlogCategoryController extends Controller
 
             return response()->json([
                 'responseCode'    => (string)$this->successStatus,
-                'responseMessage' => 'Blog Category Updated Successfully.'
+                'responseMessage' => 'Feature Product Updated Successfully.'
             ]);
 
         } catch (\Exception $e) {
@@ -190,11 +190,11 @@ class BlogCategoryController extends Controller
     */
     public function delete(Request $request,$id)
     {
-       
+
         $result = $this->blogCategory->where('id', $id)->delete();
 
         if($result){
-            
+
             return  [
                         $this->successKey   =>  $this->successStatus,
                          $this->messageKey  => $this->deleteMessage($this->type)

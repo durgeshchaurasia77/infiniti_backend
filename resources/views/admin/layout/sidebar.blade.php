@@ -98,16 +98,55 @@
                     <ul>
                         <li class="submenu">
                             <a href="javascript:void(0);"
-                                class="{{ Route::is('portfolio-banner-list','why-partner-edit','consult-service-list','consult-service-edit',
-                                'consult-service-create','our-process-edit'
+                                class="{{ Route::is('features-product-list','product-list'
                                 ) ? 'subdrop active' : '' }}">
                                 <i class="ti ti-brand-airtable"></i><span>Our Portfolio</span><span
                                     class="menu-arrow"></span>
                             </a>
                             <ul>
                                 <li>
-                                    <a class="{{ Route::is('portfolio-banner-list') ? 'active' : '' }}"
-                                               href="{{ route('portfolio-banner-list') }}">
+                                    <a class="{{ Route::is('features-product-list') ? 'active' : '' }}"
+                                        href="{{ route('features-product-list') }}">
+                                        <span>Features Product</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="{{ Route::is('product-list') ? 'active' : '' }}"
+                                        href="{{ route('product-list') }}">
+                                        <span>Product List</span>
+                                    </a>
+                                </li>
+                                {{--
+                                <li>
+                                    <a class="{{ Route::is('consult-service-list') ? 'active' : '' }}"
+                                               href="{{ route('consult-service-list') }}">
+                                                <span>Consult Service</span>
+                                            </a>
+                                </li>
+                                <li>
+                                    <a class="{{ Route::is('our-process-edit') ? 'active' : '' }}"
+                                               href="{{ route('our-process-edit') }}">
+                                        <span>Our Process</span>
+                                    </a>
+                                </li> --}}
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <ul>
+                        <li class="submenu">
+                            <a href="javascript:void(0);"
+                                class="{{ Route::is('marketing-banner-list','why-partner-edit','consult-service-list','consult-service-edit',
+                                'consult-service-create','our-process-edit'
+                                ) ? 'subdrop active' : '' }}">
+                                <i class="ti ti-brand-airtable"></i><span>Digital Market</span><span
+                                    class="menu-arrow"></span>
+                            </a>
+                            <ul>
+                                <li>
+                                    <a class="{{ Route::is('marketing-banner-list') ? 'active' : '' }}"
+                                               href="{{ route('marketing-banner-list') }}">
                                                 <span>Portfolio Banner</span>
                                             </a>
                                 </li>

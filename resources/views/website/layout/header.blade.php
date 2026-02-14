@@ -97,7 +97,7 @@
 
 <ul class="menu">
     <span class="menu-close">&times;</span>
-    <li><a href="#" class="nav-link action">Portfolio</a></li>
+    <li><a href="{{ route('portfolio') }}" class="nav-link action">Portfolio</a></li>
     <li class="has-mega {{ request()->routeIs('services') ? 'open' : '' }}">
         <a href="javascript:void(0)" class="nav-link {{ request()->routeIs('services') ? 'active' : '' }}">Services ▾</a>
         <div class="mega-menu">
