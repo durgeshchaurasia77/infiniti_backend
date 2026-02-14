@@ -49,41 +49,7 @@
 </section>
 
 <!-- end  -->
-
-
-
-  <!-- homepage-statssection-stats bg-image -->
-   <section class="homepage-statssection-stats bg-image">
-
-    <div class="homepage-stat-card">
-      <h2>35+</h2>
-      <p>Industry Excellence</p>
-    </div>
-
-    <div class="homepage-stat-card">
-      <h2>2500+</h2>
-      <p>Empowered Clients</p>
-    </div>
-
-    <div class="homepage-stat-card">
-      <h2>25+</h2>
-      <p>Countries Served</p>
-    </div>
-
-    <div class="homepage-stat-card">
-      <h2>300+</h2>
-      <p>Tech Engineers</p>
-    </div>
-
-    <div class="homepage-stat-card">
-      <h2>2000+</h2>
-      <p>Digital Solutions Launched</p>
-    </div>
-
-   </section>
-  <!-- homepage-statssection-stats bg-image -->
-
-   <!-- trusted statrt  -->
+ <!-- trusted statrt  -->
     <section class="trusted">
 
     <div class="trusted-wrap">
@@ -120,6 +86,40 @@
 
     </section>
   <!-- truted end  -->
+
+
+  <!-- homepage-statssection-stats bg-image -->
+   <section class="homepage-statssection-stats bg-image">
+
+    <div class="homepage-stat-card">
+      <h2>35+</h2>
+      <p>Industry Excellence</p>
+    </div>
+
+    <div class="homepage-stat-card">
+      <h2>2500+</h2>
+      <p>Empowered Clients</p>
+    </div>
+
+    <div class="homepage-stat-card">
+      <h2>25+</h2>
+      <p>Countries Served</p>
+    </div>
+
+    <div class="homepage-stat-card">
+      <h2>300+</h2>
+      <p>Tech Engineers</p>
+    </div>
+
+    <div class="homepage-stat-card">
+      <h2>2000+</h2>
+      <p>Digital Solutions Launched</p>
+    </div>
+
+   </section>
+  <!-- homepage-statssection-stats bg-image -->
+
+  
 @php
     preg_match(
         '%(?:youtube\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i',
@@ -611,8 +611,36 @@
    </section>
 
 
+@if(count($testimonials) > 0)
+<section class="common-section-everypage-blog-listing-section">
+    <h2>Our Clients Love Us</h2>
 
-    @if(count($testimonials) > 0)
+    <div class="common-section-everypage-blog-listing-wrapper">
+    <button class="common-section-everypage-blog-listing-nav-btn prev">‹</button>
+
+    <div class="common-section-everypage-blog-listing-track">
+    @foreach ($testimonials as $testimonial)
+        <div class="common-section-everypage-blog-listing-card">
+            <div class="common-section-everypage-blog-listing-video-thumb">
+                <img src="{{ asset('website1/assets/images/thumbnail.png') }}">
+                <span class="common-section-everypage-blog-listing-play-btn" data-video="{{ asset($testimonial->video_path ?? '') }}"></span>
+            </div>
+            <p>"Amazing experience working with this team."</p>
+            <div class="common-section-everypage-blog-listing-user">
+                <img src="assets/images/home_cta.png">
+                <div><strong>{{ $testimonial->name ?? '' }}</strong><span>({{ $testimonial->rating ?? '' }})</span></div>
+            </div>
+        </div>
+    @endforeach
+    </div>
+    <button class="common-section-everypage-blog-listing-nav-btn next">›</button>
+    </div>
+</section>
+ @endif
+
+
+
+  <!--   @if(count($testimonials) > 0)
         <section class="navy-testimonial-slider">
         <div class="navy-testimonial-header">
             <h2>Client Testimonials</h2>
@@ -623,11 +651,11 @@
         </div>
 
         <div class="navy-slider-viewport">
-            <div class="navy-slider-track">
+            <div class="navy-slider-track"> -->
 
             <!-- CARD -->
-            @foreach ($testimonials as $testimonial)
-                <div class="navy-testimonial-card" data-video="{{ asset($testimonial->video_path ?? 'notImage.jpg') }}">
+            <!-- @foreach ($testimonials as $testimonial) -->
+           <!--      <div class="navy-testimonial-card" data-video="{{ asset($testimonial->video_path ?? 'notImage.jpg') }}">
                     {{-- <img src="./assets/images/airlane.jpg"> --}}
                     <video class="video-thumb"
                         src="{{ asset($testimonial->video_path ?? '') }}"
@@ -643,7 +671,7 @@
             </div>
         </div>
 
-        </section>
+        </section> -->
     @endif
 
       <!-- end  -->

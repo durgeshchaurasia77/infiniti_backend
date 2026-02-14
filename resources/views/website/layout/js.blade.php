@@ -264,7 +264,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     </script> --}}
 
-    <script>
+   <!--  <script>
         document.addEventListener("DOMContentLoaded", function () {
 
         const track = document.querySelector(".navy-slider-track");
@@ -314,45 +314,51 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         });
-        </script>
-<script>
+        </script> -->
+
+<!-- <script>
 document.addEventListener("DOMContentLoaded", function () {
 
   const modal = document.getElementById("navyVideoModal");
   const modalVideo = document.getElementById("navyModalVideo");
   const overlay = document.querySelector(".navy-video-modal__overlay");
-  const cards = document.querySelectorAll(".navy-testimonial-card");
+  const closeBtn = document.querySelector(".navy-video-modal__close");
 
-  cards.forEach(card => {
-    card.addEventListener("click", () => {
-      const videoSrc = card.getAttribute("data-video");
-      if (!videoSrc) return;
+  if (!modal || !modalVideo || !overlay || !closeBtn) {
+    console.warn("Video modal elements not found");
+    return;
+  }
 
-      modalVideo.src = videoSrc;
-      modal.style.display = "flex";
-      document.body.style.overflow = "hidden";
-    });
+  /* ✅ OPEN MODAL (DYNAMIC SAFE) */
+  document.addEventListener("click", function (e) {
+    const card = e.target.closest(".navy-testimonial-card");
+    if (!card) return;
+
+    const videoSrc = card.dataset.video;
+    if (!videoSrc) return;
+
+    modalVideo.src = videoSrc;
+    modal.style.display = "flex";
+    document.body.style.overflow = "hidden";
   });
 
+  /* ❌ CLOSE MODAL */
+  function closeModal() {
+    modal.style.display = "none";
+    modalVideo.src = "";
+    document.body.style.overflow = "";
+  }
+
   overlay.addEventListener("click", closeModal);
+  closeBtn.addEventListener("click", closeModal);
+
   document.addEventListener("keydown", e => {
     if (e.key === "Escape") closeModal();
   });
 
-  function closeModal(){
-    modal.style.display = "none";
-    modalVideo.pause();
-    modalVideo.src = "";
-    document.body.style.overflow = "auto";
-  }
-
-const closeBtn = document.querySelector(".navy-video-modal__close");
-
-closeBtn.addEventListener("click", closeModal);
-
 });
 </script>
-
+ -->
 
 
     <script>
@@ -386,45 +392,77 @@ closeBtn.addEventListener("click", closeModal);
             document.getElementById("popupOverlay").style.display = "none";
         }
     </script>
-    <script>
-        /* =========================
-              POPUP SLIDER SCRIPT
-           ========================= */
 
-        const popupSlides = document.querySelectorAll(".homepage-slide");
-        const popupDotBox = document.querySelector(".homepage-slider-dots");
-        let popupIndex = 0;
+    <!-- <script>
+document.addEventListener("DOMContentLoaded", function () {
 
-        popupSlides.forEach((s, idx) => {
-            let dot = document.createElement("span");
-            if (idx === 0) dot.classList.add("active");
-            dot.onclick = () => popupShowSlide(idx);
-            popupDotBox.appendChild(dot);
-        });
+  /* ========== SWIPER SLIDER ========== */
+  if (typeof Swiper !== "undefined") {
+    new Swiper(".myVideoSlider", {
+      slidesPerView: 3,
+      spaceBetween: 25,
+      slidesPerGroup: 3,
+      loop: false,
 
-        const popupDots = document.querySelectorAll(".homepage-slider-dots span");
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev"
+      },
 
-        function popupShowSlide(n) {
-            popupSlides.forEach(s => s.classList.remove("active"));
-            popupDots.forEach(d => d.classList.remove("active"));
+      breakpoints: {
+        0:    { slidesPerView: 1, slidesPerGroup: 1 },
+        768:  { slidesPerView: 2, slidesPerGroup: 2 },
+        1200: { slidesPerView: 3, slidesPerGroup: 3 }
+      }
+    });
+  }
 
-            popupSlides[n].classList.add("active");
-            popupDots[n].classList.add("active");
+  /* ========== TESTIMONIAL POPUP ========== */
+  const popup  = document.querySelector(".homepage-testimonial-popup");
+  const video  = document.getElementById("homepage-testimonial-video");
+  const close  = document.querySelector(".homepage-testimonial-close");
 
-            popupIndex = n;
-        }
+  if (!popup || !video || !close) {
+    console.warn("Testimonial popup elements missing");
+    return;
+  }
 
-        setInterval(() => {
-            popupIndex = (popupIndex + 1) % popupSlides.length;
-            popupShowSlide(popupIndex);
-        }, 4000);
+  /* ✅ OPEN POPUP (DYNAMIC SAFE) */
+  document.addEventListener("click", function (e) {
+    const card = e.target.closest(".homepage-testimonial-card");
+    if (!card) return;
 
+    const videoSrc = card.dataset.video;
+    if (!videoSrc) return;
 
-        function closePopup() {
-            document.getElementById("hpPopup").style.display = "none";
-            document.body.style.overflow = "auto";
-        }
-    </script>
+    popup.style.display = "flex";
+
+    /* iframe / video safe */
+    video.src = videoSrc.includes("youtube")
+      ? videoSrc + "?autoplay=1"
+      : videoSrc;
+  });
+
+  /* ❌ CLOSE POPUP */
+  function closeTestimonialPopup() {
+    popup.style.display = "none";
+    video.src = ""; // iframe + video both stop
+  }
+
+  close.addEventListener("click", closeTestimonialPopup);
+
+  /* CLICK OUTSIDE */
+  popup.addEventListener("click", e => {
+    if (e.target === popup) closeTestimonialPopup();
+  });
+
+  /* ESC KEY */
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") closeTestimonialPopup();
+  });
+
+});
+</script>
 
 
     <script>
@@ -490,7 +528,7 @@ closeBtn.addEventListener("click", closeModal);
 
         });
     </script>
-
+ -->
 
 
     <script>
@@ -695,7 +733,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
-
+<!-- 
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -734,7 +772,7 @@ closeBtn.addEventListener("click", closeModal);
 
 });
 </script>
-
+ -->
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -1013,55 +1051,55 @@ document.querySelectorAll(".process-title-servicepage").forEach(title=>{
 });
  </script>
 <script>
-let indexourwall = 0;
+document.addEventListener('DOMContentLoaded', function () {
 
-const trackourwall = document.querySelector(
-  '.our-wall-of-fame-home-page-award-track'
-);
+  let currentSlideIndex = 0;
 
-const dotsourwalls = document.querySelectorAll(
-  '.our-wall-of-fame-home-page-award-dots span'
-);
+  const wallTrack = document.querySelector(
+    '.our-wall-of-fame-home-page-award-track'
+  );
 
-const card = document.querySelector('.our-wall-of-fame-home-page-award-card');
-const cardWidth1 = card.offsetWidth + 20;
+  const wallDots = document.querySelectorAll(
+    '.our-wall-of-fame-home-page-award-dots span'
+  );
 
-const cardsPerSlide = 2;   // 👈 IMPORTANT
-const totalSlides = dotsourwalls.length;
+  const wallCard = document.querySelector(
+    '.our-wall-of-fame-home-page-award-card'
+  );
 
-/* ===== MOVE SLIDER ===== */
-function moveOurWallSlider() {
-  // dots active
-  dotsourwalls.forEach(d => d.classList.remove('active'));
-  dotsourwalls[indexourwall].classList.add('active');
+  if (!wallCard) return; // safety
 
-  // scroll
-  trackourwall.scrollTo({
-    left: indexourwall * cardWidth1 * cardsPerSlide,
-    behavior: 'smooth'
-  });
-}
+  const singleCardWidth = wallCard.offsetWidth + 20;
+  const cardsPerView = 2;
+  const totalDotSlides = wallDots.length;
 
-/* ===== DOT CLICK ===== */
-dotsourwalls.forEach(dot => {
-  dot.addEventListener('click', () => {
-    indexourwall = Number(dot.dataset.indexourwall);
-    moveOurWallSlider();
-  });
-});
+  function moveWallSlider() {
+    wallDots.forEach(dot => dot.classList.remove('active'));
+    wallDots[currentSlideIndex].classList.add('active');
 
-setInterval(() => {
-  indexourwall++;
-
-  if (indexourwall >= totalSlides) {
-    indexourwall = 0;
+    wallTrack.scrollTo({
+      left: currentSlideIndex * singleCardWidth * cardsPerView,
+      behavior: 'smooth'
+    });
   }
 
-  moveOurWallSlider();
-}, 3000);
+  wallDots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      currentSlideIndex = Number(dot.dataset.indexourwall);
+      moveWallSlider();
+    });
+  });
+
+  setInterval(() => {
+    currentSlideIndex++;
+    if (currentSlideIndex >= totalDotSlides) currentSlideIndex = 0;
+    moveWallSlider();
+  }, 3000);
+
+});
 </script>
 
-
+<!-- 
 <script>
 const commonSectionEverypageTrack = document.querySelector(
   ".common-section-everypage-blog-listing-track"
@@ -1221,6 +1259,309 @@ function commonSectionEverypageClosePopup() {
   commonSectionEverypageIframe.src = "";
 }
 </script>
+
+
+ -->
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  /* ===== SLIDER TRACK ===== */
+  const track = document.querySelector(
+    ".common-section-everypage-blog-listing-track"
+  );
+
+  // ❗ HARD STOP if slider not present
+  if (!track) return;
+
+  let cards = Array.from(
+    track.querySelectorAll(
+      ".common-section-everypage-blog-listing-card"
+    )
+  );
+
+  const nextBtn = document.querySelector(
+    ".common-section-everypage-blog-listing-nav-btn.next"
+  );
+
+  const prevBtn = document.querySelector(
+    ".common-section-everypage-blog-listing-nav-btn.prev"
+  );
+
+  /* ===== RESPONSIVE COUNT ===== */
+  function getVisible() {
+    if (window.innerWidth <= 768) return 1;
+    if (window.innerWidth <= 1024) return 2;
+    return 3;
+  }
+
+  let visible = getVisible();
+
+  /* ===== CLONES ===== */
+  const firstClones = cards.slice(0, visible).map(c => c.cloneNode(true));
+  const lastClones  = cards.slice(cards.length - visible).map(c => c.cloneNode(true));
+
+  lastClones.forEach(c => track.prepend(c));
+  firstClones.forEach(c => track.append(c));
+
+  cards = Array.from(
+    track.querySelectorAll(".common-section-everypage-blog-listing-card")
+  );
+
+  let index = visible;
+
+  function slide(noAnim = false) {
+    const gap = 24;
+    const width = cards[0].offsetWidth + gap;
+
+    track.style.transition = noAnim ? "none" : "transform .6s ease";
+    track.style.transform = `translateX(-${index * width}px)`;
+  }
+
+  slide(true);
+
+  nextBtn?.addEventListener("click", () => {
+    index++;
+    slide();
+
+    if (index === cards.length - visible) {
+      setTimeout(() => {
+        index = visible;
+        slide(true);
+      }, 600);
+    }
+  });
+
+  prevBtn?.addEventListener("click", () => {
+    index--;
+    slide();
+
+    if (index === 0) {
+      setTimeout(() => {
+        index = cards.length - visible * 2;
+        slide(true);
+      }, 600);
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    visible = getVisible();
+    slide(true);
+  });
+
+  /* ===== VIDEO POPUP ===== */
+  const popup = document.querySelector(
+    ".common-section-everypage-blog-listing-video-popup"
+  );
+
+  if (!popup) return;
+
+  const popupIframe = popup.querySelector("iframe");
+
+  document.addEventListener("click", e => {
+    const btn = e.target.closest(
+      ".common-section-everypage-blog-listing-play-btn"
+    );
+    if (!btn) return;
+
+    popup.classList.add("active");
+    popupIframe.src = btn.dataset.video + "?autoplay=1";
+  });
+
+  function closePopup() {
+    popup.classList.remove("active");
+    popupIframe.src = "";
+  }
+
+  popup.querySelector(".common-section-everypage-blog-listing-popup-close")
+    ?.addEventListener("click", closePopup);
+
+  popup.querySelector(".common-section-everypage-blog-listing-popup-overlay")
+    ?.addEventListener("click", closePopup);
+
+});
+</script>
+
+<script>
+document.querySelectorAll('.hidden-video').forEach((video, index) => {
+    const img = document.querySelectorAll('.video-thumbnail')[index];
+
+    video.addEventListener('loadedmetadata', () => {
+        video.currentTime = 1; // capture at 1s
+    });
+
+    video.addEventListener('seeked', () => {
+        const canvas = document.createElement('canvas');
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+        img.src = canvas.toDataURL('image/jpeg');
+    });
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  /* ===== ELEMENTS ===== */
+  const track = document.getElementById("servicesTrack");
+  const sliderWrapper = document.querySelector(
+    ".digital-marketing-page-services-slider-wrapper"
+  );
+
+  if (!track || !sliderWrapper) {
+    console.warn("Digital marketing slider elements not found");
+    return;
+  }
+
+  let slides = Array.from(
+    track.querySelectorAll(".digital-marketing-page-service-slide")
+  );
+
+  if (!slides.length) return;
+
+  /* ===== CLONE SLIDES (INFINITE LOOP) ===== */
+  slides.forEach(slide => {
+    track.appendChild(slide.cloneNode(true));
+  });
+
+  slides = Array.from(
+    track.querySelectorAll(".digital-marketing-page-service-slide")
+  );
+
+  let currentIndex = 0;
+  const realSlideCount = slides.length / 2;
+  let autoSlideInterval = null;
+
+  /* ===== NEXT SLIDE ===== */
+  function nextSlide() {
+    currentIndex++;
+    track.style.transition = "transform 0.6s ease";
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+    if (currentIndex === realSlideCount) {
+      setTimeout(() => {
+        track.style.transition = "none";
+        currentIndex = 0;
+        track.style.transform = "translateX(0)";
+      }, 600);
+    }
+  }
+
+  /* ===== PREV SLIDE ===== */
+  function prevSlide() {
+    if (currentIndex === 0) {
+      track.style.transition = "none";
+      currentIndex = realSlideCount;
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          track.style.transition = "transform 0.6s ease";
+          currentIndex--;
+          track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        });
+      });
+    } else {
+      currentIndex--;
+      track.style.transition = "transform 0.6s ease";
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+  }
+
+  /* ===== AUTO SLIDE ===== */
+  function startAutoSlide() {
+    if (autoSlideInterval) return; // prevent duplicate intervals
+    autoSlideInterval = setInterval(nextSlide, 4000);
+  }
+
+  function stopAutoSlide() {
+    clearInterval(autoSlideInterval);
+    autoSlideInterval = null;
+  }
+
+  /* ===== START AUTO SLIDE ===== */
+  startAutoSlide();
+
+  /* ===== PAUSE ON HOVER ===== */
+  sliderWrapper.addEventListener("mouseenter", stopAutoSlide);
+  sliderWrapper.addEventListener("mouseleave", startAutoSlide);
+
+  /* ===== OPTIONAL: EXPOSE CONTROLS ===== */
+  window.digitalMarketingNext = nextSlide;
+  window.digitalMarketingPrev = prevSlide;
+
+});
+</script>
+
+
+
+
+<script>
+const tabDatamarketingstrategie = {
+  app: {
+    img: "{{ asset('website1/assets/images/turpentine-oil.jpeg') }}",
+    stat1: "75%",
+    stat1Text: "Increase Traffic by",
+    stat2: "90 Days",
+    stat2Text: "Time Improvement",
+    desc: "AppDukaan is among the leading providers of on-demand app solutions..."
+  },
+  expo: {
+    img: "{{ asset('website1/assets/images/turpentine-oil.jpeg') }}",
+    stat1: "45%",
+    stat1Text: "Increase in Downloads",
+    stat2: "58%",
+    stat2Text: "Boost in Brand Awareness",
+    desc: "Expo City Eats is the food ordering platform for denizens of Expo City Dubai."
+  },
+  fit: {
+    img: "{{ asset('website1/assets/images/understanding-astigmatism.png') }}",
+    stat1: "60%",
+    stat1Text: "Fitness Growth",
+    stat2: "45 Days",
+    stat2Text: "Results Achieved",
+    desc: "Williamson Fit focuses on personalized fitness and digital wellness programs."
+  }
+};
+
+const tabsDatamarketingstrategie  = document.querySelectorAll(
+  ".digital-marketing-page-marketing-strategies-case-tabs li"
+);
+
+const imgEl = document.getElementById(
+  "digital-marketing-page-marketing-strategies-caseImg"
+);
+
+tabsDatamarketingstrategie.forEach(tab => {
+  tab.addEventListener("mouseenter", () => {
+
+    // active tab
+    tabsDatamarketingstrategie.forEach(t => t.classList.remove("active"));
+    tab.classList.add("active");
+
+    const data = tabDatamarketingstrategie[tab.dataset.tab];
+
+    // LEFT IMAGE CHANGE
+    imgEl.style.opacity = "0";
+    setTimeout(() => {
+      imgEl.src = data.img;
+      imgEl.style.opacity = "1";
+    }, 150);
+
+    // RIGHT CONTENT CHANGE
+    document.getElementById("stat1").innerText = data.stat1;
+    document.getElementById("stat1Text").innerText = data.stat1Text;
+    document.getElementById("digital-marketing-page-marketing-strategies-stat2").innerText = data.stat2;
+    document.getElementById("digital-marketing-page-marketing-strategies-stat2Text").innerText = data.stat2Text;
+    document.getElementById("digital-marketing-page-marketing-strategies-caseDesc").innerText = data.desc;
+  });
+});
+</script>
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -1332,167 +1673,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-});
-</script>
-<script>
-document.querySelectorAll('.hidden-video').forEach((video, index) => {
-    const img = document.querySelectorAll('.video-thumbnail')[index];
-
-    video.addEventListener('loadedmetadata', () => {
-        video.currentTime = 1; // capture at 1s
-    });
-
-    video.addEventListener('seeked', () => {
-        const canvas = document.createElement('canvas');
-        canvas.width = video.videoWidth;
-        canvas.height = video.videoHeight;
-
-        const ctx = canvas.getContext('2d');
-        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-
-        img.src = canvas.toDataURL('image/jpeg');
-    });
-});
-</script>
-
-
-<script>
-const trackdigitalMarketing = document.getElementById("servicesTrack");
-let slidesdigitalMarketing = document.querySelectorAll(
-  ".digital-marketing-page-service-slide"
-);
-
-/* ===== CLONE SLIDES FOR INFINITE LOOP ===== */
-slidesdigitalMarketing.forEach(slide => {
-  trackdigitalMarketing.appendChild(slide.cloneNode(true));
-});
-
-slidesdigitalMarketing = document.querySelectorAll(
-  ".digital-marketing-page-service-slide"
-);
-
-let index = 0;
-const totalSlides1 = slidesdigitalMarketing.length / 2;
-let autoSlideInterval;
-
-/* ===== NEXT SLIDE ===== */
-function nextSlide(){
-  index++;
-  trackdigitalMarketing.style.transition = "0.6s ease";
-  trackdigitalMarketing.style.transform = `translateX(-${index * 100}%)`;
-
-  if(index === totalSlides1){
-    setTimeout(() => {
-      trackdigitalMarketing.style.transition = "none";
-      index = 0;
-      trackdigitalMarketing.style.transform = "translateX(0)";
-    }, 600);
-  }
-}
-
-/* ===== PREV SLIDE ===== */
-function prevSlide(){
-  if(index === 0){
-    trackdigitalMarketing.style.transition = "none";
-    index = totalSlides1;
-    trackdigitalMarketing.style.transform = `translateX(-${index * 100}%)`;
-
-    setTimeout(() => {
-      trackdigitalMarketing.style.transition = "0.6s ease";
-      index--;
-      trackdigitalMarketing.style.transform = `translateX(-${index * 100}%)`;
-    }, 20);
-  }else{
-    index--;
-    trackdigitalMarketing.style.transition = "0.6s ease";
-    trackdigitalMarketing.style.transform = `translateX(-${index * 100}%)`;
-  }
-}
-
-/* ===== AUTO SLIDE ===== */
-function startAutoSlide(){
-  autoSlideInterval = setInterval(() => {
-    nextSlide();
-  }, 4000); // 4 sec
-}
-
-function stopAutoSlide(){
-  clearInterval(autoSlideInterval);
-}
-
-/* ===== START AUTO SLIDE ON LOAD ===== */
-startAutoSlide();
-
-/* ===== PAUSE ON HOVER ===== */
-const sliderWrapper = document.querySelector(
-  ".digital-marketing-page-services-slider-wrapper"
-);
-
-sliderWrapper.addEventListener("mouseenter", stopAutoSlide);
-sliderWrapper.addEventListener("mouseleave", startAutoSlide);
-</script>
-
-
-
-<script>
-const tabDatamarketingstrategie = {
-  app: {
-    img: "{{ asset('website1/assets/images/turpentine-oil.jpeg') }}",
-    stat1: "75%",
-    stat1Text: "Increase Traffic by",
-    stat2: "90 Days",
-    stat2Text: "Time Improvement",
-    desc: "AppDukaan is among the leading providers of on-demand app solutions..."
-  },
-  expo: {
-    img: "{{ asset('website1/assets/images/turpentine-oil.jpeg') }}",
-    stat1: "45%",
-    stat1Text: "Increase in Downloads",
-    stat2: "58%",
-    stat2Text: "Boost in Brand Awareness",
-    desc: "Expo City Eats is the food ordering platform for denizens of Expo City Dubai."
-  },
-  fit: {
-    img: "{{ asset('website1/assets/images/understanding-astigmatism.png') }}",
-    stat1: "60%",
-    stat1Text: "Fitness Growth",
-    stat2: "45 Days",
-    stat2Text: "Results Achieved",
-    desc: "Williamson Fit focuses on personalized fitness and digital wellness programs."
-  }
-};
-
-const tabsDatamarketingstrategie  = document.querySelectorAll(
-  ".digital-marketing-page-marketing-strategies-case-tabs li"
-);
-
-const imgEl = document.getElementById(
-  "digital-marketing-page-marketing-strategies-caseImg"
-);
-
-tabsDatamarketingstrategie.forEach(tab => {
-  tab.addEventListener("mouseenter", () => {
-
-    // active tab
-    tabsDatamarketingstrategie.forEach(t => t.classList.remove("active"));
-    tab.classList.add("active");
-
-    const data = tabDatamarketingstrategie[tab.dataset.tab];
-
-    // LEFT IMAGE CHANGE
-    imgEl.style.opacity = "0";
-    setTimeout(() => {
-      imgEl.src = data.img;
-      imgEl.style.opacity = "1";
-    }, 150);
-
-    // RIGHT CONTENT CHANGE
-    document.getElementById("stat1").innerText = data.stat1;
-    document.getElementById("stat1Text").innerText = data.stat1Text;
-    document.getElementById("digital-marketing-page-marketing-strategies-stat2").innerText = data.stat2;
-    document.getElementById("digital-marketing-page-marketing-strategies-stat2Text").innerText = data.stat2Text;
-    document.getElementById("digital-marketing-page-marketing-strategies-caseDesc").innerText = data.desc;
-  });
 });
 </script>
 </body>

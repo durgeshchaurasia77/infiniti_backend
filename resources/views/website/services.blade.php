@@ -313,7 +313,7 @@
 <!-- advance-technoloy-in-service-page-card -->
 
 
-<section class="enterprise-custome-softawere-devlopment-software-service-page-pagination-section">
+<div class="enterprise-custome-softawere-devlopment-software-service-page-pagination-section">
 <h2>Enterprise Custom Software Development Solutions <br/>We Deliver to Help Businesses Stay Modern </h2>
 <p class="itlc">At Apptunix, we specialize in delivering a wide range of enterprise <br/>softwaredevelopment services to help businesses stay future-ready. Here’s what we offer:</p>
   <div class="software-pagination-wrapper">
@@ -332,11 +332,11 @@
     </div>
     <button class="software-page-btn next">→</button>
   </div>
-</section>
+</div>
 
 
 
-    @if(count($testimonials) > 0)
+    <!-- @if(count($testimonials) > 0)
         <section class="navy-testimonial-slider">
         <div class="navy-testimonial-header">
             <h2>Client Testimonials</h2>
@@ -351,7 +351,7 @@
 
             <!-- CARD -->
             @foreach ($testimonials as $testimonial)
-                <div class="navy-testimonial-card" data-video="{{ asset($testimonial->video_path ?? 'notImage.jpg') }}">
+               <!--  <div class="navy-testimonial-card" data-video="{{ asset($testimonial->video_path ?? 'notImage.jpg') }}">
                     {{-- <img src="./assets/images/airlane.jpg"> --}}
                     <video class="video-thumb"
                         src="{{ asset($testimonial->video_path ?? '') }}"
@@ -367,9 +367,36 @@
             </div>
         </div>
 
-        </section>
-    @endif
+        </section> -->
+    <!-- @endif -->
+    @if(count($testimonials) > 0)
+<section class="common-section-everypage-blog-listing-section">
+    <h2>Our Clients Love Us</h2>
 
+    <div class="common-section-everypage-blog-listing-wrapper">
+    <button class="common-section-everypage-blog-listing-nav-btn prev">‹</button>
+
+    <div class="common-section-everypage-blog-listing-track">
+    @foreach ($testimonials as $testimonial)
+        <div class="common-section-everypage-blog-listing-card">
+            <div class="common-section-everypage-blog-listing-video-thumb">
+                <img src="{{ asset('website1/assets/images/thumbnail.png') }}">
+                <span class="common-section-everypage-blog-listing-play-btn" data-video="{{ asset($testimonial->video_path ?? '') }}"></span>
+            </div>
+            <p>"Amazing experience working with this team."</p>
+            <div class="common-section-everypage-blog-listing-user">
+                <img src="assets/images/home_cta.png">
+                <div><strong>{{ $testimonial->name ?? '' }}</strong><span>({{ $testimonial->rating ?? '' }})</span></div>
+            </div>
+        </div>
+    @endforeach
+    </div>
+    <button class="common-section-everypage-blog-listing-nav-btn next">›</button>
+    </div>
+</section>
+ @endif
+
+ 
 {{-- <section class="brand-slider-section-service-page">
   <h2>
     Custom Software Development Solutions<br>

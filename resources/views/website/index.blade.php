@@ -571,12 +571,12 @@
 
         <!-- ================= POPUP ================= -->
 
-        <section class="homepage-testimonial-popup">
+      <!--   <section class="homepage-testimonial-popup">
             <div class="homepage-testimonial-popup-content">
                 <span class="homepage-testimonial-close">✖</span>
                 <video id="homepage-testimonial-video" controls></video>
             </div>
-        </section>
+        </section> -->
 
 
 
