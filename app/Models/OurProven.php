@@ -9,6 +9,7 @@ class OurProven extends Model
     use HasFactory;
     protected $table = 'our_proven';
     protected $fillable = [
+                            'category_id',
                             'name',
                             'status',
                             'features',

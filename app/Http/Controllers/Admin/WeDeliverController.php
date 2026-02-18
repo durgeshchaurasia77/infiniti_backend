@@ -11,6 +11,7 @@ use DB;
 use File;
 use Exception;
 use App\Models\WeDeliver;
+use App\Models\ServiceCategory;
 
 class WeDeliverController extends Controller
 {
@@ -43,10 +44,12 @@ class WeDeliverController extends Controller
         # fetch setting list
         $query = $this->weDeliver;
 
+        $categories  = ServiceCategory::where('status',1)->get();
         $lists = $query->orderBy('id','desc')->paginate($this->page ?? 10);
 
         return view($this->view.'index')->with([
                                                 'lists'  => $lists ?? [],
+                                                'categories' => $categories ?? [],
                                                 ]);
     }
     /**
@@ -57,6 +60,7 @@ class WeDeliverController extends Controller
     public function store(Request $request)
     {
         $rules = [
+            'category_id'       => 'required',
             'name'            => 'required|string|max:100',
             'sub_description' => 'required|string|max:150',
             'image'           => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
@@ -82,6 +86,7 @@ class WeDeliverController extends Controller
             }
 
             $deliver = new WeDeliver();
+            $deliver->category_id     = $request->category_id;
             $deliver->name     = $request->name;
             $deliver->sub_description = $request->sub_description;
             $deliver->image     = $imagePath ?? null;
@@ -113,6 +118,7 @@ class WeDeliverController extends Controller
         try
         {
             $WeDeliverData['data'] = $this->weDeliver->findOrFail($id);
+            $WeDeliverData['categories'] = ServiceCategory::where('status',1)->get();
 
             return view($this->view.'edit',$WeDeliverData);
         } catch (Exception $e) {
@@ -128,6 +134,7 @@ class WeDeliverController extends Controller
     {
         $rules = [
             'id'              => 'required|exists:we_deliver,id',
+            'category_id'       => 'required',
             'name'            => 'required|string|max:100',
             'sub_description' => 'required|string|max:150',
             'image'           => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
@@ -162,6 +169,7 @@ class WeDeliverController extends Controller
             }
 
             // Map fields
+            $deliver->category_id     = $request->category_id;
             $deliver->name     = $request->name;
             $deliver->sub_description = $request->sub_description;
             $deliver->updated_at = now();

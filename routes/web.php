@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\DigitalCategoryController;
+use App\Http\Controllers\Admin\ServiceCategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\LoginController as AdminLoginController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
@@ -128,25 +130,33 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
         Route::get('home-banner/edit', [HomeBannerController::class, 'edit'])->name('home-banner-edit');
         Route::post('home-banner-update', [HomeBannerController::class, 'update'])->name('home-banner-update');
 
-        Route::get('features/edit', [FeaturesController::class, 'edit'])->name('features-edit');
+        Route::get('features/index', [FeaturesController::class, 'index'])->name('features-list');
+        Route::post('features-store', [FeaturesController::class, 'store'])->name('features-store');
+        Route::get('features/edit/{id}', [FeaturesController::class, 'edit'])->name('features-edit');
         Route::post('features-update', [FeaturesController::class, 'update'])->name('features-update');
+        Route::get('features/delete/{id}', [FeaturesController::class, 'delete'])->name('features.delete');
 
         Route::get('trunkey-partner/edit', [TrunkeyPartnerController::class, 'edit'])->name('trunkey-partner-edit');
         Route::post('trunkey-partner-update', [TrunkeyPartnerController::class, 'update'])->name('trunkey-partner-update');
 
-
         Route::get('excelanace-counting/edit', [ExcellanceCountingController::class, 'edit'])->name('excelanace-counting-edit');
         Route::post('excelanace-counting-update', [ExcellanceCountingController::class, 'update'])->name('excelanace-counting-update');
 
-        Route::get('why-partner/edit', [WhyPartnerController::class, 'edit'])->name('why-partner-edit');
+        Route::get('why-partner/index', [WhyPartnerController::class, 'index'])->name('why-partner-list');
+        Route::post('why-partner-store', [WhyPartnerController::class, 'store'])->name('why-partner-store');
+        Route::get('why-partner/edit/{id}', [WhyPartnerController::class, 'edit'])->name('why-partner-edit');
         Route::post('why-partner-update', [WhyPartnerController::class, 'update'])->name('why-partner-update');
+        Route::post('why-partner-status-update/{id}', [WhyPartnerController::class, 'status'])->name('why-partner-status-update');
+        Route::get('why-partner/delete/{id}', [WhyPartnerController::class, 'delete'])->name('why-partner.delete');
 
-        Route::get('our-process/edit', [OurProcessController::class, 'edit'])->name('our-process-edit');
+        Route::get('our-process/index', [OurProcessController::class, 'index'])->name('our-process-list');
+        Route::post('our-process-store', [OurProcessController::class, 'store'])->name('our-process-store');
+        Route::get('our-process/edit/{id}', [OurProcessController::class, 'edit'])->name('our-process-edit');
         Route::post('our-process-update', [OurProcessController::class, 'update'])->name('our-process-update');
+        Route::get('our-process/delete/{id}', [OurProcessController::class, 'delete'])->name('our-process.delete');
 
         Route::get('why-business-choose/edit', [WhyBusinessChooseController::class, 'edit'])->name('why-business-choose-edit');
         Route::post('why-business-choose-update', [WhyBusinessChooseController::class, 'update'])->name('why-business-choose-update');
-
 
         Route::get('about-us/edit', [AboutUsController::class, 'edit'])->name('about-us-edit');
         Route::post('about-us-update', [AboutUsController::class, 'update'])->name('about-us-update');
@@ -212,9 +222,6 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
         Route::get('client-satisfaction/delete/{id}', [ClientSatisfationController::class, 'delete'])->name('client-satisfaction.delete');
 
 
-
-
-
         Route::get('blog-category/index', [BlogCategoryController::class, 'index'])->name('blog-category-list');
         Route::post('blog-category-store', [BlogCategoryController::class, 'store'])->name('blog-category-store');
         Route::get('blog-category-edit/{id}', [BlogCategoryController::class, 'edit'])->name('blog-category-edit');
@@ -261,6 +268,24 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
         Route::post('roadmap-update', [RoadMapController::class, 'update'])->name('roadmap-update');
         Route::post('roadmap-status-update/{id}', [RoadMapController::class, 'status'])->name('roadmap-status-update');
         Route::get('roadmap/delete/{id}', [RoadMapController::class, 'delete'])->name('roadmap.delete');
+
+
+        Route::get('digital-category/index', [DigitalCategoryController::class, 'index'])->name('digital-category-list');
+        Route::post('digital-category-store', [DigitalCategoryController::class, 'store'])->name('digital-category-store');
+        Route::get('digital-category-edit/{id}', [DigitalCategoryController::class, 'edit'])->name('digital-category-edit');
+        Route::post('digital-category-update', [DigitalCategoryController::class, 'update'])->name('digital-category-update');
+        Route::post('digital-category-status-update/{id}', [DigitalCategoryController::class, 'status'])->name('digital-category-status-update');
+        Route::get('digital-category/delete/{id}', [DigitalCategoryController::class, 'delete'])->name('digital-category.delete');
+
+
+        Route::get('service-category/index', [ServiceCategoryController::class, 'index'])->name('service-category-list');
+        Route::post('service-category-store', [ServiceCategoryController::class, 'store'])->name('service-category-store');
+        Route::get('service-category-edit/{id}', [ServiceCategoryController::class, 'edit'])->name('service-category-edit');
+        Route::post('service-category-update', [ServiceCategoryController::class, 'update'])->name('service-category-update');
+        Route::post('service-category-status-update/{id}', [ServiceCategoryController::class, 'status'])->name('service-category-status-update');
+        Route::get('service-category/delete/{id}', [ServiceCategoryController::class, 'delete'])->name('service-category.delete');
+
+
 
         Route::get('service/index', [ServiceController::class, 'index'])->name('service-list');
         Route::get('service/create', [ServiceController::class, 'create'])->name('service-create');
@@ -395,7 +420,7 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
 // website Routes
 Route::get('/', [HomeController::class, 'home'])->name('web_home');
 Route::get('/portfolio', [HomeController::class, 'portfolio'])->name('portfolio');
-Route::get('/digital-marketing', [HomeController::class, 'digitalMarketingI'])->name('digital-marketing');
+Route::get('/digital-marketing/{id?}', [HomeController::class, 'digitalMarketingI'])->name('digital-marketing');
 // Route::get('our-services-details/{id}', [WebOurServicesController::class, 'details'])->name('our-services-details');
 // Route::get('frro-optin', [WebOurServicesController::class, 'frroOptin'])->name('frro-optin');
 // Route::post('get-report-form', [WebOurServicesController::class, 'reportsubmit'])->name('get-report-form');

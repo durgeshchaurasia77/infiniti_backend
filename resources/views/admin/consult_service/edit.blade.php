@@ -31,6 +31,19 @@ Consult Service
 
                                 {{-- Title --}}
                                 <div class="col-md-6 mb-3">
+                                <label class="col-form-label">
+                                            Category <span class="text-danger">*</span>
+                                        </label>
+                                        <select name="category_id" class="form-control" required>
+                                            <option value="">Select Category</option>
+                                            @foreach($categories as $category)
+                                                <option value="{{ $category->id }}" {{ ($data->category_id ?? '') == $category->id ? 'selected' : '' }}>
+                                                    {{ $category->name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                </div>
+                                <div class="col-md-6 mb-3">
                                     <label class="col-form-label">
                                         Name <span class="text-danger">*</span>
                                     </label>
@@ -105,6 +118,9 @@ Consult Service
                                 </div>
                             </div>
                             <div class="modal-footer">
+                                <a href="{{ route('consult-service-list') }}" style="margin-right:10px " class="btn btn-dark">
+                                    Back
+                                </a>
                                 <button type="submit" class="btn btn-primary loderButton">
                                     <span class="spinner-grow spinner-grow-sm loderIcon"
                                         style="display:none;"></span>

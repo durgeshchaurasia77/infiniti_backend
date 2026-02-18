@@ -11,6 +11,7 @@ use DB;
 use File;
 use Exception;
 use App\Models\ConsultService;
+use App\Models\DigitalCategory;
 
 class ConsultServiceController extends Controller
 {
@@ -54,7 +55,8 @@ class ConsultServiceController extends Controller
         try
         {
 
-            return view($this->view.'create');
+            $categories  = DigitalCategory::where('status',1)->get();
+            return view($this->view.'create',compact('categories'));
         } catch (Exception $e) {
             return back()->with('error', $ex->getMessage());
         }
@@ -67,6 +69,7 @@ class ConsultServiceController extends Controller
     public function store(Request $request)
     {
         $rules = [
+            'category_id' =>'required',
             'name'    => 'required|string|max:255',
             'title'   => 'required|string|max:255',
             'image'   => 'required|file:jpeg,png,webp,jpg',
@@ -95,6 +98,7 @@ class ConsultServiceController extends Controller
 
 
             $ConsultService = new ConsultService();
+            $ConsultService->category_id     = $request->category_id;
             $ConsultService->name     = $request->name;
             $ConsultService->title     = $request->title;
             $ConsultService->features         = $request->details;
@@ -132,6 +136,9 @@ class ConsultServiceController extends Controller
         {
             $ids = base64_decode($id);
             $details['data'] = $this->consultService->findOrFail($ids);
+
+            $details['categories']  = DigitalCategory::where('status',1)->get();
+
             return view($this->view.'edit',$details);
         } catch (Exception $e) {
             return back()->with('error', $ex->getMessage());
@@ -146,6 +153,7 @@ class ConsultServiceController extends Controller
     {
         $rules = [
             'id'               => 'required|exists:consult_service,id',
+            'category_id' =>'required',
             'name'             => 'required|string|max:255',
             'title'             => 'required|string|max:255',
             'image' => 'nullable',
@@ -179,6 +187,7 @@ class ConsultServiceController extends Controller
                 $ConsultService->image = 'images/admin/consult_service/'.$filename;
             }
 
+            $ConsultService->category_id     = $request->category_id;
             $ConsultService->name              = $request->name;
             $ConsultService->title             = $request->title;
             $ConsultService->features          = $request->details;

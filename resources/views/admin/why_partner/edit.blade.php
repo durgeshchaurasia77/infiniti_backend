@@ -26,9 +26,25 @@ Why Partner
                             class="formSubmit">
                             @csrf
 
+                            <input type="hidden" name="id" value="{{ $whyPartner->id ?? '' }}">
+
                             <div class="modal-body">
                                 <div class="row">
 
+                                <div class="col-md-6 mb-3">
+                                <label class="col-form-label">
+                                    Category <span class="text-danger">*</span>
+                                </label>
+                                    <select name="category_id" class="form-control" required>
+                                        <option value="">Select Category</option>
+                                        @foreach($categories as $category)
+                                            <option value="{{ $category->id }}" {{ ($whyPartner->category_id ?? '') == $category->id ? 'selected' : '' }}>
+                                                {{ $category->name }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-md-6 mb-3"></div>
                                     {{-- Heading One --}}
                                     <div class="col-md-6 mb-3">
                                         <label>Heading One</label>
@@ -84,6 +100,9 @@ Why Partner
                             </div>
 
                             <div class="modal-footer">
+                                <a href="{{ route('why-partner-list') }}" type="submit" class="btn btn-secondary">
+                                    Cancel
+                                </a>
                                 <button type="submit" class="btn btn-primary loderButton">
                                     <span class="spinner-grow spinner-grow-sm loderIcon" style="display:none;"></span>
                                     Save Changes

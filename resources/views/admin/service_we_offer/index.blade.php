@@ -179,6 +179,19 @@ Service We Offer
 
                 <div class="modal-body">
 
+                    <div class="mb-3">
+                        <label class="col-form-label">
+                            Category <span class="text-danger">*</span>
+                        </label>
+                        <select name="category_id" class="form-control" required>
+                            <option value="">Select Category</option>
+                            @foreach($categories as $category)
+                                <option value="{{ $category->id }}">
+                                    {{ $category->name }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
                     {{-- Name --}}
                     <div class="mb-3">
                         <label class="col-form-label">

@@ -11,6 +11,7 @@ use DB;
 use File;
 use Exception;
 use App\Models\LeverageAi;
+use App\Models\Industry;
 
 class LeverageAiController extends Controller
 {
@@ -45,8 +46,10 @@ class LeverageAiController extends Controller
 
         $lists = $query->orderBy('id','desc')->paginate($this->page ?? 10);
 
+        $categories  = Industry::where('status',1)->get();
         return view($this->view.'index')->with([
                                                 'lists'  => $lists ?? [],
+                                                'categories' => $categories ?? [],
                                                 ]);
     }
     /**
@@ -57,6 +60,7 @@ class LeverageAiController extends Controller
     public function store(Request $request)
     {
         $rules = [
+            'category_id'=>'required',
             'name'              => 'required|string|max:100',
             'short_description' => 'required|string|max:500',
         ];
@@ -81,6 +85,7 @@ class LeverageAiController extends Controller
             // }
 
             $LeverageAi = new LeverageAi();
+            $LeverageAi->category_id     = $request->category_id;
             $LeverageAi->name              = $request->name;
             $LeverageAi->short_description = $request->short_description;
             // $LeverageAi->image             = $imagePath ?? null;
@@ -110,6 +115,7 @@ class LeverageAiController extends Controller
         {
             $details['data'] = $this->leverageAi->findOrFail($id);
 
+            $details['categories']  = Industry::where('status',1)->get();
             return view($this->view.'edit',$details);
         } catch (Exception $e) {
             return back()->with('error', $ex->getMessage());
@@ -117,7 +123,7 @@ class LeverageAiController extends Controller
     }
     /**
      * update LeverageAi page
-    * @param Illuminate\Http\Request;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+    * @param Illuminate\Http\Request;
     * @return Illuminate\Http\Response;
     */
 
@@ -125,6 +131,7 @@ class LeverageAiController extends Controller
     {
         $rules = [
             'id'                => 'required|exists:leverage_ai,id',
+            'category_id'=>'required',
             'name'              => 'required|string|max:100',
             'short_description' => 'required|string|max:500',
         ];
@@ -157,6 +164,7 @@ class LeverageAiController extends Controller
             // }
 
             // Update fields
+            $LeverageAi->category_id     = $request->category_id;
             $LeverageAi->name              = $request->name;
             $LeverageAi->short_description = $request->short_description;
             $LeverageAi->updated_at        = now();
@@ -214,11 +222,11 @@ class LeverageAiController extends Controller
     */
     public function delete(Request $request,$id)
     {
-       
+
         $result = $this->leverageAi->where('id', $id)->delete();
 
         if($result){
-            
+
             return  [
                         $this->successKey   =>  $this->successStatus,
                          $this->messageKey  => $this->deleteMessage($this->type)

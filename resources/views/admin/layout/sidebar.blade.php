@@ -124,8 +124,8 @@
                                             </a>
                                 </li>
                                 <li>
-                                    <a class="{{ Route::is('our-process-edit') ? 'active' : '' }}"
-                                               href="{{ route('our-process-edit') }}">
+                                    <a class="{{ Route::is('our-process-list') ? 'active' : '' }}"
+                                               href="{{ route('our-process-list') }}">
                                         <span>Our Process</span>
                                     </a>
                                 </li> --}}
@@ -137,13 +137,19 @@
                     <ul>
                         <li class="submenu">
                             <a href="javascript:void(0);"
-                                class="{{ Route::is('marketing-banner-list','why-partner-edit','consult-service-list','consult-service-edit',
-                                'consult-service-create','our-process-edit'
+                                class="{{ Route::is('marketing-banner-list','why-partner-list','consult-service-list','consult-service-edit',
+                                'consult-service-create','our-process-edit','digital-category-list'
                                 ) ? 'subdrop active' : '' }}">
                                 <i class="ti ti-brand-airtable"></i><span>Digital Market</span><span
                                     class="menu-arrow"></span>
                             </a>
                             <ul>
+                                <li>
+                                    <a class="{{ Route::is('digital-category-list') ? 'active' : '' }}"
+                                               href="{{ route('digital-category-list') }}">
+                                                <span>Digital Category</span>
+                                            </a>
+                                </li>
                                 <li>
                                     <a class="{{ Route::is('marketing-banner-list') ? 'active' : '' }}"
                                                href="{{ route('marketing-banner-list') }}">
@@ -151,8 +157,8 @@
                                             </a>
                                 </li>
                                 <li>
-                                    <a class="{{ Route::is('why-partner-edit') ? 'active' : '' }}"
-                                               href="{{ route('why-partner-edit') }}">
+                                    <a class="{{ Route::is('why-partner-list') ? 'active' : '' }}"
+                                               href="{{ route('why-partner-list') }}">
                                                 <span>Why Partner Section</span>
                                             </a>
                                 </li>
@@ -163,8 +169,8 @@
                                             </a>
                                 </li>
                                 <li>
-                                    <a class="{{ Route::is('our-process-edit') ? 'active' : '' }}"
-                                               href="{{ route('our-process-edit') }}">
+                                    <a class="{{ Route::is('our-process-list') ? 'active' : '' }}"
+                                               href="{{ route('our-process-list') }}">
                                         <span>Our Process</span>
                                     </a>
                                 </li>
@@ -201,7 +207,7 @@
                     <ul>
                         <li class="submenu">
                             <a href="javascript:void(0);"
-                                class="{{ Route::is('industry-list','features-edit','case-study-list','leverage-ai-list','advance-technologies-list','advance-technologies-create','advance-technologies-edit'
+                                class="{{ Route::is('industry-list','industry-edit','industry-create','features-list','features-edit','case-study-list','leverage-ai-list','advance-technologies-list','advance-technologies-create','advance-technologies-edit'
                                 ,'power-packed-list',
                                 'roadmap-list'
                                 ) ? 'subdrop active' : '' }}">
@@ -210,14 +216,14 @@
                             </a>
                             <ul>
                                 <li>
-                                    <a class="{{ Route::is('industry-list') ? 'active' : '' }}"
+                                    <a class="{{ Route::is('industry-list','industry-edit','industry-create') ? 'active' : '' }}"
                                         href="{{ route('industry-list') }}">
                                         <span>Industry List</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="{{ Route::is('features-edit') ? 'active' : '' }}"
-                                        href="{{ route('features-edit') }}">
+                                    <a class="{{ Route::is('features-list','features-edit') ? 'active' : '' }}"
+                                        href="{{ route('features-list') }}">
                                         <span>Features</span>
                                     </a>
                                 </li>
@@ -259,13 +265,19 @@
                     <ul>
                         <li class="submenu">
                             <a href="javascript:void(0);"
-                                class="{{ Route::is('service-list','service-we-offer-list','client-satisfaction-list','our-proven-list','our-proven-edit','advance-ai-list','advance-ai-create','advance-ai-edit'
+                                class="{{ Route::is('service-category-list','service-list','service-we-offer-list','client-satisfaction-list','our-proven-list','our-proven-edit','advance-ai-list','advance-ai-create','advance-ai-edit'
                                 ,'we-deliver-list'
                                 ) ? 'subdrop active' : '' }}">
                                 <i class="ti ti-brand-airtable"></i><span>Service Management</span><span
                                     class="menu-arrow"></span>
                             </a>
                             <ul>
+                                <li>
+                                    <a class="{{ Route::is('service-category-list') ? 'active' : '' }}"
+                                        href="{{ route('service-category-list') }}">
+                                        <span>Service Category</span>
+                                    </a>
+                                </li>
                                 <li>
                                     <a class="{{ Route::is('service-list') ? 'active' : '' }}"
                                         href="{{ route('service-list') }}">

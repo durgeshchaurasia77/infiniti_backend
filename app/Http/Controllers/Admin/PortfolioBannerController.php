@@ -11,6 +11,7 @@ use DB;
 use File;
 use Exception;
 use App\Models\PortfolioBanner;
+use App\Models\DigitalCategory;
 
 class PortfolioBannerController extends Controller
 {
@@ -43,10 +44,12 @@ class PortfolioBannerController extends Controller
         # fetch setting list
         $query = $this->portfolioBanner;
 
+        $categories  = DigitalCategory::where('status',1)->get();
         $lists = $query->orderBy('id','desc')->paginate($this->page ?? 10);
 
         return view($this->view.'index')->with([
-                                                'lists'  => $lists ?? [],
+                                                'lists'      => $lists ?? [],
+                                                'categories' => $categories ?? [],
                                                 ]);
     }
     /**
@@ -57,6 +60,7 @@ class PortfolioBannerController extends Controller
     public function store(Request $request)
     {
         $rules = [
+            'category_id' =>'required',
             'name'            => 'required|string|max:100',
             'short_description' => 'required|string|max:150',
             'image'           => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
@@ -82,6 +86,7 @@ class PortfolioBannerController extends Controller
             }
 
             $deliver = new PortfolioBanner();
+            $deliver->category_id     = $request->category_id;
             $deliver->name     = $request->name;
             $deliver->growth     = $request->growth;
             $deliver->result     = $request->result;
@@ -115,7 +120,7 @@ class PortfolioBannerController extends Controller
         try
         {
             $WeDeliverData['data'] = $this->portfolioBanner->findOrFail($id);
-
+            $WeDeliverData['categories']  = DigitalCategory::where('status',1)->get();
             return view($this->view.'edit',$WeDeliverData);
         } catch (Exception $e) {
             return back()->with('error', $ex->getMessage());
@@ -130,6 +135,7 @@ class PortfolioBannerController extends Controller
     {
         $rules = [
             'id'              => 'required|exists:portfolio_banner,id',
+            'category_id' =>'required',
             'name'            => 'required|string|max:100',
             'short_description' => 'required|string|max:150',
             'image'           => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
@@ -164,6 +170,7 @@ class PortfolioBannerController extends Controller
             }
 
             // Map fields
+            $deliver->category_id= $request->category_id;
             $deliver->name       = $request->name;
             $deliver->growth     = $request->growth;
             $deliver->result     = $request->result;

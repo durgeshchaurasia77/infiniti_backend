@@ -8,7 +8,6 @@ class PortfolioBanner extends Model
 {
     use HasFactory;
     protected $table = 'portfolio_banner';
-
     protected $fillable = [
         'name',
         'image',
@@ -16,5 +15,6 @@ class PortfolioBanner extends Model
         'result',
         'short_description',
         'status',
+        'category_id'
     ];
 }

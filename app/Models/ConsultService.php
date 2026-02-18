@@ -14,6 +14,7 @@ class ConsultService extends Model
                             'features',
                             'title',
                             'image',
+                            'category_id'
                         ];
    protected $casts = [
         'features' => 'array',

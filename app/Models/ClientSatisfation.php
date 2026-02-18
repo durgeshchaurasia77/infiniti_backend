@@ -9,6 +9,7 @@ class ClientSatisfation extends Model
     use HasFactory;
     protected $table = 'client_satisfaction';
     protected $fillable = [
+                            'category_id',
                             'name',
                             'status',
                             'image',

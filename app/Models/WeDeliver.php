@@ -11,6 +11,7 @@ class WeDeliver extends Model
     protected $table = 'we_deliver';
 
     protected $fillable = [
+        'category_id',
         'name',
         'sub_description',
         'image',

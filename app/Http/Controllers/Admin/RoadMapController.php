@@ -11,6 +11,7 @@ use DB;
 use File;
 use Exception;
 use App\Models\RoadMap;
+use App\Models\Industry;
 
 class RoadMapController extends Controller
 {
@@ -43,10 +44,12 @@ class RoadMapController extends Controller
         # fetch setting list
         $query = $this->roadMap;
 
+        // $categories  = Industry::where('status',1)->get();
         $lists = $query->orderBy('id','desc')->paginate($this->page ?? 10);
 
         return view($this->view.'index')->with([
                                                 'lists'  => $lists ?? [],
+                                                // 'categories' => $categories ?? [],
                                                 ]);
     }
 
@@ -54,8 +57,9 @@ class RoadMapController extends Controller
     {
         try
         {
-            
-            return view($this->view.'create');
+
+            $categories  = Industry::where('status',1)->get();
+            return view($this->view.'create',compact('categories'));
         } catch (Exception $e) {
             return back()->with('error', $ex->getMessage());
         }
@@ -68,6 +72,7 @@ class RoadMapController extends Controller
     public function store(Request $request)
     {
         $rules = [
+            'category_id'=>'required',
             'name'              => 'required|string|max:255',
             // 'title'             => 'required|string|max:255',
             'short_description' => 'required|string|max:500',
@@ -88,6 +93,7 @@ class RoadMapController extends Controller
 
 
             $RoadMap = new RoadMap();
+            $RoadMap->category_id     = $request->category_id;
             $RoadMap->name     = $request->name;
             // $RoadMap->title     = $request->title;
             $RoadMap->details         = $request->details;
@@ -124,6 +130,7 @@ class RoadMapController extends Controller
         {
             $ids = base64_decode($id);
             $details['data'] = $this->roadMap->findOrFail($ids);
+            $details['categories'] = Industry::where('status',1)->get();
             return view($this->view.'edit',$details);
         } catch (Exception $e) {
             return back()->with('error', $ex->getMessage());
@@ -138,6 +145,7 @@ class RoadMapController extends Controller
     {
         $rules = [
             'id'               => 'required|exists:roadmap,id',
+            'category_id'      =>'required',
             'name'             => 'required|string|max:255',
             // 'title'             => 'required|string|max:255',
             'short_description'=> 'required|string|max:500',
@@ -154,10 +162,11 @@ class RoadMapController extends Controller
         }
 
         try {
-            
+
         DB::beginTransaction();
             $RoadMap = RoadMap::findOrFail($request->id);
-            
+
+            $RoadMap->category_id     = $request->category_id;
             $RoadMap->name              = $request->name;
             // $RoadMap->title              = $request->title;
             $RoadMap->details           = $request->details;
@@ -218,11 +227,11 @@ class RoadMapController extends Controller
     */
     public function delete(Request $request,$id)
     {
-       
+
         $result = $this->roadMap->where('id', $id)->delete();
 
         if($result){
-            
+
             return  [
                         $this->successKey   =>  $this->successStatus,
                          $this->messageKey  => $this->deleteMessage($this->type)

@@ -9,6 +9,7 @@ class AdvanceTechnology extends Model
     use HasFactory;
     protected $table = 'advance_technologies';
     protected $fillable = [
+                            'category_id',
                             'name',
                             'status',
                             'details',

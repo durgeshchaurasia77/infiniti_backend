@@ -12,6 +12,7 @@ class LeverageAi extends Model
                             'name',
                             'status',
                             'short_description',
+                            'category_id'
                         ];
 
 }

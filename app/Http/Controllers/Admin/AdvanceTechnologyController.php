@@ -11,6 +11,7 @@ use DB;
 use File;
 use Exception;
 use App\Models\AdvanceTechnology;
+use App\Models\Industry;
 
 class AdvanceTechnologyController extends Controller
 {
@@ -54,8 +55,10 @@ class AdvanceTechnologyController extends Controller
     {
         try
         {
-            
-            return view($this->view.'create');
+
+            $categories  = Industry::where('status',1)->get();
+
+            return view($this->view.'create',compact('categories'));
         } catch (Exception $e) {
             return back()->with('error', $ex->getMessage());
         }
@@ -68,6 +71,7 @@ class AdvanceTechnologyController extends Controller
     public function store(Request $request)
     {
         $rules = [
+            'category_id'=>'required',
             'name'            => 'required|string|max:255',
             'short_description'  => 'required|string|max:500',
             'details'          => 'required|array',
@@ -87,6 +91,7 @@ class AdvanceTechnologyController extends Controller
 
 
             $AdvanceTechnology = new AdvanceTechnology();
+            $AdvanceTechnology->category_id     = $request->category_id;
             $AdvanceTechnology->name     = $request->name;
             $AdvanceTechnology->details         = $request->details;
             $AdvanceTechnology->short_description = $request->short_description;
@@ -121,6 +126,7 @@ class AdvanceTechnologyController extends Controller
         try
         {
             $ids = base64_decode($id);
+            $details['categories'] = Industry::where('status',1)->get();
             $details['data'] = $this->advanceTechnology->findOrFail($ids);
             return view($this->view.'edit',$details);
         } catch (Exception $e) {
@@ -136,6 +142,7 @@ class AdvanceTechnologyController extends Controller
     {
         $rules = [
             'id'               => 'required|exists:advance_technologies,id',
+            'category_id'=>'required',
             'name'             => 'required|string|max:255',
             'short_description'=> 'required|string|max:500',
             'details'          => 'required|array',
@@ -151,10 +158,11 @@ class AdvanceTechnologyController extends Controller
         }
 
         try {
-            
+
         DB::beginTransaction();
             $AdvanceTechnology = AdvanceTechnology::findOrFail($request->id);
-            
+
+            $AdvanceTechnology->category_id     = $request->category_id;
             $AdvanceTechnology->name              = $request->name;
             $AdvanceTechnology->details           = $request->details;
             $AdvanceTechnology->short_description = $request->short_description;
@@ -214,11 +222,11 @@ class AdvanceTechnologyController extends Controller
     */
     public function delete(Request $request,$id)
     {
-       
+
         $result = $this->advanceTechnology->where('id', $id)->delete();
 
         if($result){
-            
+
             return  [
                         $this->successKey   =>  $this->successStatus,
                          $this->messageKey  => $this->deleteMessage($this->type)

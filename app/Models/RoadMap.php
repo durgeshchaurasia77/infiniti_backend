@@ -9,6 +9,7 @@ class RoadMap extends Model
     use HasFactory;
     protected $table = 'roadmap';
     protected $fillable = [
+                            'category_id',
                             'name',
                             'title',
                             'status',
