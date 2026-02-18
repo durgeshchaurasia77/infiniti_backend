@@ -1,6 +1,7 @@
-body{
-  background:#FFFFFF;
-  color:#0C2347;
+html, body {
+  background: #FFFFFF;
+  color: #0C2347;
+  font-family: 'Poppins', sans-serif;
 }
 
   section{
@@ -83,7 +84,7 @@ display: none;
 .mega-menu .item a{
   color:#fff !important;
   text-decoration:none !important;
-  font-size: 18px;
+  font-size: 13px;
 }
 .menu .btn-primary{
     color:#fff !important;
@@ -189,7 +190,7 @@ display: none;
 
 .item i{
  /* color:#3ea3ff !important; */
- font-size:18px !important;
+ font-size:13px !important;
 }
 
 
@@ -708,20 +709,10 @@ display: none;
 }
 
 .inf-hero-title {
-    font-size: 46px !important;
-    font-weight: 800;
-    margin-bottom: 14px;
     background: linear-gradient(90deg, #1778FF, #1778FF);
-    /* -webkit-background-clip: text; */
-    /* -webkit-text-fill-color: transparent; */
-  font-size: 44px;
+  font-size: 45px;
   font-weight: 700;
   margin-bottom: 14px;
-  /* background: linear-gradient(
-    90deg,
-    var(--brand-primary),
-    var(--brand-accent)
-  ); */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   color: #081223;
@@ -1143,7 +1134,6 @@ display: none;
   .home-cert-section h2{
     font-size: 25px !important;
     line-height: 30px !important;
-    text-align: center s!important;;
     margin-bottom: 30px;
   }
 
@@ -2201,9 +2191,16 @@ border-radius: 24px;
     line-height: 30px;
 }
 .power-packed-feature-industry-page h2 {
-    font-size: 26px;
+    font-size: 25px !important;
     text-align: center;
 }
+.power-packed-feature-industry-page-track {
+    gap: 74px !important;
+}
+.power-packed-feature-industry-page-card {
+    min-width: 274px !important;
+}
+
 }
 
 
@@ -2386,14 +2383,14 @@ border-radius: 24px;
     line-height: 1.2;
   }
 
-  /* MAIN WRAPPER */
+
   .tab-warpeper{
     display: flex;
     flex-direction: column;
     gap: 20px;
   }
 
-  /* TABS */
+
   .tabs{
     width: 100%;
     padding: 12px;
@@ -2411,7 +2408,6 @@ border-radius: 24px;
     font-size: 16px;
   }
 
-  /* CONTENT */
   .tab-content{
     width: 100%;
     padding: 0;
@@ -2443,8 +2439,14 @@ border-radius: 24px;
 .hero-content-two h1 {
     font-size: 25px;
 }
+  .power-packed-feature-industry-page p {
+  text-align: justify !important;
+  font-size: 14px !important;
+  padding: 0px 15px;
+  }
 
 }
+
 
 
 /* tab section left right  */
@@ -3013,7 +3015,7 @@ border-radius: 24px;
   background-position:center;
 } */
 .service-page-software-hero{
-  position:relative;
+  position:inherit;
   padding:122px 97px 80px;
   min-height:100vh;
 
@@ -3367,6 +3369,7 @@ border-radius: 24px;
     font-size: 40px;
     text-align: center;
     color: #000;
+    padding-top: 20px;
 }
 
 /* =========================
@@ -3604,10 +3607,9 @@ border-radius: 24px;
   gap:40px;
   padding:40px;
   background:#0b0b0b;
-  border-radius:30px;
   overflow:hidden;
   position:relative;
-      margin-top: 40px;
+  margin-top: 40px;
 }
 
 
@@ -3731,6 +3733,14 @@ a.buid-service-videosection-service-page-btn.video-trigger {
   0%{ transform:scale(.8); opacity:.8; }
   100%{ transform:scale(1.6); opacity:0; }
 }
+.buid-service-videosection-service-page-cta{
+  justify-content: center;   /* pura section center */
+  text-align: center;        /* text center */
+}
+
+.buid-service-videosection-service-page-cta-content{
+  width: 100%;
+}
 
 
 
@@ -3842,6 +3852,84 @@ a.buid-service-videosection-service-page-btn.video-trigger {
     margin: 0 auto;
     padding: 40px 16px;
 }
+/* ================= RESPONSIVE ================= */
+
+/* Tablet */
+@media (max-width: 992px) {
+
+  .process-blackbox-servicepage{
+    gap: 25px;
+    padding: 35px;
+  }
+
+  .process-blackbox-left-servicepage h4{
+    font-size: 24px;
+  }
+
+  .process-blackbox-right-servicepage li{
+    font-size: 16px;
+  }
+}
+
+
+/* Mobile */
+@media (max-width: 768px) {
+
+  .process-title-servicepage{
+    padding: 18px 0;
+  }
+
+  .process-title-servicepage h3{
+    font-size: 18px;
+  }
+
+  .process-blackbox-servicepage{
+    flex-direction: column;   /* column layout */
+    padding: 25px;
+    border-radius: 14px;
+  }
+
+  .process-blackbox-left-servicepage,
+  .process-blackbox-right-servicepage{
+    width: 100%;
+  }
+
+  .process-blackbox-left-servicepage h4{
+    font-size: 20px;
+  }
+
+  .process-blackbox-right-servicepage li{
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+
+  .process-accordion-servicepage h2{
+    font-size: 28px;
+  }
+
+  .process-accordion-servicepage p{
+    font-size: 14px;
+  }
+}
+
+
+/* Small Mobile */
+@media (max-width: 480px) {
+
+  .process-blackbox-servicepage{
+    padding: 18px;
+  }
+
+  .process-blackbox-left-servicepage h4{
+    font-size: 18px;
+  }
+
+  .process-blackbox-right-servicepage li{
+    font-size: 14px;
+  }
+
+}
+
 
 
 /* advance-technoloy-in-service-page-card */
@@ -4837,7 +4925,7 @@ a.buid-service-videosection-service-page-btn.video-trigger {
 .turn-your-fitness-idea-industry-page-hero-inner{
   max-width:1300px;
   margin:auto;
-  padding:30px 30px;
+  padding: 0px 6px 58px 4px;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -5166,8 +5254,6 @@ a.buid-service-videosection-service-page-btn.video-trigger {
 /* end  */
 
 
-
-
 .ai-powered-fitness-app-industry-ai-section{
   padding:100px 16px;
   background:#fff;
@@ -5192,7 +5278,6 @@ a.buid-service-videosection-service-page-btn.video-trigger {
   color:#555;
 }
 
-/* BOX */
 .ai-powered-fitness-app-industry-ai-box{
   display:flex;
   background:#f6fbff;
@@ -5200,7 +5285,7 @@ a.buid-service-videosection-service-page-btn.video-trigger {
   overflow:hidden;
 }
 
-/* LEFT */
+
 .ai-powered-fitness-app-industry-ai-left{
   width:55%;
   padding:60px;
@@ -5272,7 +5357,7 @@ a.buid-service-videosection-service-page-btn.video-trigger {
   }
 
   .ai-powered-fitness-app-industry-ai-container h2{
-    font-size:32px;
+    font-size:25px;
   }
 }
 
@@ -5520,22 +5605,26 @@ a.buid-service-videosection-service-page-btn.video-trigger {
 .AI-powered-Recommendations-industry-page-panel h3{
   font-size:28px;
   margin:10px 0;
+  color:#000;
 }
 
 .AI-powered-Recommendations-industry-page-panel p{
   margin:20px 0;
   line-height:1.7;
+  color:#000;
 }
 
 .AI-powered-Recommendations-industry-page-panel ul{
   list-style:none;
   padding:0;
+  color:#000;
 }
 
 .AI-powered-Recommendations-industry-page-panel li{
   margin-bottom:12px;
   padding-left:25px;
   position:relative;
+  color:#000;
 }
 
 .AI-powered-Recommendations-industry-page-panel li::before{
@@ -5604,7 +5693,6 @@ a.buid-service-videosection-service-page-btn.video-trigger {
   line-height:1.6;
 }
 
-/* controls */
 .power-packed-feature-industry-page-controls{
   display:flex;
   align-items:center;
@@ -5613,7 +5701,7 @@ a.buid-service-videosection-service-page-btn.video-trigger {
   margin-top:40px;
 }
 
-/* buttons */
+
 .power-packed-feature-industry-page-controls button{
   width:48px;
   height:48px;
@@ -5636,7 +5724,7 @@ a.buid-service-videosection-service-page-btn.video-trigger {
   transform:scale(1.1);
 }
 
-/* progress bar */
+
 .power-packed-feature-industry-page .progress-bar{
   width:300px;
   height:6px;
@@ -5660,13 +5748,9 @@ a.buid-service-videosection-service-page-btn.video-trigger {
 
 .power-packed-feature-industry-page p {
     text-align: center;
+    font-size: 17px;
 }
 
-
-/* end  */
-
-
-/* ===== MAIN SECTION ===== */
 .roadmap-exceptional-indusrty-page-fitness-process{
   padding:80px 20px;
   background:#f6f9fc;
@@ -5682,7 +5766,6 @@ a.buid-service-videosection-service-page-btn.video-trigger {
   gap:40px;
 }
 
-/* ===== LEFT TIMELINE ===== */
 .roadmap-exceptional-indusrty-page-fitness-steps{
   width:45%;
   background:#fff;

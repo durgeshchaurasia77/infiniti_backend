@@ -315,6 +315,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         });
         </script>
+ <!--        
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -352,7 +353,7 @@ closeBtn.addEventListener("click", closeModal);
 
 });
 </script>
-
+ -->
 
 
     <script>
@@ -427,69 +428,74 @@ closeBtn.addEventListener("click", closeModal);
     </script>
 
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
+ <script>
+document.addEventListener("DOMContentLoaded", function () {
 
-            /* ========== SWIPER SLIDER ========== */
-            var swiper = new Swiper(".myVideoSlider", {
-                slidesPerView: 3,
-                spaceBetween: 25,
-                slidesPerGroup: 3,
-                loop: false,
+  /* ========== SWIPER SLIDER ========== */
+  if (typeof Swiper !== "undefined") {
+    new Swiper(".myVideoSlider", {
+      slidesPerView: 3,
+      spaceBetween: 25,
+      slidesPerGroup: 3,
+      loop: false,
 
-                navigation: {
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev"
-                },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev"
+      },
 
-                breakpoints: {
-                    0: { slidesPerView: 1, slidesPerGroup: 1 },
-                    768: { slidesPerView: 2, slidesPerGroup: 2 },
-                    1200: { slidesPerView: 3, slidesPerGroup: 3 }
-                }
-            });
+      breakpoints: {
+        0:    { slidesPerView: 1, slidesPerGroup: 1 },
+        768:  { slidesPerView: 2, slidesPerGroup: 2 },
+        1200: { slidesPerView: 3, slidesPerGroup: 3 }
+      }
+    });
+  }
 
+  /* ========== TESTIMONIAL POPUP ========== */
+  const popup = document.querySelector(".homepage-testimonial-popup");
+  const video = document.getElementById("homepage-testimonial-video");
+  const closeBtn = document.querySelector(".homepage-testimonial-close");
 
+  /* ❗ SAFETY CHECK */
+  if (!popup || !video) return;
 
-            /* ========== TESTIMONIAL POPUP ========== */
+  /* ✅ OPEN POPUP (DYNAMIC SAFE) */
+  document.addEventListener("click", function (e) {
+    const card = e.target.closest(".homepage-testimonial-card");
+    if (!card) return;
 
-            const testimonialCards = document.querySelectorAll(".homepage-testimonial-card");
-            const testimonialPopup = document.querySelector(".homepage-testimonial-popup");
-            const testimonialVideo = document.getElementById("homepage-testimonial-video");
-            const testimonialClose = document.querySelector(".homepage-testimonial-close");
+    const videoSrc = card.dataset.video;
+    if (!videoSrc) return;
 
+    popup.style.display = "flex";
 
-            /* OPEN */
-            testimonialCards.forEach(card => {
-                card.addEventListener("click", () => {
-                    testimonialVideo.src = card.getAttribute("data-video");
-                    testimonialPopup.style.display = "flex";
-                    testimonialVideo.play();
-                });
-            });
+    // iframe + video safe
+    video.src = videoSrc.includes("youtube")
+      ? videoSrc + "?autoplay=1"
+      : videoSrc;
+  });
 
+  /* ❌ CLOSE POPUP */
+  function closeTestimonialPopup() {
+    popup.style.display = "none";
+    video.src = ""; // iframe + video both stop
+  }
 
-            /* CLOSE FUNCTION */
-            function closeTestimonialPopup() {
-                testimonialPopup.style.display = "none";
-                testimonialVideo.pause();
-                testimonialVideo.currentTime = 0;
-            }
+  /* SAFE EVENTS */
+  closeBtn?.addEventListener("click", closeTestimonialPopup);
 
+  popup.addEventListener("click", e => {
+    if (e.target === popup) closeTestimonialPopup();
+  });
 
-            /* CLOSE BUTTON CLICK */
-            testimonialClose.addEventListener("click", closeTestimonialPopup);
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") closeTestimonialPopup();
+  });
 
+});
+</script>
 
-            /* CLICK OUTSIDE TO CLOSE */
-            testimonialPopup.addEventListener("click", e => {
-                if (e.target === testimonialPopup) {
-                    closeTestimonialPopup();
-                }
-            });
-
-        });
-    </script>
 
 
 
@@ -696,7 +702,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 
-
+<!-- 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -734,7 +740,7 @@ closeBtn.addEventListener("click", closeModal);
 
 });
 </script>
-
+ -->
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -1012,215 +1018,193 @@ document.querySelectorAll(".process-title-servicepage").forEach(title=>{
   });
 });
  </script>
-<script>
-let indexourwall = 0;
-
-const trackourwall = document.querySelector(
-  '.our-wall-of-fame-home-page-award-track'
-);
-
-const dotsourwalls = document.querySelectorAll(
-  '.our-wall-of-fame-home-page-award-dots span'
-);
-
-const card = document.querySelector('.our-wall-of-fame-home-page-award-card');
-const cardWidth1 = card.offsetWidth + 20;
-
-const cardsPerSlide = 2;   // 👈 IMPORTANT
-const totalSlides = dotsourwalls.length;
-
-/* ===== MOVE SLIDER ===== */
-function moveOurWallSlider() {
-  // dots active
-  dotsourwalls.forEach(d => d.classList.remove('active'));
-  dotsourwalls[indexourwall].classList.add('active');
-
-  // scroll
-  trackourwall.scrollTo({
-    left: indexourwall * cardWidth1 * cardsPerSlide,
-    behavior: 'smooth'
-  });
-}
-
-/* ===== DOT CLICK ===== */
-dotsourwalls.forEach(dot => {
-  dot.addEventListener('click', () => {
-    indexourwall = Number(dot.dataset.indexourwall);
-    moveOurWallSlider();
-  });
-});
-
-setInterval(() => {
-  indexourwall++;
-
-  if (indexourwall >= totalSlides) {
-    indexourwall = 0;
-  }
-
-  moveOurWallSlider();
-}, 3000);
-</script>
-
 
 <script>
-const commonSectionEverypageTrack = document.querySelector(
-  ".common-section-everypage-blog-listing-track"
-);
+document.addEventListener("DOMContentLoaded", function () {
 
-let commonSectionEverypageCards = Array.from(
-  commonSectionEverypageTrack.querySelectorAll(
-    ".common-section-everypage-blog-listing-card"
-  )
-);
+  let indexourwall = 0;
 
-const commonSectionEverypageNextBtn = document.querySelector(
-  ".common-section-everypage-blog-listing-nav-btn.next"
-);
-
-const commonSectionEverypagePrevBtn = document.querySelector(
-  ".common-section-everypage-blog-listing-nav-btn.prev"
-);
-
-/* RESPONSIVE COUNT */
-function commonSectionEverypageVisibleCards() {
-  if (window.innerWidth <= 768) return 1;
-  if (window.innerWidth <= 1024) return 2;
-  return 3;
-}
-
-let commonSectionEverypageVisible =
-  commonSectionEverypageVisibleCards();
-
-/* 🔁 CLONE CARDS (SEAMLESS LOOP) */
-const commonSectionEverypageFirstClones =
-  commonSectionEverypageCards
-    .slice(0, commonSectionEverypageVisible)
-    .map(card => card.cloneNode(true));
-
-const commonSectionEverypageLastClones =
-  commonSectionEverypageCards
-    .slice(
-      commonSectionEverypageCards.length -
-        commonSectionEverypageVisible
-    )
-    .map(card => card.cloneNode(true));
-
-commonSectionEverypageLastClones.forEach(clone =>
-  commonSectionEverypageTrack.prepend(clone)
-);
-
-commonSectionEverypageFirstClones.forEach(clone =>
-  commonSectionEverypageTrack.append(clone)
-);
-
-commonSectionEverypageCards = Array.from(
-  commonSectionEverypageTrack.querySelectorAll(
-    ".common-section-everypage-blog-listing-card"
-  )
-);
-
-/* START FROM REAL FIRST CARD */
-let commonSectionEverypageIndex = commonSectionEverypageVisible;
-
-/* SLIDE FUNCTION */
-function commonSectionEverypageSlide(noAnim = false) {
-  const gap = 24;
-  const cardWidth =
-    commonSectionEverypageCards[0].offsetWidth + gap;
-
-  commonSectionEverypageTrack.style.transition = noAnim
-    ? "none"
-    : "transform .6s cubic-bezier(.22,.61,.36,1)";
-
-  commonSectionEverypageTrack.style.transform =
-    `translateX(-${commonSectionEverypageIndex * cardWidth}px)`;
-}
-
-commonSectionEverypageSlide(true);
-
-/* NEXT */
-commonSectionEverypageNextBtn.addEventListener("click", () => {
-  commonSectionEverypageIndex++;
-  commonSectionEverypageSlide();
-
-  if (
-    commonSectionEverypageIndex ===
-    commonSectionEverypageCards.length -
-      commonSectionEverypageVisible
-  ) {
-    setTimeout(() => {
-      commonSectionEverypageIndex =
-        commonSectionEverypageVisible;
-      commonSectionEverypageSlide(true);
-    }, 600);
-  }
-});
-
-/* PREV */
-commonSectionEverypagePrevBtn.addEventListener("click", () => {
-  commonSectionEverypageIndex--;
-  commonSectionEverypageSlide();
-
-  if (commonSectionEverypageIndex === 0) {
-    setTimeout(() => {
-      commonSectionEverypageIndex =
-        commonSectionEverypageCards.length -
-        commonSectionEverypageVisible * 2;
-      commonSectionEverypageSlide(true);
-    }, 600);
-  }
-});
-
-/* RESIZE */
-window.addEventListener("resize", () => {
-  commonSectionEverypageVisible =
-    commonSectionEverypageVisibleCards();
-  commonSectionEverypageSlide(true);
-});
-
-/* VIDEO POPUP */
-const commonSectionEverypagePopup = document.querySelector(
-  ".common-section-everypage-blog-listing-video-popup"
-);
-// const popup = document.querySelector(
-//   ".common-section-everypage-blog-listing-video-popup"
-// );
-const iframe = commonSectionEverypagePopup.querySelector("iframe");
-
-document.addEventListener("click", function (e) {
-  const btn = e.target.closest(
-    ".common-section-everypage-blog-listing-play-btn"
+  const trackourwall = document.querySelector(
+    ".our-wall-of-fame-home-page-award-track"
   );
-  if (!btn) return;
 
-  const videoUrl = btn.dataset.video;
-  if (!videoUrl) return;
+  const dotsourwalls = document.querySelectorAll(
+    ".our-wall-of-fame-home-page-award-dots span"
+  );
 
-  commonSectionEverypagePopup.classList.add("active");
+  const cards = document.querySelectorAll(
+    ".our-wall-of-fame-home-page-award-card"
+  );
 
-  // Agar youtube link hai
-  iframe.src = videoUrl.includes("youtube")
-    ? videoUrl + "?autoplay=1"
-    : videoUrl;
+  /* ❗ SAFETY CHECK */
+  if (!trackourwall || !dotsourwalls.length || !cards.length) {
+    console.warn("Our wall slider elements not found");
+    return;
+  }
+
+  const gap = 20;
+  const cardWidth = cards[0].offsetWidth + gap;
+
+  const cardsPerSlide = 2;   // 👈 IMPORTANT
+  const totalSlides = dotsourwalls.length;
+
+  /* ===== MOVE SLIDER ===== */
+  function moveOurWallSlider() {
+
+    dotsourwalls.forEach(d => d.classList.remove("active"));
+    dotsourwalls[indexourwall].classList.add("active");
+
+    trackourwall.scrollTo({
+      left: indexourwall * cardWidth * cardsPerSlide,
+      behavior: "smooth"
+    });
+  }
+
+  /* ===== DOT CLICK ===== */
+  dotsourwalls.forEach(dot => {
+    dot.addEventListener("click", () => {
+      indexourwall = Number(dot.dataset.indexourwall);
+      moveOurWallSlider();
+    });
+  });
+
+  /* ===== AUTO SLIDE ===== */
+  setInterval(() => {
+    indexourwall++;
+    if (indexourwall >= totalSlides) indexourwall = 0;
+    moveOurWallSlider();
+  }, 3000);
+
 });
-/* CLOSE POPUP */
-commonSectionEverypagePopup
-  .querySelector(
-    ".common-section-everypage-blog-listing-popup-close"
-  )
-  .addEventListener("click", commonSectionEverypageClosePopup);
-
-commonSectionEverypagePopup
-  .querySelector(
-    ".common-section-everypage-blog-listing-popup-overlay"
-  )
-  .addEventListener("click", commonSectionEverypageClosePopup);
-
-function commonSectionEverypageClosePopup() {
-  commonSectionEverypagePopup.classList.remove("active");
-  commonSectionEverypageIframe.src = "";
-}
 </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  /* ===== SLIDER ===== */
+  const track = document.querySelector(
+    ".common-section-everypage-blog-listing-track"
+  );
+
+  const cards = track
+    ? Array.from(track.querySelectorAll(
+        ".common-section-everypage-blog-listing-card"
+      ))
+    : [];
+
+  const nextBtn = document.querySelector(
+    ".common-section-everypage-blog-listing-nav-btn.next"
+  );
+
+  const prevBtn = document.querySelector(
+    ".common-section-everypage-blog-listing-nav-btn.prev"
+  );
+
+  if (!track || !cards.length || !nextBtn || !prevBtn) return;
+
+  function getVisible() {
+    if (window.innerWidth <= 768) return 1;
+    if (window.innerWidth <= 1024) return 2;
+    return 3;
+  }
+
+  let visible = getVisible();
+
+  /* CLONE */
+  const firstClones = cards.slice(0, visible).map(c => c.cloneNode(true));
+  const lastClones  = cards.slice(cards.length - visible).map(c => c.cloneNode(true));
+
+  lastClones.forEach(c => track.prepend(c));
+  firstClones.forEach(c => track.append(c));
+
+  let allCards = Array.from(
+    track.querySelectorAll(".common-section-everypage-blog-listing-card")
+  );
+
+  let index = visible;
+
+  function slide(noAnim = false) {
+    const gap = 24;
+    const width = allCards[0].offsetWidth + gap;
+
+    track.style.transition = noAnim ? "none" : "transform .6s ease";
+    track.style.transform = `translateX(-${index * width}px)`;
+  }
+
+  slide(true);
+
+  nextBtn.addEventListener("click", () => {
+    index++;
+    slide();
+
+    if (index === allCards.length - visible) {
+      setTimeout(() => {
+        index = visible;
+        slide(true);
+      }, 600);
+    }
+  });
+
+  prevBtn.addEventListener("click", () => {
+    index--;
+    slide();
+
+    if (index === 0) {
+      setTimeout(() => {
+        index = allCards.length - visible * 2;
+        slide(true);
+      }, 600);
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    visible = getVisible();
+    slide(true);
+  });
+
+  /* ===== VIDEO POPUP ===== */
+  const popup = document.querySelector(
+    ".common-section-everypage-blog-listing-video-popup"
+  );
+
+  if (!popup) return;
+
+  const iframe = popup.querySelector("iframe");
+  const closeBtn = popup.querySelector(
+    ".common-section-everypage-blog-listing-popup-close"
+  );
+  const overlay = popup.querySelector(
+    ".common-section-everypage-blog-listing-popup-overlay"
+  );
+
+  document.addEventListener("click", e => {
+    const btn = e.target.closest(
+      ".common-section-everypage-blog-listing-play-btn"
+    );
+    if (!btn) return;
+
+    const videoUrl = btn.dataset.video;
+    if (!videoUrl) return;
+
+    popup.classList.add("active");
+    iframe.src = videoUrl.includes("youtube")
+      ? videoUrl + "?autoplay=1"
+      : videoUrl;
+  });
+
+  function closePopup() {
+    popup.classList.remove("active");
+    iframe.src = "";
+  }
+
+  closeBtn?.addEventListener("click", closePopup);
+  overlay?.addEventListener("click", closePopup);
+
+});
+</script>
+
+
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -1355,82 +1339,96 @@ document.querySelectorAll('.hidden-video').forEach((video, index) => {
 });
 </script>
 
-
 <script>
-const trackdigitalMarketing = document.getElementById("servicesTrack");
-let slidesdigitalMarketing = document.querySelectorAll(
-  ".digital-marketing-page-service-slide"
-);
+document.addEventListener("DOMContentLoaded", function () {
 
-/* ===== CLONE SLIDES FOR INFINITE LOOP ===== */
-slidesdigitalMarketing.forEach(slide => {
-  trackdigitalMarketing.appendChild(slide.cloneNode(true));
-});
+  const track = document.getElementById("servicesTrack");
+  const sliderWrapper = document.querySelector(
+    ".digital-marketing-page-services-slider-wrapper"
+  );
 
-slidesdigitalMarketing = document.querySelectorAll(
-  ".digital-marketing-page-service-slide"
-);
-
-let index = 0;
-const totalSlides1 = slidesdigitalMarketing.length / 2;
-let autoSlideInterval;
-
-/* ===== NEXT SLIDE ===== */
-function nextSlide(){
-  index++;
-  trackdigitalMarketing.style.transition = "0.6s ease";
-  trackdigitalMarketing.style.transform = `translateX(-${index * 100}%)`;
-
-  if(index === totalSlides1){
-    setTimeout(() => {
-      trackdigitalMarketing.style.transition = "none";
-      index = 0;
-      trackdigitalMarketing.style.transform = "translateX(0)";
-    }, 600);
+  if (!track || !sliderWrapper) {
+    console.warn("Digital marketing slider elements not found");
+    return;
   }
-}
 
-/* ===== PREV SLIDE ===== */
-function prevSlide(){
-  if(index === 0){
-    trackdigitalMarketing.style.transition = "none";
-    index = totalSlides1;
-    trackdigitalMarketing.style.transform = `translateX(-${index * 100}%)`;
+  let slides = Array.from(
+    track.querySelectorAll(".digital-marketing-page-service-slide")
+  );
 
-    setTimeout(() => {
-      trackdigitalMarketing.style.transition = "0.6s ease";
+  if (!slides.length) return;
+
+  /* ===== CLONE SLIDES ===== */
+  slides.forEach(slide => {
+    track.appendChild(slide.cloneNode(true));
+  });
+
+  slides = Array.from(
+    track.querySelectorAll(".digital-marketing-page-service-slide")
+  );
+
+  let index = 0;
+  const totalSlides = slides.length / 2;
+  let autoSlideInterval = null;
+
+  function nextSlide() {
+    index++;
+    track.style.transition = "transform 0.6s ease";
+    track.style.transform = `translateX(-${index * 100}%)`;
+
+    if (index === totalSlides) {
+      setTimeout(() => {
+        track.style.transition = "none";
+        index = 0;
+        track.style.transform = "translateX(0)";
+      }, 600);
+    }
+  }
+
+  function prevSlide() {
+    if (index === 0) {
+      track.style.transition = "none";
+      index = totalSlides;
+      track.style.transform = `translateX(-${index * 100}%)`;
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          track.style.transition = "transform 0.6s ease";
+          index--;
+          track.style.transform = `translateX(-${index * 100}%)`;
+        });
+      });
+    } else {
       index--;
-      trackdigitalMarketing.style.transform = `translateX(-${index * 100}%)`;
-    }, 20);
-  }else{
-    index--;
-    trackdigitalMarketing.style.transition = "0.6s ease";
-    trackdigitalMarketing.style.transform = `translateX(-${index * 100}%)`;
+      track.style.transition = "transform 0.6s ease";
+      track.style.transform = `translateX(-${index * 100}%)`;
+    }
   }
-}
 
-/* ===== AUTO SLIDE ===== */
-function startAutoSlide(){
-  autoSlideInterval = setInterval(() => {
-    nextSlide();
-  }, 4000); // 4 sec
-}
+  function startAutoSlide() {
+    if (autoSlideInterval) return;
+    autoSlideInterval = setInterval(nextSlide, 4000);
+  }
 
-function stopAutoSlide(){
-  clearInterval(autoSlideInterval);
-}
+  function stopAutoSlide() {
+    clearInterval(autoSlideInterval);
+    autoSlideInterval = null;
+  }
 
-/* ===== START AUTO SLIDE ON LOAD ===== */
-startAutoSlide();
+  /* START */
+  startAutoSlide();
 
-/* ===== PAUSE ON HOVER ===== */
-const sliderWrapper = document.querySelector(
-  ".digital-marketing-page-services-slider-wrapper"
-);
+  /* PAUSE ON HOVER (SAFE) */
+  sliderWrapper.addEventListener("mouseenter", stopAutoSlide);
+  sliderWrapper.addEventListener("mouseleave", startAutoSlide);
 
-sliderWrapper.addEventListener("mouseenter", stopAutoSlide);
-sliderWrapper.addEventListener("mouseleave", startAutoSlide);
+  /* OPTIONAL: if buttons use onclick */
+  window.nextSlide = nextSlide;
+  window.prevSlide = prevSlide;
+
+});
 </script>
+
 
 
 

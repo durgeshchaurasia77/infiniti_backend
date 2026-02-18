@@ -200,3 +200,43 @@ function showSlide(i){
   showSlide(index);
   startAuto();
 });
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const tabItems = document.querySelectorAll(
+    ".service-page-below-the-counter-tab-item"
+  );
+
+  const tabContents = document.querySelectorAll(
+    ".service-page-below-the-counter-content"
+  );
+
+  tabItems.forEach(tab => {
+    tab.addEventListener("click", function () {
+
+      // Remove active class from all tabs
+      tabItems.forEach(item => item.classList.remove("active"));
+
+      // Hide all contents
+      tabContents.forEach(content => content.classList.remove("show"));
+
+      // Add active class to clicked tab
+      this.classList.add("active");
+
+      // Get target content ID
+      const target = this.getAttribute("data-tab");
+
+      // Show matching content
+      document.getElementById(target).classList.add("show");
+
+    });
+  });
+
+});
+
