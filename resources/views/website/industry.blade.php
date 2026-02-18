@@ -32,15 +32,19 @@
         <img src="{{ asset($industryData->image ?? 'notImage.jpg') }}">
       </div>
 
-      <div class="turn-your-fitness-idea-industry-page-card sleep">
-        <small>Sleep</small>
-        <strong>7.50 hrs</strong>
-      </div>
+        @if($industryData->features_one != null)
+            <div class="turn-your-fitness-idea-industry-page-card sleep">
+                {{-- <small>Sleep</small> --}}
+                    <strong>{{ $industryData->features_one  ?? ''}}</strong>
+            </div>
+        @endif
 
-      <div class="turn-your-fitness-idea-industry-page-card calories">
-        <small>Calories</small>
-        <strong>990 Kcal</strong>
-      </div>
+        @if($industryData->features_two != null)
+            <div class="turn-your-fitness-idea-industry-page-card calories">
+                {{-- <small>Calories</small> --}}
+                    <strong>{{ $industryData->features_two ?? '' }}</strong>
+            </div>
+        @endif
 
     </div>
 
@@ -119,7 +123,7 @@
    </section>
   <!-- homepage-statssection-stats bg-image -->
 
-  
+
 @php
     preg_match(
         '%(?:youtube\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i',
@@ -254,11 +258,10 @@
   <div class="grow-with-you-service-page-overlay">
 
     <div class="grow-with-you-service-page-content">
-      <h2>Struggling to Scale? Let’s Build a Solution That Grows with You</h2>
+      <h2>{{ $industryData->about_title ?? '' }}</h2>
 
       <p>
-        Get 30% off your first custom software project, designed to boost
-        efficiency, cut costs, and scale your business seamlessly.
+        {{ $industryData->about_description ?? '' }}
       </p>
 
       <a href="#" class="grow-with-you-service-page-btn">

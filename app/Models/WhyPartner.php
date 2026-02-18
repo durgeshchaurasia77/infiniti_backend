@@ -18,4 +18,9 @@ class WhyPartner extends Model
         'heading_three',
         'short_description_three',
     ];
+
+    public function parent()
+    {
+        return $this->hasOne(DigitalCategory::class, 'id', 'category_id');
+    }
 }

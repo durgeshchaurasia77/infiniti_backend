@@ -71,7 +71,7 @@ class IndustryController extends Controller
             'header_short_description' => 'required|string|max:500',
 
             'title'        => 'required|string|max:255',
-            'publish_date' => 'required|date',
+            // 'publish_date' => 'required|date',
             'short_description' => 'required|string',
 
             'image'        => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
@@ -122,6 +122,10 @@ class IndustryController extends Controller
             $industry->short_description        = $request->short_description;
             $industry->video                    = $request->video;
             $industry->status                   = $request->status;
+            $industry->features_one             = $request->feature_one ?? null;
+            $industry->features_two             = $request->feature_two ?? null;
+            $industry->about_title              = $request->about_title ?? null;
+            $industry->about_description        = $request->about_description ?? null;
 
             $industry->seo_slug        = $request->seo_slug ?? \Str::slug($request->title);
             $industry->seo_title       = $request->seo_title ?? $request->title;
@@ -165,7 +169,7 @@ class IndustryController extends Controller
         {
             $ids = base64_decode($id);
             $details['data'] = $this->industry->findOrFail($ids);
-            
+
             return view($this->view.'edit',$details);
         } catch (Exception $e) {
             return back()->with('error', $ex->getMessage());
@@ -185,7 +189,7 @@ public function update(Request $request, $id)
         'header_short_description' => 'required|string|max:500',
 
         'title'        => 'required|string|max:255',
-        'publish_date' => 'required|date',
+        // 'publish_date' => 'required|date',
         'short_description' => 'required|string',
 
         'image'     => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
@@ -244,6 +248,10 @@ public function update(Request $request, $id)
         // $industry->publish_date             = $request->publish_date;
         $industry->short_description        = $request->short_description;
         $industry->video                    = $request->video;
+        $industry->features_one             = $request->feature_one ?? null;
+        $industry->features_two             = $request->feature_two ?? null;
+        $industry->about_title              = $request->about_title ?? null;
+        $industry->about_description        = $request->about_description ?? null;
         $industry->status                   = $request->status;
 
         $industry->seo_slug        = $request->seo_slug ?? \Str::slug($request->title);
@@ -309,11 +317,11 @@ public function update(Request $request, $id)
     */
     public function delete(Request $request,$id)
     {
-       
+
         $result = $this->industry->where('id', $id)->delete();
 
         if($result){
-            
+
             return  [
                         $this->successKey   =>  $this->successStatus,
                          $this->messageKey  => $this->deleteMessage($this->type)

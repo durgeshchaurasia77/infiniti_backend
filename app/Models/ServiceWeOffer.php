@@ -9,6 +9,7 @@ class ServiceWeOffer extends Model
     use HasFactory;
     protected $table = 'service_we_offer';
     protected $fillable = [
+                            'category_id',
                             'name',
                             'status',
                             'short_description',

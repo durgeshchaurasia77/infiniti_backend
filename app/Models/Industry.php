@@ -22,7 +22,11 @@ class Industry extends Model
                             'seo_keywords',
                             'seo_description',
                             'seo_image',
-                            'status'
+                            'status',
+                            'features_one',
+                            'features_two',
+                            'about_description',
+                            'about_title'
                         ];
- 
+
 }

@@ -25,6 +25,7 @@ Our Process
                             class="formSubmit">
                             @csrf
 
+                            <input type="hidden" name="id" value="{{ $ourProcess->id ?? '' }}">
                             <div class="modal-body">
                                 <div class="row">
 

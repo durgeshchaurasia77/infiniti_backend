@@ -10,6 +10,7 @@ class Features extends Model
     use HasFactory;
     protected $table = 'features';
     protected $fillable = [
+                            'category_id',
                             'name',
                             'title',
                             'short_description',
@@ -21,4 +22,8 @@ class Features extends Model
     protected $casts = [
         'details' => 'array',
     ];
+    public function parent()
+    {
+        return $this->hasOne(Industry::class, 'id', 'category_id');
+    }
 }

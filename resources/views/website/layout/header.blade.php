@@ -1,7 +1,9 @@
 @php
     $settingData    = App\Models\Setting::select('id', 'header_logo')->first();
+    $serviceCategoryList = App\Models\ServiceCategory::select('id','name')->where('status',1)->get();
     $serviceHeaderList    = App\Models\Service::select('id','name','seo_slug')->where('status',1)->get();
     $industryHeaderList    = App\Models\Industry::select('id','title','seo_slug')->where('status',1)->get();
+    $digitalCategoryList = App\Models\DigitalCategory::select('id','name')->where('status',1)->get();
 @endphp
 <div class="homepage-popup-overlay" id="hpPopup" style="display:none;">
 
@@ -103,12 +105,51 @@
         <div class="mega-menu">
             <div class="mega-wrap">
                 <div class="left">
-                    @php
-                        $serviceChunks = $serviceHeaderList->chunk(
-                            ceil($serviceHeaderList->count() / 3)
-                        );
-                    @endphp
-                @foreach ($serviceChunks as $chunk)
+                    {{-- @foreach ($serviceCategoryList as $serviceCategoryData)
+                        <div class="col">
+                            <h4>{{ $serviceCategoryData->name ?? 'Services' }}</h4>
+                            @php
+                                $serviceHeaderList    = App\Models\Service::select('id','name','seo_slug')->where('category_id',$serviceCategoryData->id)->where('status',1)->get();
+
+                                $serviceChunks = $serviceHeaderList->chunk(
+                                    ceil($serviceHeaderList->count() / 3)
+                                );
+                            @endphp
+
+                            @foreach ($chunk as $service)
+                                <div class="item">
+                                    <i class="fa-solid fa-circle-dot"></i>
+                                    <a href="{{ route('services',$service->seo_slug) }}">
+                                        {{ $service->name }}
+                                    </a>
+                                </div>
+                            @endforeach
+                        </div>
+                    @endforeach --}}
+                    @foreach ($serviceCategoryList as $serviceCategoryData)
+                        <div class="col">
+
+                            <h4>{{ $serviceCategoryData->name ?? 'Services' }}</h4>
+
+                            @php
+                                $serviceChunks = $serviceCategoryData->serviceItems
+                                    ->chunk(ceil($serviceCategoryData->serviceItems->count() / 3));
+                            @endphp
+                            @foreach ($serviceChunks as $chunk)
+                                <div class="service-column">
+                                    @foreach ($chunk as $service)
+                                        <div class="item">
+                                            <i class="fa-solid fa-circle-dot"></i>
+                                            <a href="{{ route('services',$service->seo_slug) }}">
+                                                {{ $service->name }}
+                                            </a>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            @endforeach
+                        </div>
+                    @endforeach
+                {{-- @foreach ($serviceChunks as $chunk)
                     <div class="col">
                         <h4>Services</h4>
 
@@ -121,13 +162,15 @@
                             </div>
                         @endforeach
                     </div>
-                @endforeach
+                @endforeach --}}
                 <div class="col">
-                    <h4>Marketing</h4>
+                    <h4>Digital Marketing</h4>
+                    @foreach ($digitalCategoryList as $digitalCategoryData)
                         <div class="item">
                             <i class="fa-solid fa-circle-dot"></i>
-                            <a href="{{ route('digital-marketing') }}">Digital Marketing</a>
+                            <a href="{{ route('digital-marketing',base64_encode($digitalCategoryData->id)) }}">{{ $digitalCategoryData->name ?? '' }}</a>
                         </div>
+                    @endforeach
                 </div>
             </div>
 
@@ -166,7 +209,7 @@
                     @endphp
                     @foreach ($industryChunks as $chunk1)
                     <div class="col">
-                        <h4>Services</h4>
+                        {{-- <h4>Services</h4> --}}
                         @foreach ($chunk1 as $industry)
                             <div class="item">
                                 <i class="fa-solid fa-circle-dot"></i>

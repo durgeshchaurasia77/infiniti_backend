@@ -9,6 +9,7 @@ class AdvanceAi extends Model
     use HasFactory;
     protected $table = 'advance_ai';
     protected $fillable = [
+                            'category_id',
                             'name',
                             'status',
                             'features',

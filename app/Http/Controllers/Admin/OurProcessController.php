@@ -11,6 +11,7 @@ use DB;
 use File;
 use Exception;
 use App\Models\OurProcess;
+use App\Models\DigitalCategory;
 use Illuminate\Validation\Rule;
 class OurProcessController extends Controller
 {
@@ -38,16 +39,74 @@ class OurProcessController extends Controller
 
 
 
+    public function index(Request $request) {
+
+        # fetch setting list
+        $query = $this->ourProcess;
+
+        $lists = $query->orderBy('id','desc')->paginate($this->page ?? 10);
+        $categories  = DigitalCategory::where('status',1)->get();
+        return view($this->view.'index')->with([
+                                                'lists'  => $lists ?? [],
+                                                'categories' => $categories ?? [],
+                                                ]);
+    }
+    public function store(Request $request)
+    {
+        $rules = [
+            'category_id'=>'required'
+        ];
+
+        $validator = Validator::make($request->all(), $rules);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'responseCode'    => (string)$this->errorStatus,
+                'responseMessage' => $validator->errors()->first(),
+            ]);
+        }
+
+        $chekId = OurProcess::where('category_id',$request->category_id)->first();
+        if($chekId){
+            return response()->json([
+                'responseCode'    => (string)$this->errorStatus,
+                'responseMessage' => 'This Records already in our system',
+            ]);
+        }
+        try {
+            DB::beginTransaction();
+            $whyPartner = new OurProcess();
+            $whyPartner->category_id     = $request->category_id;
+
+            $whyPartner->save();
+
+            DB::commit();
+
+            return response()->json([
+                'responseCode'    => (string)$this->successStatus,
+                'responseMessage' => 'our Process updated successfully.',
+            ]);
+
+        } catch (\Exception $e) {
+            DB::rollBack();
+
+            return response()->json([
+                'responseCode'    => (string)$this->errorStatus,
+                'responseMessage' => 'Something went wrong.',
+            ]);
+        }
+    }
+
     /**
      * edit Home ourProcess edit page
     * @param Illuminate\Http\Request;
     * @return Illuminate\Http\Response;
     */
-    public function edit(Request $request)
+    public function edit(Request $request,$id)
     {
         try
         {
-            $details['ourProcess'] = $this->ourProcess->first();
+            $details['ourProcess'] = $this->ourProcess->where('id',$id)->first();
             return view($this->view.'edit', $details);
         } catch (Exception $e) {
             return response()->json([
@@ -98,7 +157,7 @@ class OurProcessController extends Controller
         try {
             DB::beginTransaction();
 
-            $ourProcess = OurProcess::firstOrNew(['id' => 1]);
+            $ourProcess = OurProcess::firstOrNew(['id' => $request->id]);
 
             // Fill text fields
             $ourProcess->fill($request->only([
@@ -186,7 +245,18 @@ class OurProcessController extends Controller
             ]);
         }
     }
+    public function delete(Request $request,$id)
+    {
+        $result = $this->ourProcess->where('id', $id)->delete();
 
+        if($result){
+            # return success
+            return  [
+                        $this->successKey   =>  $this->successStatus,
+                         $this->messageKey  => $this->deleteMessage($this->type)
+                   ];
+        }
+    }
 
 
 

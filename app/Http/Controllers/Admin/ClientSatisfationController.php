@@ -11,6 +11,7 @@ use DB;
 use File;
 use Exception;
 use App\Models\ClientSatisfation;
+use App\Models\ServiceCategory;
 
 class ClientSatisfationController extends Controller
 {
@@ -42,10 +43,13 @@ class ClientSatisfationController extends Controller
         # fetch setting list
         $query = $this->clientSatisfation;
 
+
+        $categories  = ServiceCategory::where('status',1)->get();
         $lists = $query->orderBy('id','desc')->paginate($this->page ?? 10);
 
         return view($this->view.'index')->with([
                                                 'lists'  => $lists ?? [],
+                                                'categories' => $categories ?? [],
                                                 ]);
     }
     /**
@@ -56,6 +60,7 @@ class ClientSatisfationController extends Controller
     public function store(Request $request)
     {
         $rules = [
+            'category_id'       => 'required',
             'name'              => 'required|string|max:100',
             'image'        => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
             'short_description' => 'required|string|max:500',
@@ -82,6 +87,7 @@ class ClientSatisfationController extends Controller
 
 
             $ClientSatisfation = new ClientSatisfation();
+            $ClientSatisfation->category_id     = $request->category_id;
             $ClientSatisfation->name              = $request->name;
             $ClientSatisfation->image             = $imagePath;
             $ClientSatisfation->short_description = $request->short_description;
@@ -110,6 +116,7 @@ class ClientSatisfationController extends Controller
         try
         {
             $details['data'] = $this->clientSatisfation->findOrFail($id);
+            $details['categories'] = ServiceCategory::where('status',1)->get();
 
             return view($this->view.'edit',$details);
         } catch (Exception $e) {
@@ -118,7 +125,7 @@ class ClientSatisfationController extends Controller
     }
     /**
      * update ClientSatisfation page
-    * @param Illuminate\Http\Request;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+    * @param Illuminate\Http\Request;
     * @return Illuminate\Http\Response;
     */
 
@@ -126,6 +133,7 @@ class ClientSatisfationController extends Controller
     {
         $rules = [
             'id'               => 'required|exists:client_satisfaction,id',
+            'category_id'       => 'required',
             'name'              => 'required|string|max:100',
             'image'        => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
             'short_description'=> 'required|string|max:500',
@@ -158,6 +166,7 @@ class ClientSatisfationController extends Controller
             }
 
             // Update fields
+            $ClientSatisfation->category_id     = $request->category_id;
             $ClientSatisfation->name              = $request->name;
             $ClientSatisfation->short_description = $request->short_description;
             $ClientSatisfation->updated_at        = now();
@@ -215,10 +224,10 @@ class ClientSatisfationController extends Controller
     */
     public function delete(Request $request,$id)
     {
-       
+
         $result = $this->clientSatisfation->where('id', $id)->delete();
         if($result){
-            
+
             return  [
                         $this->successKey   =>  $this->successStatus,
                          $this->messageKey  => $this->deleteMessage($this->type)

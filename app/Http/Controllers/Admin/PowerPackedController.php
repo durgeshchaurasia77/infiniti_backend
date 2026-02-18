@@ -11,6 +11,7 @@ use DB;
 use File;
 use Exception;
 use App\Models\PowerPacked;
+use App\Models\Industry;
 
 class PowerPackedController extends Controller
 {
@@ -45,8 +46,10 @@ class PowerPackedController extends Controller
 
         $lists = $query->orderBy('id','desc')->paginate($this->page ?? 10);
 
+        $categories  = Industry::where('status',1)->get();
         return view($this->view.'index')->with([
                                                 'lists'  => $lists ?? [],
+                                                'categories' => $categories ?? [],
                                                 ]);
     }
     /**
@@ -57,6 +60,7 @@ class PowerPackedController extends Controller
     public function store(Request $request)
     {
         $rules = [
+            'category_id'=>'required',
             'name'              => 'required|string|max:100',
             'short_description' => 'required|string|max:500',
         ];
@@ -74,6 +78,7 @@ class PowerPackedController extends Controller
 
 
             $PowerPacked = new PowerPacked();
+            $PowerPacked->category_id     = $request->category_id;
             $PowerPacked->name              = $request->name;
             $PowerPacked->short_description = $request->short_description;
             $PowerPacked->created_at        = now();
@@ -101,6 +106,7 @@ class PowerPackedController extends Controller
         try
         {
             $details['data'] = $this->powerPacked->findOrFail($id);
+            $details['categories'] = Industry::where('status',1)->get();
 
             return view($this->view.'edit',$details);
         } catch (Exception $e) {
@@ -109,7 +115,7 @@ class PowerPackedController extends Controller
     }
     /**
      * update PowerPacked page
-    * @param Illuminate\Http\Request;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+    * @param Illuminate\Http\Request;
     * @return Illuminate\Http\Response;
     */
 
@@ -117,6 +123,7 @@ class PowerPackedController extends Controller
     {
         $rules = [
             'id'                => 'required|exists:power_packed,id',
+            'category_id'=>'required',
             'name'              => 'required|string|max:100',
             'short_description' => 'required|string|max:500',
         ];
@@ -136,6 +143,7 @@ class PowerPackedController extends Controller
             $PowerPacked = PowerPacked::findOrFail($request->id);
 
             // Update fields
+            $PowerPacked->category_id     = $request->category_id;
             $PowerPacked->name              = $request->name;
             $PowerPacked->short_description = $request->short_description;
             $PowerPacked->updated_at        = now();
@@ -193,11 +201,11 @@ class PowerPackedController extends Controller
     */
     public function delete(Request $request,$id)
     {
-       
+
         $result = $this->powerPacked->where('id', $id)->delete();
 
         if($result){
-            
+
             return  [
                         $this->successKey   =>  $this->successStatus,
                          $this->messageKey  => $this->deleteMessage($this->type)

@@ -342,11 +342,11 @@ class HomeController extends Controller
         $details['serviceData'] = $data;
         $details['trustedByList']                = $this->trustedBy::select('image','name')->where('status',1)->get();
         $details['excellanceCounting']               = $this->excellanceCounting::first();
-        $details['serviceWeOfferList'] = ServiceWeOffer::where('status',1)->get();
-        $details['clientSatisfationList'] = ClientSatisfation::where('status',1)->get();
-        $details['ourProvenList'] = OurProven::where('status',1)->get();
-        $details['advanceAiList'] = AdvanceAi::where('status',1)->get();
-        $details['weDeliverList'] = WeDeliver::where('status',1)->get();
+        $details['serviceWeOfferList'] = ServiceWeOffer::where('category_id',$data->id)->where('status',1)->get();
+        $details['clientSatisfationList'] = ClientSatisfation::where('category_id',$data->id)->where('status',1)->get();
+        $details['ourProvenList'] = OurProven::where('category_id',$data->id)->where('status',1)->get();
+        $details['advanceAiList'] = AdvanceAi::where('category_id',$data->id)->where('status',1)->get();
+        $details['weDeliverList'] = WeDeliver::where('category_id',$data->id)->where('status',1)->get();
 
         $details['testimonials']  = $this->testimonials::where('status', 1)
                                                                      ->select('name','video_path','designation','description','rating')
@@ -376,14 +376,14 @@ class HomeController extends Controller
                                                                         ->get();
 
         $details['caseStudyList']  = CaseStudy::where('status',1)->get();
-        $details['LeverageAiList'] = LeverageAi::where('status',1)->get();
+        $details['LeverageAiList'] = LeverageAi::where('category_id',$data->id)->where('status',1)->get();
         $details['testimonials']   = $this->testimonials::where('status', 1)
                                                                      ->select('name','video_path','designation','description','rating')
                                                                         ->get();
 
-        $details['advanceTechnologyList'] = AdvanceTechnology::where('status',1)->get();
-        $details['powerPackedList'] = PowerPacked::where('status',1)->get();
-        $details['roadMapList'] = RoadMap::where('status',1)->get();
+        $details['advanceTechnologyList'] = AdvanceTechnology::where('category_id',$data->id)->where('status',1)->get();
+        $details['powerPackedList'] = PowerPacked::where('category_id',$data->id)->where('status',1)->get();
+        $details['roadMapList'] = RoadMap::where('category_id',$data->id)->where('status',1)->get();
         $details['industryData'] = $data;
         $details['contactdata']  =  $this->settingDetails::first();
         $details['fAQList']                        = $this->fAQ::where('status', 1)->select('question','answer')->get();
@@ -407,15 +407,25 @@ class HomeController extends Controller
         $details['productList'] = Product::where('status',1)->get();
         return view( 'website.portfolio', $details);
     }
-    public function digitalMarketingI(Request $request)
+    public function digitalMarketingI(Request $request , $id = null)
     {
         $details = [];
-        $details['portfolioBannerList'] = PortfolioBanner::where('status',1)->get();
+        $ids = base64_decode($id);
+        $details['portfolioBannerList'] = PortfolioBanner::where('category_id',$ids)->where('status',1)->get();
         $details['contactdata']  =  $this->settingDetails::first();
         $details['excellanceCounting']   = $this->excellanceCounting::first();
-        $details['whyPartnerData']       = WhyPartner::first();
-        $details['consultServiceList'] = ConsultService::where('status',1)->get();
-        $details['ourProcessData']       = OurProcess::first();
+        $details['whyPartnerData']       = WhyPartner::where('category_id',$ids)->first();
+        // $details['consultServiceList'] = ConsultService::where('category_id',$ids)->where('status',1)->get();
+
+        $details['ourProcessData']       = OurProcess::where('category_id',$ids)->first();
+
+        $consultServiceList = ConsultService::where('category_id', $ids)
+            ->where('status', 1)
+            ->get();
+
+        $details['firstFourServices'] = $consultServiceList->take(4);
+        $details['sliderServices'] = $consultServiceList->skip(4);
+
         return view( 'website.digital-marketing', $details);
     }
     public function digitalMarketing(Request $request)

@@ -11,6 +11,7 @@ use DB;
 use File;
 use Exception;
 use App\Models\AdvanceAi;
+use App\Models\ServiceCategory;
 
 class AdvanceAiController extends Controller
 {
@@ -54,7 +55,8 @@ class AdvanceAiController extends Controller
         try
         {
 
-            return view($this->view.'create');
+            $categories  = ServiceCategory::where('status',1)->get();
+            return view($this->view.'create',compact('categories'));
         } catch (Exception $e) {
             return back()->with('error', $ex->getMessage());
         }
@@ -67,6 +69,7 @@ class AdvanceAiController extends Controller
     public function store(Request $request)
     {
         $rules = [
+            'category_id'       => 'required',
             'name'   => 'required|string|max:255',
             'image'  => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
             // 'title'             => 'required|string|max:255',
@@ -96,6 +99,7 @@ class AdvanceAiController extends Controller
 
 
             $AdvanceAi = new AdvanceAi();
+            $AdvanceAi->category_id     = $request->category_id;
             $AdvanceAi->name     = $request->name;
             // $AdvanceAi->title     = $request->title;
             $AdvanceAi->features         = $request->details;
@@ -133,6 +137,7 @@ class AdvanceAiController extends Controller
         {
             $ids = base64_decode($id);
             $details['data'] = $this->advanceAi->findOrFail($ids);
+            $details['categories'] = ServiceCategory::where('status',1)->get();
             return view($this->view.'edit',$details);
         } catch (Exception $e) {
             return back()->with('error', $ex->getMessage());
@@ -147,6 +152,7 @@ class AdvanceAiController extends Controller
     {
         $rules = [
             'id'      => 'required|exists:advance_ai,id',
+            'category_id'       => 'required',
             'name'    => 'required|string|max:255',
             'image'  => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
             // 'title'             => 'required|string|max:255',
@@ -181,6 +187,7 @@ class AdvanceAiController extends Controller
                 $AdvanceAi->image = 'images/admin/advance_ai/'.$filename;
             }
 
+            $AdvanceAi->category_id     = $request->category_id;
             $AdvanceAi->name              = $request->name;
             // $AdvanceAi->title             = $request->title;
             $AdvanceAi->features           = $request->details;

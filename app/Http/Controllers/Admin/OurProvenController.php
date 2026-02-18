@@ -11,6 +11,7 @@ use DB;
 use File;
 use Exception;
 use App\Models\OurProven;
+use App\Models\ServiceCategory;
 
 class OurProvenController extends Controller
 {
@@ -53,8 +54,9 @@ class OurProvenController extends Controller
     {
         try
         {
-            
-            return view($this->view.'create');
+
+            $categories  = ServiceCategory::where('status',1)->get();
+            return view($this->view.'create',compact('categories'));
         } catch (Exception $e) {
             return back()->with('error', $ex->getMessage());
         }
@@ -67,6 +69,7 @@ class OurProvenController extends Controller
     public function store(Request $request)
     {
         $rules = [
+            'category_id'       => 'required',
             'name'              => 'required|string|max:255',
             // 'title'             => 'required|string|max:255',
             'short_description' => 'required|string|max:500',
@@ -95,6 +98,7 @@ class OurProvenController extends Controller
 
 
             $OurProven = new OurProven();
+            $OurProven->category_id     = $request->category_id;
             $OurProven->name     = $request->name;
             // $OurProven->title     = $request->title;
             $OurProven->features         = $request->details;
@@ -132,6 +136,7 @@ class OurProvenController extends Controller
         {
             $ids = base64_decode($id);
             $details['data'] = $this->ourProven->findOrFail($ids);
+            $details['categories'] = ServiceCategory::where('status',1)->get();
             return view($this->view.'edit',$details);
         } catch (Exception $e) {
             return back()->with('error', $ex->getMessage());
@@ -146,6 +151,7 @@ class OurProvenController extends Controller
     {
         $rules = [
             'id'               => 'required|exists:our_proven,id',
+            'category_id'      => 'required',
             'name'             => 'required|string|max:255',
             // 'title'             => 'required|string|max:255',
             'short_description'=> 'required|string|max:500',
@@ -162,11 +168,11 @@ class OurProvenController extends Controller
         }
 
         try {
-            
+
             DB::beginTransaction();
 
             $OurProven = OurProven::findOrFail($request->id);
-            
+
 
 
              if ($request->hasFile('image')) {
@@ -181,6 +187,7 @@ class OurProvenController extends Controller
                 $OurProven->image = 'images/admin/our_proven/'.$filename;
             }
 
+            $OurProven->category_id     = $request->category_id;
             $OurProven->name              = $request->name;
             // $OurProven->title             = $request->title;
             $OurProven->features           = $request->details;
@@ -241,11 +248,11 @@ class OurProvenController extends Controller
     */
     public function delete(Request $request,$id)
     {
-       
+
         $result = $this->ourProven->where('id', $id)->delete();
 
         if($result){
-            
+
             return  [
                         $this->successKey   =>  $this->successStatus,
                          $this->messageKey  => $this->deleteMessage($this->type)

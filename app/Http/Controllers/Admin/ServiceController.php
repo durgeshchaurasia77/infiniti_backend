@@ -11,6 +11,7 @@ use DB;
 use File;
 use Exception;
 use App\Models\Service;
+use App\Models\ServiceCategory;
 
 class ServiceController extends Controller
 {
@@ -53,8 +54,9 @@ class ServiceController extends Controller
     {
         try
         {
-            
-            return view($this->view.'create');
+            $categories  = ServiceCategory::where('status',1)->get();
+
+            return view($this->view.'create',compact('categories'));
         } catch (Exception $e) {
             return back()->with('error', $ex->getMessage());
         }
@@ -67,6 +69,7 @@ class ServiceController extends Controller
     public function store(Request $request)
     {
         $rules = [
+            'category_id'       => 'required',
             'name'              => 'required|string|max:255',
             'title'             => 'required|string|max:255',
             'short_description' => 'required|string|max:500',
@@ -108,6 +111,7 @@ class ServiceController extends Controller
             }
 
             $service = new Service();
+            $service->category_id     = $request->category_id;
             $service->name     = $request->name;
             $service->title     = $request->title;
             $service->features         = $request->details;
@@ -150,6 +154,7 @@ class ServiceController extends Controller
         try
         {
             $ids = base64_decode($id);
+            $details['categories'] = ServiceCategory::where('status',1)->get();
             $details['data'] = $this->service->findOrFail($ids);
             return view($this->view.'edit',$details);
         } catch (Exception $e) {
@@ -164,16 +169,17 @@ class ServiceController extends Controller
     public function update(Request $request)
     {
         $rules = [
-            'id'               => 'required|exists:services,id',
-            'name'             => 'required|string|max:255',
+            'id'                => 'required|exists:services,id',
+            'category_id'       => 'required',
+            'name'              => 'required|string|max:255',
             'title'             => 'required|string|max:255',
-            'short_description'=> 'required|string|max:500',
-            'details'          => 'required|array',
-            'seo_slug'        => 'nullable|string|max:255',
-            'seo_title'       => 'nullable|string|max:255',
-            'seo_keywords'    => 'nullable|string|max:255',
-            'seo_description' => 'nullable|string|max:500',
-            'seo_image'       => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+            'short_description' => 'required|string|max:500',
+            'details'           => 'required|array',
+            'seo_slug'          => 'nullable|string|max:255',
+            'seo_title'         => 'nullable|string|max:255',
+            'seo_keywords'      => 'nullable|string|max:255',
+            'seo_description'   => 'nullable|string|max:500',
+            'seo_image'         => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
         ];
 
         $validator = Validator::make($request->all(), $rules);
@@ -186,11 +192,11 @@ class ServiceController extends Controller
         }
 
         try {
-            
+
             DB::beginTransaction();
 
             $service = Service::findOrFail($request->id);
-            
+
 
 
              if ($request->hasFile('image')) {
@@ -217,6 +223,7 @@ class ServiceController extends Controller
                 $service->seo_image = 'images/admin/services/seo/'.$filename;
             }
 
+            $service->category_id     = $request->category_id;
             $service->name              = $request->name;
             $service->title             = $request->title;
             $service->features           = $request->details;
@@ -281,11 +288,11 @@ class ServiceController extends Controller
     */
     public function delete(Request $request,$id)
     {
-       
+
         $result = $this->service->where('id', $id)->delete();
 
         if($result){
-            
+
             return  [
                         $this->successKey   =>  $this->successStatus,
                          $this->messageKey  => $this->deleteMessage($this->type)

@@ -59,17 +59,39 @@ Edit Industry
                                            required>
                                 </div>
 
-                                {{-- Publish Date --}}
                                 <div class="col-md-4 mb-3">
+                                    <label class="col-form-label">
+                                        Features One <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text"
+                                           class="form-control"
+                                           name="feature_one"
+                                           placeholder="Enter Features One"
+                                           value="{{ old('feature_one', $data->features_one) }}"
+                                           required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="col-form-label">
+                                        Features Two <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text"
+                                           class="form-control"
+                                           name="feature_two"
+                                           placeholder="Enter Features Two"
+                                           value="{{ old('feature_two', $data->features_two) }}"
+                                           required>
+                                </div>
+                                {{-- Publish Date --}}
+                                {{-- <div class="col-md-4 mb-3">
                                     <label class="col-form-label">
                                         Publish Date <span class="text-danger">*</span>
                                     </label>
                                     <input type="date"
-                                           class="form-control"
-                                           name="publish_date"
-                                           value="{{ old('publish_date', $data->publish_date) }}"
-                                           required>
-                                </div>
+                                        class="form-control"
+                                        name="publish_date"
+                                        value="{{ old('publish_date', optional($data->publish_date)->format('Y-m-d')) }}"
+                                        required>
+                                </div> --}}
 
                                 {{-- Status --}}
                                 <div class="col-md-4 mb-3">
@@ -118,6 +140,26 @@ Edit Industry
                                               name="short_description"
                                               rows="3"
                                               required>{{ old('short_description', $data->short_description) }}</textarea>
+                                </div>
+
+                                <div class="col-md-6 mb-3">
+                                    <label class="col-form-label">
+                                        About Title <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text"
+                                           class="form-control"
+                                           name="about_title"
+                                           value="{{ old('about_title', $data->about_title) }}"
+                                           required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="col-form-label">
+                                        About Description <span class="text-danger">*</span>
+                                    </label>
+                                    <textarea class="form-control"
+                                              name="about_description"
+                                              rows="3"
+                                              required>{{ old('about_description', $data->about_description) }}</textarea>
                                 </div>
 
                                 {{-- ================= SEO SECTION ================= --}}

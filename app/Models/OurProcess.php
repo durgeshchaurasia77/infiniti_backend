@@ -12,6 +12,7 @@ class OurProcess extends Model
     protected $table = 'our_process';
 
     protected $fillable = [
+        'category_id',
         'title_header_one',
         'title_step_one',
         'image_step_one',
@@ -28,4 +29,8 @@ class OurProcess extends Model
         'image_step_four',
         'short_description_step_four',
     ];
+    public function parent()
+    {
+        return $this->hasOne(DigitalCategory::class, 'id', 'category_id');
+    }
 }

@@ -66,9 +66,29 @@ Industry
                                            placeholder="Enter industry title"
                                            required>
                                 </div>
+                                <div class="col-md-2 mb-3">
+                                    <label class="col-form-label">
+                                        Features One <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text"
+                                           class="form-control"
+                                           name="feature_one"
+                                           placeholder="Enter Features One"
+                                           required>
+                                </div>
+                                <div class="col-md-2 mb-3">
+                                    <label class="col-form-label">
+                                        Features Two <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text"
+                                           class="form-control"
+                                           name="feature_two"
+                                           placeholder="Enter Features Two"
+                                           required>
+                                </div>
 
                                 {{-- Publish Date --}}
-                                <div class="col-md-4 mb-3">
+                                {{-- <div class="col-md-4 mb-3">
                                     <label class="col-form-label">
                                         Publish Date <span class="text-danger">*</span>
                                     </label>
@@ -76,7 +96,7 @@ Industry
                                            class="form-control"
                                            name="publish_date"
                                            required>
-                                </div>
+                                </div> --}}
 
                                 {{-- Status --}}
                                 <div class="col-md-4 mb-3">
@@ -100,7 +120,7 @@ Industry
                                            name="image"
                                            accept="image/*"
                                            required>
-                                           
+
                                 </div>
 
                                 {{-- Video --}}
@@ -125,7 +145,24 @@ Industry
                                               placeholder="Enter short description"
                                               required></textarea>
                                 </div>
-
+                                <div class="col-md-6 mb-3">
+                                    <label class="col-form-label">
+                                        About Title <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text"
+                                           class="form-control"
+                                           name="about_title"
+                                           required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="col-form-label">
+                                        About Description <span class="text-danger">*</span>
+                                    </label>
+                                    <textarea class="form-control"
+                                              name="about_description"
+                                              rows="3"
+                                              required></textarea>
+                                </div>
                                 {{-- ================= SEO SECTION ================= --}}
                                 <div class="col-md-12">
                                     <hr>

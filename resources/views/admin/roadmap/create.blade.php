@@ -30,7 +30,19 @@ Road Map
                             @csrf
 
                             <div class="row">
-
+                                <div class="col-md-6 mb-3">
+                                    <label class="col-form-label">
+                                            Category <span class="text-danger">*</span>
+                                        </label>
+                                        <select name="category_id" class="form-control" required>
+                                            <option value="">Select Category</option>
+                                            @foreach($categories as $category)
+                                                <option value="{{ $category->id }}">
+                                                    {{ $category->title }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                </div>
                                 {{-- name --}}
                                 <div class="col-md-6 mb-3">
                                     <label class="col-form-label">

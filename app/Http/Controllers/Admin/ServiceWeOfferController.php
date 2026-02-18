@@ -11,6 +11,7 @@ use DB;
 use File;
 use Exception;
 use App\Models\ServiceWeOffer;
+use App\Models\ServiceCategory;
 
 class ServiceWeOfferController extends Controller
 {
@@ -42,10 +43,13 @@ class ServiceWeOfferController extends Controller
         # fetch setting list
         $query = $this->serviceWeOffer;
 
+
+        $categories  = ServiceCategory::where('status',1)->get();
         $lists = $query->orderBy('id','desc')->paginate($this->page ?? 10);
 
         return view($this->view.'index')->with([
                                                 'lists'  => $lists ?? [],
+                                                'categories' => $categories ?? [],
                                                 ]);
     }
     /**
@@ -56,6 +60,7 @@ class ServiceWeOfferController extends Controller
     public function store(Request $request)
     {
         $rules = [
+            'category_id'       => 'required',
             'name'              => 'required|string|max:100',
             'short_description' => 'required|string|max:500',
         ];
@@ -73,6 +78,7 @@ class ServiceWeOfferController extends Controller
 
 
             $ServiceWeOffer = new ServiceWeOffer();
+            $ServiceWeOffer->category_id     = $request->category_id;
             $ServiceWeOffer->name              = $request->name;
             $ServiceWeOffer->short_description = $request->short_description;
             $ServiceWeOffer->created_at        = now();
@@ -100,6 +106,7 @@ class ServiceWeOfferController extends Controller
         try
         {
             $details['data'] = $this->serviceWeOffer->findOrFail($id);
+            $details['categories'] = ServiceCategory::where('status',1)->get();
 
             return view($this->view.'edit',$details);
         } catch (Exception $e) {
@@ -108,7 +115,7 @@ class ServiceWeOfferController extends Controller
     }
     /**
      * update ServiceWeOffer page
-    * @param Illuminate\Http\Request;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+    * @param Illuminate\Http\Request;
     * @return Illuminate\Http\Response;
     */
 
@@ -116,6 +123,7 @@ class ServiceWeOfferController extends Controller
     {
         $rules = [
             'id'                => 'required|exists:service_we_offer,id',
+            'category_id'       => 'required',
             'name'              => 'required|string|max:100',
             'short_description' => 'required|string|max:500',
         ];
@@ -135,6 +143,7 @@ class ServiceWeOfferController extends Controller
             $ServiceWeOffer = ServiceWeOffer::findOrFail($request->id);
 
             // Update fields
+            $ServiceWeOffer->category_id     = $request->category_id;
             $ServiceWeOffer->name              = $request->name;
             $ServiceWeOffer->short_description = $request->short_description;
             $ServiceWeOffer->updated_at        = now();
@@ -192,10 +201,10 @@ class ServiceWeOfferController extends Controller
     */
     public function delete(Request $request,$id)
     {
-       
+
         $result = $this->serviceWeOffer->where('id', $id)->delete();
         if($result){
-            
+
             return  [
                         $this->successKey   =>  $this->successStatus,
                          $this->messageKey  => $this->deleteMessage($this->type)

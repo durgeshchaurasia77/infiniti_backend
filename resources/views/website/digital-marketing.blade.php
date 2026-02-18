@@ -200,8 +200,8 @@
   </div>
 </section>
 
-@if(count($consultServiceList) > 0)
-    @foreach ($consultServiceList as $key => $consultService)
+@if(count($firstFourServices) > 0)
+    @foreach ($firstFourServices as $key => $consultService)
         @if($key % 2 == 0 )
             <section class="bespok-digital-marketing-page-ppc-section">
                 @if($key == 0)
@@ -276,6 +276,54 @@
             </section>
         @endif
     @endforeach
+@endif
+
+@if(count($sliderServices) > 0)
+<section class="digital-marketing-page-services-slider-section">
+
+  <div class="digital-marketing-page-services-slider-wrapper">
+
+    <!-- TRACK -->
+    <div class="digital-marketing-page-services-slider-track" id="servicesTrack">
+    @foreach ($sliderServices as $sliderServicesData)
+        <!-- SLIDE 1 -->
+        <div class="digital-marketing-page-service-slide">
+            <div class="digital-marketing-page-service-left">
+            <span class="digital-marketing-page-service-tag">{{ $sliderServicesData->name ?? '' }}</span>
+            <h2>{{ $sliderServicesData->title ?? '' }}</h2>
+            @php
+                $sliderServicesDataItem = is_string($sliderServicesData->features)
+                    ? json_decode($sliderServicesData->features, true)
+                    : $sliderServicesData->features;
+            @endphp
+
+            @if(!empty($sliderServicesDataItem))
+                <ul >
+                    @foreach($sliderServicesDataItem as $item2)
+                        @if(!empty($item2['titles']))
+                            <li>{{ preg_replace('/\d+$/', '', $item2['titles']) }}</li>
+                        @endif
+                    @endforeach
+                </ul>
+            @endif
+            <a href="#" class="digital-marketing-page-service-btn">Explore Service</a>
+            </div>
+            <div class="digital-marketing-page-service-right">
+            <img src="{{ asset($sliderServicesData->image ?? 'notImage.jpg') }}" alt="{{ $sliderServicesData->title ?? '' }}">
+            </div>
+        </div>
+    @endforeach
+    </div>
+
+    <!-- NAV BUTTONS -->
+    <div class="digital-marketing-page-slider-nav">
+      <button onclick="prevSlide()">←</button>
+      <button onclick="nextSlide()">→</button>
+    </div>
+
+  </div>
+
+</section>
 @endif
 
 <section class="digital-marketing-page-our-process">

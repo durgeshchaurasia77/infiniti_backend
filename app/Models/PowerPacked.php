@@ -9,6 +9,7 @@ class PowerPacked extends Model
     use HasFactory;
     protected $table = 'power_packed';
     protected $fillable = [
+                            'category_id',
                             'name',
                             'status',
                             'short_description',
