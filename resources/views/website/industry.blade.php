@@ -151,7 +151,7 @@
 
     <!-- RIGHT VIDEO -->
     @if($youtubeId)
-        <a href="https://www.youtube.com/watch?v={{ $youtubeId }}"
+        <!-- <a href="https://www.youtube.com/watch?v={{ $youtubeId }}"
            target="_blank"
            class="buid-service-videosection-service-page-video-banner">
 
@@ -164,7 +164,7 @@
             <div class="buid-service-videosection-service-page-play-btn">
                 ▶
             </div>
-        </a>
+        </a> -->
     @endif
 
 </div>
@@ -626,7 +626,7 @@
         <div class="common-section-everypage-blog-listing-card">
             <div class="common-section-everypage-blog-listing-video-thumb">
                 <img src="{{ asset('website1/assets/images/thumbnail.png') }}">
-                <span class="common-section-everypage-blog-listing-play-btn" data-video="{{ asset($testimonial->video_path ?? '') }}"></span>
+                <!-- <span class="common-section-everypage-blog-listing-play-btn" data-video="{{ asset($testimonial->video_path ?? '') }}"></span> -->
             </div>
             <p>"Amazing experience working with this team."</p>
             <div class="common-section-everypage-blog-listing-user">
