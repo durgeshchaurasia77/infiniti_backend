@@ -295,7 +295,7 @@
   margin:auto;
   display:grid;
   grid-template-columns: 1.2fr 1.2fr 1.2fr 1.2fr 1.2fr;
-  gap:50px;
+  gap:30px;
 }
 
 .footer-col h4{
@@ -3194,3 +3194,211 @@ color: #000
 
 
 </style>
+<style>
+.digital-marketing-hero {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  padding: 80px 10% !important;
+  position: relative;
+}
+.digital-marketing-hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.digital-marketing-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 102, 153, 0.75); /* blue overlay */
+}
+
+.digital-marketing-hero-content {
+  position: relative;
+  max-width: 600px;
+  color: #ffffff;
+  z-index: 2;
+}
+
+.digital-marketing-hero-content h1 {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.digital-marketing-hero-content p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.digital-marketing-hero-btn {
+  display: inline-block;
+  padding: 14px 32px;
+  background: #0C2347; /* Navy Blue */
+  color: #ffffff;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+/* Shine effect */
+.digital-marketing-hero-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: all 0.6s ease;
+}
+
+/* Hover Animation */
+.digital-marketing-hero-btn:hover {
+  background: #ffffff; /* Darker navy */
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(11, 61, 145, 0.4);
+}
+
+.digital-marketing-hero-btn:hover::before {
+  left: 100%;
+}
+@media (max-width: 768px) {
+  .digital-marketing-hero-content h1 {
+    font-size: 32px;
+  }
+
+  .digital-marketing-hero-content p {
+    font-size: 16px;
+  }
+
+  .digital-marketing-digital-marketing-hero {
+    padding: 60px 5%;
+  }
+}
+    </style>
+<style>
+        .footer-subscribe {
+  max-width: 420px;
+}
+
+.subscribe-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.subscribe-text {
+  color: #9ca3af;
+  margin-bottom: 20px;
+}
+
+/* FORM FIX */
+.newsletter-form {
+  display: flex;
+  width: 100%;
+  background: #111827;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #1f2937;
+  margin-top: 10px;
+}
+.newsletter-form {
+  display: flex;
+  width: 100%;
+  max-width: 420px;
+  background: #0f1c2e;
+  border-radius: 30px;
+  overflow: hidden;
+  border: 1px solid #243447;
+}
+
+/* IMPORTANT FIX */
+.newsletter-input {
+  flex: 1;
+  min-width: 0;              /* prevents collapse */
+  padding: 14px 20px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.newsletter-input::placeholder {
+  color: #8aa0b6;
+}
+
+/* BUTTON */
+.newsletter-btn {
+  padding: 0 35px;
+  background: #2d5bdb;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 0 30px 30px 0;
+  transition: 0.3s ease;
+  max-width: 72px;
+  padding: unset;
+}
+
+.newsletter-btn:hover {
+  background: #3c6df0;
+}
+
+
+.subscribe-note {
+  display: block;
+  margin-top: 12px;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+/* SOCIAL ICONS */
+.social-icons {
+  margin-top: 25px;
+}
+
+.social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  margin-right: 10px;
+  border-radius: 50%;
+  background: #1d4ed8;
+  /* color: #fff; */
+  transition: 0.3s;
+
+    width: 37px;
+    height: 36px;
+    margin-right: 10px;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #0C2347;
+}
+
+.social-icons a:hover {
+  background: #2563eb;
+  transform: translateY(-3px);
+}
+.newsletter-input {
+  text-align: center;
+  font-size: small;
+}
+    </style>

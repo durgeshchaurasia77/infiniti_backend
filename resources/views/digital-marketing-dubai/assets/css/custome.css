@@ -2134,7 +2134,7 @@ background: linear-gradient(
   margin:auto;
   display:grid;
   grid-template-columns: 1.2fr 1fr 1fr 1fr 1fr;
-  gap:50px;
+  gap:30px;
 }
 
 .footer-col h4{

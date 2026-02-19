@@ -27,6 +27,39 @@
                         required
                         value="{{ old('name', $data->name ?? '') }}">
                 </div>
+                <div class="mb-3">
+                    <label class="col-form-label">
+                        Banner Title <span class="text-danger">*</span>
+                    </label>
+                    <input type="text"
+                        class="form-control"
+                        name="banner_title"
+                        placeholder="Enter Banner Title"
+                        value="{{ old('banner_title', $data->banner_title ?? '') }}"
+                        required>
+                </div>
+                <div class="mb-3">
+                    <label class="col-form-label">
+                        Banner Image <span class="text-danger">*</span>
+                    </label>
+                    <input type="file"
+                        class="form-control"
+                        name="banner_image"
+                        required>
+
+                    @if(!empty($data->banner_image))
+                        <div class="mt-2">
+                            <img src="{{ asset($data->banner_image) }}"
+                                style="width:120px; border-radius:6px;">
+                        </div>
+                    @endif
+                </div>
+                <div class="mb-3">
+                    <label class="col-form-label">
+                        Banner Short Description <span class="text-danger">*</span>
+                    </label>
+                    <textarea class="form-control" name="banner_description" required>{{ $data->banner_description ?? ''  }}</textarea>
+                </div>
             </div>
             <div class="modal-footer">
                 <div class="d-flex align-items-center justify-content-end m-0">

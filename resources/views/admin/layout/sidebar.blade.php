@@ -152,9 +152,9 @@
                                 </li>
                                 <li>
                                     <a class="{{ Route::is('marketing-banner-list') ? 'active' : '' }}"
-                                               href="{{ route('marketing-banner-list') }}">
-                                                <span>Portfolio Banner</span>
-                                            </a>
+                                        href="{{ route('marketing-banner-list') }}">
+                                        <span>Digital Marketing</span>
+                                    </a>
                                 </li>
                                 <li>
                                     <a class="{{ Route::is('why-partner-list') ? 'active' : '' }}"

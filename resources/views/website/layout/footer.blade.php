@@ -1,7 +1,7 @@
     @php
         $settingData    = App\Models\Setting::first();
-        $serviceFooterList    = App\Models\Service::select('id','name','seo_slug')->where('status',1)->get();
-        $industryFooterList    = App\Models\Industry::select('id','title','seo_slug')->where('status',1)->get();
+        $serviceFooterList    = App\Models\Service::select('id','name','seo_slug')->where('status',1)->take(4)->get();
+        $industryFooterList    = App\Models\Industry::select('id','title','seo_slug')->where('status',1)->take(4)->get();
     @endphp
 <footer class="apptunix-footer">
   <div class="footer-container">
@@ -17,10 +17,7 @@
 
       <a href="#" class="footer-btn">Contact Now!</a>
 
-      <div class="sales">
-        <strong>For sales enquiries:</strong>
-        <a href="mailto:{{ $settingData->email ?? 'example@email.com' }}">{{ $settingData->email ?? 'example@email.com' }}</a>
-      </div>
+
 
       {{-- <img src="assets/images/dmca.png" class="dmca" alt="DMCA"> --}}
     </div>
@@ -70,7 +67,7 @@
     </div>
 
     <!-- SUBSCRIBE -->
-    <div class="footer-col subscribe">
+    {{-- <div class="footer-col subscribe">
       <h4>Subscribe US</h4>
       <p>Make the right business move.</p>
 
@@ -88,6 +85,42 @@
         <a href="{{ $settingData->website_url ?? 'javascript:void(0)' }}"><i class="fa-brands fa-youtube"></i></a>
         <a href="{{ $settingData->instagram_url ?? 'javascript:void(0)' }}"><i class="fa-brands fa-instagram"></i></a>
       </div>
-    </div>
+    </div> --}}
+
+    <div class="footer-subscribe">
+        <h4 class="subscribe-title">Subscribe Us</h4>
+        <p class="subscribe-text">Make the right business move.</p>
+        <div class="sales">
+            <strong>For sales enquiries:</strong>
+            <a style="color: #9ca3af;" href="mailto:{{ $settingData->email ?? 'example@email.com' }}">{{ $settingData->email ?? 'example@email.com' }}</a>
+        </div>
+
+        {{-- <form class="newsletter-form">
+            <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+            <button type="submit" class="newsletter-btn">Send</button>
+        </form> --}}
+        <small class="subscribe-note">Your email ID is confidential.</small>
+        <form action="{{ route('enquiry-form') }}" method="post" class="newsletter-form formSubmit2" enctype="multipart/form-data">
+            @csrf
+        <input
+            type="email"
+            name="email"
+            class="newsletter-input"
+            placeholder="Enter your email"
+        >
+        <button type="submit" class="newsletter-btn loderButton2">
+            <span class="spinner-grow spinner-grow-sm loderIcon2" role="status" aria-hidden="true" style="display: none;"></span>
+            Send
+        </button>
+        </form>
+
+        <div class="social-icons">
+            <a href="{{ $settingData->twitter_url ?? 'javascript:void(0)' }}"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="{{ $settingData->facebook_url ?? 'javascript:void(0)' }}"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="{{ $settingData->linkedin_url ?? 'javascript:void(0)' }}"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="{{ $settingData->website_url ?? 'javascript:void(0)' }}"><i class="fa-brands fa-youtube"></i></a>
+            <a href="{{ $settingData->instagram_url ?? 'javascript:void(0)' }}"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+        </div>
 
   </div>

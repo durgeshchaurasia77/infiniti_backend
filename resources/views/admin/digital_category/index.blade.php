@@ -145,8 +145,32 @@ Digital Category
                                     class="form-control"
                                     name="name"
                                     placeholder="Enter name"
-                                    value="{{ old('name', $people->title ?? '') }}"
                                     required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="col-form-label">
+                                    Banner Title <span class="text-danger">*</span>
+                                </label>
+                                <input type="text"
+                                    class="form-control"
+                                    name="banner_title"
+                                    placeholder="Enter Banner Title"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="col-form-label">
+                                    Banner Image <span class="text-danger">*</span>
+                                </label>
+                                <input type="file"
+                                    class="form-control"
+                                    name="banner_image"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="col-form-label">
+                                    Banner Short Description <span class="text-danger">*</span>
+                                </label>
+                                <textarea class="form-control" name="banner_description" required></textarea>
                             </div>
                         </div>
                         <div class="modal-footer">

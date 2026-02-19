@@ -13,6 +13,9 @@ class DigitalCategory extends Model
     protected $fillable = [
                             'id',
                             'name',
+                            'banner_title',
+                            'banner_image',
+                            'banner_description',
                             'status'
                         ];
 

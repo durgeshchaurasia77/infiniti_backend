@@ -8,57 +8,23 @@
 
 @section('content')
 
-{{-- <section class="digital-marketing-page-marketing-strategies-main">
+<section class="digital-marketing-hero">
 
-  <div class="digital-marketing-page-marketing-strategies-case-wrapper">
-
-    <!-- LEFT -->
-    <div class="digital-marketing-page-marketing-strategies-case-left">
-        <h2>
-            Marketing Strategies<br>
-            That Produce Quantifiable<br>
-            Results
-        </h2>
-
-        <div class="digital-marketing-page-marketing-strategies-case-image">
-            <img id="digital-marketing-page-marketing-strategies-caseImg" src="{{ asset('website1/assets/images/turpentine-oil.jpeg') }}" alt="">
-        </div>
-    </div>
-
-    <!-- RIGHT -->
-    <div class="digital-marketing-page-marketing-strategies-case-right">
-
-      <!-- TABS -->
-      <ul class="digital-marketing-page-marketing-strategies-case-tabs">
-        <li data-tab="fit">Williamson Fit</li>
-        <li data-tab="app" class="active">AppDukaan</li>
-        <li data-tab="expo">Expo City Eats</li>
-      </ul>
-
-      <!-- STATS -->
-      <div class="digital-marketing-page-marketing-strategies-stats">
-        <div class="digital-marketing-page-marketing-strategies-stat-box">
-          <h3 id="stat1">75%</h3>
-          <p id="stat1Text">Increase Traffic by</p>
-        </div>
-        <div class="digital-marketing-page-marketing-strategies-stat-box">
-          <h3 id="digital-marketing-page-marketing-strategies-stat2">90 Days</h3>
-          <p id="digital-marketing-page-marketing-strategies-stat2Text">Time Improvement</p>
-        </div>
-      </div>
-
-      <!-- TEXT -->
-      <p id="digital-marketing-page-marketing-strategies-caseDesc">
-        AppDukaan is among the leading providers of on-demand app solutions...
-      </p>
-
-      <a href="#" class="btn">Start Building →</a>
-
-    </div>
-
+  <!-- Dynamic Background Image -->
+  <img
+    src="{{ asset($digitalData->banner_image ?? 'website1/assets/images/download.jpeg') }}"
+    alt="Banner Image"
+    class="digital-marketing-hero-bg"
+  >
+  <div class="digital-marketing-hero-content">
+    <h1>{{ $digitalData->banner_title ?? '' }}</h1>
+    <p>
+      {{ $digitalData->banner_description ?? '' }}
+    </p>
+    <a href="{{ route('contact') }}" class="digital-marketing-hero-btn">Get a Quote</a>
   </div>
-</section> --}}
 
+</section>
 <section class="digital-marketing-page-marketing-strategies-main">
 
   <div class="digital-marketing-page-marketing-strategies-case-wrapper">

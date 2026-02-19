@@ -12,6 +12,7 @@ use Exception;
 use Illuminate\Validation\Rule;
 // use App\Models\FrroLocation;
 use App\Models\GetEnquiry;
+use App\Models\GetEnquiry1;
 use App\Models\GetEnquiryType;
 // use App\Models\PageBanner;
 
@@ -118,6 +119,51 @@ class FrroLocationController extends Controller
             // });
 
             // DB::commit();
+
+            return response()->json([
+                'responseCode'    => $this->successStatus,
+                'responseMessage' => 'Thank you! Your details have been submitted successfully. We will connect with you soon.',
+            ]);
+        } catch (\Exception $e) {
+            // DB::rollBack();
+            return response()->json([
+                'responseCode'    => $this->failedStatus,
+                'responseMessage' => 'Something went wrong. Please try again later.',
+            ]);
+        }
+    }
+    public function getenquerysubmit1(Request $request)
+    {
+        $rules = [
+            'email' => [
+                'required',
+                'regex:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/',
+                'max:255',
+            ]
+        ];
+
+        $messages = [
+            'name.required' => 'The Name field is required.',
+            'name.regex'    => 'The Name must only contain letters and spaces.',
+            'name.min'      => 'The Name must be at least 2 characters.',
+            'name.max'      => 'The Name may not be greater than 50 characters.',
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'responseCode'    => $this->errorStatus,
+                'responseMessage' => $validator->messages()->first()
+            ]);
+        }
+        try {
+            // DB::beginTransaction();
+
+            // Store the enquiry in the database
+            $helpRequest         =  GetEnquiry1::create([
+                'email'          => $request->email ?? '',
+            ]);
 
             return response()->json([
                 'responseCode'    => $this->successStatus,

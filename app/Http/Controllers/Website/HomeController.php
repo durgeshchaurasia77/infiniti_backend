@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Website;
 use App\Http\Controllers\Controller;
 use App\Models\AdvanceAi;
 use App\Models\BlogCategory;
+use App\Models\DigitalCategory;
 use Illuminate\Http\Request;
 use App\Http\Traits\MessageStatusTrait;
 use Illuminate\Support\Facades\Validator;
@@ -411,6 +412,7 @@ class HomeController extends Controller
     {
         $details = [];
         $ids = base64_decode($id);
+        $details['digitalData'] = DigitalCategory::find($ids);
         $details['portfolioBannerList'] = PortfolioBanner::where('category_id',$ids)->where('status',1)->get();
         $details['contactdata']  =  $this->settingDetails::first();
         $details['excellanceCounting']   = $this->excellanceCounting::first();

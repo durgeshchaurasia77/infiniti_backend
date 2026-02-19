@@ -433,6 +433,7 @@ Route::get('industry/{slug?}', [HomeController::class, 'industry'])->name('indus
 Route::get('contact', [HomeController::class, 'contact'])->name('contact');
 // Route::get('frro-location', [WebFrroLocationController::class, 'index'])->name('frrolocation');
 Route::post('get-enquery-form', [WebFrroLocationController::class, 'getenquerysubmit'])->name('get-enquery-form');
+Route::post('enquiry-form', [WebFrroLocationController::class, 'getenquerysubmit1'])->name('enquiry-form');
 // Route::get('destination-services', [WebDestinationServicesController::class, 'index'])->name('destination-services');
 // Route::get('services', [WebOurServicesController::class, 'index'])->name('services');
 // Route::get('blog-news', [WebBlogsNewsController::class, 'index'])->name('blog-news');

@@ -291,7 +291,7 @@
   margin:auto;
   display:grid;
   grid-template-columns: 1.2fr 1.2fr 1.2fr 1.2fr 1.2fr;
-  gap:50px;
+  gap:30px;
 }
 
 .footer-col h4{

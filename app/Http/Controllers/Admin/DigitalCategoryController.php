@@ -58,6 +58,9 @@ class DigitalCategoryController extends Controller
     {
         $rules = [
             'name'     => 'required|string|max:100',
+            'banner_title' => 'required|max:250',
+            'banner_image' => 'required',
+            'banner_description' => 'required|max:500',
         ];
 
         $validator = Validator::make($request->all(), $rules);
@@ -71,9 +74,19 @@ class DigitalCategoryController extends Controller
 
         try {
 
+            if ($request->hasFile('banner_image')) {
+                $file = $request->file('banner_image');
+                $filename = time().'_digital_'.uniqid().'.'.$file->getClientOriginalExtension();
+                $file->move(public_path('images/admin/digital/'), $filename);
+                $imagePath = 'images/admin/digital/'.$filename;
+            }
+
 
             $people = new DigitalCategory();
             $people->name     = $request->name;
+            $people->banner_title     = $request->banner_title;
+            $people->banner_image     = $imagePath;
+            $people->banner_description = $request->banner_description;
             $people->created_at = now();
             $people->save();
 
@@ -118,6 +131,9 @@ class DigitalCategoryController extends Controller
         $rules = [
             'id'        => 'required|exists:digital_category,id',
             'name'     => 'required|string|max:100',
+            'banner_title' => 'required|max:250',
+            'banner_image' => 'nullable',
+            'banner_description' => 'required|max:500',
         ];
 
         $validator = Validator::make($request->all(), $rules);
@@ -134,7 +150,21 @@ class DigitalCategoryController extends Controller
 
             $people = DigitalCategory::findOrFail($request->id);
 
+
+            if ($request->hasFile('banner_image')) {
+                if (!empty($people->banner_image) && file_exists(public_path($people->banner_image))) {
+                    unlink(public_path($people->banner_image));
+                }
+
+                $file = $request->file('banner_image');
+                $filename = time().'_digital_'.uniqid().'.'.$file->getClientOriginalExtension();
+                $file->move(public_path('images/admin/digital/'), $filename);
+                $people->banner_image = 'images/admin/digital/'.$filename;
+            }
+
             $people->name     = $request->name;
+            $people->banner_title     = $request->banner_title;
+            $people->banner_description     = $request->banner_description;
             $people->updated_at = now();
             $people->save();
 

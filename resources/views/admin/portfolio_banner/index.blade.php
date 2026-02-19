@@ -1,6 +1,6 @@
 @extends('admin.layout.app')
 @section('title')
-Portfolio Banner
+Digital Marketing
 @endsection
 @section('content')
 <!-- Page Wrapper -->
@@ -12,7 +12,7 @@ Portfolio Banner
 						<div class="page-header">
 							<div class="row align-items-center">
 								<div class="col-sm-8">
-									<h4 class="page-title">Portfolio Banner List</h4>
+									<h4 class="page-title">Digital Marketing List</h4>
 								</div>
 								<div class="col-sm-4 text-sm-end">
 									<div class="head-icons">
@@ -37,8 +37,8 @@ Portfolio Banner
 									<div class="col-sm-8">
 										<div class="text-sm-end">
 											<a href="javascript:void(0);" class="btn btn-primary" data-bs-toggle="modal"
-												data-bs-target="#add_category" title="Add Portfolio Banner"><i
-													class="ti ti-square-rounded-plus me-2"></i>Add Portfolio Banner</a>
+												data-bs-target="#add_category" title="Add Digital Marketing"><i
+													class="ti ti-square-rounded-plus me-2"></i>Add Digital Marketing</a>
 										</div>
 									</div>
 								</div>
@@ -128,7 +128,7 @@ Portfolio Banner
 				<div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">
-                            Add New Portfolio Banner
+                            Add New Digital Marketing
                         </h5>
                         <button class="btn-close custom-btn-close border p-1 me-0 text-dark"
                                 data-bs-dismiss="modal"

@@ -23,18 +23,6 @@
                                 {{-- <p>DWTC, Sheikh Zayed Road, Dubai</p>
                                 <p>+971 50 782 1690</p> --}}
                             </div>
-
-                            {{-- <div class="country">
-                                <h3>UNITED STATES</h3>
-                                <p>42 Broadway, New York, NY 10004</p>
-                                <p>+1 (512) 872 3364</p>
-                            </div>
-
-                            <div class="country">
-                                <h3>UNITED KINGDOM</h3>
-                                <p>Covent Garden, London WC2H 9JQ</p>
-                                <p>+44 20 7183 9424</p>
-                            </div> --}}
                         @endforeach
 
                         </div>
